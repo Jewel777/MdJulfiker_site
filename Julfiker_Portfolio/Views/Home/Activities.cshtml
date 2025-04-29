@@ -1,0 +1,244 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Activities";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Activities</h2>
+
+    <!-- 🔘 Filter Buttons -->
+    <div class="text-center mb-4">
+        <div class="btn-group">
+            <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="certification">Certifications</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer & Mentorship</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation & Talk</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Peer Reviewer</button>
+        </div>
+    </div>
+
+    <!-- 🧾 Activities Section -->
+    <div class="row g-4">
+
+        <!-- ✨ Presentation -->
+        <div class="col-md-6 presentation">
+            <div class="activity-card">
+                <strong><a href="https://www.american-cse.org/csci2023/" target="_blank" class="text-warning">CSCI’23 Conference Presentation</a></strong><br />
+                Presented on Critical Infrastructure in cybersecurity.
+            </div>
+        </div>
+
+
+        <div class="col-md-6 presentation">
+            <div class="activity-card">
+                <strong><a href="https://www.securewv.org/" target="_blank" class="text-warning">SecureWV 2023 Presentation</a></strong><br />
+                Talk on 'Phishing Cyber Attacks Characteristics and Attribution'.
+            </div>
+
+        </div>
+
+        <div class="col-md-6 presentation">
+            <div class="activity-card">
+                <strong>Poster: Intelligent Upper-Limb Multifunctional Prostheses</strong><br />
+                EMG pattern recognition poster presentation.
+            </div>
+        </div>
+
+        <!-- 👥 Volunteer -->
+        <div class="col-md-6 volunteer">
+            <div class="activity-card">
+                <strong>Mentorship in AI-driven Prosthetic Hand Research</strong><br />
+                Mentored students in AI research on Summer Sure Research Program 2023, WVSU
+            </div>
+        </div>
+
+        <div class="col-md-6 volunteer">
+            <div class="activity-card">
+                <strong>CS_for_all Conference Volunteer</strong><br />
+                Volunteered at the CS_for_all conference in Memphis, 2022.
+            </div>
+        </div>
+
+        <div class="col-md-6 volunteer">
+            <div class="activity-card">
+                <strong>ROTRACT CLUB Bangladesh Member & Volunteer</strong><br />
+                Member and volunteer, awarded for contribution.
+            </div>
+        </div>
+
+        <!-- 🎓 Certifications -->
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Software AG Certified Natural Associate</strong><br />
+                Certification from Software AG.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Artificial Intelligence Fundamentals Certification</strong><br />
+                IBM certificate earned.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Enterprise Data Science Certification</strong><br />
+                IBM certificate earned.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>IBM Security Zero Trust Principles Certification</strong><br />
+                Completed IBM Zero Trust badge.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Cybersecurity Fundamentals Certification</strong><br />
+                Completed IBM Cybersecurity course.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Threat Intelligence and Hunting Certification</strong><br />
+                Google badge earned.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Mobile Application Development Certification</strong><br />
+                From BASIS & BITM.
+            </div>
+        </div>
+
+        <!-- 🧐 Peer Review -->
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong><a href="https://aber.apacsci.com/index.php/BMTP" target="_blank" class="text-warning">Peer Review: Business and Management Theory and Practice</a></strong><br />
+                Reviewed paper titled: "A review about responsible innovation: Development and research agenda in digital era"<br />
+                Organized by <a href="https://aber.apacsci.com/index.php/BMTP" target="_blank" class="text-warning">Asia Pacific Academy of Science Pte. Ltd.</a>
+            </div>
+        </div>
+
+
+        <!-- Google Cybersecurity Certifications -->
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Automate Cybersecurity Tasks with Python</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Tools of the Trade: Linux and SQL</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Foundations of Cybersecurity</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Sound the Alarm: Detection and Response</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Assets, Threats, and Vulnerabilities</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Play It Safe: Manage Security Risks</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Connect and Protect: Networks and Network Security</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><br />
+                Google Cybersecurity course completed.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🔧 Custom CSS -->
+<style>
+    .activity-card {
+        background-color: #1a1a1a;
+        color: #f1f1f1;
+        padding: 18px 22px;
+        border-radius: 16px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 4px 10px rgba(255, 106, 0, 0.1);
+        font-size: 1.05rem;
+        min-height: 170px;
+    }
+
+        .activity-card:hover {
+            transform: rotateX(5deg) rotateY(5deg) scale(1.03);
+            box-shadow: 0 12px 25px rgba(255, 106, 0, 0.35);
+            z-index: 10;
+            position: relative;
+        }
+
+    .text-warning {
+        color: #ff6a00 !important;
+    }
+
+    .btn-group .btn.active {
+        background-color: #ff6a00;
+        color: #fff;
+        border-color: #ff6a00;
+    }
+</style>
+
+<!-- 🧠 Filter Logic -->
+<script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.col-md-6');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            // Toggle active class on buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter cards
+            cards.forEach(card => {
+                if (filter === 'all' || card.classList.contains(filter)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>

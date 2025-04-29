@@ -1,0 +1,84 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning">Projects</h2>
+
+    <div class="list-group shadow-lg rounded-4">
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Scuba Diving in Hawaii - Website</strong><br />
+            Developed using Ruby on Rails, this project was awarded the Best SE Course Project. A fully-functional website for booking and planning scuba diving activities in Hawaii.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">House Price Predictive Model</strong><br />
+            Used linear and logistic regression to build a model that predicts house prices based on various real estate features.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Expression Regression Model</strong><br />
+            Applied classification and dimensionality reduction methods to evaluate performance of an expression regression model in machine learning.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Google Stock Price Prediction - RNN</strong><br />
+            Built a Recurrent Neural Network (RNN) to forecast Google stock prices using historical market data.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Dimensionality Reduction & Unsupervised Methods</strong><br />
+            Implemented clustering and feature embedding techniques to visualize and group unlabeled input samples.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Tower of Hanoi Algorithm</strong><br />
+            Demonstrated recursion and algorithm design using the classic Tower of Hanoi problem.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Quick Sort Algorithm</strong><br />
+            Developed a Quick Sort solution with data generation, binary search, and performance metrics.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Prototypes & Click-through Demos - HCI</strong><br />
+            Created interactive demos for usability testing based on Human-Computer Interaction principles.
+        </div>
+
+        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+            <strong class="text-info">Ship Booking Management Website</strong><br />
+            Built a website to manage ship trip reservations with integrated search and booking features.
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+    }
+
+    .list-group-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+        .list-group-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+            border-color: #ffc107;
+        }
+
+    .text-warning {
+        color: #ffc107 !important;
+    }
+
+    .text-info {
+        color: #03a9f4 !important;
+    }
+</style>

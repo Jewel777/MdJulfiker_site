@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Skills";
+}
+
+<div class="container mt-5 mb-5 fade-up">
+    <h2 class="text-center fw-bold mb-5 text-warning border-bottom pb-2">Technical Skills</h2>
+
+    <!-- Skills Section -->
+    <div class="row g-4">
+        <!-- Language Proficiency -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-code-slash text-warning fs-3"></i> Language Proficiency
+                </h5>
+                <p>C#, C++, Java, Python</p>
+
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="95%">C# - 95%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="90%">C++ - 90%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Java - 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Python - 85%</div></div>
+            </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-cpu text-warning fs-3"></i> Frameworks
+                </h5>
+                <p>PyTorch, TensorFlow, NumPy, Ruby on Rails, .NET</p>
+
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="90%">PyTorch - 90%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="88%">TensorFlow - 88%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="85%">.NET - 85%</div></div>
+            </div>
+        </div>
+
+        <!-- Internet Technologies -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-globe text-warning fs-3"></i> Internet Technologies
+                </h5>
+                <p>HTML, CSS, JavaScript, PHP, UI/UX, MySQL, VBA</p>
+
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="95%">HTML/CSS - 95%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="85%">JavaScript - 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="80%">MySQL - 80%</div></div>
+            </div>
+        </div>
+
+        <!-- Mainframe Technologies -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-terminal text-warning fs-3"></i> Mainframe Technologies
+                </h5>
+                <p>JCL, COBOL, Natural</p>
+            </div>
+        </div>
+
+        <!-- Operating Systems -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-laptop text-warning fs-3"></i> Operating Systems
+                </h5>
+                <p>Windows, iOS, Linux</p>
+            </div>
+        </div>
+
+        <!-- Microsoft Tools -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-file-earmark-text text-warning fs-3"></i> Microsoft Tools
+                </h5>
+                <p>Word, Excel, PowerPoint, MS Access</p>
+            </div>
+        </div>
+
+        <!-- Spoken Languages -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-chat-dots text-warning fs-3"></i> Spoken Languages
+                </h5>
+                <p>English, Bengali, Hindi, Urdu</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificates Section -->
+    <h3 class="text-center fw-bold text-info my-5 fade-up">Certificates & Achievements</h3>
+
+    <div class="row justify-content-center g-4 fade-up">
+        <div class="col-md-3 col-6 text-center">
+            <img src="~/images/ibm-certificate.png" alt="IBM Certificate" class="img-fluid certificate-badge">
+            <p class="mt-2 text-light">IBM Cybersecurity</p>
+        </div>
+        <div class="col-md-3 col-6 text-center">
+            <img src="~/images/google-certificate.png" alt="Google Certificate" class="img-fluid certificate-badge">
+            <p class="mt-2 text-light">Google Cybersecurity</p>
+        </div>
+        <div class="col-md-3 col-6 text-center">
+            <img src="~/images/aws-certificate.png" alt="AWS Cloud Certificate" class="img-fluid certificate-badge">
+            <p class="mt-2 text-light">AWS Cloud Fundamentals</p>
+        </div>
+    </div>
+</div>
+
+<!-- 🔧 Custom CSS -->
+<style>
+    .skill-card, .certificate-badge {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+    }
+
+        .skill-card.show, .certificate-badge.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    .skill-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+        .skill-card:hover {
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-card h5 i {
+            margin-right: 10px;
+        }
+
+    .certificate-badge {
+        max-width: 150px;
+        border-radius: 12px;
+        transition: transform 0.4s ease;
+    }
+
+        .certificate-badge:hover {
+            transform: scale(1.1);
+        }
+
+    /* Fade Up Animation */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .appear {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<!-- 🧠 Scroll Animation Script -->
+<script>
+    const faders = document.querySelectorAll('.fade-up');
+    const elements = document.querySelectorAll('.skill-card, .certificate-badge');
+
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        elements.forEach((el, index) => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 50) {
+                setTimeout(() => {
+                    el.classList.add('show');
+                }, index * 150);
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 500);
+        });
+    });
+</script>

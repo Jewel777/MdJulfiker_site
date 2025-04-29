@@ -1,0 +1,73 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Education";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Education</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="edu-card mb-4">
+                <h5 class="fw-semibold text-light">M.S. in Computer Science</h5>
+                <p class="text-light mb-1">
+                    <strong>
+                        <a href="https://wvstateu.edu/" target="_blank" class="text-warning text-decoration-underline">
+                            West Virginia State University
+                        </a>
+                    </strong> — Institute, WV, USA
+                </p>
+
+                <p class="text-light mb-1"><strong>Graduated:</strong> 2024</p>
+                <p class="text-light">
+                    <strong>Academic Advisor & Research Supervisor:</strong>
+                    <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" class="text-warning text-decoration-underline">
+                        Dr. Ali Al-Sinayyid
+                    </a>
+                </p>
+            </div>
+
+            <div class="edu-card">
+                <h5 class="fw-semibold text-light">B.Sc. in Computer Science and Engineering</h5>
+                <p class="text-light">
+                    <strong>
+                        <a href="https://daffodilvarsity.edu.bd/" target="_blank" class="text-warning text-decoration-underline">
+                            Daffodil International University
+                        </a>
+                    </strong> — Dhaka, Bangladesh
+                </p>
+                <p class="text-light">
+                    <strong> Supervisor:</strong>
+                    <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" class="text-warning text-decoration-underline">
+                        Dr. Nazmun Nessa Moon
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .edu-card {
+        background-color: #222831;
+        color: #eeeeee;
+        padding: 25px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .edu-card:hover {
+            transform: rotateY(5deg) scale(1.03);
+            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+    body {
+        background-color: #121212;
+    }
+</style>

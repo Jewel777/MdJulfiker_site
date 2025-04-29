@@ -1,0 +1,178 @@
+﻿@* @{
+    ViewData["Title"] = "Publications";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning">Publications</h2>
+
+    <ul class="list-group list-group-flush shadow-lg rounded-4">
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“Reinforcing a Monitoring System of a Regulated River using LSTM”</strong><br />
+            <span class="text-secondary">ICAI'23 and CSCE'23 — Published in IEEE Xplore</span>
+        </li>
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“Intelligent Upper Limbs Prosthetics with 1D Convolutional Neural Networks and Quick Training”</strong><br />
+            <span class="text-secondary">BIOENG'23 and CSCE'23 — Published in IEEE Xplore</span>
+        </li>
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“Defending Characteristics and Attribution Analysis for Phishing Attacks”</strong><br />
+            <span class="text-secondary">Presented at CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“A Literature Survey and Analysis of Defending Cyber Attacks Targeting IoT in Critical Infrastructure”</strong><br />
+            <span class="text-secondary">Presented at CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“Analytical Study of Cybersecurity Attacks and Defenses Characteristics”</strong><br />
+            <span class="text-secondary">Presented at CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <strong class="text-info">“Advancing AI: Exploring the Potentials of Multimodal Large Language Models”</strong><br />
+            <span class="text-secondary">Accepted to CSCI’24 — Will be published by Springer Nature</span>
+        </li>
+    </ul>
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+    }
+
+    .list-group-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .list-group-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+            border-color: #ffc107;
+        }
+
+    .text-warning {
+        color: #ffc107 !important;
+    }
+
+    .text-info {
+        color: #03a9f4 !important;
+    }
+
+    .text-secondary {
+        color: #bbb !important;
+    }
+</style>
+ *@
+
+@{
+    ViewData["Title"] = "Publications";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning">Publications</h2>
+
+    <!-- Google Scholar Button -->
+    <div class="text-center mb-4">
+        <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ&hl=en" target="_blank"
+           class="btn btn-outline-info rounded-pill px-4 py-2 shadow-sm">
+            📚 View Full Profile on Google Scholar
+        </a>
+    </div>
+
+    <ul class="list-group list-group-flush shadow-lg rounded-4">
+        <!-- Publication Item -->
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <a href="#abstract1" data-bs-toggle="collapse" class="text-info fw-semibold text-decoration-none d-block">
+                “Reinforcing a Monitoring System of a Regulated River using LSTM”
+            </a>
+            <span class="text-secondary">ICAI'23 and CSCE'23 — Published in IEEE Xplore</span>
+
+            <!-- Collapsible Abstract -->
+            <div class="collapse mt-2" id="abstract1">
+                <div class="text-light small">
+                    <strong>Abstract—</strong> Accurate methods predicting flow in a river require high performance computing systems providing only short-term early warnings. To address these limitations, we propose an optimized Long Short Term Memory layer combined with a Fully connected layer within a six-layer architecture to estimate flows based on readings of three neighboring river gage heights. This study assessed the number of cells in the LSTM and the number of neurons in the Fully connected layer as well as the probability in the Dropout layer to avoid overfitting. Identification of the best settings by means of the RMSE evaluated six different input datasets to estimate flow. Our study proved that relying on the river gage height from neighboring sensors is possible to predict flow which is crucial when a sensor may fail and a reliable neural network at low computational cost can handle that.
+                </div>
+            </div>
+        </li>
+
+
+        <!-- Publication Item -->
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded" data-bs-toggle="collapse" data-bs-target="#abstract2" style="cursor: pointer;">
+            <a href="https://doi.org/10.1109/CSCE60160.2023.00095" target="_blank" class="text-info fw-semibold text-decoration-none d-block">
+                “Intelligent Upper Limbs Prosthetics with 1D Convolutional Neural Networks and Quick Training”
+            </a>
+            <span class="text-secondary">BIOENG'23 and CSCE'23 — Published in IEEE Xplore</span>
+
+            <!-- Collapsible Abstract -->
+            <div class="collapse mt-2" id="abstract2">
+                <div class="text-light small">
+                    <strong>Abstract—</strong> Upper limb amputation can severely restrict the mobility and ability of amputees to perform daily activities. In addressing this issue, deep learning algorithms and electromyography pattern recognition have emerged as promising clinical solutions for functional upper-limb prosthetics. This article presents the use of EMG sensors to capture muscle movement signals and applies the pattern recognition function of a 1D convolutional neural network to identify these signals and control the movement of prosthetics. Experimental results demonstrate that the convolutional neural network exhibits fast training and high-precision recognition capabilities enabling it to accurately identify muscle signals and effectively control prosthetic movements.
+                </div>
+            </div>
+        </li>
+
+
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <a href="https://doi.org/10.1109/CSCI62032.2023.00145" target="_blank" class="text-info fw-semibold text-decoration-none">
+                “Defending Characteristics and Attribution Analysis for Phishing Attacks”
+            </a><br />
+            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <a href="https://doi.org/10.1109/CSCI62032.2023.00139" target="_blank" class="text-info fw-semibold text-decoration-none">
+                “A Literature Survey and Analysis of Defending Cyber Attacks Targeting IoT in Critical Infrastructure”
+            </a><br />
+            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <a href="https://doi.org/10.1109/CSCI62032.2023.00143" target="_blank" class="text-info fw-semibold text-decoration-none">
+                “Analytical Study of Cybersecurity Attacks and Defenses Characteristics”
+            </a><br />
+            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+        </li>
+
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <span class="text-info fw-semibold">
+                “Advancing AI: Exploring the Potentials of Multimodal Large Language Models”
+            </span><br />
+            <span class="text-secondary">Accepted to CSCI’24 — Will be published by Springer Nature</span>
+        </li>
+    </ul>
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+    }
+
+    .list-group-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .list-group-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+            border-color: #ffc107;
+        }
+
+    .text-warning {
+        color: #ffc107 !important;
+    }
+
+    .text-info {
+        color: #03a9f4 !important;
+    }
+
+    .text-secondary {
+        color: #bbb !important;
+    }
+
+    .btn-outline-info:hover {
+        background-color: #03a9f4;
+        color: #fff;
+    }
+
+    a.text-decoration-none:hover {
+        text-decoration: underline;
+    }
+</style>

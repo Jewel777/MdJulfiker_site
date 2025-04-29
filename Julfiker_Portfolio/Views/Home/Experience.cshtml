@@ -1,0 +1,103 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Experience";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Professional Experience</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <!-- Job 1 -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">Software Programmer</h5>
+                <p class="text-light mb-1">
+                    <strong>
+                        <a href="https://dhhr.wv.gov/Pages/default.aspx" target="_blank" class="text-warning text-decoration-none">
+                            West Virginia Department of Health and Human Resources
+                        </a>
+                    </strong><br />
+                    <span class="text-muted">May 2024 – Present</span><br />
+                    Department of MIS
+                </p>
+                <ul class="text-light">
+                    <li>Developed dynamic web apps using C# .NET, ASP.NET MVC, and SQL Server.</li>
+                    <li>Enhanced mainframe systems by debugging COBOL and JCL scripts.</li>
+                    <li>Designed RESTful APIs and integrated scalable cloud-based solutions.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">Graduate Assistant (RA & TA)</h5>
+                <p class="text-light mb-1">
+                    <strong>
+                        <a href="https://wvstateu.edu/" target="_blank" class="text-warning text-decoration-none">
+                            West Virginia State University
+                        </a>
+                    </strong><br />
+                    <span class="text-muted">Jan 2023 – Dec 2024</span><br />
+                    <strong>
+                        <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/departments/mathematics-and-computer-science/" target="_blank" class="text-warning text-decoration-none">
+                            Department of Math & Computer Science
+                        </a>
+                    </strong><br />
+                </p>
+                <ul class="text-light">
+                    <li>Researched AI/ML applications: LLMs, cybersecurity defense, and forecasting.</li>
+                    <li>Assisted with courses: Data Structures, Software Engineering, and DBMS.</li>
+                    <li>Built ML models for flood and groundwater prediction (LSTM, GRU, BiLSTM).</li>
+                </ul>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">IT Analyst - Intern</h5>
+                <p class="text-light mb-1">
+                    <strong>
+                        <a href="https://transportation.wv.gov/Pages/default.aspx" target="_blank" class="text-warning text-decoration-none">
+                            West Virginia Department of Transportation
+                        </a>
+                    </strong><br />
+                    <span class="text-muted">May 2023 – Aug 2023</span><br />
+                    Traffic Engineering Division
+                </p>
+                <ul class="text-light">
+                    <li>Automated crash data analysis with C++ and VBA (cut manual effort by 40%).</li>
+                    <li>Optimized traffic engineering system operations and provided IT support.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .exp-card {
+        background-color: #222831;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .exp-card:hover {
+            transform: rotateY(4deg) scale(1.03);
+            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
+            z-index: 10;
+        }
+
+    body {
+        background-color: #121212;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+</style>
+

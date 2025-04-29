@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Md Julfiker Ali Jewel Portfolio Website" />
+    <title>@ViewData["Title"] - Md Julfiker Ali Jewel Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/css/site.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/images/favicon.png" />
+</head>
+
+<body>
+    <!-- Spinner -->
+    <div id="loading-spinner" class="spinner-wrapper">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top glass-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-warning" href="/">MJAJ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Publications">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Activities">Activities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Research">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Resume">Resume</a></li>
+                        <li class="nav-item"><a class="btn btn-warning btn-sm ms-3 shadow" href="/Home/Contact">📩 Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-box">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                &copy; 2025 Md Julfiker Ali Jewel | <a href="/Home/Privacy">Privacy Policy</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Floating Chatbot Button -->
+    <div class="chatbot-popup" onclick="toggleChatbot()" title="Chat with Me">
+        <i class="bi bi-chat-dots-fill"></i>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbotModal" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; height:400px; background:#222; border-radius:20px; box-shadow:0 0 20px #ff00cc; z-index:1000; overflow:hidden;">
+        <div style="background:#ff00cc; padding:10px; text-align:center; font-weight:bold; position:relative;">
+            Chat Assistant
+            <button onclick="toggleChatbot()" style="position:absolute; top:5px; right:10px; background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
+        </div>
+        <iframe src="https://console.dialogflow.com/api-client/demo/embedded/your-dialogflow-agent-id" style="border:0; width:100%; height:90%;"></iframe>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('loading-spinner').style.display = 'none';
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleChatbot() {
+            var modal = document.getElementById('chatbotModal');
+            modal.style.display = (modal.style.display === 'none') ? 'block' : 'none';
+        }
+
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60 },
+                "size": { "value": 2 },
+                "move": { "speed": 1.5 },
+                "line_linked": { "enable": true },
+                "color": { "value": "#ffffff" }
+            }
+        });
+
+        var typed = new Typed('#typed', {
+            strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\'s Connect!'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                counter.innerText = '0';
+                const updateCounter = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const current = +counter.innerText;
+                    const increment = target / 100;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current + increment);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

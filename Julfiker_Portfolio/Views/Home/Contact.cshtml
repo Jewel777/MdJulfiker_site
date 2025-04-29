@@ -1,0 +1,126 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Contact Me</h2>
+
+    <!-- Contact Info Card -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8" style="perspective: 1000px;">
+            <div class="contact-card">
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="bi bi-envelope-fill text-warning me-2"></i>
+                        Email: <a href="mailto:jewelsheikh2013@gmail.com" class="contact-link" aria-label="Email">jewelsheikh2013@gmail.com</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-geo-alt-fill text-warning me-2"></i>
+                        Location: <span class="contact-text">Dunbar, WV, USA</span>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-linkedin text-warning me-2"></i>
+                        LinkedIn: <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" class="contact-link" aria-label="LinkedIn">Visit Profile</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-github text-warning me-2"></i>
+                        GitHub: <a href="https://github.com/Jewel777" target="_blank" class="contact-link" aria-label="GitHub">github.com/Jewel777</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-5 shadow-lg border-0 rounded-4 bg-dark text-light">
+                <h3 class="text-warning text-center mb-4">Send Me a Message</h3>
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success text-center mt-3">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                <form asp-action="Contact" method="post">
+                    <div class="mb-4">
+                        <label for="Name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="Email" name="Email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="Message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="Message" name="Message" rows="6" required placeholder="Write your message"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning btn-lg px-5">
+                            ✉️ Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles for Contact Page -->
+<style>
+    .contact-card {
+        background-color: #1a1a1a;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
+        color: #f1f1f1;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .contact-card:hover {
+            transform: rotateX(5deg) rotateY(5deg) scale(1.03);
+            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
+            z-index: 10;
+            position: relative;
+        }
+
+    .contact-link {
+        color: #ff944d;
+        text-decoration: none;
+    }
+
+        .contact-link:hover {
+            text-decoration: underline;
+            color: #ffc107;
+        }
+
+    .contact-text {
+        color: #ccc;
+    }
+
+    .card {
+        background: linear-gradient(145deg, #1e1e2f, #2a2a3b);
+        box-shadow: 0 10px 20px rgba(255, 165, 0, 0.2);
+    }
+
+    .form-control {
+        background-color: #2c2c3c;
+        color: #fff;
+        border: 1px solid #555;
+    }
+
+        .form-control:focus {
+            background-color: #2c2c3c;
+            color: #fff;
+            border-color: #ffa726;
+            box-shadow: 0 0 5px #ffa726;
+        }
+</style>

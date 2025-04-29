@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Resume";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">My Resume</h2>
+
+    <!-- Download Resume PDF Button -->
+    <div class="text-center mb-4">
+        <a href="~/files/MD_Julfiker_Ali_Jewel_Resume.pdf"
+           class="btn btn-lg btn-gradient-warning text-dark fw-bold shadow px-5 py-3 rounded-pill animated-button"
+           target="_blank" download>
+            📄 Download Resume
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <!-- Education Section -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">🎓 Education</h5>
+                <ul class="text-light">
+                    <li>M.S. in Computer Science, West Virginia State University (Dec 2024)</li>
+                    <li>B.Sc. in Computer Science and Engineering, Daffodil International University</li>
+                </ul>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">💼 Experience</h5>
+                <ul class="text-light">
+                    <li>Software Programmer Intern, WV DHHR – May 2024 to Present</li>
+                    <li>Graduate Research & Teaching Assistant, WVSU – Jan 2023 to Present</li>
+                    <li>IT Assistant Intern, WV Department of Transportation – Summer 2023</li>
+                </ul>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="exp-card mb-4">
+                <h5 class="fw-semibold text-light">🛠️ Skills</h5>
+                <p class="text-light mb-0">
+                    C#, .NET, Java, Python, HTML/CSS/JS, SQL, PyTorch, TensorFlow, VBA, COBOL, JCL
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Styles for Resume -->
+<style>
+    .exp-card {
+        background-color: #222831;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .exp-card:hover {
+            transform: rotateY(4deg) scale(1.03);
+            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
+            z-index: 10;
+        }
+
+    body {
+        background-color: #121212;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+    /* Improved Resume Button */
+    .btn-gradient-warning {
+        background: linear-gradient(45deg, #ffc107, #ff9800);
+        border: none;
+        color: black;
+    }
+
+        .btn-gradient-warning:hover {
+            background: linear-gradient(45deg, #ff9800, #ffc107);
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 152, 0, 0.4);
+        }
+
+    .animated-button {
+        transition: all 0.4s ease-in-out;
+    }
+</style>

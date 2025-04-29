@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Research Experience";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="section-title text-warning border-bottom pb-2 mb-4">Research Experience</h2>
+    <ul class="research-list ps-4">
+        <li class="research-item">
+            <strong>Multi-modal Large Language Model</strong> <span class="text-muted">(In progress)</span>
+        </li>
+        <li class="research-item">
+            <strong>Phishing Detection in Critical Infrastructure:</strong> Neural Networks to identify human-induced risks.
+        </li>
+        <li class="research-item">
+            <strong>Intelligent Flood Forecasting:</strong> Kanawha River using LSTM, BiLSTM, GRU, ARIMA with feedback integration.
+        </li>
+        <li class="research-item">
+            <strong>AI-Driven Upper Limb Prosthetics:</strong> 1D CNNs with Coral Accelerator and GPU-based training (PyTorch).
+        </li>
+        <li class="research-item">
+            <strong>Groundwater Level Prediction:</strong> ML models like LSTM, BiLSTM, GRU, and ARIMA.
+        </li>
+    </ul>
+
+    <div class="text-center mt-4">
+        <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel" target="_blank" class="btn btn-outline-warning btn-lg custom-rg-btn">
+            <i class="bi bi-box-arrow-up-right me-2"></i> Visit My ResearchGate Profile
+        </a>
+    </div>
+</div>
+
+<style>
+    .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        border-bottom: 2px solid #ff6a00;
+        color: #ff6a00;
+    }
+
+    .research-list {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .research-item {
+        background-color: #1a1a1a;
+        color: #f1f1f1;
+        padding: 15px 20px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(255, 106, 0, 0.1);
+        font-size: 1.05rem;
+    }
+
+        .research-item:hover {
+            transform: scale(1.03) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 12px 25px rgba(255, 106, 0, 0.3);
+            z-index: 1;
+            position: relative;
+        }
+
+    .custom-rg-btn {
+        border-radius: 50px;
+        padding: 10px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+        color: #ffc107;
+    }
+
+        .custom-rg-btn:hover {
+            background-color: #ffc107;
+            color: #121212;
+            box-shadow: 0 8px 18px rgba(255, 193, 7, 0.4);
+            transform: scale(1.05);
+        }
+</style>

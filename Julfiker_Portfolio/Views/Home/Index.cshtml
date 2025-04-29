@@ -1,0 +1,71 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5 pt-5">
+    <div class="row align-items-center home-section p-5 rounded-4 shadow-lg">
+
+        <!-- Profile -->
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+            <img src="~/images/jewel-profile.jpg" alt="Md Julfiker Ali Jewel" class="img-fluid rounded-circle shadow" style="max-width: 250px;" />
+
+            <div class="social-icons mt-4">
+                <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color: #0077b5;"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://x.com/JewelShaikh2" target="_blank" title="X" style="color: #1DA1F2;"><i class="fab fa-x-twitter fa-2x"></i></a>
+                <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color: #ffffff;"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color: #FF0000;"><i class="fab fa-youtube fa-2x"></i></a>
+                <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color: #4285F4;"><i class="fas fa-graduation-cap fa-2x"></i></a>
+                <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color: #A6CE39;"><i class="fas fa-id-card fa-2x"></i></a>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="col-md-8 text-light text-md-start text-center">
+            <h1 class="display-4 fw-bold text-warning mb-4">
+                <span id="typed"></span>
+            </h1>
+
+            <p class="lead">
+                I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a Software & Mainframe Programmer at
+                <strong>WV Department of Health and Human Resources</strong>. I develop dynamic C# web applications, manage mainframe systems, and optimize software performance.
+            </p>
+
+            <p class="lead">
+                Previously, I contributed to the State Highway Crash Database at
+                <strong>WV Department of Transportation</strong> and served as a <strong>Graduate Research & Teaching Assistant</strong> at
+                <strong>West Virginia State University</strong> focusing on Cybersecurity, AI, and HCI research.
+            </p>
+
+            <p class="lead">
+                I hold an <strong>MS in Computer Science</strong> from West Virginia State University, USA and a <strong>BS in CSE</strong> from Daffodil International University, Bangladesh, including an exchange program at
+                <strong>SIAS International University</strong>, China.
+            </p>
+
+            <div class="mt-5">
+                <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/Home/Contact" role="button">
+                    📩 Get in Touch
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counters -->
+    <div class="container text-center my-5">
+        <div class="row">
+            <div class="col">
+                <h2 class="counter text-warning" data-target="5">0</h2>
+                <p>Years of Experience</p>
+            </div>
+            <div class="col">
+                <h2 class="counter text-warning" data-target="15">0</h2>
+                <p>Projects Completed</p>
+            </div>
+            <div class="col">
+                <h2 class="counter text-warning" data-target="6">0</h2>
+                <p>Research Publications</p>
+            </div>
+        </div>
+    </div>
+</div>

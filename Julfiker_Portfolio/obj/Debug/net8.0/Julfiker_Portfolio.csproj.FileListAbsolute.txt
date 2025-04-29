@@ -1,0 +1,118 @@
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.runtime.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.endpoints.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.exe
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.deps.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.runtimeconfig.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfoInputs.cache
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfo.cs
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.csproj.CoreCompileInputs.cache
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cache
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cs
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\bundle\Julfiker_Portfolio.styles.css
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\projectbundle\Julfiker_Portfolio.bundle.scp.css
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.build.Julfiker_Portfolio.props
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Julfiker_Portfolio.props
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Julfiker_Portfolio.props
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\refint\Julfiker_Portfolio.dll
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.genruntimeconfig.cache
+C:\Users\mjewe\source\repos\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\ref\Julfiker_Portfolio.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.csproj.AssemblyReference.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfoInputs.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfo.cs
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.csproj.CoreCompileInputs.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cs
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.runtime.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.endpoints.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.exe
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.deps.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.runtimeconfig.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\MailKit.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\MimeKit.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\NETCore.MailKit.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\bundle\Julfiker_Portfolio.styles.css
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\projectbundle\Julfiker_Portfolio.bundle.scp.css
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.build.Julfiker_Portfolio.props
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Julfiker_Portfolio.props
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Julfiker_Portfolio.props
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker.272C8CEB.Up2Date
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\refint\Julfiker_Portfolio.dll
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.genruntimeconfig.cache
+C:\Users\mjewe\Downloads\Julfiker_Portfolio (1)\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\ref\Julfiker_Portfolio.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\appsettings.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.endpoints.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.staticwebassets.runtime.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.exe
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.deps.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.runtimeconfig.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\MailKit.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\MimeKit.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\NETCore.MailKit.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.csproj.AssemblyReference.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfoInputs.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.AssemblyInfo.cs
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.csproj.CoreCompileInputs.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.RazorAssemblyInfo.cs
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\bundle\Julfiker_Portfolio.styles.css
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\scopedcss\projectbundle\Julfiker_Portfolio.bundle.scp.css
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.Julfiker_Portfolio.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.build.Julfiker_Portfolio.props
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Julfiker_Portfolio.props
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Julfiker_Portfolio.props
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker.272C8CEB.Up2Date
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\refint\Julfiker_Portfolio.dll
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.pdb
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\Julfiker_Portfolio.genruntimeconfig.cache
+C:\Users\mjewe\Documents\Julfiker_Portfolio\Julfiker_Portfolio\Julfiker_Portfolio\obj\Debug\net8.0\ref\Julfiker_Portfolio.dll
