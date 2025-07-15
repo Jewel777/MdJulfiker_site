@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website repository! This site showcases my professional profile, academic journey, research, and projects in the field of Computer Science, Cybersecurity, and Artificial Intelligence.
 
-🔗 [Live Website](https://julfikerali.com)  
+🔗 [Live Website](https://mdjulfikeralijewel.com)  
 📫 [Contact Me](mailto:jewelsheikh2013@gmail.com)
 
 ---
