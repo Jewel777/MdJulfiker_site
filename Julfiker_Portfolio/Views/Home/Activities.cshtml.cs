@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Julfiker_Portfolio.Views.Home
 {
-    public class ActivitiesModel : PageModel
+    public class AccomplishmentsModel : PageModel
     {
         public void OnGet()
         {
