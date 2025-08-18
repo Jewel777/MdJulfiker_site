@@ -1,135 +1,385 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    ViewData["Title"] = "Activities";
+    ViewData["Title"] = "Accomplishments";
 }
 
 <div class="container mt-5 mb-5">
-    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Activities</h2>
+    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Accomplishments</h2>
 
     <!-- 🔘 Filter Buttons -->
     <div class="text-center mb-4">
         <div class="btn-group">
             <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="certification">Certifications</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="certification">
+                Professional Training & Certifications
+            </button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="membership">
+                Professional Memberships
+            </button>
             <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer & Mentorship</button>
             <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation & Talk</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Peer Reviewer</button>
+            <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">
+                Editor & Tech Reviewer
+            </button>
         </div>
     </div>
 
     <!-- 🧾 Activities Section -->
-    <div class="row g-4">
+    <div class="row g-4" id="accomplishment-grid">
 
-        <!-- ✨ Presentation -->
+
+
+        <!-- 🎤 Presentations & Talks -->
         <div class="col-md-6 presentation">
             <div class="activity-card">
-                <strong><a href="https://www.american-cse.org/csci2023/" target="_blank" class="text-warning">CSCI’23 Conference Presentation</a></strong><br />
-                Presented on Critical Infrastructure in cybersecurity.
+                <strong>CSCI’23 Conference Presentation</strong><br />
+                Presented on Critical Infrastructure in cybersecurity, covering topics such as phishing detection, defending attacks on IoT, and characteristics of attacks and defenses.
             </div>
-        </div>
-
-
-        <div class="col-md-6 presentation">
-            <div class="activity-card">
-                <strong><a href="https://www.securewv.org/" target="_blank" class="text-warning">SecureWV 2023 Presentation</a></strong><br />
-                Talk on 'Phishing Cyber Attacks Characteristics and Attribution'.
-            </div>
-
         </div>
 
         <div class="col-md-6 presentation">
             <div class="activity-card">
-                <strong>Poster: Intelligent Upper-Limb Multifunctional Prostheses</strong><br />
-                EMG pattern recognition poster presentation.
+                <strong>SecureWV 2023 Presentation</strong><br />
+                Delivered an in-depth analysis on “Phishing Cyber Attacks Characteristics and Attribution.”
             </div>
         </div>
 
-        <!-- 👥 Volunteer -->
+        <div class="col-md-6 presentation">
+            <div class="activity-card">
+                <strong>Poster Presentation: Intelligent Upper-Limb Multifunctional Prostheses</strong><br />
+                Showcased research on EMG pattern recognition control method for prosthetic applications.
+            </div>
+        </div>
+
+
+
+
+
+        <!-- 👥 Volunteer & Mentorship -->
         <div class="col-md-6 volunteer">
             <div class="activity-card">
                 <strong>Mentorship in AI-driven Prosthetic Hand Research</strong><br />
-                Mentored students in AI research on Summer Sure Research Program 2023, WVSU
+                Mentored undergraduate students, enhancing project and problem-solving skills –
+                Summer Undergraduate Research Experience (SURE) Program 2023
+            </div>
+        </div>
+
+        <div class="col-md-6 volunteer">
+            <div class="activity-card">
+                <strong>Mentorship in AI and Cybersecurity</strong><br />
+                Mentored undergraduate students in AI for cybersecurity problem-solving –
+                Summer Undergraduate Research Experience (SURE) Program 2024
             </div>
         </div>
 
         <div class="col-md-6 volunteer">
             <div class="activity-card">
                 <strong>CS_for_all Conference Volunteer</strong><br />
-                Volunteered at the CS_for_all conference in Memphis, 2022.
+                Volunteered at the CS_for_all Conference, Memphis, 2022
             </div>
         </div>
 
-        <div class="col-md-6 volunteer">
+
+        <!-- 🎓 Professional Training and Certifications -->
+        <div class="col-md-6 certification">
             <div class="activity-card">
-                <strong>ROTRACT CLUB Bangladesh Member & Volunteer</strong><br />
-                Member and volunteer, awarded for contribution.
+                <strong>Advanced Anti-Phishing</strong><br />
+                WVOT Cybersecurity, July 17, 2025
             </div>
         </div>
 
-        <!-- 🎓 Certifications -->
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>2025 Common Threats</strong><br />
+                WVOT Cybersecurity, July 16, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Danger Zone</strong><br />
+                WVOT Cybersecurity, July 16, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Data Protection</strong><br />
+                WVOT Cybersecurity, July 16, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>A New Hire's Guide to Security Awareness</strong><br />
+                WVOT Cybersecurity, July 17, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>2025 Your Role: Internet Security and You</strong><br />
+                WVOT Cybersecurity, July 16, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Micro-module – Introduction to Ransomware</strong><br />
+                WVOT Cybersecurity, July 17, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>2025 Social Engineering Red Flags</strong><br />
+                WVOT Cybersecurity, July 16, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Google IT Support Professional Certificate</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Technical Support Fundamentals</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>The Bits and Bytes of Computer Networking</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Operating Systems and You: Becoming a Power User</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>System Administration and IT Infrastructure Services</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>IT Security: Defense Against the Digital Dark Arts</strong><br />
+                Coursera / Google, May 23, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Federal Tax Information Training</strong><br />
+                FITX, July 12, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Linux: I/O Redirection for DevOps</strong><br />
+                Coursera Project Network, July 17, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Linux: Introduction to Shell Scripting for DevOps</strong><br />
+                Coursera Project Network, July 17, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Draw an Interactive Wireframe in Mockplus</strong><br />
+                Coursera Project Network, May 21, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Foundations of Cybersecurity</strong><br />
+                Coursera / Google, March 19, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Connect and Protect: Networks and Network Security</strong><br />
+                Coursera / Google, March 19, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Assets, Threats, and Vulnerabilities</strong><br />
+                Coursera / Google, March 20, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Automate Cybersecurity Tasks with Python</strong><br />
+                Coursera / Google, April 12, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Tools of the Trade: Linux and SQL</strong><br />
+                Coursera / Google, April 12, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Play It Safe: Manage Security Risks</strong><br />
+                Coursera / Google, March 19, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><br />
+                Coursera / Google, April 12, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Sound the Alarm: Detection and Response</strong><br />
+                Coursera / Google, April 12, 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Artificial Intelligence Fundamentals</strong><br />
+                IBM SkillsBuild, September 8, 2024
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Cybersecurity Fundamentals</strong><br />
+                IBM SkillsBuild, September 26, 2023
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Getting Started with Enterprise Data Science</strong><br />
+                IBM, April 24, 2024
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>Getting Started with Threat Intelligence and Hunting</strong><br />
+                IBM, September 16, 2023
+            </div>
+        </div>
+
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <strong>IBM Security Zero Trust Principles</strong><br />
+                IBM, September 21, 2023
+            </div>
+        </div>
+
         <div class="col-md-6 certification">
             <div class="activity-card">
                 <strong>Software AG Certified Natural Associate</strong><br />
-                Certification from Software AG.
+                Software AG, August 14, 2024 (valid until August 14, 2026)
             </div>
         </div>
 
         <div class="col-md-6 certification">
             <div class="activity-card">
-                <strong>Artificial Intelligence Fundamentals Certification</strong><br />
-                IBM certificate earned.
+                <strong>Mobile Application Development – Android</strong><br />
+                BASIS Institute of Technology & Management (BITM), SEIP Program, August 24, 2019
             </div>
         </div>
 
-        <div class="col-md-6 certification">
+
+
+
+        <!-- 👥 Professional Memberships -->
+        <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>Enterprise Data Science Certification</strong><br />
-                IBM certificate earned.
+                <strong>ISC2 Candidate Member</strong><br />
+                Candidate ID: ....749 (2025–2026) – Global cybersecurity professional community affiliation
             </div>
         </div>
 
-        <div class="col-md-6 certification">
+        <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>IBM Security Zero Trust Principles Certification</strong><br />
-                Completed IBM Zero Trust badge.
+                <strong>IEEE Graduate Student Member</strong><br />
+                In good standing through December 2025
             </div>
         </div>
 
-        <div class="col-md-6 certification">
+        <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>Cybersecurity Fundamentals Certification</strong><br />
-                Completed IBM Cybersecurity course.
+                <strong>IEEE Young Professional Member</strong><br />
+                West Virginia Section (Member #...5875)
             </div>
         </div>
 
-        <div class="col-md-6 certification">
+        <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>Threat Intelligence and Hunting Certification</strong><br />
-                Google badge earned.
+                <strong>ACM Member</strong><br />
+                Association for Computing Machinery (Member #....742)
             </div>
         </div>
 
-        <div class="col-md-6 certification">
+        <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>Mobile Application Development Certification</strong><br />
-                From BASIS & BITM.
+                <strong>ROTRACT CLUB Bangladesh</strong><br />
+                Member, volunteer, awarded for contribution
             </div>
         </div>
 
-        <!-- 🧐 Peer Review -->
+
+        <!-- 🧐 Editor & Tech Reviewer -->
         <div class="col-md-6 peerreview">
             <div class="activity-card">
-                <strong><a href="https://aber.apacsci.com/index.php/BMTP" target="_blank" class="text-warning">Peer Review: Business and Management Theory and Practice</a></strong><br />
-                Reviewed paper titled: "A review about responsible innovation: Development and research agenda in digital era"<br />
-                Organized by <a href="https://aber.apacsci.com/index.php/BMTP" target="_blank" class="text-warning">Asia Pacific Academy of Science Pte. Ltd.</a>
+                <strong>Technical Reviewer – Springer Nature</strong><br />
+                “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
+                July 2025 – Present
+            </div>
+        </div>
+
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong>Reviewer – IEEE PES ISGT-LATAM 2025</strong><br />
+                Peer-reviewed a technical paper in the area of adaptive power system protection.<br />
+                July 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong>Journal Reviewer – Business and Management Theory and Practice</strong><br />
+                Asia Pacific Academy of Science and PTE. LTD
             </div>
         </div>
 
 
         <!-- Google Cybersecurity Certifications -->
-        <div class="col-md-6 certification">
+        <div class="col-md-6 Certification">
             <div class="activity-card">
                 <strong>Automate Cybersecurity Tasks with Python</strong><br />
                 Google Cybersecurity course completed.
@@ -218,27 +468,41 @@
     }
 </style>
 
-<!-- 🧠 Filter Logic -->
-<script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.col-md-6');
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scope selections to this page’s grid so we don’t affect other .col-md-6 on the layout
+            const grid = document.getElementById('accomplishment-grid');
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = grid ? grid.querySelectorAll(':scope > .col-md-6') : [];
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
+            function applyFilter(filter) {
+                cards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        // empty string lets Bootstrap/Flex control display naturally
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
 
-            // Toggle active class on buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
 
-            // Filter cards
-            cards.forEach(card => {
-                if (filter === 'all' || card.classList.contains(filter)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                    // Toggle active class on buttons
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Apply filter
+                    applyFilter(filter);
+                });
             });
+
+            // Initialize with "Show All"
+            const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+            if (allBtn) allBtn.click();
         });
-    });
-</script>
+    </script>
+}
