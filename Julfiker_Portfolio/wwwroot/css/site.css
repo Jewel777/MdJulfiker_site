@@ -114,3 +114,19 @@ h2, .section-title {
     margin-top: 140px;
     font-weight: bold;
 }
+
+
+
+
+/* Force navbar active link to stay white */
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background: none !important;   /* remove Bootstrap's default active background */
+    font-weight: 600;              /* optional: keep bold look */
+}
+
+/* Optional: keep hover consistent with your current design */
+.navbar-nav .nav-link.active:hover {
+    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    color: #121212 !important;
+}
