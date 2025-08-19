@@ -18,13 +18,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
     <!-- Custom CSS (cache-busted) -->
-    <link href="~/css/site.css?v=3" rel="stylesheet" />
+    <link href="~/css/site.css?v=5" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 </head>
 
 <body>
-    <!-- Spinner -->
+    <!-- Spinner (visible briefly, then hidden by script) -->
     <div id="loading-spinner" class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
@@ -109,65 +109,53 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
+    <!-- Spinner hide: robust & safe (shows briefly, then hides) -->
     <script>
-        window.addEventListener('load', () => {
-            const spinner = document.getElementById('loading-spinner');
-            if (spinner) spinner.style.display = 'none';
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60 },
-                "size": { "value": 2 },
-                "move": { "speed": 1.5 },
-                "line_linked": { "enable": true },
-                "color": { "value": "#ffffff" }
-            }
-        });
-
-        var typedTarget = document.getElementById('typed');
-        if (typedTarget) {
-            var typed = new Typed('#typed', {
-                strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\\'s Connect!'],
-                typeSpeed: 50,
-                backSpeed: 30,
-                loop: true
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                counter.innerText = '0';
-                const updateCounter = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const current = +counter.innerText;
-                    const increment = target / 100;
-                    if (current < target) {
-                        counter.innerText = Math.ceil(current + increment);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCounter();
-            });
-        });
+    (function () {
+      function hideSpinner() {
+        var s = document.getElementById('loading-spinner');
+        if (s) s.style.display = 'none';
+      }
+      document.addEventListener('DOMContentLoaded', hideSpinner);
+      window.addEventListener('load', hideSpinner);
+      setTimeout(hideSpinner, 2000); // final fallback
+    })();
     </script>
 
-    <!-- Dialogflow Messenger (replace YOUR-AGENT-ID) -->
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-      intent="WELCOME"
-      chat-title="MJAJ Assistant"
-      agent-id="YOUR-AGENT-ID"
-      language-code="en">
-    </df-messenger>
+    <!-- Particles (guarded) -->
+    <script>
+    try {
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 60 },
+          size: { value: 2 },
+          move: { speed: 1.5 },
+          line_linked: { enable: true },
+          color: { value: "#ffffff" }
+        }
+      });
+    } catch (e) {
+      console.warn("Particles init failed:", e);
+    }
+    </script>
 
+    <!-- Typed.js (guarded, only if #typed exists) -->
+    <script>
+    (function () {
+      var typedTarget = document.getElementById('typed');
+      if (!typedTarget) return;
+      try {
+        var typed = new Typed('#typed', {
+          strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\\'s Connect!'],
+          typeSpeed: 50,
+          backSpeed: 30,
+          loop: true
+        });
+      } catch (e) {
+        console.warn("Typed init failed:", e);
+      }
+    })();
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
