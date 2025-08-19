@@ -180,3 +180,10 @@ df-messenger {
     --df-messenger-input-box-color: #1c1c1c;         /* input field bg */
     --df-messenger-button-titlebar-color: #ff6a00;   /* launcher/title */
 }
+
+/* Make progress bar labels readable on yellow/orange backgrounds */
+.progress .progress-bar {
+    color: #121212;      /* dark text for contrast */
+    font-weight: 600;
+}
+
