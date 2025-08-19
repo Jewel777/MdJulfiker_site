@@ -16,7 +16,6 @@ namespace Julfiker_Portfolio.Controllers
             _logger = logger;
         }
 
-
         public IActionResult Index()
         {
             ViewData["Name"] = "Md Julfiker Ali Jewel";
@@ -31,10 +30,18 @@ namespace Julfiker_Portfolio.Controllers
         public IActionResult Experience() => View();
         public IActionResult Projects() => View();
         public IActionResult Research() => View();
+
+        // ✅ Fixed: Load Accomplishments.cshtml correctly
         public IActionResult Accomplishments()
-{
-    return View("Activities");  // renders Views/Home/Activities.cshtml
-}
+        {
+            return View();  // automatically looks for Views/Home/Accomplishments.cshtml
+        }
+
+        // ✅ Optional: Redirect old /Home/Activities to Accomplishments
+        public IActionResult Activities()
+        {
+            return RedirectToActionPermanent("Accomplishments");
+        }
 
         public IActionResult Privacy() => View();
 
