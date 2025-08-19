@@ -1,4 +1,4 @@
-﻿/* ==== Updated and Finalized Styles ==== */
+/* ==== Updated and Finalized Styles ==== */
 
 /* Dark Mode Default */
 body {
@@ -21,15 +21,25 @@ body {
     padding: 8px 16px;
     color: #ffffff;
 }
+.navbar-nav .nav-link:hover {
+    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    transform: scale(1.1);
+    color: #121212;
+    font-weight: 600;
+}
 
-    .navbar-nav .nav-link:hover {
-        background: linear-gradient(45deg, #ff6a00, #ffcc00);
-        transform: scale(1.1);
-        color: #121212;
-        font-weight: 600;
-    }
+/* Active link always readable on dark bg */
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background: none !important;
+    font-weight: 600;
+}
+.navbar-nav .nav-link.active:hover {
+    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    color: #121212 !important;
+}
 
-/* Spinner Wrapper */
+/* Spinner Wrapper (with failsafe below) */
 .spinner-wrapper {
     position: fixed;
     width: 100%;
@@ -54,7 +64,7 @@ body {
     pointer-events: none;
 }
 
-/* Chatbot Button */
+/* Chatbot Button (if used elsewhere) */
 .chatbot-popup {
     position: fixed;
     bottom: 90px;
@@ -73,10 +83,9 @@ body {
     z-index: 1000;
     transition: transform 0.3s ease;
 }
-
-    .chatbot-popup:hover {
-        transform: scale(1.1);
-    }
+.chatbot-popup:hover {
+    transform: scale(1.1);
+}
 
 /* Scroll To Top Button */
 .scroll-top {
@@ -96,10 +105,9 @@ body {
     z-index: 1000;
     transition: background 0.3s ease;
 }
-
-    .scroll-top:hover {
-        background: #ff9800;
-    }
+.scroll-top:hover {
+    background: #ff9800;
+}
 
 /* Footer Style */
 footer {
@@ -115,63 +123,44 @@ h2, .section-title {
     font-weight: bold;
 }
 
+/* ===== MOBILE NAVBAR (hamburger + collapsed menu) ===== */
 
-
-
-/* Force navbar active link to stay white */
-.navbar-nav .nav-link.active {
-    color: #ffffff !important;
-    background: none !important;   /* remove Bootstrap's default active background */
-    font-weight: 600;              /* optional: keep bold look */
-}
-
-/* Optional: keep hover consistent with your current design */
-.navbar-nav .nav-link.active:hover {
-    background: linear-gradient(45deg, #ff6a00, #ffcc00);
-    color: #121212 !important;
-}
-
-
-
-/* Custom white hamburger menu for mobile */
+/* White hamburger icon for dark navbar */
 .navbar-dark .navbar-toggler-icon,
 .glass-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
-    xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)'
-    stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' 
-    d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* Optional: style the toggler button border */
+/* Subtle white border around the toggler button */
 .navbar-dark .navbar-toggler,
 .glass-navbar .navbar-toggler {
     border-color: rgba(255,255,255,0.5);
 }
 
-
-/* Custom hamburger menu (white lines) */
-.navbar-dark .navbar-toggler-icon,
-.glass-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
-    xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)'
-    stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' 
-    d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+/* Give the expanded mobile menu a solid dark background */
+@media (max-width: 991.98px) {
+    .navbar-dark .navbar-collapse,
+    .glass-navbar .navbar-collapse {
+        background: linear-gradient(45deg, #0f0f0f, #1c1c1c);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .navbar-nav .nav-link {
+        color: #ffffff !important;
+    }
 }
 
-
-
-/* === Dialogflow Messenger Chatbox Styling === */
+/* ===== DIALOGFLOW MESSENGER (dark theme to match site) ===== */
 df-messenger {
-    --df-messenger-bot-message: #1c1c1c;    /* Bot bubble background */
-    --df-messenger-button-titlebar-color: #ff6a00; /* Title bar gradient color */
-    --df-messenger-chat-background-color: #121212; /* Chat background */
-    --df-messenger-font-color: #ffffff;     /* General font */
-    --df-messenger-input-box-color: #1c1c1c; /* Input background */
-    --df-messenger-user-message: #ffcc00;   /* User bubble background */
+    --df-messenger-bot-message: #1c1c1c;             /* bot bubbles */
+    --df-messenger-user-message: #ffcc00;            /* user bubbles */
+    --df-messenger-font-color: #ffffff;              /* text color */
+    --df-messenger-chat-background-color: #121212;   /* chat area bg */
+    --df-messenger-input-box-color: #1c1c1c;         /* input field bg */
+    --df-messenger-button-titlebar-color: #ff6a00;   /* launcher/title */
 }
 
-/* === Mobile Navbar Fix (make toggler icon visible) === */
-.navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+/* ===== SPINNER FAILSAFE: never block the page ===== */
+#loading-spinner { 
+    display: none !important; 
 }
-
