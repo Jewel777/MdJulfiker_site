@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Skills";
 }
 
@@ -15,10 +15,10 @@
                 </h5>
                 <p>C#, C++, Java, Python</p>
 
-                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="95%">C# - 95%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="90%">C++ - 90%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Java - 85%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Python - 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="95%">C# – 95%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="90%">C++ – 90%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Java – 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-warning" role="progressbar" data-width="85%">Python – 85%</div></div>
             </div>
         </div>
 
@@ -30,9 +30,9 @@
                 </h5>
                 <p>PyTorch, TensorFlow, NumPy, Ruby on Rails, .NET</p>
 
-                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="90%">PyTorch - 90%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="88%">TensorFlow - 88%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="85%">.NET - 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="90%">PyTorch – 90%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="88%">TensorFlow – 88%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-info" role="progressbar" data-width="85%">.NET – 85%</div></div>
             </div>
         </div>
 
@@ -44,9 +44,9 @@
                 </h5>
                 <p>HTML, CSS, JavaScript, PHP, UI/UX, MySQL, VBA</p>
 
-                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="95%">HTML/CSS - 95%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="85%">JavaScript - 85%</div></div>
-                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="80%">MySQL - 80%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="95%">HTML/CSS – 95%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="85%">JavaScript – 85%</div></div>
+                <div class="progress mb-2"><div class="progress-bar bg-success" role="progressbar" data-width="80%">MySQL – 80%</div></div>
             </div>
         </div>
 
@@ -57,6 +57,29 @@
                     <i class="bi bi-terminal text-warning fs-3"></i> Mainframe Technologies
                 </h5>
                 <p>JCL, COBOL, Natural</p>
+            </div>
+        </div>
+
+        <!-- Security Domains (NEW) -->
+        <div class="col-md-6 fade-up">
+            <div class="skill-card p-4 rounded-4 shadow">
+                <h5 class="fw-semibold mb-3">
+                    <i class="bi bi-shield-lock text-warning fs-3"></i> Security Domains
+                </h5>
+                <p>IDS/IPS, Vulnerability Scanning, Network Traffic Analysis, Incident Response</p>
+
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-warning" role="progressbar" data-width="92%">IDS/IPS – 92%</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-warning" role="progressbar" data-width="88%">Vulnerability Scanning – 88%</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-warning" role="progressbar" data-width="86%">Network Traffic Analysis – 86%</div>
+                </div>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-warning" role="progressbar" data-width="84%">Incident Response – 84%</div>
+                </div>
             </div>
         </div>
 
@@ -110,43 +133,34 @@
     </div>
 </div>
 
-<!-- 🔧 Custom CSS -->
+<!-- 🔧 Custom CSS (scoped to this page) -->
 <style>
     .skill-card, .certificate-badge {
         opacity: 0;
         transform: translateY(50px);
         transition: all 0.8s ease;
     }
-
-        .skill-card.show, .certificate-badge.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+    .skill-card.show, .certificate-badge.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
     .skill-card {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-        .skill-card:hover {
-            transform: scale(1.03);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
-        }
-
-        .skill-card h5 i {
-            margin-right: 10px;
-        }
+    .skill-card:hover {
+        transform: scale(1.03);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    }
+    .skill-card h5 i { margin-right: 10px; }
 
     .certificate-badge {
         max-width: 150px;
         border-radius: 12px;
         transition: transform 0.4s ease;
     }
-
-        .certificate-badge:hover {
-            transform: scale(1.1);
-        }
+    .certificate-badge:hover { transform: scale(1.1); }
 
     /* Fade Up Animation */
     .fade-up {
@@ -154,59 +168,54 @@
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
     .appear {
         opacity: 1;
         transform: translateY(0);
     }
+
+    /* Make progress bar labels readable on yellow/orange backgrounds */
+    .progress .progress-bar {
+        color: #121212;      /* dark text for contrast */
+        font-weight: 600;
+    }
 </style>
 
-<!-- 🧠 Scroll Animation Script -->
+<!-- 🧠 Scroll & Progress Animation Script -->
 <script>
+    // Animate "fade-up" sections into view
     const faders = document.querySelectorAll('.fade-up');
     const elements = document.querySelectorAll('.skill-card, .certificate-badge');
 
-    const appearOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px"
-    };
-
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            }
+            if (!entry.isIntersecting) return;
             entry.target.classList.add('appear');
             observer.unobserve(entry.target);
         });
     }, appearOptions);
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
+    faders.forEach(fader => appearOnScroll.observe(fader));
 
+    // Reveal cards/badges with staggered animation
     function revealOnScroll() {
         const windowHeight = window.innerHeight;
         elements.forEach((el, index) => {
             const top = el.getBoundingClientRect().top;
             if (top < windowHeight - 50) {
-                setTimeout(() => {
-                    el.classList.add('show');
-                }, index * 150);
+                setTimeout(() => el.classList.add('show'), index * 150);
             }
         });
     }
-
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
 
+    // Animate progress bars to their data-width values
     document.addEventListener('DOMContentLoaded', function () {
         const progressBars = document.querySelectorAll('.progress-bar');
         progressBars.forEach(bar => {
             const width = bar.getAttribute('data-width');
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 500);
+            setTimeout(() => { bar.style.width = width; }, 500);
         });
     });
 </script>
