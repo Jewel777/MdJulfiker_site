@@ -158,3 +158,20 @@ h2, .section-title {
     d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+
+
+/* === Dialogflow Messenger Chatbox Styling === */
+df-messenger {
+    --df-messenger-bot-message: #1c1c1c;    /* Bot bubble background */
+    --df-messenger-button-titlebar-color: #ff6a00; /* Title bar gradient color */
+    --df-messenger-chat-background-color: #121212; /* Chat background */
+    --df-messenger-font-color: #ffffff;     /* General font */
+    --df-messenger-input-box-color: #1c1c1c; /* Input background */
+    --df-messenger-user-message: #ffcc00;   /* User bubble background */
+}
+
+/* === Mobile Navbar Fix (make toggler icon visible) === */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
