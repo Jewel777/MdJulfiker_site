@@ -1,4 +1,4 @@
-﻿@{
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -17,8 +17,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="~/css/site.css" rel="stylesheet" />
+    <!-- Custom CSS (cache-busted) -->
+    <link href="~/css/site.css?v=2" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 </head>
@@ -37,26 +37,62 @@
         <!-- Navbar -->
         <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top glass-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-warning" href="/">MJAJ</a>
+                <a class="navbar-brand fw-bold text-warning" asp-controller="Home" asp-action="Index">MJAJ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                     <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Education">Education</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Publications">Publications</a></li>
                         <li class="nav-item">
-    <a class="nav-link text-dark" asp-controller="Home" asp-action="Accomplishments">Accomplishments</a>
-</li>
+                            <a class="nav-link @(Context.Request.Path == "/" || Context.Request.Path.StartsWithSegments("/Home/Index") ? "active" : "")"
+                               asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
 
-                        <li class="nav-item"><a class="nav-link" href="/Home/Projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Research">Research</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Resume">Resume</a></li>
-                        <li class="nav-item"><a class="btn btn-warning btn-sm ms-3 shadow" href="/Home/Contact">📩 Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Skills") ? "active" : "")"
+                               asp-controller="Home" asp-action="Skills">Skills</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Education") ? "active" : "")"
+                               asp-controller="Home" asp-action="Education">Education</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Experience") ? "active" : "")"
+                               asp-controller="Home" asp-action="Experience">Experience</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Publications") ? "active" : "")"
+                               asp-controller="Home" asp-action="Publications">Publications</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Accomplishments") ? "active" : "")"
+                               asp-controller="Home" asp-action="Accomplishments">Accomplishments</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Projects") ? "active" : "")"
+                               asp-controller="Home" asp-action="Projects">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Research") ? "active" : "")"
+                               asp-controller="Home" asp-action="Research">Research</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Resume") ? "active" : "")"
+                               asp-controller="Home" asp-action="Resume">Resume</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-warning btn-sm ms-3 shadow"
+                               asp-controller="Home" asp-action="Contact">📩 Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -72,7 +108,7 @@
         <!-- Footer -->
         <footer>
             <div class="container">
-                &copy; 2025 Md Julfiker Ali Jewel | <a href="/Home/Privacy">Privacy Policy</a>
+                &copy; 2025 Md Julfiker Ali Jewel | <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
             </div>
         </footer>
 
