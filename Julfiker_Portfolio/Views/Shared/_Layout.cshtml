@@ -17,8 +17,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="~/css/site.css" rel="stylesheet" />
+    <!-- Custom CSS (cache-busted) -->
+    <link href="~/css/site.css?v=3" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 </head>
@@ -37,25 +37,53 @@
         <!-- Navbar -->
         <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-warning" href="/">MJAJ</a>
+                <a class="navbar-brand fw-bold text-warning" asp-controller="Home" asp-action="Index">MJAJ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                     <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Education">Education</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Publications">Publications</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Accomplishments">Accomplishments</a>
+                            <a class="nav-link @(Context.Request.Path == "/" || Context.Request.Path.StartsWithSegments("/Home/Index") ? "active" : "")"
+                               asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Research">Research</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/Home/Resume">Resume</a></li>
-                        <li class="nav-item"><a class="btn btn-warning btn-sm ms-3 shadow" href="/Home/Contact">📩 Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Skills") ? "active" : "")"
+                               asp-controller="Home" asp-action="Skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Education") ? "active" : "")"
+                               asp-controller="Home" asp-action="Education">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Experience") ? "active" : "")"
+                               asp-controller="Home" asp-action="Experience">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Publications") ? "active" : "")"
+                               asp-controller="Home" asp-action="Publications">Publications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Accomplishments") ? "active" : "")"
+                               asp-controller="Home" asp-action="Accomplishments">Accomplishments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Projects") ? "active" : "")"
+                               asp-controller="Home" asp-action="Projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Research") ? "active" : "")"
+                               asp-controller="Home" asp-action="Research">Research</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Resume") ? "active" : "")"
+                               asp-controller="Home" asp-action="Resume">Resume</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-warning btn-sm ms-3 shadow"
+                               asp-controller="Home" asp-action="Contact">📩 Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -71,26 +99,9 @@
         <!-- Footer -->
         <footer>
             <div class="container">
-                &copy; 2025 Md Julfiker Ali Jewel | <a href="/Home/Privacy">Privacy Policy</a>
+                &copy; 2025 Md Julfiker Ali Jewel | <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
             </div>
         </footer>
-    </div>
-
-    <!-- Floating Chatbot Button -->
-    <div class="chatbot-popup" onclick="toggleChatbot()" title="Chat with Me">
-        <i class="bi bi-chat-dots-fill"></i>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" onclick="scrollToTop()">↑</div>
-
-    <!-- Chatbot Modal -->
-    <div id="chatbotModal" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; height:400px; background:#222; border-radius:20px; box-shadow:0 0 20px #ff00cc; z-index:1000; overflow:hidden;">
-        <div style="background:#ff00cc; padding:10px; text-align:center; font-weight:bold; position:relative;">
-            Chat Assistant
-            <button onclick="toggleChatbot()" style="position:absolute; top:5px; right:10px; background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
-        </div>
-        <iframe src="https://console.dialogflow.com/api-client/demo/embedded/your-dialogflow-agent-id" style="border:0; width:100%; height:90%;"></iframe>
     </div>
 
     <!-- JS Scripts -->
@@ -100,16 +111,12 @@
 
     <script>
         window.addEventListener('load', () => {
-            document.getElementById('loading-spinner').style.display = 'none';
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) spinner.style.display = 'none';
         });
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleChatbot() {
-            var modal = document.getElementById('chatbotModal');
-            modal.style.display = (modal.style.display === 'none') ? 'block' : 'none';
         }
 
         particlesJS("particles-js", {
@@ -122,12 +129,15 @@
             }
         });
 
-        var typed = new Typed('#typed', {
-            strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\'s Connect!'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
+        var typedTarget = document.getElementById('typed');
+        if (typedTarget) {
+            var typed = new Typed('#typed', {
+                strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\\'s Connect!'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true
+            });
+        }
 
         document.addEventListener('DOMContentLoaded', function () {
             const counters = document.querySelectorAll('.counter');
@@ -148,6 +158,15 @@
             });
         });
     </script>
+
+    <!-- Dialogflow Messenger (replace YOUR-AGENT-ID) -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="MJAJ Assistant"
+      agent-id="YOUR-AGENT-ID"
+      language-code="en">
+    </df-messenger>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
