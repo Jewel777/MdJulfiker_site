@@ -31,7 +31,11 @@ namespace Julfiker_Portfolio.Controllers
         public IActionResult Experience() => View();
         public IActionResult Projects() => View();
         public IActionResult Research() => View();
-        public IActionResult Accomplishments() => View();
+        public IActionResult Accomplishments()
+{
+    return View("Activities");  // renders Views/Home/Activities.cshtml
+}
+
         public IActionResult Privacy() => View();
 
         // GET: Contact Page
