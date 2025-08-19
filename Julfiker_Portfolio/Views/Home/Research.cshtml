@@ -1,24 +1,41 @@
-﻿@{
+@{
     ViewData["Title"] = "Research Experience";
 }
 
 <div class="container mt-5 mb-5">
     <h2 class="section-title text-warning border-bottom pb-2 mb-4">Research Experience</h2>
+
     <ul class="research-list ps-4">
         <li class="research-item">
-            <strong>Multi-modal Large Language Model</strong> <span class="text-muted">(In progress)</span>
+            <strong>AI-Powered Intrusion Detection & Prevention (IDS/IPS)</strong>
+            <span class="badge bg-warning text-dark ms-2">Ongoing</span><br />
+            Developing real-time defensive models using ML/DL (Random Forest, LSTM, CNN) with SHAP-based explainability and Optuna hyperparameter tuning.
         </li>
+
         <li class="research-item">
-            <strong>Phishing Detection in Critical Infrastructure:</strong> Neural Networks to identify human-induced risks.
+            <strong>Multimodal Large Language Model (LLM) Research</strong>
+            <span class="text-muted ms-2">(In progress)</span><br />
+            Exploring fusion of text, audio, and visual modalities for richer contextual understanding in AI systems.
         </li>
+
         <li class="research-item">
-            <strong>Intelligent Flood Forecasting:</strong> Kanawha River using LSTM, BiLSTM, GRU, ARIMA with feedback integration.
+            <strong>Cybersecurity in Critical Infrastructure</strong><br />
+            Investigated human-induced risks and defense mechanisms (e.g., phishing, ransomware) using deep neural networks within critical infrastructure domains.
         </li>
+
         <li class="research-item">
-            <strong>AI-Driven Upper Limb Prosthetics:</strong> 1D CNNs with Coral Accelerator and GPU-based training (PyTorch).
+            <strong>Intelligent Flood Forecasting for Kanawha River Basin</strong><br />
+            Built a long-term, feedback-enabled flood prediction system using LSTM, BiLSTM, GRU, and ARIMA models.
         </li>
+
         <li class="research-item">
-            <strong>Groundwater Level Prediction:</strong> ML models like LSTM, BiLSTM, GRU, and ARIMA.
+            <strong>AI-Driven Robotic Prosthetic Limbs</strong><br />
+            Designed upper-limb prosthetics using 1D CNNs on embedded Coral Accelerator hardware; accelerated training with PyTorch and GPU.
+        </li>
+
+        <li class="research-item">
+            <strong>Groundwater Level Prediction</strong><br />
+            Developed multivariate forecasting models for groundwater trends using LSTM, BiLSTM, GRU, and ARIMA.
         </li>
     </ul>
 
@@ -53,12 +70,12 @@
         font-size: 1.05rem;
     }
 
-        .research-item:hover {
-            transform: scale(1.03) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 12px 25px rgba(255, 106, 0, 0.3);
-            z-index: 1;
-            position: relative;
-        }
+    .research-item:hover {
+        transform: scale(1.03) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 12px 25px rgba(255, 106, 0, 0.3);
+        z-index: 1;
+        position: relative;
+    }
 
     .custom-rg-btn {
         border-radius: 50px;
@@ -70,10 +87,10 @@
         color: #ffc107;
     }
 
-        .custom-rg-btn:hover {
-            background-color: #ffc107;
-            color: #121212;
-            box-shadow: 0 8px 18px rgba(255, 193, 7, 0.4);
-            transform: scale(1.05);
-        }
+    .custom-rg-btn:hover {
+        background-color: #ffc107;
+        color: #121212;
+        box-shadow: 0 8px 18px rgba(255, 193, 7, 0.4);
+        transform: scale(1.05);
+    }
 </style>
