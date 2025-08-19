@@ -28,7 +28,7 @@ body {
     font-weight: 600;
 }
 
-/* Active link always readable on dark bg */
+/* Active link readable on dark bg */
 .navbar-nav .nav-link.active {
     color: #ffffff !important;
     background: none !important;
@@ -39,7 +39,21 @@ body {
     color: #121212 !important;
 }
 
-/* Spinner Wrapper (with failsafe below) */
+/* Keep nav links white on click/focus states */
+.navbar-nav .nav-link,
+.navbar-nav .nav-link:visited {
+    color: #ffffff;
+}
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active,
+.navbar-nav .nav-link.show,
+.navbar-nav .nav-link:focus-visible {
+    color: #ffffff !important;
+    background: none !important;
+    outline: none !important;
+}
+
+/* Spinner Wrapper (overlay) */
 .spinner-wrapper {
     position: fixed;
     width: 100%;
@@ -52,6 +66,17 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Spinner visual + animation */
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255,255,255,0.25);
+    border-top-color: #ff6a00;
+    border-radius: 50%;
+    animation: mjaj-spin 1s linear infinite;
+}
+@keyframes mjaj-spin { to { transform: rotate(360deg); } }
 
 /* Particle Background */
 #particles-js {
@@ -83,9 +108,7 @@ body {
     z-index: 1000;
     transition: transform 0.3s ease;
 }
-.chatbot-popup:hover {
-    transform: scale(1.1);
-}
+.chatbot-popup:hover { transform: scale(1.1); }
 
 /* Scroll To Top Button */
 .scroll-top {
@@ -105,9 +128,7 @@ body {
     z-index: 1000;
     transition: background 0.3s ease;
 }
-.scroll-top:hover {
-    background: #ff9800;
-}
+.scroll-top:hover { background: #ff9800; }
 
 /* Footer Style */
 footer {
@@ -137,7 +158,7 @@ h2, .section-title {
     border-color: rgba(255,255,255,0.5);
 }
 
-/* Give the expanded mobile menu a solid dark background */
+/* Solid background for expanded mobile menu */
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-collapse,
     .glass-navbar .navbar-collapse {
@@ -158,9 +179,4 @@ df-messenger {
     --df-messenger-chat-background-color: #121212;   /* chat area bg */
     --df-messenger-input-box-color: #1c1c1c;         /* input field bg */
     --df-messenger-button-titlebar-color: #ff6a00;   /* launcher/title */
-}
-
-/* ===== SPINNER FAILSAFE: never block the page ===== */
-#loading-spinner { 
-    display: none !important; 
 }
