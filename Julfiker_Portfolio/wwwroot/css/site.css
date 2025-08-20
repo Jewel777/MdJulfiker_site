@@ -1,4 +1,4 @@
-/* ==== Updated and Finalized Styles ==== */
+/* ==== Updated and Finalized Styles with Neon Glow Navbar ==== */
 
 /* Dark Mode Default */
 body {
@@ -21,39 +21,16 @@ body {
     padding: 8px 16px;
     color: #ffffff;
 }
+
 .navbar-nav .nav-link:hover {
-    background: linear-gradient(45deg, #ff6a00, #ffcc00);
+    background: linear-gradient(45deg, #00e6ff, #8a2be2);
     transform: scale(1.1);
-    color: #121212;
-    font-weight: 600;
-}
-
-/* Active link readable on dark bg */
-.navbar-nav .nav-link.active {
-    color: #ffffff !important;
-    background: none !important;
-    font-weight: 600;
-}
-.navbar-nav .nav-link.active:hover {
-    background: linear-gradient(45deg, #ff6a00, #ffcc00);
-    color: #121212 !important;
-}
-
-/* Keep nav links white on click/focus states */
-.navbar-nav .nav-link,
-.navbar-nav .nav-link:visited {
     color: #ffffff;
-}
-.navbar-nav .nav-link:focus,
-.navbar-nav .nav-link:active,
-.navbar-nav .nav-link.show,
-.navbar-nav .nav-link:focus-visible {
-    color: #ffffff !important;
-    background: none !important;
-    outline: none !important;
+    font-weight: 600;
+    box-shadow: 0 0 10px #00e6ff, 0 0 20px #8a2be2;
 }
 
-/* Spinner Wrapper (overlay) */
+/* Spinner Wrapper */
 .spinner-wrapper {
     position: fixed;
     width: 100%;
@@ -67,17 +44,6 @@ body {
     justify-content: center;
 }
 
-/* Spinner visual + animation */
-.spinner {
-    width: 48px;
-    height: 48px;
-    border: 4px solid rgba(255,255,255,0.25);
-    border-top-color: #ff6a00;
-    border-radius: 50%;
-    animation: mjaj-spin 1s linear infinite;
-}
-@keyframes mjaj-spin { to { transform: rotate(360deg); } }
-
 /* Particle Background */
 #particles-js {
     position: fixed;
@@ -89,7 +55,7 @@ body {
     pointer-events: none;
 }
 
-/* Chatbot Button (if used elsewhere) */
+/* Chatbot Button */
 .chatbot-popup {
     position: fixed;
     bottom: 90px;
@@ -108,7 +74,10 @@ body {
     z-index: 1000;
     transition: transform 0.3s ease;
 }
-.chatbot-popup:hover { transform: scale(1.1); }
+
+.chatbot-popup:hover {
+    transform: scale(1.1);
+}
 
 /* Scroll To Top Button */
 .scroll-top {
@@ -128,7 +97,10 @@ body {
     z-index: 1000;
     transition: background 0.3s ease;
 }
-.scroll-top:hover { background: #ff9800; }
+
+.scroll-top:hover {
+    background: #ff9800;
+}
 
 /* Footer Style */
 footer {
@@ -144,46 +116,15 @@ h2, .section-title {
     font-weight: bold;
 }
 
-/* ===== MOBILE NAVBAR (hamburger + collapsed menu) ===== */
-
-/* White hamburger icon for dark navbar */
-.navbar-dark .navbar-toggler-icon,
-.glass-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* Subtle white border around the toggler button */
-.navbar-dark .navbar-toggler,
-.glass-navbar .navbar-toggler {
-    border-color: rgba(255,255,255,0.5);
-}
-
-/* Solid background for expanded mobile menu */
-@media (max-width: 991.98px) {
-    .navbar-dark .navbar-collapse,
-    .glass-navbar .navbar-collapse {
-        background: linear-gradient(45deg, #0f0f0f, #1c1c1c);
-        border-radius: 0 0 12px 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-    .navbar-nav .nav-link {
-        color: #ffffff !important;
-    }
-}
-
-/* ===== DIALOGFLOW MESSENGER (dark theme to match site) ===== */
-df-messenger {
-    --df-messenger-bot-message: #1c1c1c;             /* bot bubbles */
-    --df-messenger-user-message: #ffcc00;            /* user bubbles */
-    --df-messenger-font-color: #ffffff;              /* text color */
-    --df-messenger-chat-background-color: #121212;   /* chat area bg */
-    --df-messenger-input-box-color: #1c1c1c;         /* input field bg */
-    --df-messenger-button-titlebar-color: #ff6a00;   /* launcher/title */
-}
-
-/* Make progress bar labels readable on yellow/orange backgrounds */
-.progress .progress-bar {
-    color: #121212;      /* dark text for contrast */
+/* Force navbar active link to stay white */
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    background: none !important;
     font-weight: 600;
 }
 
+.navbar-nav .nav-link.active:hover {
+    background: linear-gradient(45deg, #00e6ff, #8a2be2);
+    color: #ffffff !important;
+    box-shadow: 0 0 10px #00e6ff, 0 0 20px #8a2be2;
+}
