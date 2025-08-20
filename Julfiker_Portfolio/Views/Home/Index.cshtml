@@ -1,4 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Home";
@@ -22,56 +22,95 @@
         </div>
 
         <!-- About -->
-<div class="col-md-8 text-light text-md-start text-center">
-    <h1 class="display-4 fw-bold text-warning mb-4">
-        <span id="typed"></span>
-    </h1>
+        <div class="col-md-8 text-light text-md-start text-center">
+            <h1 class="display-4 fw-bold text-warning mb-4">
+                <span id="typed"></span>
+            </h1>
 
-    <p class="lead">
-        I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a <strong>Software Programmer Analyst</strong> at the
-        <strong>West Virginia Department of Health and Human Resources (DHHR)</strong>. I design and ship
-        secure, high-performance <strong>C#/.NET</strong> web applications, tune <strong>SQL Server</strong> for
-        reliability at scale, and modernize enterprise systems with a strong focus on <strong>cybersecurity</strong>
-        and operational resilience.
-    </p>
+            <p class="lead">
+                I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a <strong>Software Programmer Analyst</strong> at the
+                <strong>West Virginia Department of Health and Human Resources (DHHR)</strong>. I design and ship
+                secure, high-performance <strong>C#/.NET</strong> web applications, tune <strong>SQL Server</strong> for
+                reliability at scale, and modernize enterprise systems with a strong focus on <strong>cybersecurity</strong>
+                and operational resilience.
+            </p>
 
-    <p class="lead">
-        Previously I contributed to the <strong>State Highway Crash Database</strong> at the
-        <strong>West Virginia Department of Transportation</strong>, automating analytics pipelines,
-        and served as a <strong>Graduate Research &amp; Teaching Assistant</strong> at
-        <strong>West Virginia State University</strong>, conducting research in
-        <strong>AI/ML, Cybersecurity,</strong> and <strong>HCI</strong>.
-    </p>
+            <p class="lead">
+                Previously I contributed to the <strong>State Highway Crash Database</strong> at the
+                <strong>West Virginia Department of Transportation</strong>, automating analytics pipelines,
+                and served as a <strong>Graduate Research &amp; Teaching Assistant</strong> at
+                <strong>West Virginia State University</strong>, conducting research in
+                <strong>AI/ML, Cybersecurity,</strong> and <strong>HCI</strong>.
+            </p>
 
-    <p class="lead">
-        I hold an <strong>MS in Computer Science</strong> from West Virginia State University (USA) and a
-        <strong>BS in CSE</strong> from Daffodil International University (Bangladesh), including an academic
-        exchange at <strong>SIAS International University</strong> (China).
-    </p>
+            <p class="lead">
+                I hold an <strong>MS in Computer Science</strong> from West Virginia State University (USA) and a
+                <strong>BS in CSE</strong> from Daffodil International University (Bangladesh), including an academic
+                exchange at <strong>SIAS International University</strong> (China).
+            </p>
 
-    <div class="mt-5">
-        <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/Home/Contact" role="button">
-            📩 Get in Touch
-        </a>
-    </div>
-</div>
-
-
-    <!-- Counters -->
-    <div class="container text-center my-5">
-        <div class="row">
-            <div class="col">
-                <h2 class="counter text-warning" data-target="5">0</h2>
-                <p>Years of Experience</p>
-            </div>
-            <div class="col">
-                <h2 class="counter text-warning" data-target="15">0</h2>
-                <p>Projects Completed</p>
-            </div>
-            <div class="col">
-                <h2 class="counter text-warning" data-target="6">0</h2>
-                <p>Research Publications</p>
+            <div class="mt-5">
+                <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/Home/Contact" role="button">
+                    📩 Get in Touch
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Counters Section -->
+<div class="container text-center my-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
+            <p class="text-light">Years of Experience</p>
+        </div>
+        <div class="col">
+            <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
+            <p class="text-light">Projects Completed</p>
+        </div>
+        <div class="col">
+            <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
+            <p class="text-light">Research Publications</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const counters = document.querySelectorAll('.counter');
+
+    function animateCounter(el) {
+        const target = Number(el.dataset.target || 0);
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 80)); // adjust speed
+
+        function tick() {
+            current += step;
+            if (current >= target) {
+                el.textContent = target.toLocaleString();
+            } else {
+                el.textContent = current.toLocaleString();
+                requestAnimationFrame(tick);
+            }
+        }
+        tick();
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => {
+        c.textContent = '0';
+        io.observe(c);
+    });
+});
+</script>
+}
