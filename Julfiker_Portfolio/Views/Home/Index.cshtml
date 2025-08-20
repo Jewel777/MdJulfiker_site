@@ -58,72 +58,59 @@
     </div>
 </div>
 
-<!-- Counters -->
+<!-- Counters Section -->
 <div class="container text-center my-5">
     <div class="row">
         <div class="col">
-            <h2 class="counter text-warning" data-target="5">0</h2>
-            <p>Years of Experience</p>
+            <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
+            <p class="text-light">Years of Experience</p>
         </div>
         <div class="col">
-            <h2 class="counter text-warning" data-target="15">0</h2>
-            <p>Projects Completed</p>
+            <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
+            <p class="text-light">Projects Completed</p>
         </div>
         <div class="col">
-            <h2 class="counter text-warning" data-target="6">0</h2>
-            <p>Research Publications</p>
+            <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
+            <p class="text-light">Research Publications</p>
         </div>
     </div>
 </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+@section Scripts {
 <script>
-    var typed = new Typed("#typed", {
-        strings: [
-            "Software Programmer Analyst 💻",
-            "Cybersecurity Researcher 🔐",
-            "AI & Machine Learning Enthusiast 🤖",
-            "Tech Innovator 🌐"
-            "Full Stack Developer"
-        ],
-         typeSpeed: 45,    // slower typing
-         backSpeed: 25,    // slower delete
-         backDelay: 1600,  // visible pause between phrases
-         startDelay: 400,
-        loop: true
-    });
-
-    // Counter Animation
+document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / 200;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 20);
+
+    function animateCounter(el) {
+        const target = Number(el.dataset.target || 0);
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 80)); // adjust speed
+
+        function tick() {
+            current += step;
+            if (current >= target) {
+                el.textContent = target.toLocaleString();
             } else {
-                counter.innerText = target;
+                el.textContent = current.toLocaleString();
+                requestAnimationFrame(tick);
             }
-        };
-        updateCount();
+        }
+        tick();
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => {
+        c.textContent = '0';
+        io.observe(c);
     });
+});
 </script>
-
-<style>
-    /* Counter font-size scaling with @@media (escaped for Razor) */
-    .counter {
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    @@media (min-width: 768px) {
-        .counter { font-size: 2.25rem; }
-    }
-
-    @@media (min-width: 1200px) {
-        .counter { font-size: 2.5rem; }
-    }
-</style>
+}
