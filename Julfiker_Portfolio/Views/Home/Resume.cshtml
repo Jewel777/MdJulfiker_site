@@ -5,14 +5,45 @@
 <div class="container mt-5 mb-5">
     <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">My Resume</h2>
 
-    <!-- Download Resume PDF Button -->
-<div class="text-center mb-4">
-    <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
-       class="btn btn-lg btn-gradient-warning text-dark fw-bold shadow px-5 py-3 rounded-pill animated-button"
-       target="_blank" download aria-label="Download Resume as PDF">
-        📄 Download Resume
-    </a>
-</div>
+    <!-- Preview + Download Buttons -->
+    <div class="text-center mb-4 d-flex flex-wrap gap-3 justify-content-center">
+        <!-- Preview (opens in new tab) -->
+        <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
+           class="btn btn-lg btn-outline-warning fw-bold shadow px-4 py-3 rounded-pill"
+           target="_blank" rel="noopener"
+           aria-label="Preview Resume in a new tab">
+            👁️ Preview Resume
+        </a>
+
+        <!-- Download (forces save) -->
+        <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
+           class="btn btn-lg btn-gradient-warning text-dark fw-bold shadow px-4 py-3 rounded-pill animated-button"
+           target="_blank" download
+           aria-label="Download Resume as PDF">
+            📄 Download Resume
+        </a>
+    </div>
+
+    <!-- ====== Optional Inline Preview (remove if you don't want it) ====== -->
+    <div class="resume-viewer card border-0 shadow-lg mx-auto mb-5">
+        <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
+            <span class="text-warning fw-semibold">Inline Preview</span>
+            <a class="small text-decoration-none"
+               href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
+               target="_blank" rel="noopener">
+               Open in new tab ↗
+            </a>
+        </div>
+        <div class="card-body p-0">
+            <div class="pdf-responsive">
+                <iframe
+                    title="Resume PDF Preview"
+                    src="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")#view=FitH"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- ====== /Optional Inline Preview ====== -->
 
     <!-- ====== Stats / Counters Section ====== -->
     <section class="container text-center my-5" aria-label="Career Highlights">
@@ -103,7 +134,7 @@
     ul { padding-left: 1.5rem; }
     ul li { margin-bottom: 0.5rem; }
 
-    /* Download button */
+    /* Buttons */
     .btn-gradient-warning {
         background: linear-gradient(45deg, #ffc107, #ff9800);
         border: none;
@@ -145,11 +176,35 @@
         border-radius: 12px;
     }
 
+    /* Inline PDF viewer */
+    .resume-viewer {
+        max-width: 980px;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #0f141b;
+    }
+    .resume-viewer .card-header {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .pdf-responsive {
+        position: relative;
+        width: 100%;
+        padding-top: 130%; /* aspect ratio for mobile; adjust as needed */
+        background: #0b0f14;
+    }
+    .pdf-responsive iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
     /* Give parent perspective so card rotation looks natural */
     .container { perspective: 1000px; }
 </style>
 
-<!-- Counter animation (place near end so DOM is ready) -->
+<!-- Counter animation -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const counters = document.querySelectorAll('.counter');
