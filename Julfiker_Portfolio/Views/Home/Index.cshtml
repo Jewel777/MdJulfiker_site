@@ -23,7 +23,7 @@
 
         <!-- About -->
         <div class="col-md-8 text-light text-md-start text-center">
-            <h1 class="display-4 fw-bold text-warning mb-4">
+            <h1 class="fw-bold text-warning mb-4">
                 <span id="typed"></span>
             </h1>
 
@@ -58,59 +58,106 @@
     </div>
 </div>
 
-<!-- Counters Section -->
+<!-- Counters -->
 <div class="container text-center my-5">
     <div class="row">
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
+            <h2 class="counter display-6 fw-bold text-warning" data-target="5">0</h2>
             <p class="text-light">Years of Experience</p>
         </div>
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
+            <h2 class="counter display-6 fw-bold text-warning" data-target="15">0</h2>
             <p class="text-light">Projects Completed</p>
         </div>
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
+            <h2 class="counter display-6 fw-bold text-warning" data-target="6">0</h2>
             <p class="text-light">Research Publications</p>
         </div>
     </div>
 </div>
 
 @section Scripts {
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const counters = document.querySelectorAll('.counter');
+    <!-- Typed.js (for rotating headline) -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    function animateCounter(el) {
-        const target = Number(el.dataset.target || 0);
-        let current = 0;
-        const step = Math.max(1, Math.ceil(target / 80)); // adjust speed
-
-        function tick() {
-            current += step;
-            if (current >= target) {
-                el.textContent = target.toLocaleString();
-            } else {
-                el.textContent = current.toLocaleString();
-                requestAnimationFrame(tick);
-            }
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Typed headline: smaller + slower + one-after-another
+        if (document.getElementById('typed')) {
+            new Typed('#typed', {
+                strings: [
+                    "Software Programmer Analyst",
+                    "AI & Cybersecurity Researcher",
+                    "Full-Stack .NET Developer",
+                    "Database & Enterprise Systems Engineer"
+                ],
+                typeSpeed: 45,    // slower typing
+                backSpeed: 25,    // slower delete
+                backDelay: 1600,  // visible pause between phrases
+                startDelay: 400,  // wait a bit before first start
+                loop: true,
+                smartBackspace: true,
+                fadeOut: false
+            });
         }
-        tick();
-    }
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                io.unobserve(entry.target);
+        // Counter animation (runs when counters are visible)
+        const counters = document.querySelectorAll('.counter');
+
+        function animateCounter(el) {
+            const target = Number(el.dataset.target || 0);
+            let current = 0;
+            const steps = 90; // total frames for smoother/slower animation
+            const step = Math.max(1, Math.ceil(target / steps));
+
+            function tick() {
+                current += step;
+                if (current >= target) {
+                    el.textContent = target.toLocaleString();
+                } else {
+                    el.textContent = current.toLocaleString();
+                    requestAnimationFrame(tick);
+                }
             }
-        });
-    }, { threshold: 0.5 });
+            tick();
+        }
 
-    counters.forEach(c => {
-        c.textContent = '0';
-        io.observe(c);
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.45 });
+
+        counters.forEach(c => {
+            c.textContent = '0';
+            io.observe(c);
+        });
     });
-});
-</script>
+    </script>
+
+    <style>
+        /* Make typed headline smaller + strong */
+        #typed {
+            font-size: 2rem;      /* smaller than display-4 */
+            line-height: 1.3;
+            font-weight: 700;
+            color: #ffc107;       /* gold */
+            letter-spacing: 0.2px;
+        }
+
+        /* Optional: slightly larger counters on mobile/desktop */
+        .counter {
+            line-height: 1;
+        }
+
+        @media (min-width: 768px) {
+            .counter { font-size: 2.25rem; }
+        }
+        @media (min-width: 1200px) {
+            .counter { font-size: 2.5rem; }
+        }
+    </style>
 }
