@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Resume";
 }
 
@@ -9,10 +9,35 @@
     <div class="text-center mb-4">
         <a href="~/files/MD_Julfiker_Ali_Jewel_Resume.pdf"
            class="btn btn-lg btn-gradient-warning text-dark fw-bold shadow px-5 py-3 rounded-pill animated-button"
-           target="_blank" download>
+           target="_blank" download aria-label="Download Resume as PDF">
             📄 Download Resume
         </a>
     </div>
+
+    <!-- ====== Stats / Counters Section ====== -->
+    <section class="container text-center my-5" aria-label="Career Highlights">
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4">
+                <div class="counter-card">
+                    <h2 class="counter text-warning mb-1" data-target="5">0</h2>
+                    <p class="mb-0 text-light-50">Years of Experience</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="counter-card">
+                    <h2 class="counter text-warning mb-1" data-target="15">0</h2>
+                    <p class="mb-0 text-light-50">Projects Completed</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="counter-card">
+                    <h2 class="counter text-warning mb-1" data-target="6">0</h2>
+                    <p class="mb-0 text-light-50">Research Publications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====== /Stats Section ====== -->
 
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -50,47 +75,112 @@
 
 <!-- Styles for Resume -->
 <style>
+    :root {
+        --card-bg: #222831;
+        --accent: #ff6a00;
+        --accent-soft: rgba(255, 106, 0, 0.25);
+        --accent-strong: rgba(255, 106, 0, 0.5);
+    }
+
+    body { background-color: #121212; }
+
+    /* Cards */
     .exp-card {
-        background-color: #222831;
+        background-color: var(--card-bg);
         padding: 25px;
         border-radius: 16px;
-        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
+        box-shadow: 0 6px 18px var(--accent-soft);
         transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transform-style: preserve-3d;
+    }
+    .exp-card:hover {
+        transform: translateZ(0) rotateY(4deg) scale(1.03);
+        box-shadow: 0 14px 28px var(--accent-strong);
+        z-index: 10;
     }
 
-        .exp-card:hover {
-            transform: rotateY(4deg) scale(1.03);
-            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
-            z-index: 10;
-        }
+    /* List spacing */
+    ul { padding-left: 1.5rem; }
+    ul li { margin-bottom: 0.5rem; }
 
-    body {
-        background-color: #121212;
-    }
-
-    ul {
-        padding-left: 1.5rem;
-    }
-
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
-    /* Improved Resume Button */
+    /* Download button */
     .btn-gradient-warning {
         background: linear-gradient(45deg, #ffc107, #ff9800);
         border: none;
-        color: black;
+        color: #000;
+    }
+    .btn-gradient-warning:hover,
+    .btn-gradient-warning:focus-visible {
+        background: linear-gradient(45deg, #ff9800, #ffc107);
+        color: #000;
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(255, 152, 0, 0.4);
+    }
+    .animated-button { transition: all 0.4s ease-in-out; }
+
+    /* ===== Counters ===== */
+    .counter-card {
+        background: #1a1f27;
+        border-radius: 16px;
+        padding: 22px 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .counter-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    }
+    .counter {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: .5px;
+    }
+    .text-light-50 { color: rgba(255,255,255,0.75); }
+
+    /* Improve focus styles for accessibility */
+    .btn:focus-visible, a:focus-visible, button:focus-visible {
+        outline: 2px solid #00e1ff;
+        outline-offset: 2px;
+        border-radius: 12px;
     }
 
-        .btn-gradient-warning:hover {
-            background: linear-gradient(45deg, #ff9800, #ffc107);
-            color: black;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255, 152, 0, 0.4);
-        }
-
-    .animated-button {
-        transition: all 0.4s ease-in-out;
-    }
+    /* Give parent perspective so card rotation looks natural */
+    .container { perspective: 1000px; }
 </style>
+
+<!-- Counter animation (place near end so DOM is ready) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const counters = document.querySelectorAll('.counter');
+
+  function animate(el) {
+    const target = Number(el.dataset.target || 0);
+    const duration = 1200; // ms
+    const start = 0;
+    const startTime = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = Math.floor(start + (target - start) * progress);
+      el.textContent = value.toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => io.observe(c));
+  } else {
+    counters.forEach(animate);
+  }
+});
+</script>
