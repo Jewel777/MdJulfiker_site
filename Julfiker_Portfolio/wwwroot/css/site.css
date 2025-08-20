@@ -1,4 +1,4 @@
-/* ==== Updated and Finalized Styles with Neon Glow Navbar ==== */
+/* ==== Updated and Finalized Styles with Green Navbar ==== */
 
 /* Dark Mode Default */
 body {
@@ -23,11 +23,11 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-    background: linear-gradient(45deg, #00e6ff, #8a2be2);
+    background: linear-gradient(45deg, #00ff99, #00ccff);
     transform: scale(1.1);
-    color: #ffffff;
+    color: #121212;
     font-weight: 600;
-    box-shadow: 0 0 10px #00e6ff, 0 0 20px #8a2be2;
+    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ccff;
 }
 
 /* Spinner Wrapper */
@@ -124,7 +124,7 @@ h2, .section-title {
 }
 
 .navbar-nav .nav-link.active:hover {
-    background: linear-gradient(45deg, #00e6ff, #8a2be2);
-    color: #ffffff !important;
-    box-shadow: 0 0 10px #00e6ff, 0 0 20px #8a2be2;
+    background: linear-gradient(45deg, #00ff99, #00ccff);
+    color: #121212 !important;
+    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ccff;
 }
