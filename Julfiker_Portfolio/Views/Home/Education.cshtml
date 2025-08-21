@@ -1,5 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Education";
@@ -10,41 +9,117 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <!-- M.S. in Computer Science -->
             <div class="edu-card mb-4">
                 <h5 class="fw-semibold text-light">M.S. in Computer Science</h5>
                 <p class="text-light mb-1">
                     <strong>
-                        <a href="https://wvstateu.edu/" target="_blank" class="text-warning text-decoration-underline">
+                        <a href="https://wvstateu.edu/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
                             West Virginia State University
                         </a>
                     </strong> — Institute, WV, USA
                 </p>
 
-                <p class="text-light mb-1"><strong>Graduated:</strong> 2024</p>
-                <p class="text-light">
-                    <strong>Academic Advisor & Research Supervisor:</strong>
-                    <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" class="text-warning text-decoration-underline">
+                <p class="text-light mb-1"><strong>Graduated:</strong> Dec 2024</p>
+                <p class="text-light mb-3"><strong>GPA:</strong> 3.82/4.0</p>
+
+                <p class="text-light mb-1">
+                    <strong>Academic Advisor &amp; Research Supervisor:</strong>
+                    <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
                         Dr. Ali Al-Sinayyid
                     </a>
                 </p>
+                <p class="text-light mb-3">
+                    <strong>Co-Supervisor:</strong>
+                    <span class="text-warning">Dr. Heng Wu</span>
+                    <span class="text-secondary">(in memoriam)</span>
+                </p>
+
+                <!-- Funding / Grants -->
+                <div class="mb-3">
+                    <h6 class="text-light mb-2">Funding &amp; Grants</h6>
+                    <ul class="text-light mb-0">
+                        <li>HBCU R&amp;D Funding (Cybersecurity &amp; AI research)</li>
+                        <li>WV State Cybersecurity Grant</li>
+                    </ul>
+                </div>
+
+                <!-- Coursework (collapsible) -->
+                <div class="mb-3">
+                    <h6 class="text-light mb-2">Graduate Coursework</h6>
+
+                    <div class="accordion" id="msCoursework">
+                        <div class="accordion-item bg-transparent border-0">
+                            <h2 class="accordion-header" id="cwCoreHead">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cwCore" aria-expanded="false" aria-controls="cwCore">
+                                    Core &amp; Advanced Courses
+                                </button>
+                            </h2>
+                            <div id="cwCore" class="accordion-collapse collapse" aria-labelledby="cwCoreHead" data-bs-parent="#msCoursework">
+                                <div class="accordion-body text-light">
+                                    <ul class="mb-0">
+                                        <li>Theory of Computation</li>
+                                        <li>Parallel &amp; Distributed Computing</li>
+                                        <li>Computer Graphics</li>
+                                        <li>Analysis of Algorithms</li>
+                                        <li>Advanced Computer Architecture</li>
+                                        <li>Computer Security</li>
+                                        <li>Advanced Operating Systems</li>
+                                        <li>Advanced Database Management Systems</li>
+                                        <li>Advanced Cybersecurity (Special Topics)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item bg-transparent border-0 mt-2">
+                            <h2 class="accordion-header" id="cwTransferHead">
+                                <button class="accordion-button collapsed bg-dark text-light" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cwTransfer" aria-expanded="false" aria-controls="cwTransfer">
+                                    Transfer Courses (University of Memphis)
+                                </button>
+                            </h2>
+                            <div id="cwTransfer" class="accordion-collapse collapse" aria-labelledby="cwTransferHead" data-bs-parent="#msCoursework">
+                                <div class="accordion-body text-light">
+                                    <ul class="mb-0">
+                                        <li>Machine Learning</li>
+                                        <li>Foundations of Software Engineering</li>
+                                        <li>Human–Computer Interaction</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internships -->
+                <div>
+                    <h6 class="text-light mb-2">Internship Experience</h6>
+                    <p class="text-light mb-0">Internship in Computer Science (3 terms): Spring 2023, Summer 2024, Fall 2024</p>
+                </div>
             </div>
 
+            <!-- B.Sc. in Computer Science and Engineering -->
             <div class="edu-card">
                 <h5 class="fw-semibold text-light">B.Sc. in Computer Science and Engineering</h5>
-                <p class="text-light">
+                <p class="text-light mb-1">
                     <strong>
-                        <a href="https://daffodilvarsity.edu.bd/" target="_blank" class="text-warning text-decoration-underline">
+                        <a href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
                             Daffodil International University
                         </a>
                     </strong> — Dhaka, Bangladesh
                 </p>
+                <p class="text-light mb-1"><strong>Graduated:</strong> Mar 2019</p>
                 <p class="text-light">
-                    <strong> Supervisor:</strong>
-                    <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" class="text-warning text-decoration-underline">
+                    <strong>Supervisor:</strong>
+                    <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
                         Dr. Nazmun Nessa Moon
                     </a>
                 </p>
             </div>
+
         </div>
     </div>
 </div>
@@ -58,16 +133,25 @@
         margin-bottom: 20px;
         box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
         transition: transform 0.4s ease, box-shadow 0.4s ease;
+        will-change: transform, box-shadow;
     }
 
-        .edu-card:hover {
-            transform: rotateY(5deg) scale(1.03);
-            box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
-            position: relative;
-            z-index: 10;
-        }
+    .edu-card:hover {
+        transform: rotateY(5deg) scale(1.03);
+        box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
+        position: relative;
+        z-index: 10;
+    }
 
     body {
         background-color: #121212;
+    }
+
+    /* Optional: tighten accordion spacing on dark bg */
+    .accordion-button {
+        box-shadow: none !important;
+    }
+    .accordion-button:not(.collapsed) {
+        color: #fff;
     }
 </style>
