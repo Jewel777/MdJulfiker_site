@@ -4,119 +4,310 @@
     ViewData["Title"] = "Education";
 }
 
-<div class="container mt-5 mb-5">
-    <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Education</h2>
+<div class="container py-5">
+    <h2 class="page-title text-center fw-bold mb-4 text-warning">Education</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center g-4">
+        <div class="col-12 col-lg-10">
 
+            <!-- ======================= -->
             <!-- M.S. in Computer Science -->
-            <div class="edu-card mb-4">
-                <h5 class="fw-semibold text-light">M.S. in Computer Science</h5>
+            <!-- ======================= -->
+            <section class="edu-card glass border-gradient mb-4">
+                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                    <h5 class="m-0 text-light fw-semibold">M.S. in Computer Science</h5>
+                    <div class="chips">
+                        <span class="chip">Cybersecurity</span>
+                        <span class="chip">AI/ML</span>
+                        <span class="chip">Systems</span>
+                    </div>
+                </header>
+
                 <p class="text-light mb-1">
                     <strong>
-                        <a href="https://wvstateu.edu/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
+                        <a href="https://wvstateu.edu/" target="_blank" rel="noopener" class="link-highlight">
                             West Virginia State University
                         </a>
                     </strong> — Institute, WV, USA
                 </p>
-
-                <p class="text-light mb-1"><strong>Graduated:</strong> Dec 2024</p>
-                <p class="text-light mb-3"><strong>GPA:</strong> 3.82/4.0</p>
-
-                <p class="text-light mb-1">
-                    <strong>Academic Advisor &amp; Research Supervisor:</strong>
-                    <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
-                        Dr. Ali Al-Sinayyid
-                    </a>
-                </p>
-                <p class="text-light mb-3">
-                    <strong>Co-Supervisor:</strong>
-                    <span class="text-warning">Dr. Heng Wu</span>
-                    <span class="text-secondary">(in memoriam)</span>
-                </p>
-
-                <!-- Funding / Grants -->
-                <div class="mb-3">
-                    <h6 class="text-light mb-2">Funding &amp; Grants</h6>
-                    <ul class="text-light mb-0 tight-list">
-                        <li>Worked under the HBCU R&amp;D Grant in Cybersecurity &amp; AI research</li>
-                        <li>Worked under the WV State Cybersecurity Grant</li>
-                    </ul>
+                <div class="meta small text-light-65 mb-3">
+                    <span><strong>Graduated:</strong> Dec 2024</span>
+                    <span class="mx-2">•</span>
+                    <span><strong>GPA:</strong> 3.82/4.0</span>
                 </div>
 
-                <!-- Coursework -->
-                <div class="mb-3">
-                    <h6 class="text-light mb-2">Graduate Coursework</h6>
-                    <ul class="text-light tight-list mb-3">
-                        <li>Theory of Computation</li>
-                        <li>Parallel &amp; Distributed Computing</li>
-                        <li>Computer Graphics</li>
-                        <li>Analysis of Algorithms</li>
-                        <li>Advanced Computer Architecture</li>
-                        <li>Computer Security</li>
-                        <li>Advanced Operating Systems</li>
-                        <li>Advanced Database Management Systems</li>
-                        <li>Advanced Cybersecurity (Special Topics)</li>
-                    </ul>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <h6 class="section-title">Advisors</h6>
+                        <p class="text-light mb-1">
+                            <strong>Academic Advisor &amp; Research Supervisor:</strong>
+                            <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" rel="noopener" class="link-highlight">
+                                Dr. Ali Al-Sinayyid
+                            </a>
+                        </p>
+                        <p class="text-light m-0">
+                            <strong>Co-Supervisor:</strong>
+                            <span class="text-warning">Dr. Heng Wu</span>
+                            <span class="text-secondary">(in memoriam)</span>
+                        </p>
+                    </div>
 
-                    <h6 class="text-light mb-2">Transfer Courses (University of Memphis)</h6>
-                    <ul class="text-light tight-list mb-0">
-                        <li>Machine Learning</li>
-                        <li>Foundations of Software Engineering</li>
-                        <li>Human–Computer Interaction</li>
-                    </ul>
+                    <div class="col-12 col-md-6">
+                        <h6 class="section-title">Funding &amp; Grants</h6>
+                        <ul class="tight-list text-light m-0">
+                            <li>Worked under the HBCU R&amp;D Grant in Cybersecurity &amp; AI research</li>
+                            <li>Worked under the WV State Cybersecurity Grant</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Internships -->
-                <div>
-                    <h6 class="text-light mb-2">Internship Experience</h6>
-                    <p class="text-light mb-0">Internship in Computer Science (3 terms): Spring 2023, Summer 2024, Fall 2024</p>
-                </div>
-            </div>
+                <hr class="divider my-4" />
 
-            <!-- B.Sc. in Computer Science and Engineering -->
-            <div class="edu-card">
-                <h5 class="fw-semibold text-light">B.Sc. in Computer Science and Engineering</h5>
+                <div class="row g-3">
+                    <div class="col-12 col-md-7">
+                        <h6 class="section-title">Graduate Coursework</h6>
+                        <ul class="course-grid text-light tight-list mb-3">
+                            <li>Theory of Computation</li>
+                            <li>Parallel &amp; Distributed Computing</li>
+                            <li>Computer Graphics</li>
+                            <li>Analysis of Algorithms</li>
+                            <li>Advanced Computer Architecture</li>
+                            <li>Computer Security</li>
+                            <li>Advanced Operating Systems</li>
+                            <li>Advanced Database Management Systems</li>
+                            <li>Advanced Cybersecurity (Special Topics)</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <h6 class="section-title">Transfer Courses (University of Memphis)</h6>
+                        <ul class="course-grid text-light tight-list mb-3">
+                            <li>Machine Learning</li>
+                            <li>Foundations of Software Engineering</li>
+                            <li>Human–Computer Interaction</li>
+                        </ul>
+
+                        <h6 class="section-title">Internship Experience</h6>
+                        <p class="text-light mb-0">Internship in Computer Science (3 terms): Spring 2023, Summer 2024, Fall 2024</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================ -->
+            <!-- B.Sc. in Computer Science and Engineering (DIU) -->
+            <!-- ================================================ -->
+            <section class="edu-card glass border-gradient">
+                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                    <h5 class="m-0 text-light fw-semibold">B.Sc. in Computer Science &amp; Engineering</h5>
+                    <div class="chips">
+                        <span class="chip">CSE</span>
+                        <span class="chip">Embedded/Networks</span>
+                        <span class="chip">Software Eng</span>
+                    </div>
+                </header>
+
                 <p class="text-light mb-1">
                     <strong>
-                        <a href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
+                        <a href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener" class="link-highlight">
                             Daffodil International University
                         </a>
                     </strong> — Dhaka, Bangladesh
                 </p>
-                <p class="text-light mb-1"><strong>Graduated:</strong> Mar 2019</p>
-                <p class="text-light mb-0">
-                    <strong>Supervisor:</strong>
-                    <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
-                        Dr. Nazmun Nessa Moon
-                    </a>
-                </p>
-            </div>
+                <div class="meta small text-light-65 mb-3">
+                    <span><strong>Graduated:</strong> Mar 2019</span>
+                    <span class="mx-2">•</span>
+                    <span><strong>Supervisor:</strong>
+                        <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" rel="noopener" class="link-highlight">
+                            Dr. Nazmun Nessa Moon
+                        </a>
+                    </span>
+                </div>
+
+                <!-- Preview + Toggle -->
+                <h6 class="section-title mb-2">Undergraduate Coursework</h6>
+
+                <!-- Optional short preview (keeps card compact) -->
+                <ul class="course-grid text-light tight-list mb-2">
+                    <li>Data Structure</li>
+                    <li>Algorithms</li>
+                    <li>Database Management System</li>
+                    <li>Operating Systems</li>
+                    <li>Computer Networks</li>
+                    <li>Object Oriented Programming</li>
+                    <li>Computer Architecture &amp; Organization</li>
+                    <li>Software Engineering</li>
+                </ul>
+
+                <div class="collapse" id="bsAllCourses">
+                    <ul class="course-grid text-light tight-list mt-2">
+                        <li>Computer Fundamentals</li>
+                        <li>Mathematics-I: Differential and Integral Calculus</li>
+                        <li>Basic Functional English and English Spoken</li>
+                        <li>Physics-I: Mechanics, Heat and Thermodynamics, Waves &amp; Oscillations, Optics</li>
+                        <li>Mathematics-II: Complex Variable, Linear Algebra and Coordinate Geometry</li>
+                        <li>Programming and Problem Solving</li>
+                        <li>Problem Solving Lab</li>
+                        <li>Physics-II: Electricity, Magnetism and Modern Physics</li>
+                        <li>Physics-II Lab</li>
+                        <li>Writing and Comprehension</li>
+                        <li>Discrete Mathematics</li>
+                        <li>Electrical Circuits</li>
+                        <li>Electrical Circuits Lab</li>
+                        <li>Data Structure</li>
+                        <li>Data Structure Lab</li>
+                        <li>Ordinary and Partial Differential Equations</li>
+                        <li>Engineering Mathematics</li>
+                        <li>Digital Electronics</li>
+                        <li>Digital Electronics Lab</li>
+                        <li>Object Oriented Programming</li>
+                        <li>Object Oriented Programming Lab</li>
+                        <li>Bangladesh Studies</li>
+                        <li>Algorithms</li>
+                        <li>Algorithms Lab</li>
+                        <li>Statistics and Probability</li>
+                        <li>Electronic Devices and Circuits</li>
+                        <li>Electronic Devices and Circuits Lab</li>
+                        <li>Microprocessor and Assembly Language</li>
+                        <li>Microprocessor and Assembly Language Lab</li>
+                        <li>Data Communication</li>
+                        <li>Numerical Methods</li>
+                        <li>Introduction to Bio-Informatics</li>
+                        <li>Database Management System</li>
+                        <li>Database Management System Lab</li>
+                        <li>Computer Networks</li>
+                        <li>Computer Networks Lab</li>
+                        <li>Economics</li>
+                        <li>System Analysis and Design</li>
+                        <li>Computer Architecture and Organization</li>
+                        <li>Operating Systems</li>
+                        <li>Operating Systems Lab</li>
+                        <li>Art of Effective Living</li>
+                        <li>Compiler Design</li>
+                        <li>Compiler Design Lab</li>
+                        <li>Software Engineering</li>
+                        <li>Wireless Programming</li>
+                        <li>Financial and Managerial Accounting</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Artificial Intelligence Lab</li>
+                        <li>Simulation and Modeling</li>
+                        <li>Simulation and Modeling Lab</li>
+                        <li>Web Engineering</li>
+                        <li>Web Engineering Lab</li>
+                        <li>Computer Graphics</li>
+                        <li>Computer Graphics Lab</li>
+                        <li>Embedded Systems</li>
+                        <li>Digital Image Processing</li>
+                        <li>Data Mining</li>
+                        <li>Social and Professional Issues in Computing</li>
+                        <li>Project</li>
+                    </ul>
+                </div>
+
+                <div class="d-flex">
+                    <button class="btn btn-sm btn-outline-warning rounded-pill ms-auto"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#bsAllCourses"
+                            aria-expanded="false" aria-controls="bsAllCourses" id="toggleCoursesBtn">
+                        Show all courses
+                    </button>
+                </div>
+
+                <hr class="divider my-4" />
+
+                <h6 class="section-title mb-2">Additional Coursework <span class="text-light-65">(SIAS International University, China)</span></h6>
+                <ul class="course-grid text-light tight-list mb-1">
+                    <li>Elementary Chinese Comprehensive I</li>
+                    <li>Elementary Chinese Speaking I</li>
+                    <li>Elementary Chinese Listening I</li>
+                    <li>Chinese Character I</li>
+                </ul>
+                <p class="text-light-65 small m-0"><em>Total: 16 credits accepted</em></p>
+            </section>
 
         </div>
     </div>
 </div>
 
 <style>
-    .edu-card {
-        background-color: #222831;
-        color: #eeeeee;
-        padding: 25px;
-        border-radius: 16px;
-        margin-bottom: 20px;
-        box-shadow: 0 6px 18px rgba(255, 106, 0, 0.25);
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        will-change: transform, box-shadow;
-    }
-    .edu-card:hover {
-        transform: rotateY(5deg) scale(1.03);
-        box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
-        position: relative;
-        z-index: 10;
+    :root{
+        --card-bg: #1f2430;
+        --card-edge: rgba(255,106,0,.45);
+        --text-65: rgba(238,238,238,.75);
     }
     body { background-color: #121212; }
 
-    /* Tighten bullets for cleaner look */
-    .tight-list li { margin-bottom: 4px; }
+    .page-title{ letter-spacing:.3px; }
+
+    .glass{
+        background: linear-gradient(180deg, rgba(34,40,49,.75), rgba(34,40,49,.92));
+        backdrop-filter: blur(6px);
+    }
+    .border-gradient{
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,.08);
+        box-shadow: 0 6px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 24px var(--card-edge);
+        padding: 24px;
+        transition: transform .35s ease, box-shadow .35s ease;
+        will-change: transform, box-shadow;
+    }
+    .border-gradient:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 40px var(--card-edge);
+    }
+
+    .section-title{
+        color:#fff;
+        font-weight:600;
+        margin-bottom:.35rem;
+    }
+
+    .divider{
+        border:0;
+        height:1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+    }
+
+    .chips .chip{
+        display:inline-block;
+        font-size:.75rem;
+        color:#111;
+        background: linear-gradient(180deg, #ffc76a, #ffae38);
+        border-radius:999px;
+        padding:.25rem .6rem;
+        font-weight:600;
+        box-shadow: 0 2px 8px rgba(255,174,56,.35);
+        margin-left:.25rem;
+    }
+
+    .link-highlight{
+        color:#ffca68;
+        text-decoration:underline;
+        text-underline-offset:2px;
+    }
+    .text-light-65{ color: var(--text-65); }
+
+    /* lists */
+    .tight-list li{ margin-bottom: .35rem; }
+    .course-grid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 6px 22px;
+        padding-left: 18px; /* aligns bullets nicely */
+    }
+    @media (min-width: 768px){
+        .course-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1200px){
+        .course-grid{ grid-template-columns: 1fr 1fr; }
+    }
 </style>
+
+<script>
+    // Toggle button label for the B.Sc. course collapse
+    (function(){
+        var btn = document.getElementById('toggleCoursesBtn');
+        var target = document.getElementById('bsAllCourses');
+        if(btn && target){
+            target.addEventListener('shown.bs.collapse', function(){ btn.textContent = 'Hide full list'; });
+            target.addEventListener('hidden.bs.collapse', function(){ btn.textContent = 'Show all courses'; });
+        }
+    })();
+</script>
