@@ -7,13 +7,15 @@
 
     <!-- Preview + Download Buttons -->
     <div class="text-center mb-4 d-flex flex-wrap gap-3 justify-content-center">
-        <!-- Preview (opens in new tab) -->
-        <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
-           class="btn btn-lg btn-outline-warning fw-bold shadow px-4 py-3 rounded-pill"
-           target="_blank" rel="noopener"
-           aria-label="Preview Resume in a new tab">
+        <!-- Preview (opens Bootstrap modal) -->
+        <button
+            id="openPreviewBtn"
+            class="btn btn-lg btn-outline-warning fw-bold shadow px-4 py-3 rounded-pill"
+            data-bs-toggle="modal"
+            data-bs-target="#resumeModal"
+            aria-label="Preview Resume in a modal">
             👁️ Preview Resume
-        </a>
+        </button>
 
         <!-- Download (forces save) -->
         <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
@@ -24,28 +26,7 @@
         </a>
     </div>
 
-    <!-- ====== Optional Inline Preview (remove if you don't want it) ====== -->
-    <div class="resume-viewer card border-0 shadow-lg mx-auto mb-5">
-        <div class="card-header bg-transparent d-flex align-items-center justify-content-between">
-            <span class="text-warning fw-semibold">Inline Preview</span>
-            <a class="small text-decoration-none"
-               href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
-               target="_blank" rel="noopener">
-               Open in new tab ↗
-            </a>
-        </div>
-        <div class="card-body p-0">
-            <div class="pdf-responsive">
-                <iframe
-                    title="Resume PDF Preview"
-                    src="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")#view=FitH"
-                    loading="lazy"></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- ====== /Optional Inline Preview ====== -->
-
-    <!-- ====== Stats / Counters Section ====== -->
+    <!-- ====== Stats / Counters Section (optional) ====== -->
     <section class="container text-center my-5" aria-label="Career Highlights">
         <div class="row g-4 justify-content-center">
             <div class="col-6 col-md-4">
@@ -68,7 +49,6 @@
             </div>
         </div>
     </section>
-    <!-- ====== /Stats Section ====== -->
 
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -104,7 +84,33 @@
     </div>
 </div>
 
-<!-- Styles for Resume -->
+<!-- ====== Modal for PDF Preview ====== -->
+<div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-lg-down modal-xl">
+    <div class="modal-content bg-dark text-light border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-warning" id="resumeModalLabel">Resume Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="pdf-responsive">
+            <!-- We set src dynamically when modal opens so it doesn't preload -->
+            <iframe id="resumeFrame" title="Resume PDF Preview" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="modal-footer border-0 d-flex justify-content-between">
+        <small class="text-muted">Tip: Use your browser’s print or download controls in the preview.</small>
+        <a href="@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")"
+           class="btn btn-gradient-warning text-dark fw-bold rounded-pill"
+           target="_blank" download>
+            📄 Download PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Styles -->
 <style>
     :root {
         --card-bg: #222831;
@@ -169,30 +175,17 @@
     }
     .text-light-50 { color: rgba(255,255,255,0.75); }
 
-    /* Improve focus styles for accessibility */
-    .btn:focus-visible, a:focus-visible, button:focus-visible {
-        outline: 2px solid #00e1ff;
-        outline-offset: 2px;
-        border-radius: 12px;
-    }
-
-    /* Inline PDF viewer */
-    .resume-viewer {
-        max-width: 980px;
-        border-radius: 16px;
-        overflow: hidden;
-        background: #0f141b;
-    }
-    .resume-viewer .card-header {
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    /* Modal PDF */
     .pdf-responsive {
         position: relative;
         width: 100%;
-        padding-top: 130%; /* aspect ratio for mobile; adjust as needed */
+        height: calc(100vh - 200px); /* tall on desktop */
         background: #0b0f14;
     }
-    .pdf-responsive iframe {
+    @media (max-width: 991.98px) {
+        .pdf-responsive { height: 70vh; } /* shorter on mobile/tablet */
+    }
+    #resumeFrame {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -200,42 +193,52 @@
         border: 0;
     }
 
-    /* Give parent perspective so card rotation looks natural */
-    .container { perspective: 1000px; }
+    /* Focus styles for a11y */
+    .btn:focus-visible, a:focus-visible, button:focus-visible {
+        outline: 2px solid #00e1ff;
+        outline-offset: 2px;
+        border-radius: 12px;
+    }
 </style>
 
-<!-- Counter animation -->
+<!-- Scripts: Lazy-load the PDF into the modal only when opened -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const counters = document.querySelectorAll('.counter');
+    var modalEl = document.getElementById('resumeModal');
+    var frame = document.getElementById('resumeFrame');
+    var pdfUrl = '@Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf")#view=FitH';
 
-  function animate(el) {
-    const target = Number(el.dataset.target || 0);
-    const duration = 1200; // ms
-    const start = 0;
-    const startTime = performance.now();
-
-    function step(now) {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const value = Math.floor(start + (target - start) * progress);
-      el.textContent = value.toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animate(entry.target);
-          obs.unobserve(entry.target);
+    modalEl.addEventListener('shown.bs.modal', function () {
+        if (!frame.getAttribute('src')) {
+            frame.setAttribute('src', pdfUrl);
         }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(c => io.observe(c));
-  } else {
-    counters.forEach(animate);
-  }
+    });
+
+    // Clear src when closing to free memory (optional)
+    modalEl.addEventListener('hidden.bs.modal', function () {
+        frame.setAttribute('src', '');
+    });
+
+    // Counter animation (unchanged)
+    const counters = document.querySelectorAll('.counter');
+    function animate(el) {
+      const target = Number(el.dataset.target || 0);
+      const duration = 1200;
+      const startTime = performance.now();
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        el.textContent = Math.floor(target * progress).toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { animate(entry.target); obs.unobserve(entry.target); } });
+      }, { threshold: 0.6 });
+      counters.forEach(c => io.observe(c));
+    } else {
+      counters.forEach(animate);
+    }
 });
 </script>
