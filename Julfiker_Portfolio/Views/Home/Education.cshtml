@@ -6,14 +6,14 @@
 <div class="container py-5">
     <h2 class="page-title text-center fw-bold mb-4 text-warning">Education</h2>
 
-    <div class="row justify-content-center g-4">
+    <div class="row justify-content-center g-3">
         <div class="col-12 col-lg-10">
 
             <!-- ======================= -->
             <!-- M.S. in Computer Science -->
             <!-- ======================= -->
             <section class="edu-card glass border-gradient mb-4">
-                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
                     <h5 class="m-0 text-light fw-semibold">M.S. in Computer Science</h5>
                     <div class="chips">
                         <span class="chip">Cybersecurity</span>
@@ -30,7 +30,7 @@
                     </strong> — Institute, WV, USA
                 </p>
 
-                <div class="meta small text-light-65 mb-3">
+                <div class="meta small text-light-65 mb-2 border-top-soft pt-2">
                     <span><strong>Graduated:</strong> Dec 2024</span>
                     <span class="mx-2">•</span>
                     <span><strong>GPA:</strong> 3.82/4.0</span>
@@ -61,12 +61,12 @@
                     </div>
                 </div>
 
-                <hr class="divider my-4" />
+                <hr class="divider my-3" />
 
                 <div class="row g-3">
                     <div class="col-12 col-md-7">
                         <h6 class="section-title">Graduate Coursework</h6>
-                        <ul class="course-grid text-light tight-list mb-3">
+                        <ul class="course-grid text-light tight-list mb-2">
                             <li>Theory of Computation</li>
                             <li>Parallel &amp; Distributed Computing</li>
                             <li>Computer Graphics</li>
@@ -79,8 +79,8 @@
                         </ul>
                     </div>
                     <div class="col-12 col-md-5">
-                        <h6 class="section-title">Transfer Courses (University of Memphis)</h6>
-                        <ul class="course-grid text-light tight-list mb-3">
+                        <h6 class="section-title section-title-accent">Transfer Courses (University of Memphis)</h6>
+                        <ul class="course-grid text-light tight-list mb-2">
                             <li>Machine Learning</li>
                             <li>Foundations of Software Engineering</li>
                             <li>Human–Computer Interaction</li>
@@ -96,7 +96,7 @@
             <!-- B.Sc. in Computer Science and Engineering (DIU) -->
             <!-- ================================================ -->
             <section class="edu-card glass border-gradient">
-                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                <header class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-1">
                     <h5 class="m-0 text-light fw-semibold">B.Sc. in Computer Science &amp; Engineering</h5>
                     <div class="chips">
                         <span class="chip">CSE</span>
@@ -112,7 +112,7 @@
                         </a>
                     </strong> — Dhaka, Bangladesh
                 </p>
-                <div class="meta small text-light-65 mb-3">
+                <div class="meta small text-light-65 mb-2 border-top-soft pt-2">
                     <span><strong>Graduated:</strong> Mar 2019</span>
                     <span class="mx-2">•</span>
                     <span><strong>Supervisor:</strong>
@@ -122,8 +122,8 @@
                     </span>
                 </div>
 
-                <h6 class="section-title mb-2">Undergraduate Coursework (All Courses)</h6>
-                <ul class="course-grid text-light tight-list mb-3">
+                <h6 class="section-title mb-1">Undergraduate Coursework (All Courses)</h6>
+                <ul class="course-grid text-light tight-list mb-2">
                     <li>Computer Fundamentals</li>
                     <li>Mathematics-I: Differential and Integral Calculus</li>
                     <li>Basic Functional English and English Spoken</li>
@@ -186,7 +186,7 @@
                     <li>Project</li>
                 </ul>
 
-                <h6 class="section-title mb-2">Additional Coursework <span class="text-light-65">(SIAS International University, China)</span></h6>
+                <h6 class="section-title section-title-accent mb-1">Additional Coursework (SIAS International University, China)</h6>
                 <ul class="course-grid text-light tight-list mb-1">
                     <li>Elementary Chinese Comprehensive I</li>
                     <li>Elementary Chinese Speaking I</li>
@@ -204,45 +204,77 @@
     :root{
         --card-edge: rgba(255,106,0,.45);
         --text-65: rgba(238,238,238,.75);
+        --accent: #ffca68;         /* warm highlight */
+        --accent-strong: #ffc76a;  /* stronger for headlines */
     }
     body { background-color: #121212; }
     .page-title{ letter-spacing:.3px; }
 
     .glass{
-        background: linear-gradient(180deg, rgba(34,40,49,.75), rgba(34,40,49,.92));
+        background: linear-gradient(180deg, rgba(34,40,49,.78), rgba(34,40,49,.95));
         backdrop-filter: blur(6px);
     }
     .border-gradient{
         border-radius: 18px;
         border: 1px solid rgba(255,255,255,.08);
         box-shadow: 0 6px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 24px var(--card-edge);
-        padding: 24px;
-        transition: transform .35s ease, box-shadow .35s ease;
+        padding: 20px; /* tighter */
+        transition: transform .25s ease, box-shadow .25s ease;
         will-change: transform, box-shadow;
     }
     .border-gradient:hover{
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 40px var(--card-edge);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 36px var(--card-edge);
     }
 
-    .section-title{ color:#fff; font-weight:600; margin-bottom:.35rem; }
-    .divider{ border:0; height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); }
-
-    .chips .chip{
-        display:inline-block; font-size:.75rem; color:#111;
-        background: linear-gradient(180deg, #ffc76a, #ffae38);
-        border-radius:999px; padding:.25rem .6rem; font-weight:600;
-        box-shadow: 0 2px 8px rgba(255,174,56,.35); margin-left:.25rem;
+    /* Headings & links */
+    .section-title{
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .95rem;        /* bigger */
+        letter-spacing: .6px;
+        margin-bottom: .35rem;
     }
-    .link-highlight{ color:#ffca68; text-decoration:underline; text-underline-offset:2px; }
+    .section-title-accent{
+        color: var(--accent-strong); /* different color for keyword headings */
+    }
+    .link-highlight{ color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
     .text-light-65{ color: var(--text-65); }
+    .border-top-soft{ border-top: 1px solid rgba(255,255,255,.09); }
 
-    /* lists */
-    .tight-list li{ margin-bottom: .35rem; }
+    /* Chips — lighter, modern */
+    .chips .chip{
+        display:inline-block;
+        font-size:.75rem;
+        color:#ffae38;
+        border:1px solid #ffae38;
+        background:transparent;
+        border-radius:999px;
+        padding:.2rem .6rem;
+        font-weight:500;
+        margin-left:.25rem;
+    }
+
+    /* Paragraph & list spacing — tighter for readability */
+    .edu-card p{ margin-bottom:.4rem; } /* was larger */
+    .tight-list li{ margin-bottom:.25rem; }
+
+    /* Course lists: denser, always two columns on md+ */
     .course-grid{
-        display:grid; grid-template-columns: 1fr; gap: 6px 22px; padding-left: 18px;
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 4px 26px;
+        padding-left: 18px; /* bullet indent */
     }
     @@media (min-width: 768px){
         .course-grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Divider — slimmer */
+    .divider{
+        border:0;
+        height:1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
     }
 </style>
