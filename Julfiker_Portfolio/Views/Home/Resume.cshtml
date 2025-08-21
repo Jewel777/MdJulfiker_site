@@ -182,7 +182,8 @@
         height: calc(100vh - 200px); /* tall on desktop */
         background: #0b0f14;
     }
-    @media (max-width: 991.98px) {
+    /* IMPORTANT: escape Razor here */
+    @@media (max-width: 991.98px) {
         .pdf-responsive { height: 70vh; } /* shorter on mobile/tablet */
     }
     #resumeFrame {
@@ -219,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
         frame.setAttribute('src', '');
     });
 
-    // Counter animation (unchanged)
+    // Counter animation
     const counters = document.querySelectorAll('.counter');
     function animate(el) {
       const target = Number(el.dataset.target || 0);
