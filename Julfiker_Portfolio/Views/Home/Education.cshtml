@@ -30,15 +30,14 @@
                     </strong> — Institute, WV, USA
                 </p>
 
-                <div class="meta small text-light-65 mb-2 border-top-soft pt-2">
+                <!-- GPA removed; tightened spacing -->
+                <div class="meta small text-light-65 mb-1 border-top-soft pt-2">
                     <span><strong>Graduated:</strong> Dec 2024</span>
-                    <span class="mx-2">•</span>
-                    <span><strong>GPA:</strong> 3.82/4.0</span>
                 </div>
 
-                <div class="row g-3">
+                <div class="row gx-3 gy-2"><!-- smaller gaps -->
                     <div class="col-12 col-md-6">
-                        <h6 class="section-title">Advisors</h6>
+                        <h6 class="section-title-gradient">Advisors</h6>
                         <p class="text-light mb-1">
                             <strong>Academic Advisor &amp; Research Supervisor:</strong>
                             <a href="https://wvstateu.edu/college-of-natural-sciences-and-mathematics/author/ali-alsinayyid/" target="_blank" rel="noopener" class="link-highlight">
@@ -53,7 +52,7 @@
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <h6 class="section-title">Funding &amp; Grants</h6>
+                        <h6 class="section-title-gradient">Funding &amp; Grants</h6>
                         <ul class="tight-list text-light m-0">
                             <li>Worked under the HBCU R&amp;D Grant in Cybersecurity &amp; AI research</li>
                             <li>Worked under the WV State Cybersecurity Grant</li>
@@ -63,9 +62,9 @@
 
                 <hr class="divider my-3" />
 
-                <div class="row g-3">
+                <div class="row gx-3 gy-2">
                     <div class="col-12 col-md-7">
-                        <h6 class="section-title">Graduate Coursework</h6>
+                        <h6 class="section-title-gradient">Graduate Coursework</h6>
                         <ul class="course-grid text-light tight-list mb-2">
                             <li>Theory of Computation</li>
                             <li>Parallel &amp; Distributed Computing</li>
@@ -79,14 +78,14 @@
                         </ul>
                     </div>
                     <div class="col-12 col-md-5">
-                        <h6 class="section-title section-title-accent">Transfer Courses (University of Memphis)</h6>
+                        <h6 class="section-title-gradient">Transfer Courses (University of Memphis)</h6>
                         <ul class="course-grid text-light tight-list mb-2">
                             <li>Machine Learning</li>
                             <li>Foundations of Software Engineering</li>
                             <li>Human–Computer Interaction</li>
                         </ul>
 
-                        <h6 class="section-title">Internship Experience</h6>
+                        <h6 class="section-title-gradient">Internship Experience</h6>
                         <p class="text-light mb-0">Internship in Computer Science (3 terms): Spring 2023, Summer 2024, Fall 2024</p>
                     </div>
                 </div>
@@ -112,7 +111,8 @@
                         </a>
                     </strong> — Dhaka, Bangladesh
                 </p>
-                <div class="meta small text-light-65 mb-2 border-top-soft pt-2">
+
+                <div class="meta small text-light-65 mb-1 border-top-soft pt-2">
                     <span><strong>Graduated:</strong> Mar 2019</span>
                     <span class="mx-2">•</span>
                     <span><strong>Supervisor:</strong>
@@ -122,7 +122,7 @@
                     </span>
                 </div>
 
-                <h6 class="section-title mb-1">Undergraduate Coursework (All Courses)</h6>
+                <h6 class="section-title-gradient mb-1">Undergraduate Coursework (All Courses)</h6>
                 <ul class="course-grid text-light tight-list mb-2">
                     <li>Computer Fundamentals</li>
                     <li>Mathematics-I: Differential and Integral Calculus</li>
@@ -186,7 +186,7 @@
                     <li>Project</li>
                 </ul>
 
-                <h6 class="section-title section-title-accent mb-1">Additional Coursework (SIAS International University, China)</h6>
+                <h6 class="section-title-gradient mb-1">Additional Coursework (SIAS International University, China)</h6>
                 <ul class="course-grid text-light tight-list mb-1">
                     <li>Elementary Chinese Comprehensive I</li>
                     <li>Elementary Chinese Speaking I</li>
@@ -204,77 +204,78 @@
     :root{
         --card-edge: rgba(255,106,0,.45);
         --text-65: rgba(238,238,238,.75);
-        --accent: #ffca68;         /* warm highlight */
-        --accent-strong: #ffc76a;  /* stronger for headlines */
+        --accent1: #ffae38;
+        --accent2: #ff6a00;
     }
     body { background-color: #121212; }
     .page-title{ letter-spacing:.3px; }
 
     .glass{
-        background: linear-gradient(180deg, rgba(34,40,49,.78), rgba(34,40,49,.95));
+        background: linear-gradient(180deg, rgba(34,40,49,.80), rgba(34,40,49,.96));
         backdrop-filter: blur(6px);
     }
     .border-gradient{
         border-radius: 18px;
         border: 1px solid rgba(255,255,255,.08);
         box-shadow: 0 6px 24px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 24px var(--card-edge);
-        padding: 20px; /* tighter */
+        padding: 18px; /* tighter */
         transition: transform .25s ease, box-shadow .25s ease;
         will-change: transform, box-shadow;
     }
     .border-gradient:hover{
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 36px var(--card-edge);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 34px var(--card-edge);
     }
 
-    /* Headings & links */
-    .section-title{
-        color: var(--accent);
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: .95rem;        /* bigger */
-        letter-spacing: .6px;
-        margin-bottom: .35rem;
-    }
-    .section-title-accent{
-        color: var(--accent-strong); /* different color for keyword headings */
-    }
-    .link-highlight{ color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .link-highlight{ color: var(--accent1); text-decoration: underline; text-underline-offset: 2px; }
     .text-light-65{ color: var(--text-65); }
     .border-top-soft{ border-top: 1px solid rgba(255,255,255,.09); }
 
-    /* Chips — lighter, modern */
+    /* Gradient keyword headings */
+    .section-title-gradient{
+        font-size: .95rem;        /* bigger, per request */
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .55px;
+        margin-bottom: .25rem;    /* tighter */
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Chips — lighter */
     .chips .chip{
         display:inline-block;
-        font-size:.75rem;
-        color:#ffae38;
-        border:1px solid #ffae38;
+        font-size:.72rem;
+        color: var(--accent1);
+        border:1px solid var(--accent1);
         background:transparent;
         border-radius:999px;
-        padding:.2rem .6rem;
-        font-weight:500;
+        padding:.18rem .55rem;
+        font-weight:600;
         margin-left:.25rem;
     }
 
-    /* Paragraph & list spacing — tighter for readability */
-    .edu-card p{ margin-bottom:.4rem; } /* was larger */
-    .tight-list li{ margin-bottom:.25rem; }
+    /* Tighter text and list spacing overall */
+    .edu-card p{ margin-bottom:.30rem; }
+    .tight-list li{ margin-bottom:.22rem; }
 
-    /* Course lists: denser, always two columns on md+ */
+    /* Course lists: dense grid, mobile->1col, md+->2col */
     .course-grid{
         display:grid;
         grid-template-columns: 1fr;
-        gap: 4px 26px;
+        gap: 4px 24px;
         padding-left: 18px; /* bullet indent */
     }
     @@media (min-width: 768px){
         .course-grid{ grid-template-columns: 1fr 1fr; }
     }
 
-    /* Divider — slimmer */
+    /* Slim divider */
     .divider{
         border:0;
         height:1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
     }
 </style>
