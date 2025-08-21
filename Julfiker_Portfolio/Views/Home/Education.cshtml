@@ -39,59 +39,33 @@
                 <!-- Funding / Grants -->
                 <div class="mb-3">
                     <h6 class="text-light mb-2">Funding &amp; Grants</h6>
-                    <ul class="text-light mb-0">
-                        <li>HBCU R&amp;D Funding (Cybersecurity &amp; AI research)</li>
-                        <li>WV State Cybersecurity Grant</li>
+                    <ul class="text-light mb-0 tight-list">
+                        <li>Worked under the HBCU R&amp;D Grant in Cybersecurity &amp; AI research</li>
+                        <li>Worked under the WV State Cybersecurity Grant</li>
                     </ul>
                 </div>
 
-                <!-- Coursework (collapsible) -->
+                <!-- Coursework -->
                 <div class="mb-3">
                     <h6 class="text-light mb-2">Graduate Coursework</h6>
+                    <ul class="text-light tight-list mb-3">
+                        <li>Theory of Computation</li>
+                        <li>Parallel &amp; Distributed Computing</li>
+                        <li>Computer Graphics</li>
+                        <li>Analysis of Algorithms</li>
+                        <li>Advanced Computer Architecture</li>
+                        <li>Computer Security</li>
+                        <li>Advanced Operating Systems</li>
+                        <li>Advanced Database Management Systems</li>
+                        <li>Advanced Cybersecurity (Special Topics)</li>
+                    </ul>
 
-                    <div class="accordion" id="msCoursework">
-                        <div class="accordion-item bg-transparent border-0">
-                            <h2 class="accordion-header" id="cwCoreHead">
-                                <button class="accordion-button collapsed bg-dark text-light" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cwCore" aria-expanded="false" aria-controls="cwCore">
-                                    Core &amp; Advanced Courses
-                                </button>
-                            </h2>
-                            <div id="cwCore" class="accordion-collapse collapse" aria-labelledby="cwCoreHead" data-bs-parent="#msCoursework">
-                                <div class="accordion-body text-light">
-                                    <ul class="mb-0">
-                                        <li>Theory of Computation</li>
-                                        <li>Parallel &amp; Distributed Computing</li>
-                                        <li>Computer Graphics</li>
-                                        <li>Analysis of Algorithms</li>
-                                        <li>Advanced Computer Architecture</li>
-                                        <li>Computer Security</li>
-                                        <li>Advanced Operating Systems</li>
-                                        <li>Advanced Database Management Systems</li>
-                                        <li>Advanced Cybersecurity (Special Topics)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item bg-transparent border-0 mt-2">
-                            <h2 class="accordion-header" id="cwTransferHead">
-                                <button class="accordion-button collapsed bg-dark text-light" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cwTransfer" aria-expanded="false" aria-controls="cwTransfer">
-                                    Transfer Courses (University of Memphis)
-                                </button>
-                            </h2>
-                            <div id="cwTransfer" class="accordion-collapse collapse" aria-labelledby="cwTransferHead" data-bs-parent="#msCoursework">
-                                <div class="accordion-body text-light">
-                                    <ul class="mb-0">
-                                        <li>Machine Learning</li>
-                                        <li>Foundations of Software Engineering</li>
-                                        <li>Human–Computer Interaction</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h6 class="text-light mb-2">Transfer Courses (University of Memphis)</h6>
+                    <ul class="text-light tight-list mb-0">
+                        <li>Machine Learning</li>
+                        <li>Foundations of Software Engineering</li>
+                        <li>Human–Computer Interaction</li>
+                    </ul>
                 </div>
 
                 <!-- Internships -->
@@ -112,7 +86,7 @@
                     </strong> — Dhaka, Bangladesh
                 </p>
                 <p class="text-light mb-1"><strong>Graduated:</strong> Mar 2019</p>
-                <p class="text-light">
+                <p class="text-light mb-0">
                     <strong>Supervisor:</strong>
                     <a href="https://faculty.daffodilvarsity.edu.bd/profile/cse/nazmun-nessa-moon.html" target="_blank" rel="noopener" class="text-warning text-decoration-underline">
                         Dr. Nazmun Nessa Moon
@@ -135,23 +109,14 @@
         transition: transform 0.4s ease, box-shadow 0.4s ease;
         will-change: transform, box-shadow;
     }
-
     .edu-card:hover {
         transform: rotateY(5deg) scale(1.03);
         box-shadow: 0 14px 28px rgba(255, 106, 0, 0.5);
         position: relative;
         z-index: 10;
     }
+    body { background-color: #121212; }
 
-    body {
-        background-color: #121212;
-    }
-
-    /* Optional: tighten accordion spacing on dark bg */
-    .accordion-button {
-        box-shadow: none !important;
-    }
-    .accordion-button:not(.collapsed) {
-        color: #fff;
-    }
+    /* Tighten bullets for cleaner look */
+    .tight-list li { margin-bottom: 4px; }
 </style>
