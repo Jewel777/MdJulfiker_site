@@ -11,6 +11,23 @@
             <span class="badge bg-warning text-dark ms-2">Ongoing</span><br />
             Developing real-time defensive models using ML/DL (Random Forest, LSTM, CNN) with SHAP-based explainability and Optuna hyperparameter tuning.
         </li>
+   <li class="research-item">
+  <strong>AI Security for Public-Health Surveillance: Robust Detection & Defense on CDC Case Surveillance</strong>
+  <span class="badge bg-warning text-dark ms-2">Ongoing</span>
+  <div class="mt-1 small text-light">
+    Policy-simple, auditable pipeline on monthly CDC state×month counts:
+    <span class="badge bg-secondary ms-1">Per-state 5–95% winsorization</span>
+    <span class="badge bg-secondary ms-1">Rolling MAD</span>
+    <span class="badge bg-secondary ms-1">YoY Residual-MAD</span>
+    <span class="badge bg-secondary ms-1">EWMA</span>.
+    Produces baseline / attacked / defended streams, heatmaps, |z| distributions, and
+    sensitivity sweeps over <em>W∈{4,6,8}</em>, <em>k∈{2.0,2.5,3.0}</em>.
+    Results (W=6, k=2.5): <strong>−24.5% alert load</strong> (220→166) with
+    <strong>74.1% sensitivity retention</strong> and <strong>p95(|z|) 3.665/3.688→3.031</strong>.
+    FOIA-compatible run manifests; no PHI/PII (server-side aggregation via CDC Open Data).
+  </div>
+</li>
+
 
         <li class="research-item">
             <strong>Multimodal Large Language Model (LLM) Research</strong>
