@@ -1,4 +1,3 @@
-
 @{
     ViewData["Title"] = "Publications";
 }
@@ -16,142 +15,257 @@
 
     <ul class="list-group list-group-flush shadow-lg rounded-4">
 
-<li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
-    <span class="text-info fw-semibold">
-        “Advancing AI: Exploring the Potentials of Multimodal Large Language Models”
-    </span><br />
-    <span class="text-secondary">
-        Presented to CSCI’24 — Published in Springer Nature 
-        (<a href="https://link.springer.com/chapter/10.1007/978-3-031-94937-1_15" 
-            target="_blank" class="text-warning text-decoration-none">View Publication</a>)
-    </span>
-
-    <!-- Collapsible Abstract -->
-    <div class="mt-2">
-        <a class="text-warning small fw-semibold" data-bs-toggle="collapse" href="#abstract-mllm" 
-           role="button" aria-expanded="false" aria-controls="abstract-mllm">
-            📖 Read Abstract
-        </a>
-        <div class="collapse mt-2" id="abstract-mllm">
-            <p class="text-light small">
-                <strong>Abstract:</strong> Recently, the advent of multimodal large language models (MLLMs) 
-                which integrate text with other modalities such as images, audio, and video, promise to 
-                revolutionize various fields ranging from natural language processing to computer vision and 
-                beyond. However, while MLLMs have shown remarkable performance across a wide range of tasks, 
-                their inner workings remain largely opaque, presenting significant challenges in terms of 
-                interpretability, robustness, and ethical considerations. This paper investigates the next 
-                frontier in artificial intelligence research: understanding multimodal large language models. 
-                We explore the architecture and applications of MLLMs, shedding light on their capabilities 
-                and limitations. By delving into the intricacies of multimodal large language models, this 
-                paper aims to show the potential use of LLM in biomedical and advanced machine learning 
-                algorithms to extract valuable features and improve the prediction accuracy of clinical 
-                analysis. Therefore, it will pave the way for future research directions and facilitate the 
-                development of more transparent, equitable, and trustworthy AI systems.
-            </p>
-            <a class="text-warning small fw-semibold" data-bs-toggle="collapse" href="#abstract-mllm" 
-               role="button" aria-expanded="true" aria-controls="abstract-mllm">
-                🔽 Read Less
-            </a>
-        </div>
-    </div>
-</li>
-
-        <!-- Publication Item -->
+        <!-- 1) Multimodal LLMs (Springer) -->
         <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
-            <a href="#abstract1" data-bs-toggle="collapse" class="text-info fw-semibold text-decoration-none d-block">
+            <span class="text-info fw-semibold">
+                “Advancing AI: Exploring the Potentials of Multimodal Large Language Models”
+            </span><br />
+            <span class="text-secondary">
+                Presented to CSCI’24 — Published in Springer Nature
+                (<a href="https://link.springer.com/chapter/10.1007/978-3-031-94937-1_15"
+                    target="_blank" class="text-warning text-decoration-none">View Publication</a>)
+            </span>
+
+            <!-- Collapsible Abstract -->
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-mllm" role="button" aria-expanded="false"
+                   aria-controls="abstract-mllm">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-mllm">
+                    <p class="text-light small mb-3">
+                        <strong>Abstract:</strong> Recently, the advent of multimodal large language models (MLLMs)
+                        which integrate text with other modalities such as images, audio, and video, promise to
+                        revolutionize various fields ranging from natural language processing to computer vision and
+                        beyond. However, while MLLMs have shown remarkable performance across a wide range of tasks,
+                        their inner workings remain largely opaque, presenting significant challenges in terms of
+                        interpretability, robustness, and ethical considerations. This paper investigates the next
+                        frontier in artificial intelligence research: understanding multimodal large language models.
+                        We explore the architecture and applications of MLLMs, shedding light on their capabilities and
+                        limitations. By delving into the intricacies of multimodal large language models, this paper
+                        aims to show the potential use of LLM in biomedical and advanced machine learning algorithms to
+                        extract valuable features and improve the prediction accuracy of clinical analysis. Therefore,
+                        it will pave the way for future research directions and facilitate the development of more
+                        transparent, equitable, and trustworthy AI systems.
+                    </p>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-mllm" role="button" aria-expanded="true"
+                       aria-controls="abstract-mllm">
+                        🔽 Read Less
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <!-- 2) River LSTM (IEEE Xplore) -->
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <span class="text-info fw-semibold d-block">
                 “Reinforcing a Monitoring System of a Regulated River using LSTM”
-            </a>
+            </span>
             <span class="text-secondary">ICAI'23 and CSCE'23 — Published in IEEE Xplore</span>
 
-            <!-- Collapsible Abstract -->
-            <div class="collapse mt-2" id="abstract1">
-                <div class="text-light small">
-                    <strong>Abstract—</strong> Accurate methods predicting flow in a river require high performance computing systems providing only short-term early warnings. To address these limitations, we propose an optimized Long Short Term Memory layer combined with a Fully connected layer within a six-layer architecture to estimate flows based on readings of three neighboring river gage heights. This study assessed the number of cells in the LSTM and the number of neurons in the Fully connected layer as well as the probability in the Dropout layer to avoid overfitting. Identification of the best settings by means of the RMSE evaluated six different input datasets to estimate flow. Our study proved that relying on the river gage height from neighboring sensors is possible to predict flow which is crucial when a sensor may fail and a reliable neural network at low computational cost can handle that.
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-river" role="button" aria-expanded="false"
+                   aria-controls="abstract-river">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-river">
+                    <div class="text-light small mb-3">
+                        <strong>Abstract—</strong> Accurate methods predicting flow in a river require high performance
+                        computing systems providing only short-term early warnings. To address these limitations, we
+                        propose an optimized Long Short Term Memory layer combined with a Fully connected layer within a
+                        six-layer architecture to estimate flows based on readings of three neighboring river gage
+                        heights. This study assessed the number of cells in the LSTM and the number of neurons in the
+                        Fully connected layer as well as the probability in the Dropout layer to avoid overfitting.
+                        Identification of the best settings by means of the RMSE evaluated six different input datasets
+                        to estimate flow. Our study proved that relying on the river gage height from neighboring
+                        sensors is possible to predict flow which is crucial when a sensor may fail and a reliable
+                        neural network at low computational cost can handle that.
+                    </div>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-river" role="button" aria-expanded="true"
+                       aria-controls="abstract-river">
+                        🔽 Read Less
+                    </a>
                 </div>
             </div>
         </li>
 
-
-        <!-- Publication Item -->
-        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded" data-bs-toggle="collapse" data-bs-target="#abstract2" style="cursor: pointer;">
-            <a href="https://doi.org/10.1109/CSCE60160.2023.00095" target="_blank" class="text-info fw-semibold text-decoration-none d-block">
+        <!-- 3) 1D-CNN Prosthetics (IEEE Xplore) -->
+        <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
+            <span class="text-info fw-semibold d-block">
                 “Intelligent Upper Limbs Prosthetics with 1D Convolutional Neural Networks and Quick Training”
-            </a>
-            <span class="text-secondary">BIOENG'23 and CSCE'23 — Published in IEEE Xplore</span>
+            </span>
+            <span class="text-secondary">
+                BIOENG'23 and CSCE'23 — Published in IEEE Xplore
+                (<a href="https://doi.org/10.1109/CSCE60160.2023.00095" target="_blank"
+                    class="text-warning text-decoration-none">View Publication</a>)
+            </span>
 
-            <!-- Collapsible Abstract -->
-            <div class="collapse mt-2" id="abstract2">
-                <div class="text-light small">
-                    <strong>Abstract—</strong> Upper limb amputation can severely restrict the mobility and ability of amputees to perform daily activities. In addressing this issue, deep learning algorithms and electromyography pattern recognition have emerged as promising clinical solutions for functional upper-limb prosthetics. This article presents the use of EMG sensors to capture muscle movement signals and applies the pattern recognition function of a 1D convolutional neural network to identify these signals and control the movement of prosthetics. Experimental results demonstrate that the convolutional neural network exhibits fast training and high-precision recognition capabilities enabling it to accurately identify muscle signals and effectively control prosthetic movements.
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-prosthetics" role="button" aria-expanded="false"
+                   aria-controls="abstract-prosthetics">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-prosthetics">
+                    <div class="text-light small mb-3">
+                        <strong>Abstract—</strong> Upper limb amputation can severely restrict the mobility and ability
+                        of amputees to perform daily activities. In addressing this issue, deep learning algorithms and
+                        electromyography pattern recognition have emerged as promising clinical solutions for functional
+                        upper-limb prosthetics. This article presents the use of EMG sensors to capture muscle movement
+                        signals and applies the pattern recognition function of a 1D convolutional neural network to
+                        identify these signals and control the movement of prosthetics. Experimental results demonstrate
+                        that the convolutional neural network exhibits fast training and high-precision recognition
+                        capabilities enabling it to accurately identify muscle signals and effectively control prosthetic
+                        movements.
+                    </div>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-prosthetics" role="button" aria-expanded="true"
+                       aria-controls="abstract-prosthetics">
+                        🔽 Read Less
+                    </a>
                 </div>
             </div>
         </li>
 
-
+        <!-- 4) Phishing (IEEE Xplore) -->
         <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
-            <a href="https://doi.org/10.1109/CSCI62032.2023.00145" target="_blank" class="text-info fw-semibold text-decoration-none">
+            <span class="text-info fw-semibold d-block">
                 “Defending Characteristics and Attribution Analysis for Phishing Attacks”
-            </a><br />
-            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
- <!-- Collapsible Abstract -->
-            <div class="collapse mt-2" id="abstract1">
-                <div class="text-light small">
-                    <strong>Abstract—</strong>In recent years, phishing attacks have become widespread cyber threats affecting people, governments, private sectors, service providers, and internet users globally. Attackers collect personal information about the targeted victims through emails or fake websites, such as user account login details, bank card numbers, etc. The victim is manipulated using a combination of technical and social engineering techniques. This paper provides a review of recent existing research on various phishing attacks, including HTTPS phishing, spear phishing, whale phishing, pop-up phishing, and email spoofing hacking. It also explores how to identify such attacks using Artificial Intelligence (AI) techniques, including Machine Learning and Deep Learning. Additionally, the paper investigates the benefits and drawbacks of different defense approaches and provides an overview of the challenges related to phishing attack detection.
+            </span>
+            <span class="text-secondary">
+                CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore
+                (<a href="https://doi.org/10.1109/CSCI62032.2023.00145" target="_blank"
+                    class="text-warning text-decoration-none">View Publication</a>)
+            </span>
 
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-phishing" role="button" aria-expanded="false"
+                   aria-controls="abstract-phishing">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-phishing">
+                    <div class="text-light small mb-3">
+                        <strong>Abstract—</strong> In recent years, phishing attacks have become widespread cyber
+                        threats affecting people, governments, private sectors, service providers, and internet users
+                        globally. Attackers collect personal information about the targeted victims through emails or
+                        fake websites, such as user account login details, bank card numbers, etc. The victim is
+                        manipulated using a combination of technical and social engineering techniques. This paper
+                        provides a review of recent existing research on various phishing attacks, including HTTPS
+                        phishing, spear phishing, whale phishing, pop-up phishing, and email spoofing hacking. It also
+                        explores how to identify such attacks using Artificial Intelligence (AI) techniques, including
+                        Machine Learning and Deep Learning. Additionally, the paper investigates the benefits and
+                        drawbacks of different defense approaches and provides an overview of the challenges related to
+                        phishing attack detection.
+                    </div>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-phishing" role="button" aria-expanded="true"
+                       aria-controls="abstract-phishing">
+                        🔽 Read Less
+                    </a>
                 </div>
             </div>
         </li>
 
+        <!-- 5) IoT in Critical Infrastructure (IEEE Xplore) -->
         <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
-            <a href="https://doi.org/10.1109/CSCI62032.2023.00139" target="_blank" class="text-info fw-semibold text-decoration-none">
+            <span class="text-info fw-semibold d-block">
                 “A Literature Survey and Analysis of Defending Cyber Attacks Targeting IoT in Critical Infrastructure”
-            </a><br />
-            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+            </span>
+            <span class="text-secondary">
+                CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore
+                (<a href="https://doi.org/10.1109/CSCI62032.2023.00139" target="_blank"
+                    class="text-warning text-decoration-none">View Publication</a>)
+            </span>
+
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-iot" role="button" aria-expanded="false"
+                   aria-controls="abstract-iot">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-iot">
+                    <div class="text-light small mb-3">
+                        <em>Abstract coming soon.</em>
+                    </div>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-iot" role="button" aria-expanded="true"
+                       aria-controls="abstract-iot">
+                        🔽 Read Less
+                    </a>
+                </div>
+            </div>
         </li>
 
+        <!-- 6) Analytical Study (IEEE Xplore) -->
         <li class="list-group-item bg-dark text-light border border-warning mb-2 rounded">
-            <a href="https://doi.org/10.1109/CSCI62032.2023.00143" target="_blank" class="text-info fw-semibold text-decoration-none">
+            <span class="text-info fw-semibold d-block">
                 “Analytical Study of Cybersecurity Attacks and Defenses Characteristics”
-            </a><br />
-            <span class="text-secondary">CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore</span>
+            </span>
+            <span class="text-secondary">
+                CSCI’23 (CSCI-RTCW) — Published in IEEE Xplore
+                (<a href="https://doi.org/10.1109/CSCI62032.2023.00143" target="_blank"
+                    class="text-warning text-decoration-none">View Publication</a>)
+            </span>
+
+            <div class="mt-3">
+                <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                   data-bs-toggle="collapse" href="#abstract-analytical" role="button" aria-expanded="false"
+                   aria-controls="abstract-analytical">
+                    📖 Read Abstract
+                </a>
+
+                <div class="collapse mt-3" id="abstract-analytical">
+                    <div class="text-light small mb-3">
+                        <em>Abstract coming soon.</em>
+                    </div>
+                    <a class="btn btn-sm btn-gradient-warning text-dark fw-bold shadow px-4 py-2 rounded-pill"
+                       data-bs-toggle="collapse" href="#abstract-analytical" role="button" aria-expanded="true"
+                       aria-controls="abstract-analytical">
+                        🔽 Read Less
+                    </a>
+                </div>
+            </div>
         </li>
 
     </ul>
 </div>
 
 <style>
-    body {
-        background-color: #121212;
-    }
+    body { background-color: #121212; }
 
     .list-group-item {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-        .list-group-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
-            border-color: #ffc107;
-        }
-
-    .text-warning {
-        color: #ffc107 !important;
+    .list-group-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+        border-color: #ffc107;
     }
 
-    .text-info {
-        color: #03a9f4 !important;
-    }
-
-    .text-secondary {
-        color: #bbb !important;
-    }
+    .text-warning { color: #ffc107 !important; }
+    .text-info    { color: #03a9f4 !important; }
+    .text-secondary { color: #bbb !important; }
 
     .btn-outline-info:hover {
         background-color: #03a9f4;
         color: #fff;
     }
 
-    a.text-decoration-none:hover {
-        text-decoration: underline;
+    a.text-decoration-none:hover { text-decoration: underline; }
+
+    /* If not already defined globally */
+    .btn-gradient-warning {
+        background: linear-gradient(45deg, #ffd54f, #ffc107, #ff9800);
+        border: none;
     }
 </style>
