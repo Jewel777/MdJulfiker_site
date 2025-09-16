@@ -1,21 +1,27 @@
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Julfiker_Portfolio.Models;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using MimeKit;
-using MailKit.Net.Smtp;
 
 namespace Julfiker_Portfolio.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly EmailSettings _email;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IOptions<EmailSettings> emailOptions)
         {
             _logger = logger;
+            _email = emailOptions.Value;
         }
 
+        // Home hosts all sections (#home, #skills, ...)
         public IActionResult Index()
         {
             ViewData["Name"] = "Md Julfiker Ali Jewel";
@@ -23,68 +29,100 @@ namespace Julfiker_Portfolio.Controllers
             return View();
         }
 
-        public IActionResult Resume() => View();
-        public IActionResult Publications() => View();
-        public IActionResult Education() => View();
-        public IActionResult Skills() => View();
-        public IActionResult Experience() => View();
-        public IActionResult Projects() => View();
-        public IActionResult Research() => View();
+        // --- Legacy routes -> anchor redirects on Home ---
+        public IActionResult Resume()          => Redirect("/#resume");
+        public IActionResult Publications()    => Redirect("/#publications");
+        public IActionResult Education()       => Redirect("/#education");
+        public IActionResult Skills()          => Redirect("/#skills");
+        public IActionResult Experience()      => Redirect("/#experience");
+        public IActionResult Projects()        => Redirect("/#projects");
+        public IActionResult Research()        => Redirect("/#research");
+        public IActionResult Accomplishments() => Redirect("/#accomplishments");
+        public IActionResult Activities()      => Redirect("/#accomplishments");
+        public IActionResult Privacy()         => Redirect("/#privacy");
 
-        // ✅ Fixed: Load Accomplishments.cshtml correctly
-        public IActionResult Accomplishments()
-        {
-            return View();  // automatically looks for Views/Home/Accomplishments.cshtml
-        }
-
-        // ✅ Optional: Redirect old /Home/Activities to Accomplishments
-        public IActionResult Activities()
-        {
-            return RedirectToActionPermanent("Accomplishments");
-        }
-
-        public IActionResult Privacy() => View();
-
-        // GET: Contact Page
+        // GET: Contact (anchor on one-page)
         [HttpGet]
-        public IActionResult Contact()
-        {
-            return View();
-        }
+        public IActionResult Contact() => Redirect("/#contact");
 
-        // POST: Handle Contact Form Submission
+        // POST: Contact form
         [HttpPost]
-        public IActionResult Contact(string Name, string Email, string Message)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact(
+            [FromForm] string Name,
+            [FromForm] string Email,
+            [FromForm] string Message,
+            // Honeypot field named "Website" (must be empty)
+            [FromForm(Name = "Website")] string Honey = ""
+        )
         {
+            // Honeypot: bots often fill hidden fields
+            if (!string.IsNullOrWhiteSpace(Honey))
+            {
+                TempData["SuccessMessage"] = "Thanks!"; // silently succeed
+                return Redirect("/#contact");
+            }
+
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(Name) ||
+                string.IsNullOrWhiteSpace(Email) ||
+                string.IsNullOrWhiteSpace(Message))
+            {
+                TempData["ErrorMessage"] = "Please fill in your name, email, and message.";
+                return Redirect("/#contact");
+            }
+
             try
             {
-                var emailMessage = new MimeMessage();
-                emailMessage.From.Add(new MailboxAddress(Name, Email)); // Visitor info
-                emailMessage.To.Add(new MailboxAddress("Md Julfiker Ali Jewel", "yourreceiveremail@example.com")); // <-- Replace with YOUR receiving email
-                emailMessage.Subject = $"New Portfolio Contact Form Submission from {Name}";
-                emailMessage.Body = new TextPart("plain")
-                {
-                    Text = $"Name: {Name}\nEmail: {Email}\n\nMessage:\n{Message}"
-                };
+                var msg = new MimeMessage();
 
-                using (var client = new SmtpClient())
+                // IMPORTANT: From must be YOUR mailbox (DMARC/SPF safe)
+                msg.From.Add(new MailboxAddress(
+                    string.IsNullOrWhiteSpace(_email.FromName) ? "Portfolio Contact" : _email.FromName,
+                    _email.FromEmail));
+
+                // Where you want to receive messages
+                msg.To.Add(new MailboxAddress(
+                    string.IsNullOrWhiteSpace(_email.ToName) ? "Md Julfiker Ali Jewel" : _email.ToName,
+                    _email.ToEmail));
+
+                // Let replies go back to the visitor
+                msg.ReplyTo.Add(new MailboxAddress(Name, Email));
+
+                msg.Subject = $"New Portfolio Contact from {Name}";
+
+                var builder = new BodyBuilder
                 {
-                    client.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls); // Gmail SMTP
-                    client.Authenticate("yourreceiveremail@example.com", "your-app-password"); // <-- Use your Gmail app password
-                    client.Send(emailMessage);
-                    client.Disconnect(true);
+                    TextBody = $"Name: {Name}\nEmail: {Email}\n\nMessage:\n{Message}",
+                    HtmlBody =
+                        $"<p><strong>Name:</strong> {System.Net.WebUtility.HtmlEncode(Name)}</p>" +
+                        $"<p><strong>Email:</strong> {System.Net.WebUtility.HtmlEncode(Email)}</p>" +
+                        $"<p><strong>Message:</strong><br/>{System.Net.WebUtility.HtmlEncode(Message).Replace("\n", "<br/>")}</p>"
+                };
+                msg.Body = builder.ToMessageBody();
+
+                using var client = new SmtpClient();
+                var useSsl = _email.UseSsl; // true = SSL on connect (465), false = StartTLS (587)
+                await client.ConnectAsync(_email.Host, _email.Port, useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTls);
+
+                if (!string.IsNullOrEmpty(_email.User))
+                {
+                    await client.AuthenticateAsync(_email.User, _email.Password);
                 }
 
-                TempData["SuccessMessage"] = "Thank you, " + Name + "! Your message has been sent successfully.";
-                _logger.LogInformation("Contact form email sent by {Name} ({Email})", Name, Email);
+                await client.SendAsync(msg);
+                await client.DisconnectAsync(true);
+
+                TempData["SuccessMessage"] = $"Thank you, {Name}! Your message has been sent.";
+                _logger.LogInformation("Contact email sent by {Name} <{Email}>", Name, Email);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 _logger.LogError(ex, "Error sending contact form email.");
-                TempData["SuccessMessage"] = "Oops! Something went wrong. Please try again later.";
+                TempData["ErrorMessage"] = "Sorry—couldn’t send your message right now. Please try again later.";
             }
 
-            return RedirectToAction("Contact");
+            return Redirect("/#contact");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
