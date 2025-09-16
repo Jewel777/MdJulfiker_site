@@ -9,20 +9,17 @@
     <meta name="description" content="Md Julfiker Ali Jewel Portfolio Website" />
     <title>@ViewData["Title"] - Md Julfiker Ali Jewel Portfolio</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Bootstrap Icons -->
+    <!-- Icons / Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
-    <!-- Custom CSS (cache-busted) -->
-    <link href="~/css/site.css?v=7" rel="stylesheet" />
-    <!-- Favicon -->
+    <!-- Site CSS (cache-busted) -->
+    <link href="~/css/site.css?v=8" rel="stylesheet" />
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 
-    <!-- SEO: JSON-LD (Razor-safe with @@ escapes) -->
+    <!-- JSON-LD (Razor @@ escapes) -->
     <script type="application/ld+json">
     {
       "@@context":"https://schema.org",
@@ -31,10 +28,7 @@
       "url":"https://www.mdjulfikeralijewel.com",
       "image":"https://www.mdjulfikeralijewel.com/images/jewel-profile.jpg",
       "jobTitle":"Software Programmer Analyst",
-      "worksFor":{
-        "@@type":"Organization",
-        "name":"West Virginia Department of Health and Human Resources"
-      },
+      "worksFor":{"@@type":"Organization","name":"West Virginia Department of Health and Human Resources"},
       "sameAs":[
         "https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/",
         "https://x.com/JewelShaikh2",
@@ -48,58 +42,51 @@
 </head>
 
 <body class="liquid-body">
-
     <!-- Spinner -->
     <div id="loading-spinner" class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
 
-    <!-- Background layers -->
+    <!-- Particles backdrop -->
     <div id="particles-js"></div>
 
-    <div class="wrapper position-relative">
-
-        <!-- Navbar (anchors to #sections on Home) -->
-        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-warning" href="/#home">MJAJ</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item"><a class="nav-link" href="/#home"            data-nav="home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#skills"          data-nav="skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#education"       data-nav="education">Education</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#experience"      data-nav="experience">Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#publications"    data-nav="publications">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#accomplishments" data-nav="accomplishments">Accomplishments</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#projects"        data-nav="projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
-                        <li class="nav-item">
-                            <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid" href="/#contact" data-nav="contact">📩 Contact</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Navbar (anchors to sections) -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-warning" href="/#home">MJAJ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+              <ul class="navbar-nav text-center">
+                <li class="nav-item"><a class="nav-link" href="/#home"            data-nav="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#skills"          data-nav="skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#education"       data-nav="education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#experience"      data-nav="experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#publications"    data-nav="publications">Publications</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#accomplishments" data-nav="accomplishments">Accomplishments</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#projects"        data-nav="projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
+                <li class="nav-item">
+                  <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid" href="/#contact" data-nav="contact">📩 Contact</a>
+                </li>
+              </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Main content just hosts @RenderBody (Home is the long scroller) -->
-        <main class="main-content container-fluid px-3 px-md-4">
-            <div class="content-box glass liquid-card mx-auto">
-                 @RenderBody()
-            </div>
-        </main>
+    <!-- Main (no big glass wrapper: sections render directly) -->
+    <main class="main-content container-fluid px-3 px-md-4">
+        @RenderBody()
+    </main>
 
-        <!-- Footer -->
-        <footer class="glass-footer text-center py-3 mt-5">
-            <div class="container">
-                &copy; 2025 Md Julfiker Ali Jewel | <a href="/#privacy" class="footer-link">Privacy Policy</a>
-            </div>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="glass-footer text-center py-3 mt-5">
+        <div class="container">
+            &copy; 2025 Md Julfiker Ali Jewel | <a href="/#privacy" class="footer-link">Privacy Policy</a>
+        </div>
+    </footer>
 
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -109,78 +96,69 @@
     <!-- Spinner hide -->
     <script>
     (function () {
-      function hideSpinner() {
-        var s = document.getElementById('loading-spinner');
-        if (s) s.style.display = 'none';
-      }
+      function hideSpinner(){ var s=document.getElementById('loading-spinner'); if(s) s.style.display='none'; }
       document.addEventListener('DOMContentLoaded', hideSpinner);
       window.addEventListener('load', hideSpinner);
       setTimeout(hideSpinner, 2000);
     })();
     </script>
 
-    <!-- Particles (guarded) -->
+    <!-- Particles -->
     <script>
     try {
       particlesJS("particles-js", {
-        particles: {
-          number: { value: 65 },
-          size: { value: 2 },
-          move: { speed: 1.1 },
-          line_linked: { enable: true },
-          color: { value: "#ffffff" }
-        }
+        particles: { number:{ value:65 }, size:{ value:2 }, move:{ speed:1.1 },
+          line_linked:{ enable:true }, color:{ value:"#ffffff" } }
       });
-    } catch (e) { console.warn("Particles init failed:", e); }
+    } catch(e) { console.warn(e); }
     </script>
 
-    <!-- Typed.js (optional, only if #typed exists) -->
+    <!-- Typed.js (only if #typed exists) -->
     <script>
     (function () {
-      var typedTarget = document.getElementById('typed');
-      if (!typedTarget) return;
+      var el = document.getElementById('typed'); if(!el) return;
       try {
         new Typed('#typed', {
-          strings: [
-            'Software Programmer Analyst',
-            'Cybersecurity & AI Researcher',
-            'C#/.NET & SQL Developer',
-            'Building Secure, Scalable Systems'
-          ],
-          typeSpeed: 60, backSpeed: 40, loop: true
+          strings: ['Software Programmer Analyst','Cybersecurity & AI Researcher','C#/.NET & SQL Developer','Building Secure, Scalable Systems'],
+          typeSpeed:60, backSpeed:40, loop:true
         });
-      } catch (e) { console.warn("Typed init failed:", e); }
+      } catch(e){ console.warn(e); }
     })();
     </script>
 
-    <!-- One-page scroll-spy & smooth anchors -->
+    <!-- Scroll-spy (viewport-center), smooth anchors, mobile collapse, nav elevation -->
     <script>
     (function () {
-      // set CSS var for nav height
       var nav = document.getElementById('mainNavbar');
-      if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
-
-      var sections = Array.from(document.querySelectorAll('.page-section[id]'));
       var links = Array.from(document.querySelectorAll('#mainNavbar .nav-link[data-nav], #mainNavbar .btn[data-nav]'));
-      var linkById = {};
-      links.forEach(a => linkById[a.dataset.nav] = a);
+      var sections = Array.from(document.querySelectorAll('.page-section[id]'));
+      if (!nav || !links.length || !sections.length) return;
 
-      // highlight current section
-      var activeId = null;
-      var io = new IntersectionObserver(function (entries) {
-        var best = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
-        if (!best) return;
-        var id = best.target.id;
-        if (id === activeId) return;
-        activeId = id;
+      // expose nav height to CSS
+      document.documentElement.style.setProperty('--nav-h', (nav.offsetHeight || 92) + 'px');
+
+      var linkById = {}; links.forEach(a => linkById[a.dataset.nav] = a);
+
+      function setActive(id){
         links.forEach(l => l.classList.remove('active'));
         if (linkById[id]) linkById[id].classList.add('active');
         if (history.replaceState) history.replaceState(null, '', '#' + id);
-      }, { rootMargin: "-40% 0px -50% 0px", threshold: [0.25,0.5,0.75,1] });
+      }
 
-      sections.forEach(s => io.observe(s));
+      function currentSectionId(){
+        var middle = window.scrollY + window.innerHeight / 2;
+        var navH = nav.offsetHeight || 0;
+        var id = sections[0].id;
+        for (var i=0;i<sections.length;i++){
+          var s = sections[i]; var top = s.offsetTop;
+          if (top - navH <= middle) id = s.id; else break;
+        }
+        return id;
+      }
 
-      // smooth scroll + collapse mobile
+      function onScroll(){ setActive(currentSectionId()); }
+
+      // smooth anchor click with offset
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
           var href = a.getAttribute('href') || '';
@@ -188,31 +166,28 @@
           if (!hash) return;
           var target = document.getElementById(hash);
           if (!target) return;
+
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var y = target.getBoundingClientRect().top + window.pageYOffset - (nav.offsetHeight + 8);
+          window.scrollTo({ top: y, behavior: 'smooth' });
+
           var menu = document.getElementById('navbarContent');
-          if (menu && menu.classList.contains('show') && window.bootstrap) {
-            new bootstrap.Collapse(menu).hide();
-          }
+          if (menu && menu.classList.contains('show') && window.bootstrap) new bootstrap.Collapse(menu).hide();
         });
       });
 
-      // Fallback: support ?section=skills
-      var sp = new URLSearchParams(location.search);
-      var qsTarget = sp.get('section');
-      if (qsTarget) {
-        var el = document.getElementById(qsTarget);
-        if (el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth'}); }, 150);
-      }
-
-      // Elevation on scroll (optional)
+      // nav elevation
       var last = 0;
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function(){
         var y = window.scrollY || document.documentElement.scrollTop;
         if (y > 8 && last <= 8) nav.classList.add('scrolled');
         else if (y <= 8 && last > 8) nav.classList.remove('scrolled');
         last = y;
       }, { passive: true });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      document.addEventListener('DOMContentLoaded', onScroll);
     })();
     </script>
 
