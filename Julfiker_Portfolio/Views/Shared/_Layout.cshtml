@@ -18,7 +18,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
     <!-- Custom CSS (cache-busted) -->
-    <link href="~/css/site.css?v=6" rel="stylesheet" />
+    <link href="~/css/site.css?v=7" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 
@@ -48,78 +48,47 @@
 </head>
 
 <body class="liquid-body">
-    <!-- Spinner (visible briefly, then hidden by script) -->
+
+    <!-- Spinner -->
     <div id="loading-spinner" class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
 
     <!-- Background layers -->
-    <div class="bg-gradient"></div>
-    <div class="bg-blobs" aria-hidden="true"></div>
-
-    <!-- Particles Background (kept) -->
     <div id="particles-js"></div>
 
     <div class="wrapper position-relative">
 
-        <!-- Navbar -->
-        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar liquid-nav">
+        <!-- Navbar (anchors to #sections on Home) -->
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-warning" asp-controller="Home" asp-action="Index">MJAJ</a>
+                <a class="navbar-brand fw-bold text-warning" href="/#home">MJAJ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                    <ul class="navbar-nav text-center glass-tabs">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item"><a class="nav-link" href="/#home"            data-nav="home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#skills"          data-nav="skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#education"       data-nav="education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#experience"      data-nav="experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#publications"    data-nav="publications">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#accomplishments" data-nav="accomplishments">Accomplishments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#projects"        data-nav="projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
                         <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path == "/" || Context.Request.Path.StartsWithSegments("/Home/Index") ? "active" : "")"
-                               asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Skills") ? "active" : "")"
-                               asp-controller="Home" asp-action="Skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Education") ? "active" : "")"
-                               asp-controller="Home" asp-action="Education">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Experience") ? "active" : "")"
-                               asp-controller="Home" asp-action="Experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Publications") ? "active" : "")"
-                               asp-controller="Home" asp-action="Publications">Publications</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Accomplishments") ? "active" : "")"
-                               asp-controller="Home" asp-action="Accomplishments">Accomplishments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Projects") ? "active" : "")"
-                               asp-controller="Home" asp-action="Projects">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Research") ? "active" : "")"
-                               asp-controller="Home" asp-action="Research">Research</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.StartsWithSegments("/Home/Resume") ? "active" : "")"
-                               asp-controller="Home" asp-action="Resume">Resume</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid"
-                               asp-controller="Home" asp-action="Contact">📩 Contact</a>
+                            <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid" href="/#contact" data-nav="contact">📩 Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Main Content -->
+        <!-- Main content just hosts @RenderBody (Home is the long scroller) -->
         <main class="main-content container-fluid px-3 px-md-4">
-            <div class="content-box glass-card liquid-card mx-auto">
+            <div class="content-box glass liquid-card mx-auto">
                 @RenderBody()
             </div>
         </main>
@@ -127,17 +96,17 @@
         <!-- Footer -->
         <footer class="glass-footer text-center py-3 mt-5">
             <div class="container">
-                &copy; 2025 Md Julfiker Ali Jewel | <a asp-controller="Home" asp-action="Privacy" class="footer-link">Privacy Policy</a>
+                &copy; 2025 Md Julfiker Ali Jewel | <a href="/#privacy" class="footer-link">Privacy Policy</a>
             </div>
         </footer>
     </div>
 
-    <!-- JS Scripts -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    <!-- Spinner hide: robust & safe -->
+    <!-- Spinner hide -->
     <script>
     (function () {
       function hideSpinner() {
@@ -146,11 +115,11 @@
       }
       document.addEventListener('DOMContentLoaded', hideSpinner);
       window.addEventListener('load', hideSpinner);
-      setTimeout(hideSpinner, 2000); // final fallback
+      setTimeout(hideSpinner, 2000);
     })();
     </script>
 
-    <!-- Particles (kept, with guard) -->
+    <!-- Particles (guarded) -->
     <script>
     try {
       particlesJS("particles-js", {
@@ -162,37 +131,81 @@
           color: { value: "#ffffff" }
         }
       });
-    } catch (e) {
-      console.warn("Particles init failed:", e);
-    }
+    } catch (e) { console.warn("Particles init failed:", e); }
     </script>
 
-    <!-- Typed.js (guarded) -->
+    <!-- Typed.js (optional, only if #typed exists) -->
     <script>
     (function () {
       var typedTarget = document.getElementById('typed');
       if (!typedTarget) return;
       try {
-        var typed = new Typed('#typed', {
+        new Typed('#typed', {
           strings: [
             'Software Programmer Analyst',
             'Cybersecurity & AI Researcher',
             'C#/.NET & SQL Developer',
             'Building Secure, Scalable Systems'
           ],
-          typeSpeed: 60,
-          backSpeed: 40,
-          loop: true
+          typeSpeed: 60, backSpeed: 40, loop: true
         });
-      } catch (e) {
-        console.warn("Typed init failed:", e);
-      }
+      } catch (e) { console.warn("Typed init failed:", e); }
     })();
+    </script>
 
-    // Add subtle depth to navbar on scroll
+    <!-- One-page scroll-spy & smooth anchors -->
+    <script>
     (function () {
+      // set CSS var for nav height
       var nav = document.getElementById('mainNavbar');
-      if (!nav) return;
+      if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+
+      var sections = Array.from(document.querySelectorAll('.page-section[id]'));
+      var links = Array.from(document.querySelectorAll('#mainNavbar .nav-link[data-nav], #mainNavbar .btn[data-nav]'));
+      var linkById = {};
+      links.forEach(a => linkById[a.dataset.nav] = a);
+
+      // highlight current section
+      var activeId = null;
+      var io = new IntersectionObserver(function (entries) {
+        var best = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+        if (!best) return;
+        var id = best.target.id;
+        if (id === activeId) return;
+        activeId = id;
+        links.forEach(l => l.classList.remove('active'));
+        if (linkById[id]) linkById[id].classList.add('active');
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+      }, { rootMargin: "-40% 0px -50% 0px", threshold: [0.25,0.5,0.75,1] });
+
+      sections.forEach(s => io.observe(s));
+
+      // smooth scroll + collapse mobile
+      links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var href = a.getAttribute('href') || '';
+          var hash = href.includes('#') ? href.split('#')[1] : null;
+          if (!hash) return;
+          var target = document.getElementById(hash);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var menu = document.getElementById('navbarContent');
+          if (menu && menu.classList.contains('show') && window.bootstrap) {
+            new bootstrap.Collapse(menu).hide();
+          }
+        });
+      });
+
+      // Fallback: support ?section=skills
+      var sp = new URLSearchParams(location.search);
+      var qsTarget = sp.get('section');
+      if (qsTarget) {
+        var el = document.getElementById(qsTarget);
+        if (el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth'}); }, 150);
+      }
+
+      // Elevation on scroll (optional)
       var last = 0;
       window.addEventListener('scroll', function () {
         var y = window.scrollY || document.documentElement.scrollTop;
