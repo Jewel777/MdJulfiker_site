@@ -7,27 +7,36 @@
 <div class="container mt-5 mb-5">
     <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Accomplishments</h2>
 
-    <!-- 🔘 Filter Buttons -->
-    <div class="text-center mb-4">
-        <div class="btn-group" id="accomplishment-filter">
-            <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="certification">
-                Professional Training & Certifications
-            </button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="membership">
-                Professional Memberships
-            </button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer & Mentorship</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation & Talk</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">
-                Editor & Tech Reviewer
-            </button>
+    <!-- Filter (buttons on desktop, dropdown on mobile) -->
+    <div class="sticky-filter mb-4">
+        <!-- Desktop / tablet -->
+        <div class="text-center d-none d-md-block">
+            <div class="btn-group flex-wrap" id="accomplishment-filter-buttons" role="tablist" aria-label="Accomplishments filter">
+                <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="certification">Professional Training &amp; Certifications</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="membership">Professional Memberships</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
+            </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="d-md-none">
+            <label for="acFilterSelect" class="form-label visually-hidden">Filter accomplishments</label>
+            <select id="acFilterSelect" class="form-select form-select-lg">
+                <option value="all">Show All</option>
+                <option value="certification">Professional Training &amp; Certifications</option>
+                <option value="membership">Professional Memberships</option>
+                <option value="volunteer">Volunteer &amp; Mentorship</option>
+                <option value="presentation">Presentation &amp; Talk</option>
+                <option value="peerreview">Editor &amp; Tech Reviewer</option>
+            </select>
         </div>
     </div>
 
-    <!-- 🧾 Activities Section -->
+    <!-- 🧾 Activities Grid -->
     <div class="row g-4" id="accomplishment-grid">
-
         <!-- 🎤 Presentations & Talks -->
         <div class="col-md-6 presentation">
             <div class="activity-card">
@@ -380,28 +389,20 @@
     </div>
 </div>
 
-<!-- 🔧 Inline CSS kept (optional to move to site.css) -->
+<!-- Tiny styles just for this section -->
 <style>
     .activity-card {
         background-color: #1a1a1a;
         color: #f1f1f1;
         padding: 18px 22px;
         border-radius: 16px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0 4px 10px rgba(255, 106, 0, 0.1);
-        font-size: 1.05rem;
+        transition: transform .35s ease, box-shadow .35s ease;
+        box-shadow: 0 4px 10px rgba(255,106,0,.1);
         min-height: 170px;
     }
-    .activity-card:hover {
-        transform: rotateX(5deg) rotateY(5deg) scale(1.03);
-        box-shadow: 0 12px 25px rgba(255, 106, 0, 0.35);
-        z-index: 10;
-        position: relative;
-    }
-    .text-warning { color: #ff6a00 !important; }
-    .btn-group .btn.active {
-        background-color: #ff6a00;
-        color: #fff;
-        border-color: #ff6a00;
-    }
+    .activity-card:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 25px rgba(255,106,0,.35); }
+    .btn-group .btn.active { background-color: #ff6a00; color:#fff; border-color:#ff6a00; }
+
+    /* Keep the filter visible under your fixed navbar (uses --nav-h from site.css) */
+    .sticky-filter { position: sticky; top: calc(var(--nav-h, 72px) + 8px); z-index: 5; }
 </style>
