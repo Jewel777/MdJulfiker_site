@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v7) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v8) ===== */
 
 /* Tokens */
 :root{
@@ -6,8 +6,7 @@
   --accent:#00ff99; --accent-2:#00ccff;
   --glass:rgba(255,255,255,.08); --glass-strong:rgba(255,255,255,.14);
   --border:rgba(255,255,255,.22); --inner:rgba(255,255,255,.10);
-  --shadow:rgba(0,0,0,.35); --radius:22px;
-  --text:#e8ecf1; --nav-h:92px;
+  --shadow:rgba(0,0,0,.35); --radius:22px; --text:#e8ecf1; --nav-h:92px;
 }
 
 /* Base */
@@ -21,8 +20,8 @@
 }
 html{ scroll-behavior:smooth; }
 
-/* Particles under content */
-#particles-js{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+/* Particles behind content */
+#particles-js{ position:fixed; inset:0; z-index:0; pointer-events:none; }
 
 /* Spinner */
 .spinner-wrapper{
@@ -41,18 +40,8 @@ html{ scroll-behavior:smooth; }
   box-shadow:0 16px 40px var(--shadow), inset 0 1px 0 var(--inner);
   border-radius:var(--radius);
 }
-.liquid-card{ position:relative; overflow:hidden; }
-.liquid-card::after{
-  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
-  background:
-    radial-gradient(80px 40px at 10% 0%, rgba(255,255,255,.22), transparent 60%),
-    radial-gradient(120px 60px at 60% -10%, rgba(255,255,255,.16), transparent 60%),
-    radial-gradient(100px 50px at 95% 5%, rgba(255,255,255,.10), transparent 70%);
-  filter: blur(12px); animation: caustics 10s ease-in-out infinite alternate; opacity:.35;
-}
-@keyframes caustics{ 0%{ transform:translateY(0) translateX(0) } 100%{ transform:translateY(6px) translateX(4px) } }
 
-/* Navbar */
+/* Navbar (green liquid glass) */
 .glass-navbar{
   background: linear-gradient(180deg, rgba(0,255,153,.20), rgba(0,204,255,.08));
   backdrop-filter: blur(16px) saturate(125%); -webkit-backdrop-filter: blur(16px) saturate(125%);
@@ -80,11 +69,21 @@ html{ scroll-behavior:smooth; }
 .main-content{ padding-top: var(--nav-h); padding-bottom:32px; }
 
 /* One-page sections */
-.page-section{
-  scroll-margin-top: calc(var(--nav-h) + 12px);
-  min-height: 100vh; display:flex; align-items:center; position:relative;
-}
+.page-section{ scroll-margin-top: calc(var(--nav-h) + 12px); min-height:100vh; display:flex; align-items:center; position:relative; }
 .section-title{ margin-top:0; margin-bottom:1rem; font-weight:700; }
+
+/* We removed the global content-box wrapper */
+.content-box{ background:none !important; box-shadow:none !important; border:0 !important; }
+
+/* Section cards a touch lighter */
+.page-section .glass{
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.10);
+  color:#e8ecf1;
+}
+
+/* Remove decorative separators if present */
+.page-section::before{ display:none; }
 
 /* Footer */
 .glass-footer{
@@ -94,25 +93,15 @@ html{ scroll-behavior:smooth; }
 }
 .footer-link{ color:#bfeeff; } .footer-link:hover{ color:#fff; }
 
-/* Chatbot + Scroll-top (optional UI you already had) */
-.chatbot-popup{
-  position:fixed; bottom:90px; right:20px; z-index:1000;
-  background: linear-gradient(45deg, #ff00cc, #3333ff); color:#fff; font-size:28px; width:60px; height:60px;
-  border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer;
-  box-shadow:0 0 20px #ff00cc; transition: transform .3s ease;
-}
+/* Optional: your floating buttons (keep if you use them) */
+.chatbot-popup{ position:fixed; bottom:90px; right:20px; z-index:1000; background: linear-gradient(45deg, #ff00cc, #3333ff); color:#fff; font-size:28px; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 20px #ff00cc; transition: transform .3s ease; }
 .chatbot-popup:hover{ transform:scale(1.1); }
-.scroll-top{
-  position:fixed; bottom:20px; right:100px; z-index:1000;
-  background:#ffc107; color:#000; font-size:30px; width:50px; height:50px; border-radius:50%;
-  text-align:center; line-height:50px; cursor:pointer; box-shadow:0 0 15px rgba(255,193,7,.7); transition: background .3s ease;
-}
+.scroll-top{ position:fixed; bottom:20px; right:100px; z-index:1000; background:#ffc107; color:#000; font-size:30px; width:50px; height:50px; border-radius:50%; text-align:center; line-height:50px; cursor:pointer; box-shadow:0 0 15px rgba(255,193,7,.7); transition: background .3s ease; }
 .scroll-top:hover{ background:#ff9800; }
 
 /* Responsive */
 @media (max-width:576px){
   :root{ --nav-h: 74px; }
-  .content-box{ padding:16px; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
 }
