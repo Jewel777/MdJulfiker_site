@@ -1,130 +1,204 @@
-/* ==== Updated and Finalized Styles with Green Navbar ==== */
+/* ==== Liquid Glass UI — Green Navbar (drop-in) ==== */
 
-/* Dark Mode Default */
-body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+/* ---------- Design Tokens ---------- */
+:root{
+  --bg-1:#0b0f1a;            /* deep navy */
+  --bg-2:#131a2a;            /* slate blue */
+  --accent:#00ff99;          /* neon green */
+  --accent-2:#00ccff;        /* cyan */
+  --glass:rgba(255,255,255,.08);
+  --glass-strong:rgba(255,255,255,.14);
+  --border:rgba(255,255,255,.22);
+  --inner:rgba(255,255,255,.10);
+  --shadow:rgba(0,0,0,.35);
+  --radius:22px;
+  --text:#ffffff;
 }
 
-/* Navbar Background Gradient */
-.glass-navbar {
-    background: linear-gradient(45deg, #0f0f0f, #1c1c1c);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* ---------- Base / Dark Mode ---------- */
+body{
+  background-color:#121212; /* fallback */
+  background:
+    radial-gradient(1200px 800px at 18% 12%, #1b2450 0%, transparent 55%),
+    radial-gradient(900px 700px at 80% 86%, #0e6655 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
 }
 
-/* Navbar Link Effects */
-.navbar-nav .nav-link {
-    transition: all 0.3s ease;
-    border-radius: 12px;
-    padding: 8px 16px;
-    color: #ffffff;
+/* Soft glow blobs without HTML changes */
+body::before, body::after{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-2;
+}
+body::before{
+  background:
+    radial-gradient(600px 400px at 15% 30%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(700px 500px at 85% 70%, rgba(255,255,255,.05), transparent 60%);
+}
+body::after{
+  --sz:55vmax;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(107,227,255,.45), rgba(107,227,255,0) 55%),
+    radial-gradient(circle at 70% 70%, rgba(255,209,102,.30), rgba(255,209,102,0) 55%);
+  width:var(--sz); height:var(--sz);
+  position:fixed; left:-10vmax; top:-10vmax;
+  filter:blur(80px); border-radius:50%; opacity:.32;
+  animation:floaty 24s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(-2%) translateX(0%)}50%{transform:translateY(2%) translateX(1%)}}
+
+/* ---------- Particles stays behind ---------- */
+#particles-js{
+  position:fixed; inset:0; z-index:-1; pointer-events:none;
 }
 
-.navbar-nav .nav-link:hover {
-    background: linear-gradient(45deg, #00ff99, #00ccff);
-    transform: scale(1.1);
-    color: #121212;
-    font-weight: 600;
-    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ccff;
+/* ---------- Spinner (glassy) ---------- */
+.spinner-wrapper{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  z-index:9999;
+  background: radial-gradient(600px 400px at 50% 40%, rgba(255,255,255,.06), rgba(0,0,0,.35));
+  backdrop-filter: blur(8px);
+}
+.spinner{
+  width:42px; height:42px; border-radius:50%;
+  border:3px solid rgba(255,255,255,.25);
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Liquid Glass Helpers ---------- */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  border:1px solid var(--border);
+  box-shadow:0 16px 40px var(--shadow), inset 0 1px 0 var(--inner);
+  border-radius:var(--radius);
 }
 
-/* Spinner Wrapper */
-.spinner-wrapper {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #121212;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ---------- NAVBAR: Green “Liquid Glass” ---------- */
+.glass-navbar{
+  background: linear-gradient(180deg,
+    rgba(0,255,153,.20), rgba(0,204,255,.08)
+  );
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  border-bottom:1px solid var(--border);
+  box-shadow: 0 10px 30px var(--shadow), inset 0 1px 0 var(--inner);
+  transition: box-shadow .25s ease, background .25s ease;
+}
+.glass-navbar.scrolled{
+  background: linear-gradient(180deg,
+    rgba(0,255,153,.26), rgba(0,204,255,.12)
+  );
 }
 
-/* Particle Background */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+/* Glass “pill” tabs */
+.navbar-nav .nav-link{
+  color:#ffffff;
+  border-radius:999px;
+  padding:8px 16px;
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+}
+.navbar-nav .nav-link:hover{
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  transform: translateY(-1px);
+  color:#121212;
+  font-weight:600;
+  box-shadow: 0 0 12px var(--accent), 0 0 18px var(--accent-2);
 }
 
-/* Chatbot Button */
-.chatbot-popup {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
-    color: white;
-    font-size: 28px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 0 20px #ff00cc;
-    z-index: 1000;
-    transition: transform 0.3s ease;
+/* Keep active white by default */
+.navbar-nav .nav-link.active{
+  color:#ffffff !important;
+  background: none !important;
+  font-weight:600;
+}
+/* …but glow on hover */
+.navbar-nav .nav-link.active:hover{
+  background: linear-gradient(45deg, var(--accent), var(--accent-2)) !important;
+  color:#121212 !important;
+  box-shadow: 0 0 12px var(--accent), 0 0 18px var(--accent-2);
 }
 
-.chatbot-popup:hover {
-    transform: scale(1.1);
+/* ---------- Main Content Card as Liquid Glass ---------- */
+/* Works with your existing .content-box wrapper from _Layout */
+.content-box{
+  max-width:1100px;
+  margin-inline:auto;
+  padding:24px;
+  border-radius:var(--radius);
+  background:
+    radial-gradient(1200px 800px at 0% -20%, rgba(255,255,255,.06), transparent 60%),
+    var(--glass);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border:1px solid var(--border);
+  box-shadow:0 16px 40px var(--shadow), inset 0 1px 0 var(--inner);
+  position:relative; overflow:hidden;
+}
+.content-box::after{ /* animated caustic highlights */
+  content:"";
+  position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  background:
+    radial-gradient(80px 40px at 10% 0%, rgba(255,255,255,.22), transparent 60%),
+    radial-gradient(120px 60px at 60% -10%, rgba(255,255,255,.16), transparent 60%),
+    radial-gradient(100px 50px at 95% 5%, rgba(255,255,255,.10), transparent 70%);
+  filter: blur(12px);
+  animation: caustics 10s ease-in-out infinite alternate;
+  opacity:.35;
+}
+@keyframes caustics{
+  0%{ transform: translateY(0) translateX(0) }
+  100%{ transform: translateY(6px) translateX(4px) }
 }
 
-/* Scroll To Top Button */
-.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 100px;
-    background: #ffc107;
-    color: black;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
-    z-index: 1000;
-    transition: background 0.3s ease;
+/* Space for fixed navbar */
+.main-content{ padding-top:92px; padding-bottom:32px; }
+
+/* ---------- Headings / Section Titles ---------- */
+h2, .section-title{
+  margin-top:140px;
+  font-weight:700;
 }
 
-.scroll-top:hover {
-    background: #ff9800;
+/* ---------- Footer: glassy stripe ---------- */
+footer{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color:#ccc; text-align:center; padding:20px 0;
+  border-top:1px solid var(--border);
 }
+footer a{ color:#bfeeff; }
+footer a:hover{ color:#fff; }
 
-/* Footer Style */
-footer {
-    background: #121212;
-    color: #ccc;
-    padding: 20px 0;
-    text-align: center;
+/* ---------- Chatbot + Scroll-to-top (kept) ---------- */
+.chatbot-popup{
+  position:fixed; bottom:90px; right:20px;
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  color:#fff; font-size:28px; width:60px; height:60px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; box-shadow:0 0 20px #ff00cc; z-index:1000;
+  transition: transform .3s ease;
 }
+.chatbot-popup:hover{ transform:scale(1.1); }
 
-/* Heading and Section Title Spacing */
-h2, .section-title {
-    margin-top: 140px;
-    font-weight: bold;
+.scroll-top{
+  position:fixed; bottom:20px; right:100px;
+  background:#ffc107; color:#000; font-size:30px; width:50px; height:50px;
+  border-radius:50%; text-align:center; line-height:50px; cursor:pointer;
+  box-shadow:0 0 15px rgba(255,193,7,.7); z-index:1000;
+  transition: background .3s ease;
 }
+.scroll-top:hover{ background:#ff9800; }
 
-/* Force navbar active link to stay white */
-.navbar-nav .nav-link.active {
-    color: #ffffff !important;
-    background: none !important;
-    font-weight: 600;
-}
-
-.navbar-nav .nav-link.active:hover {
-    background: linear-gradient(45deg, #00ff99, #00ccff);
-    color: #121212 !important;
-    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ccff;
+/* ---------- Responsive tweaks ---------- */
+@media (max-width:576px){
+  .content-box{ padding:16px; }
+  .navbar-nav .nav-link{ padding:.4rem .7rem; }
+  .scroll-top{ right:20px; }
 }
