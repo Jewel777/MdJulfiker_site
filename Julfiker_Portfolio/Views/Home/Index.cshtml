@@ -7,7 +7,6 @@
 <section id="home" class="page-section">
   <div class="container py-5">
     <div class="row align-items-center glass p-4 p-md-5 rounded-4">
-
       <!-- Profile -->
       <div class="col-md-4 text-center mb-4 mb-md-0">
         <img src="~/images/jewel-profile.jpg" alt="Md Julfiker Ali Jewel"
@@ -25,7 +24,6 @@
       <!-- About -->
       <div class="col-md-8 text-light text-md-start text-center">
         <h1 class="display-4 fw-bold text-warning mb-4"><span id="typed"></span></h1>
-
         <p class="lead">
           I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a <strong>Software Programmer Analyst</strong> at the
           <strong>West Virginia Department of Health and Human Resources (DHHR)</strong>. I design and ship
@@ -45,7 +43,6 @@
           <strong>BS in CSE</strong> from Daffodil International University (Bangladesh), including an academic
           exchange at <strong>SIAS International University</strong> (China).
         </p>
-
         <div class="mt-5">
           <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/#contact" role="button">📩 Get in Touch</a>
         </div>
@@ -135,21 +132,69 @@
   </div>
 </section>
 
-<!-- ===================== RESUME ===================== -->
+<!-- ===================== RESUME (Modal Preview) ===================== -->
 <section id="resume" class="page-section">
   <div class="container py-5">
     <div class="glass p-4 rounded-4">
-      @await Html.PartialAsync("~/Views/Home/Resume.cshtml")
+      <h2 class="section-title">Resume</h2>
+
+      <div class="d-flex flex-wrap gap-2">
+        <!-- Open in new tab (safest) -->
+        <a class="btn btn-warning"
+           href="~/files/Md_Julfiker_Ali_Jewel_Resume.pdf"
+           target="_blank" rel="noopener">
+          Open in new tab
+        </a>
+
+        <!-- In-page preview (modal) -->
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#resumePreview">
+          Preview here
+        </button>
+
+        <!-- Direct download -->
+        <a class="btn btn-outline-secondary"
+           href="~/files/Md_Julfiker_Ali_Jewel_Resume.pdf" download>
+          Download PDF
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== Resume Preview Modal ===== -->
+<div class="modal fade" id="resumePreview" tabindex="-1" aria-labelledby="resumePreviewLabel" aria-hidden="true"
+     data-bs-backdrop="true" data-bs-keyboard="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="resumePreviewLabel">Resume Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe
+          class="resume-iframe"
+          src="~/files/Md_Julfiker_Ali_Jewel_Resume.pdf#view=FitH&toolbar=1&navpanes=1"
+          title="Resume PDF"
+          loading="lazy"
+          referrerpolicy="no-referrer">
+        </iframe>
+      </div>
+      <div class="modal-footer border-0">
+        <a class="btn btn-warning"
+           href="~/files/Md_Julfiker_Ali_Jewel_Resume.pdf"
+           target="_blank" rel="noopener">
+          Open in new tab
+        </a>
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact" class="page-section">
   <div class="container py-5">
     <div class="glass p-4 rounded-4">
-      @* Use your existing Contact view markup *@
       @await Html.PartialAsync("~/Views/Home/Contact.cshtml")
     </div>
   </div>
