@@ -21,9 +21,7 @@ namespace Julfiker_Portfolio.Controllers
             _email = emailOptions.Value;
         }
 
-
-
-        // Home hosts all sections (#home, #skills, ...)
+        // One-page host
         public IActionResult Index()
         {
             ViewData["Name"] = "Md Julfiker Ali Jewel";
@@ -31,7 +29,7 @@ namespace Julfiker_Portfolio.Controllers
             return View();
         }
 
-        // --- Legacy routes -> anchor redirects on Home ---
+        // Legacy routes -> anchors on Home
         public IActionResult Resume()          => Redirect("/#resume");
         public IActionResult Publications()    => Redirect("/#publications");
         public IActionResult Education()       => Redirect("/#education");
@@ -43,32 +41,24 @@ namespace Julfiker_Portfolio.Controllers
         public IActionResult Activities()      => Redirect("/#accomplishments");
         public IActionResult Privacy()         => Redirect("/#privacy");
 
-        // GET: Contact (anchor on one-page)
         [HttpGet]
-        public IActionResult Contact() => Redirect("/#contact");
+        public IActionResult Contact()         => Redirect("/#contact");
 
-        // POST: Contact form
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact(
             [FromForm] string Name,
             [FromForm] string Email,
             [FromForm] string Message,
-            // Honeypot field named "Website" (must be empty)
-            [FromForm(Name = "Website")] string Honey = ""
+            [FromForm(Name="Website")] string Honey = "" // honeypot
         )
         {
-            // Honeypot: bots often fill hidden fields
             if (!string.IsNullOrWhiteSpace(Honey))
             {
-                TempData["SuccessMessage"] = "Thanks!"; // silently succeed
+                TempData["SuccessMessage"] = "Thanks!";
                 return Redirect("/#contact");
             }
-
-            // Basic validation
-            if (string.IsNullOrWhiteSpace(Name) ||
-                string.IsNullOrWhiteSpace(Email) ||
-                string.IsNullOrWhiteSpace(Message))
+            if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Message))
             {
                 TempData["ErrorMessage"] = "Please fill in your name, email, and message.";
                 return Redirect("/#contact");
@@ -77,40 +67,30 @@ namespace Julfiker_Portfolio.Controllers
             try
             {
                 var msg = new MimeMessage();
-
-                // IMPORTANT: From must be YOUR mailbox (DMARC/SPF safe)
                 msg.From.Add(new MailboxAddress(
                     string.IsNullOrWhiteSpace(_email.FromName) ? "Portfolio Contact" : _email.FromName,
                     _email.FromEmail));
-
-                // Where you want to receive messages
                 msg.To.Add(new MailboxAddress(
                     string.IsNullOrWhiteSpace(_email.ToName) ? "Md Julfiker Ali Jewel" : _email.ToName,
                     _email.ToEmail));
-
-                // Let replies go back to the visitor
                 msg.ReplyTo.Add(new MailboxAddress(Name, Email));
-
                 msg.Subject = $"New Portfolio Contact from {Name}";
 
                 var builder = new BodyBuilder
                 {
                     TextBody = $"Name: {Name}\nEmail: {Email}\n\nMessage:\n{Message}",
-                    HtmlBody =
-                        $"<p><strong>Name:</strong> {System.Net.WebUtility.HtmlEncode(Name)}</p>" +
-                        $"<p><strong>Email:</strong> {System.Net.WebUtility.HtmlEncode(Email)}</p>" +
-                        $"<p><strong>Message:</strong><br/>{System.Net.WebUtility.HtmlEncode(Message).Replace("\n", "<br/>")}</p>"
+                    HtmlBody = $"<p><strong>Name:</strong> {System.Net.WebUtility.HtmlEncode(Name)}</p>" +
+                               $"<p><strong>Email:</strong> {System.Net.WebUtility.HtmlEncode(Email)}</p>" +
+                               $"<p><strong>Message:</strong><br/>{System.Net.WebUtility.HtmlEncode(Message).Replace("\n", "<br/>")}</p>"
                 };
                 msg.Body = builder.ToMessageBody();
 
                 using var client = new SmtpClient();
-                var useSsl = _email.UseSsl; // true = SSL on connect (465), false = StartTLS (587)
-                await client.ConnectAsync(_email.Host, _email.Port, useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTls);
+                await client.ConnectAsync(_email.Host, _email.Port,
+                    _email.UseSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTls);
 
                 if (!string.IsNullOrEmpty(_email.User))
-                {
                     await client.AuthenticateAsync(_email.User, _email.Password);
-                }
 
                 await client.SendAsync(msg);
                 await client.DisconnectAsync(true);
