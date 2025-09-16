@@ -21,6 +21,7 @@ namespace Julfiker_Portfolio.Controllers
             _email = emailOptions.Value;
         }
 
+
         // Home hosts all sections (#home, #skills, ...)
         public IActionResult Index()
         {
