@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v8) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v9) ===== */
 
 /* Tokens */
 :root{
@@ -72,7 +72,7 @@ html{ scroll-behavior:smooth; }
 .page-section{ scroll-margin-top: calc(var(--nav-h) + 12px); min-height:100vh; display:flex; align-items:center; position:relative; }
 .section-title{ margin-top:0; margin-bottom:1rem; font-weight:700; }
 
-/* We removed the global content-box wrapper */
+/* No global card */
 .content-box{ background:none !important; box-shadow:none !important; border:0 !important; }
 
 /* Section cards a touch lighter */
@@ -93,11 +93,22 @@ html{ scroll-behavior:smooth; }
 }
 .footer-link{ color:#bfeeff; } .footer-link:hover{ color:#fff; }
 
-/* Optional: your floating buttons (keep if you use them) */
+/* Optional floating buttons */
 .chatbot-popup{ position:fixed; bottom:90px; right:20px; z-index:1000; background: linear-gradient(45deg, #ff00cc, #3333ff); color:#fff; font-size:28px; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 0 20px #ff00cc; transition: transform .3s ease; }
 .chatbot-popup:hover{ transform:scale(1.1); }
 .scroll-top{ position:fixed; bottom:20px; right:100px; z-index:1000; background:#ffc107; color:#000; font-size:30px; width:50px; height:50px; border-radius:50%; text-align:center; line-height:50px; cursor:pointer; box-shadow:0 0 15px rgba(255,193,7,.7); transition: background .3s ease; }
 .scroll-top:hover{ background:#ff9800; }
+
+/* ===== Resume modal tweaks ===== */
+.resume-iframe{
+  display:block;
+  width:100%;
+  height: calc(100vh - 160px); /* viewport minus header/footer of the modal */
+  border:0;
+  background:#111; /* avoids white flash while loading */
+}
+/* Kill any old custom fullscreen preview overlays if they exist */
+.pdf-overlay, .pdf-backdrop { display: none !important; }
 
 /* Responsive */
 @media (max-width:576px){
