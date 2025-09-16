@@ -9,7 +9,7 @@
 
     <!-- 🔘 Filter Buttons -->
     <div class="text-center mb-4">
-        <div class="btn-group">
+        <div class="btn-group" id="accomplishment-filter">
             <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
             <button class="btn btn-outline-warning filter-btn" data-filter="certification">
                 Professional Training & Certifications
@@ -380,7 +380,7 @@
     </div>
 </div>
 
-<!-- 🔧 Custom CSS -->
+<!-- 🔧 Inline CSS kept (optional to move to site.css) -->
 <style>
     .activity-card {
         background-color: #1a1a1a;
@@ -392,60 +392,16 @@
         font-size: 1.05rem;
         min-height: 170px;
     }
-
-        .activity-card:hover {
-            transform: rotateX(5deg) rotateY(5deg) scale(1.03);
-            box-shadow: 0 12px 25px rgba(255, 106, 0, 0.35);
-            z-index: 10;
-            position: relative;
-        }
-
-    .text-warning {
-        color: #ff6a00 !important;
+    .activity-card:hover {
+        transform: rotateX(5deg) rotateY(5deg) scale(1.03);
+        box-shadow: 0 12px 25px rgba(255, 106, 0, 0.35);
+        z-index: 10;
+        position: relative;
     }
-
+    .text-warning { color: #ff6a00 !important; }
     .btn-group .btn.active {
         background-color: #ff6a00;
         color: #fff;
         border-color: #ff6a00;
     }
 </style>
-
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Scope selections to this page’s grid so we don’t affect other .col-md-6 on the layout
-            const grid = document.getElementById('accomplishment-grid');
-            const buttons = document.querySelectorAll('.filter-btn');
-            const cards = grid ? grid.querySelectorAll(':scope > .col-md-6') : [];
-
-            function applyFilter(filter) {
-                cards.forEach(card => {
-                    if (filter === 'all' || card.classList.contains(filter)) {
-                        // empty string lets Bootstrap/Flex control display naturally
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const filter = button.getAttribute('data-filter');
-
-                    // Toggle active class on buttons
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    // Apply filter
-                    applyFilter(filter);
-                });
-            });
-
-            // Initialize with "Show All"
-            const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
-            if (allBtn) allBtn.click();
-        });
-    </script>
-}
