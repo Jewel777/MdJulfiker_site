@@ -4,26 +4,37 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="container mt-5 pt-5">
-    <div class="row align-items-center home-section p-5 rounded-4 shadow-lg">
+<!-- ===================== HOME ===================== -->
+<section id="home" class="page-section">
+  <div class="container py-5">
+    <div class="row align-items-center glass p-4 p-md-5 rounded-4">
 
         <!-- Profile -->
         <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="~/images/jewel-profile.jpg" alt="Md Julfiker Ali Jewel" class="img-fluid rounded-circle shadow" style="max-width: 250px;" />
+            <img src="~/images/jewel-profile.jpg"
+                 alt="Md Julfiker Ali Jewel"
+                 class="img-fluid rounded-circle shadow"
+                 style="max-width: 250px;" />
 
-            <div class="social-icons mt-4">
-                <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color: #0077b5;"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" 
-   target="_blank" 
-   title="ResearchGate" 
-   style="color: #00CCBB;">
-   <i class="fab fa-researchgate fa-2x"></i>
-</a>
-
-                <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color: #ffffff;"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color: #FF0000;"><i class="fab fa-youtube fa-2x"></i></a>
-                <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color: #4285F4;"><i class="fas fa-graduation-cap fa-2x"></i></a>
-                <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color: #A6CE39;"><i class="fas fa-id-card fa-2x"></i></a>
+            <div class="social-icons mt-4 d-flex gap-3 justify-content-center">
+                <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color:#0077b5">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" title="ResearchGate" style="color:#00CCBB">
+                    <i class="fab fa-researchgate fa-2x"></i>
+                </a>
+                <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color:#ffffff">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+                <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color:#FF0000">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color:#4285F4">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                </a>
+                <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color:#A6CE39">
+                    <i class="fas fa-id-card fa-2x"></i>
+                </a>
             </div>
         </div>
 
@@ -56,34 +67,153 @@
             </p>
 
             <div class="mt-5">
-                <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/Home/Contact" role="button">
+                <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/#contact" role="button">
                     📩 Get in Touch
                 </a>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Counters Section -->
-<div class="container text-center my-5">
-    <div class="row">
-        <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
-            <p class="text-light">Years of Experience</p>
-        </div>
-        <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
-            <p class="text-light">Projects Completed</p>
-        </div>
-        <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
-            <p class="text-light">Research Publications</p>
+    <!-- Counters (kept, triggers when visible) -->
+    <div class="container text-center my-5">
+        <div class="row">
+            <div class="col">
+                <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
+                <p class="text-light">Years of Experience</p>
+            </div>
+            <div class="col">
+                <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
+                <p class="text-light">Projects Completed</p>
+            </div>
+            <div class="col">
+                <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
+                <p class="text-light">Research Publications</p>
+            </div>
         </div>
     </div>
-</div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Skills</h2>
+      <!-- Replace with your real skills content or a partial -->
+      @* <partial name="Partials/_Skills" /> *@
+      <ul class="mb-0">
+        <li>C#, ASP.NET Core, Entity Framework, SQL Server</li>
+        <li>Python (ML/DL), TensorFlow, PyTorch, Optuna, SHAP</li>
+        <li>Security: IDS/IPS, Zero Trust, OAuth/OIDC, OWASP</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION ===================== -->
+<section id="education" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Education</h2>
+      @* <partial name="Partials/_Education" /> *@
+      <p class="mb-0">M.S. Computer Science — West Virginia State University (2024)</p>
+      <p class="mb-0">B.S. CSE — Daffodil International University (2019)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Experience</h2>
+      @* <partial name="Partials/_Experience" /> *@
+      <p class="mb-0">Software Programmer — WV DHHR (R&D Cybersecurity, Mainframe, .NET)</p>
+      <p class="mb-0">Programmer — WV DOT (Crash Database Analytics)</p>
+      <p class="mb-0">Graduate RA/TA — WVSU (AI/ML, Cybersecurity, HCI)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PUBLICATIONS ===================== -->
+<section id="publications" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Publications</h2>
+      @* <partial name="Partials/_Publications" /> *@
+      <ul class="mb-0">
+        <li>IEEE Xplore: LSTM River Monitoring</li>
+        <li>IEEE Xplore: 1D-CNN Prosthetics</li>
+        <li>IEEE Xplore: Cyber Defense Survey</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACCOMPLISHMENTS ===================== -->
+<section id="accomplishments" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Accomplishments</h2>
+      @* <partial name="Partials/_Accomplishments" /> *@
+      <p class="mb-0">Peer reviewer, mentoring, conference grants, funded projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Projects</h2>
+      @* <partial name="Partials/_Projects" /> *@
+      <ul class="mb-0">
+        <li>AI-powered IDS/IPS (CICIDS2018, RF/CNN/LSTM, Optuna, SHAP)</li>
+        <li>ASP.NET Core Portfolio (this site)</li>
+        <li>Public Health Info Hub (MAUI)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEARCH ===================== -->
+<section id="research" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Research</h2>
+      @* <partial name="Partials/_Research" /> *@
+      <p class="mb-0">Anomaly detection, explainable AI, mainframe modernization, HIPAA-ready apps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESUME ===================== -->
+<section id="resume" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Resume</h2>
+      @* <partial name="Partials/_Resume" /> *@
+      <p class="mb-2">Download my latest CV:</p>
+      <a class="btn btn-warning btn-sm" href="~/files/MJewel_CV.pdf" download>Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Contact</h2>
+      @* Replace with your contact form partial if you have one *@
+      <p class="mb-2">Email: <a href="mailto:jewelshaikh.420@gmail.com">jewelshaikh.420@gmail.com</a></p>
+      <p class="mb-0">LinkedIn: <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank">Connect</a></p>
+    </div>
+  </div>
+</section>
 
 @section Scripts {
 <script>
+// Counters animate when visible
 document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter');
 
