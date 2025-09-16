@@ -202,3 +202,17 @@ footer a:hover{ color:#fff; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
 }
+
+<script>
+(function () {
+  var nav = document.getElementById('mainNavbar');
+  if (!nav) return;
+  var last = 0;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 8 && last <= 8) nav.classList.add('scrolled');
+    else if (y <= 8 && last > 8) nav.classList.remove('scrolled');
+    last = y;
+  }, { passive: true });
+})();
+</script>
