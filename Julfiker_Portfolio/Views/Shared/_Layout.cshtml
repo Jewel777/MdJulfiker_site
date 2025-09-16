@@ -18,7 +18,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
     <!-- Custom CSS (cache-busted) -->
-    <link href="~/css/site.css?v=5" rel="stylesheet" />
+    <link href="~/css/site.css?v=6" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 
@@ -47,19 +47,23 @@
     </script>
 </head>
 
-<body>
+<body class="liquid-body">
     <!-- Spinner (visible briefly, then hidden by script) -->
     <div id="loading-spinner" class="spinner-wrapper">
         <div class="spinner"></div>
     </div>
 
-    <!-- Particles Background -->
+    <!-- Background layers -->
+    <div class="bg-gradient"></div>
+    <div class="bg-blobs" aria-hidden="true"></div>
+
+    <!-- Particles Background (kept) -->
     <div id="particles-js"></div>
 
-    <div class="wrapper">
+    <div class="wrapper position-relative">
 
         <!-- Navbar -->
-        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar liquid-nav">
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-warning" asp-controller="Home" asp-action="Index">MJAJ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
@@ -67,7 +71,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                    <ul class="navbar-nav text-center">
+                    <ul class="navbar-nav text-center glass-tabs">
                         <li class="nav-item">
                             <a class="nav-link @(Context.Request.Path == "/" || Context.Request.Path.StartsWithSegments("/Home/Index") ? "active" : "")"
                                asp-controller="Home" asp-action="Index">Home</a>
@@ -105,7 +109,7 @@
                                asp-controller="Home" asp-action="Resume">Resume</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-warning btn-sm ms-3 shadow"
+                            <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid"
                                asp-controller="Home" asp-action="Contact">📩 Contact</a>
                         </li>
                     </ul>
@@ -114,16 +118,16 @@
         </nav>
 
         <!-- Main Content -->
-        <div class="main-content">
-            <div class="content-box">
+        <main class="main-content container-fluid px-3 px-md-4">
+            <div class="content-box glass-card liquid-card mx-auto">
                 @RenderBody()
             </div>
-        </div>
+        </main>
 
         <!-- Footer -->
-        <footer>
+        <footer class="glass-footer text-center py-3 mt-5">
             <div class="container">
-                &copy; 2025 Md Julfiker Ali Jewel | <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                &copy; 2025 Md Julfiker Ali Jewel | <a asp-controller="Home" asp-action="Privacy" class="footer-link">Privacy Policy</a>
             </div>
         </footer>
     </div>
@@ -133,7 +137,7 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    <!-- Spinner hide: robust & safe (shows briefly, then hides) -->
+    <!-- Spinner hide: robust & safe -->
     <script>
     (function () {
       function hideSpinner() {
@@ -146,14 +150,14 @@
     })();
     </script>
 
-    <!-- Particles (guarded) -->
+    <!-- Particles (kept, with guard) -->
     <script>
     try {
       particlesJS("particles-js", {
         particles: {
-          number: { value: 60 },
+          number: { value: 65 },
           size: { value: 2 },
-          move: { speed: 1.5 },
+          move: { speed: 1.1 },
           line_linked: { enable: true },
           color: { value: "#ffffff" }
         }
@@ -163,7 +167,7 @@
     }
     </script>
 
-    <!-- Typed.js (guarded, only if #typed exists) -->
+    <!-- Typed.js (guarded) -->
     <script>
     (function () {
       var typedTarget = document.getElementById('typed');
@@ -183,6 +187,19 @@
       } catch (e) {
         console.warn("Typed init failed:", e);
       }
+    })();
+
+    // Add subtle depth to navbar on scroll
+    (function () {
+      var nav = document.getElementById('mainNavbar');
+      if (!nav) return;
+      var last = 0;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY || document.documentElement.scrollTop;
+        if (y > 8 && last <= 8) nav.classList.add('scrolled');
+        else if (y <= 8 && last > 8) nav.classList.remove('scrolled');
+        last = y;
+      }, { passive: true });
     })();
     </script>
 
