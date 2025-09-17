@@ -157,3 +157,6 @@ html{ scroll-behavior:smooth; }
   #typed { font-size: clamp(18px, 7.8vw, 32px); }
 }
 
+
+.exp-card .small .text-secondary { opacity: .9; }
+
