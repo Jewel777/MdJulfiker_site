@@ -1,4 +1,4 @@
-// Accomplishments filter: supports BOTH a button bar (desktop) and a dropdown (mobile).
+// Accomplishments filter: desktop buttons + mobile dropdown, hardened for iOS.
 (function () {
   function initAccomplishments() {
     var grid  = document.getElementById('accomplishment-grid');
@@ -50,6 +50,9 @@
       persist(val);
     }
 
+    // Make the handler globally available as a last-resort fallback (used by inline onchange)
+    window.acApply = updateAll;
+
     // Button clicks (desktop)
     if (btnBar) {
       btnBar.addEventListener('click', function (e) {
@@ -60,11 +63,12 @@
       });
     }
 
-    // Dropdown changes (mobile)
+    // Dropdown changes (mobile) — robust for iOS
     if (select) {
-      select.addEventListener('change', function () {
-        updateAll(select.value || 'all');
-      });
+      var handler = function () { updateAll(select.value || 'all'); };
+      select.addEventListener('change', handler);
+      select.addEventListener('input', handler); // some iOS versions fire 'input' first
+      select.addEventListener('blur', handler, true); // ensure we catch selection after closing picker
     }
 
     // Initialize from ?ac= param or default 'all'
