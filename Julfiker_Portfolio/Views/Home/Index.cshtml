@@ -265,15 +265,15 @@
   </div>
 </section>
 
-<!-- ==== Page-local styles (safe to move to site.css later) ==== -->
+<!-- ==== Page-local styles (escaped @@media for Razor) ==== -->
 <style>
 /* hero typed: smaller on mobile + no jump */
 .hero-title{ min-height:2.8em; }
 #typed{ font-weight:800; line-height:1.15; font-size:clamp(22px,6.2vw,44px); letter-spacing:.3px; }
 .typed-cursor{ font-size:.9em; vertical-align:-.06em; }
 .home-section .lead{ font-size:clamp(14px,3.6vw,18px); line-height:1.65; }
-@media (max-width:768px){ #typed{ font-size:clamp(20px,7vw,36px);} }
-@media (max-width:576px){ #typed{ font-size:clamp(18px,7.8vw,32px);} }
+@@media (max-width:768px){ #typed{ font-size:clamp(20px,7vw,36px);} }
+@@media (max-width:576px){ #typed{ font-size:clamp(18px,7.8vw,32px);} }
 
 /* summary cards */
 .summary-card{
@@ -294,7 +294,7 @@
 
 /* modal iframe */
 .resume-iframe{ width:100%; height:calc(100vh - 200px); border:0; background:#0b0f14; }
-@media (max-width:991.98px){ .resume-iframe{ height:70vh; } }
+@@media (max-width:991.98px){ .resume-iframe{ height:70vh; } }
 </style>
 
 @section Scripts {
