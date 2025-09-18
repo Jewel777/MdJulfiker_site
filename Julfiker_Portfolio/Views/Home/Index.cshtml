@@ -1,290 +1,320 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
 @{
     ViewData["Title"] = "Home";
     var pdfPath = Url.Content("~/files/Md_Julfiker_Ali_Jewel_Resume.pdf");
 }
 
-<div class="container mt-5 pt-5 page-section" id="home">
-    <div class="row align-items-center home-section p-5 rounded-4 shadow-lg">
-
-        <!-- Profile -->
-        <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="~/images/jewel-profile.jpg" alt="Md Julfiker Ali Jewel" class="img-fluid rounded-circle shadow" style="max-width: 250px;" />
-
-            <div class="social-icons mt-4">
-                <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color: #0077b5;"><i class="fab fa-linkedin fa-2x"></i></a>
-                <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" title="ResearchGate" style="color: #00CCBB;"><i class="fab fa-researchgate fa-2x"></i></a>
-                <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color: #ffffff;"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color: #FF0000;"><i class="fab fa-youtube fa-2x"></i></a>
-                <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color: #4285F4;"><i class="fas fa-graduation-cap fa-2x"></i></a>
-                <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color: #A6CE39;"><i class="fas fa-id-card fa-2x"></i></a>
-            </div>
+<!-- ===================== HOME ===================== -->
+<section id="home" class="page-section">
+  <div class="container py-5">
+    <div class="row align-items-center glass p-4 p-md-5 rounded-4">
+      <!-- Profile -->
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="~/images/jewel-profile.jpg" alt="Md Julfiker Ali Jewel"
+             class="img-fluid rounded-circle shadow" style="max-width: 250px;" />
+        <div class="social-icons mt-4 d-flex gap-3 justify-content-center">
+          <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color:#0077b5"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" title="ResearchGate" style="color:#00CCBB"><i class="fab fa-researchgate fa-2x"></i></a>
+          <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color:#ffffff"><i class="fab fa-github fa-2x"></i></a>
+          <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color:#FF0000"><i class="fab fa-youtube fa-2x"></i></a>
+          <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color:#4285F4"><i class="fas fa-graduation-cap fa-2x"></i></a>
+          <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color:#A6CE39"><i class="fas fa-id-card fa-2x"></i></a>
         </div>
+      </div>
 
-        <!-- About -->
-        <div class="col-md-8 text-light text-md-start text-center">
-            <h1 class="display-4 fw-bold text-warning mb-4 hero-title">
-                <span id="typed"></span>
-            </h1>
+      <!-- About -->
+      <div class="col-md-8 text-light text-md-start text-center">
+        <h1 class="display-4 fw-bold text-warning mb-4 hero-title">
+          <span id="typed"></span>
+        </h1>
 
-            <p class="lead">
-                I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a <strong>Software Programmer Analyst</strong> at the
-                <strong>West Virginia Department of Health and Human Resources (DHHR)</strong>. I design and ship
-                secure, high-performance <strong>C#/.NET</strong> web applications, tune <strong>SQL Server</strong> for
-                reliability at scale, and modernize enterprise systems with a strong focus on <strong>cybersecurity</strong>
-                and operational resilience.
-            </p>
-
-            <p class="lead">
-                Previously I contributed to the <strong>State Highway Crash Database</strong> at the
-                <strong>West Virginia Department of Transportation</strong>, automating analytics pipelines,
-                and served as a <strong>Graduate Research &amp; Teaching Assistant</strong> at
-                <strong>West Virginia State University</strong>, conducting research in
-                <strong>AI/ML, Cybersecurity,</strong> and <strong>HCI</strong>.
-            </p>
-
-            <p class="lead">
-                I hold an <strong>MS in Computer Science</strong> from West Virginia State University (USA) and a
-                <strong>BS in CSE</strong> from Daffodil International University (Bangladesh), including an academic
-                exchange at <strong>SIAS International University</strong> (China).
-            </p>
-
-            <div class="mt-5">
-                <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/Home/Contact" role="button">
-                    📩 Get in Touch
-                </a>
-            </div>
+        <p class="lead">
+          I'm <span class="text-info fw-bold">Md Julfiker Ali Jewel</span>, a <strong>Software Programmer Analyst</strong> at the
+          <strong>West Virginia Department of Health and Human Resources (DHHR)</strong>. I design and ship
+          secure, high-performance <strong>C#/.NET</strong> web applications, tune <strong>SQL Server</strong> for
+          reliability at scale, and modernize enterprise systems with a strong focus on <strong>cybersecurity</strong>
+          and operational resilience.
+        </p>
+        <p class="lead">
+          Previously I contributed to the <strong>State Highway Crash Database</strong> at the
+          <strong>West Virginia Department of Transportation</strong>, automating analytics pipelines,
+          and served as a <strong>Graduate Research &amp; Teaching Assistant</strong> at
+          <strong>West Virginia State University</strong>, conducting research in
+          <strong>AI/ML, Cybersecurity,</strong> and <strong>HCI</strong>.
+        </p>
+        <p class="lead">
+          I hold an <strong>MS in Computer Science</strong> from West Virginia State University (USA) and a
+          <strong>BS in CSE</strong> from Daffodil International University (Bangladesh), including an academic
+          exchange at <strong>SIAS International University</strong> (China).
+        </p>
+        <div class="mt-5">
+          <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/#contact" role="button">📩 Get in Touch</a>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Counters Section -->
-<div class="container text-center my-5 page-section" id="stats">
-    <div class="row">
+    <!-- Counters -->
+    <div class="container text-center my-5">
+      <div class="row">
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
-            <p class="text-light">Years of Experience</p>
+          <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
+          <p class="text-light">Years of Experience</p>
         </div>
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
-            <p class="text-light">Projects Completed</p>
+          <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
+          <p class="text-light">Projects Completed</p>
         </div>
         <div class="col">
-            <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
-            <p class="text-light">Research Publications</p>
+          <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
+          <p class="text-light">Research Publications</p>
         </div>
+      </div>
     </div>
-</div>
-
-<!-- ===================== Resume Section (Summary + Preview) ===================== -->
-<section id="resume" class="page-section">
-<div class="container my-5">
-    <div class="glass-card p-4 p-md-5 rounded-4 shadow-lg">
-        <h2 class="fw-bold mb-4 text-warning">Resume</h2>
-
-        <!-- CV Summary -->
-        <div class="row g-3 g-lg-4 mb-3">
-            <!-- Education -->
-            <div class="col-12 col-lg-4">
-                <div class="summary-card h-100">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-mortarboard-fill me-2 fs-4 text-warning"></i>
-                        <h5 class="mb-0 text-light">Education</h5>
-                    </div>
-                    <ul class="mb-0 text-light-75">
-                        <li><strong>MS, Computer Science</strong> — West Virginia State University, Dec 2024</li>
-                        <li><strong>BS, CSE</strong> — Daffodil International University</li>
-                        <li>Academic Exchange — SIAS International University (China)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Experience -->
-            <div class="col-12 col-lg-4">
-                <div class="summary-card h-100">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-briefcase-fill me-2 fs-4 text-warning"></i>
-                        <h5 class="mb-0 text-light">Experience</h5>
-                    </div>
-                    <ul class="mb-0 text-light-75">
-                        <li><strong>Software Programmer</strong> — WV DHHR (May 2024–Present)</li>
-                        <li><strong>Graduate Assistant (RA &amp; TA)</strong> — WVSU (Jan 2023–Dec 2024)</li>
-                        <li><strong>IT Analyst Intern</strong> — WV DOT (May–Aug 2023)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="col-12 col-lg-4">
-                <div class="summary-card h-100">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="bi bi-cpu-fill me-2 fs-4 text-warning"></i>
-                        <h5 class="mb-0 text-light">Skills</h5>
-                    </div>
-                    <div class="text-light-75">
-                        <div class="mb-1"><strong>.NET &amp; DB:</strong> C#, ASP.NET Core, EF, SQL Server</div>
-                        <div class="mb-1"><strong>Python/ML:</strong> TensorFlow, PyTorch, Optuna, SHAP</div>
-                        <div class="mb-0"><strong>Security:</strong> IDS/IPS, Zero Trust, OAuth/OIDC, OWASP</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick tags -->
-        <div class="mt-2 mb-4 d-flex flex-wrap gap-2">
-            <span class="tag">C#/.NET</span>
-            <span class="tag">SQL Server</span>
-            <span class="tag">Python</span>
-            <span class="tag">ML/DL</span>
-            <span class="tag">Cybersecurity</span>
-            <span class="tag">Cloud-ready</span>
-        </div>
-
-        <!-- Controls -->
-        <div class="d-flex flex-wrap gap-3 align-items-center mb-3">
-            <a class="btn btn-warning fw-semibold rounded-pill"
-               href="@pdfPath" target="_blank" rel="noopener">
-                Open in new tab
-            </a>
-
-            <button id="previewBtn" type="button"
-                    class="btn btn-outline-light fw-semibold rounded-pill">
-                Preview here
-            </button>
-
-            <a id="downloadBtn" class="btn btn-secondary fw-semibold rounded-pill disabled"
-               href="@pdfPath" download>
-                Download PDF
-            </a>
-        </div>
-
-        <!-- Inline viewer -->
-        <div id="pdfShell" class="pdf-shell d-none">
-            <div class="pdf-loading" id="pdfLoading">
-                <div class="spinner-border" role="status" aria-label="Loading PDF..."></div>
-                <small class="text-muted ms-2">Loading preview…</small>
-            </div>
-
-            <iframe id="resumeFrame"
-                    title="Resume PDF Preview"
-                    loading="lazy"
-                    referrerpolicy="no-referrer"
-                    sandbox="allow-same-origin allow-scripts"
-                    class="pdf-frame"></iframe>
-
-            <div id="pdfFallback" class="alert alert-warning d-none mt-3" role="alert">
-                Couldn’t show the inline preview. You can still
-                <a class="alert-link" href="@pdfPath" target="_blank" rel="noopener">open the PDF in a new tab</a>
-                or use the Download button.
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
 </section>
 
-<!-- Styles just for this page -->
-<style>
-/* Hero headline control (prevents layout jump and scales on mobile) */
-.hero-title{ min-height: 2.8em; }
-#typed{ font-weight:800; line-height:1.15; font-size:clamp(22px,6.2vw,44px); letter-spacing:.3px; }
-.home-section .lead{ font-size:clamp(14px,3.6vw,18px); line-height:1.65; }
-.typed-cursor{ font-size:.9em; vertical-align:-.06em; }
-@media (max-width:768px){ #typed{ font-size:clamp(20px,7vw,36px); } }
-@media (max-width:576px){ #typed{ font-size:clamp(18px,7.8vw,32px); } }
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Skills.cshtml")
+    </div>
+  </div>
+</section>
 
-/* Summary cards */
+<!-- ===================== EDUCATION ===================== -->
+<section id="education" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Education.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Experience.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PUBLICATIONS ===================== -->
+<section id="publications" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Publications.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACCOMPLISHMENTS ===================== -->
+<section id="accomplishments" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Accomplishments.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Projects.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEARCH ===================== -->
+<section id="research" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Research.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESUME (Summary + Modal Preview) ===================== -->
+<section id="resume" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Resume</h2>
+
+      <!-- ===== CV SUMMARY ===== -->
+      <div class="row g-3 g-lg-4 mb-3">
+        <!-- Education -->
+        <div class="col-12 col-lg-4">
+          <div class="summary-card h-100">
+            <div class="d-flex align-items-center mb-2">
+              <i class="bi bi-mortarboard-fill me-2 fs-4 text-warning"></i>
+              <h5 class="mb-0 text-light">Education</h5>
+            </div>
+            <ul class="mb-0 text-light-75">
+              <li><strong>MS, Computer Science</strong> — West Virginia State University, Dec 2024</li>
+              <li><strong>BS, CSE</strong> — Daffodil International University</li>
+              <li>Academic Exchange — SIAS International University (China)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="col-12 col-lg-4">
+          <div class="summary-card h-100">
+            <div class="d-flex align-items-center mb-2">
+              <i class="bi bi-briefcase-fill me-2 fs-4 text-warning"></i>
+              <h5 class="mb-0 text-light">Experience</h5>
+            </div>
+            <ul class="mb-0 text-light-75">
+              <li><strong>Software Programmer</strong> — WV DHHR (May 2024–Present)</li>
+              <li><strong>Graduate Assistant (RA &amp; TA)</strong> — WVSU (Jan 2023–Dec 2024)</li>
+              <li><strong>IT Analyst Intern</strong> — WV DOT (May–Aug 2023)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="col-12 col-lg-4">
+          <div class="summary-card h-100">
+            <div class="d-flex align-items-center mb-2">
+              <i class="bi bi-cpu-fill me-2 fs-4 text-warning"></i>
+              <h5 class="mb-0 text-light">Skills</h5>
+            </div>
+            <div class="text-light-75">
+              <div class="mb-1"><strong>.NET &amp; DB:</strong> C#, ASP.NET Core, EF, SQL Server</div>
+              <div class="mb-1"><strong>Python/ML:</strong> TensorFlow, PyTorch, Optuna, SHAP</div>
+              <div class="mb-0"><strong>Security:</strong> IDS/IPS, Zero Trust, OAuth/OIDC, OWASP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick tags -->
+      <div class="mt-2 mb-4 d-flex flex-wrap gap-2">
+        <span class="tag">C#/.NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Python</span>
+        <span class="tag">ML/DL</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">Cloud-ready</span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-warning"
+           href="@pdfPath"
+           target="_blank" rel="noopener">
+          Open in new tab
+        </a>
+
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#resumePreview">
+          Preview here
+        </button>
+
+        <a class="btn btn-outline-secondary" href="@pdfPath" download>
+          Download PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Resume Preview Modal ===== -->
+<div class="modal fade" id="resumePreview" tabindex="-1" aria-labelledby="resumePreviewLabel" aria-hidden="true"
+     data-bs-backdrop="true" data-bs-keyboard="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="resumePreviewLabel">Resume Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe
+          class="resume-iframe"
+          src="@($"{pdfPath}#view=FitH&toolbar=1&navpanes=1")"
+          title="Resume PDF"
+          loading="lazy"
+          referrerpolicy="no-referrer">
+        </iframe>
+      </div>
+      <div class="modal-footer border-0">
+        <a class="btn btn-warning" href="@pdfPath" target="_blank" rel="noopener">Open in new tab</a>
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      @await Html.PartialAsync("~/Views/Home/Contact.cshtml")
+    </div>
+  </div>
+</section>
+
+<!-- (Optional) Privacy target so footer link works -->
+<section id="privacy" class="page-section">
+  <div class="container py-5">
+    <div class="glass p-4 rounded-4">
+      <h2 class="section-title">Privacy</h2>
+      <p class="mb-0">This is a personal portfolio website. No tracking cookies are used beyond basic hosting logs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==== Page-local styles (safe to move to site.css later) ==== -->
+<style>
+/* hero typed: smaller on mobile + no jump */
+.hero-title{ min-height:2.8em; }
+#typed{ font-weight:800; line-height:1.15; font-size:clamp(22px,6.2vw,44px); letter-spacing:.3px; }
+.typed-cursor{ font-size:.9em; vertical-align:-.06em; }
+.home-section .lead{ font-size:clamp(14px,3.6vw,18px); line-height:1.65; }
+@media (max-width:768px){ #typed{ font-size:clamp(20px,7vw,36px);} }
+@media (max-width:576px){ #typed{ font-size:clamp(18px,7.8vw,32px);} }
+
+/* summary cards */
 .summary-card{
-    background: rgba(34,40,49,.85);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 16px;
-    padding: 16px 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.28);
-    backdrop-filter: blur(6px);
+  background: rgba(34,40,49,.85);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  backdrop-filter: blur(6px);
 }
 .text-light-75{ color: rgba(255,255,255,.82); }
 .tag{
-    background: linear-gradient(45deg,#ffc107,#ff9800);
-    color:#111;
-    border-radius:999px;
-    padding:.25rem .75rem;
-    font-weight:700;
-    font-size:.85rem;
-    box-shadow:0 4px 10px rgba(255,152,0,.25);
+  background: linear-gradient(45deg,#ffc107,#ff9800);
+  color:#111; border-radius:999px; padding:.25rem .75rem;
+  font-weight:700; font-size:.85rem;
+  box-shadow:0 4px 10px rgba(255,152,0,.25);
 }
 
-/* PDF viewer */
-.pdf-shell{
-    position:relative; background:#0b0f14; border-radius:16px;
-    box-shadow:0 8px 24px rgba(0,0,0,.35); overflow:hidden;
-    height:clamp(420px,70vh,900px);
-}
-.pdf-frame{ position:absolute; inset:0; width:100%; height:100%; border:0; background:#0b0f14; }
-.pdf-loading{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:8px; pointer-events:none; z-index:2; }
-.d-none{ display:none !important; }
+/* modal iframe */
+.resume-iframe{ width:100%; height:calc(100vh - 200px); border:0; background:#0b0f14; }
+@media (max-width:991.98px){ .resume-iframe{ height:70vh; } }
 </style>
 
 @section Scripts {
 <script>
-// ----- counters -----
+// Counters animate when visible
 document.addEventListener('DOMContentLoaded', function () {
   const counters = document.querySelectorAll('.counter');
-  function animateCounter(el) {
-    const target = Number(el.dataset.target || 0);
-    let current = 0;
-    const step = Math.max(1, Math.ceil(target / 80));
-    function tick() {
-      current += step;
-      if (current >= target) {
-        el.textContent = target.toLocaleString();
-      } else {
-        el.textContent = current.toLocaleString();
-        requestAnimationFrame(tick);
-      }
-    }
+  function animateCounter(el){
+    const target = Number(el.dataset.target||0); let current=0;
+    const step = Math.max(1, Math.ceil(target/80));
+    function tick(){ current+=step; if(current>=target){ el.textContent=target.toLocaleString(); }
+      else { el.textContent=current.toLocaleString(); requestAnimationFrame(tick);} }
     tick();
   }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { animateCounter(entry.target); io.unobserve(entry.target); }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ animateCounter(entry.target); io.unobserve(entry.target); }
     });
-  }, { threshold: 0.5 });
-  counters.forEach(c => { c.textContent = '0'; io.observe(c); });
+  }, { threshold:0.5 });
+  counters.forEach(c=>{ c.textContent='0'; io.observe(c); });
 });
-
-// ----- resume preview (lazy, with fallback) -----
-(function () {
-  const previewBtn  = document.getElementById('previewBtn');
-  const shell       = document.getElementById('pdfShell');
-  const frame       = document.getElementById('resumeFrame');
-  const loadingEl   = document.getElementById('pdfLoading');
-  const fallbackEl  = document.getElementById('pdfFallback');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const PDF_URL = '@pdfPath' + '#view=FitH';
-
-  async function fileExists(url) {
-    try {
-      const res = await fetch(url.split('#')[0], { method: 'HEAD', cache: 'no-store' });
-      return res.ok;
-    } catch (_) { return false; }
-  }
-  function showShell(){ shell.classList.remove('d-none'); loadingEl.classList.remove('d-none'); fallbackEl.classList.add('d-none'); }
-  function enableDownload(){ downloadBtn.classList.remove('disabled'); }
-
-  async function loadPreview() {
-    if (frame.getAttribute('src')) return;
-    showShell();
-    if (await fileExists(PDF_URL)) {
-      const watchdog = setTimeout(() => { loadingEl.classList.add('d-none'); fallbackEl.classList.remove('d-none'); }, 4000);
-      frame.addEventListener('load', () => { clearTimeout(watchdog); loadingEl.classList.add('d-none'); enableDownload(); }, { once:true });
-      frame.addEventListener('error', () => { clearTimeout(watchdog); loadingEl.classList.add('d-none'); fallbackEl.classList.remove('d-none'); }, { once:true });
-      frame.setAttribute('src', PDF_URL);
-    } else {
-      loadingEl.classList.add('d-none'); fallbackEl.classList.remove('d-none');
-    }
-  }
-  if (previewBtn) previewBtn.addEventListener('click', loadPreview);
-  fileExists(PDF_URL).then(ok => { if (ok) enableDownload(); });
-})();
 </script>
 }
