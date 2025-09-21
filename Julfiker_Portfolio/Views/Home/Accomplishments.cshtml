@@ -1,5 +1,4 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
 @{
     ViewData["Title"] = "Accomplishments";
 }
@@ -13,7 +12,7 @@
         <!-- Mobile dropdown (visible < md) -->
         <div class="d-md-none mb-3">
             <label for="acFilterSelect" class="visually-hidden">Filter accomplishments</label>
-            <select id="acFilterSelect" class="form-select form-select-lg bg-dark text-light border-warning">
+            <select id="acFilterSelect" class="form-select form-select-lg ac-filter-select">
                 <option value="all">Show All</option>
                 <option value="certification">Professional Training & Certifications</option>
                 <option value="membership">Professional Memberships</option>
@@ -362,129 +361,4 @@
         </div>
 
         <!-- ==== Editor & Tech Reviewer ==== -->
-        <div class="col-md-6 peerreview">
-            <div class="activity-card">
-                <strong>Technical Reviewer – Springer Nature</strong><br />
-                “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
-                July 2025 – Present
-            </div>
-        </div>
-
-        <div class="col-md-6 peerreview">
-            <div class="activity-card">
-                <strong>Reviewer – IEEE PES ISGT-LATAM 2025</strong><br />
-                Peer-reviewed a technical paper in the area of adaptive power system protection.<br />
-                July 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 peerreview">
-            <div class="activity-card">
-                <strong>Journal Reviewer – Business and Management Theory and Practice</strong><br />
-                Asia Pacific Academy of Science and PTE. LTD
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== Styles (NO @media here) ===== -->
-<style>
-    .activity-card {
-        background-color: #1a1a1a;
-        color: #f1f1f1;
-        padding: 18px 22px;
-        border-radius: 16px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        box-shadow: 0 4px 10px rgba(255, 106, 0, 0.1);
-        font-size: 1.05rem;
-        min-height: 170px;
-    }
-    .activity-card:hover {
-        transform: rotateX(5deg) rotateY(5deg) scale(1.03);
-        box-shadow: 0 12px 25px rgba(255, 106, 0, 0.35);
-        z-index: 10;
-        position: relative;
-    }
-    .text-warning { color: #ff6a00 !important; }
-    .btn-group .btn.active {
-        background-color: #ff6a00;
-        color: #fff;
-        border-color: #ff6a00;
-    }
-</style>
-
-@section Scripts {
-<script>
-// Accomplishments filter: desktop buttons + mobile dropdown (synced),
-// NO URL params (?ac=...), using sessionStorage only.
-(function () {
-  var grid  = document.getElementById('accomplishment-grid');
-  if (!grid) return;
-
-  var btnBar = document.getElementById('accomplishment-filter-buttons'); // desktop buttons
-  var select = document.getElementById('acFilterSelect');                // mobile dropdown
-
-  var buttons = btnBar ? Array.from(btnBar.querySelectorAll('.filter-btn')) : [];
-  var cards = Array.from(grid.children).filter(function (el) {
-    return el.classList && el.classList.contains('col-md-6');
-  });
-
-  function setActiveButtonByValue(val) {
-    if (!buttons.length) return;
-    buttons.forEach(function (b) { b.classList.remove('active'); });
-    var match = buttons.find(function (b) {
-      return (b.getAttribute('data-filter') || '').toLowerCase() === val.toLowerCase();
-    });
-    (match || buttons[0]).classList.add('active');
-  }
-
-  function setSelectValue(val) {
-    if (!select) return;
-    var found = Array.from(select.options).some(function (o) { return o.value === val; });
-    select.value = found ? val : 'all';
-  }
-
-  function applyFilter(val) {
-    var f = (val || 'all').toLowerCase();
-    cards.forEach(function (card) {
-      var match = (f === 'all') || card.classList.contains(f);
-      card.style.display = match ? '' : 'none';
-    });
-  }
-
-  // ---- Persistence (sessionStorage only; no URL params) ----
-  var STORAGE_KEY = 'acFilter';
-  function save(val){ try { sessionStorage.setItem(STORAGE_KEY, val); } catch(e){} }
-  function load(){ try { return sessionStorage.getItem(STORAGE_KEY) || 'all'; } catch(e){ return 'all'; } }
-
-  function updateAll(val, shouldSave){
-    applyFilter(val);
-    setActiveButtonByValue(val);
-    setSelectValue(val);
-    if (shouldSave !== false) save(val);
-  }
-
-  // Desktop buttons
-  if (btnBar) {
-    btnBar.addEventListener('click', function (e) {
-      var btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-      e.preventDefault();
-      updateAll(btn.getAttribute('data-filter') || 'all');
-    });
-  }
-
-  // Mobile dropdown — handle change/input/blur (iOS-friendly)
-  if (select) {
-    var handler = function(){ updateAll(select.value || 'all'); };
-    select.addEventListener('change', handler);
-    select.addEventListener('input', handler);
-    select.addEventListener('blur', handler, true);
-  }
-
-  // Init WITHOUT touching URL
-  var initial = load();
-  updateAll(initial, false);
-})();
-</script>
-}
+        <di
