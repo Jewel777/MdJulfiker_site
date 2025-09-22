@@ -1,4 +1,5 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     ViewData["Title"] = "Accomplishments";
 }
@@ -6,37 +7,38 @@
 <div class="container mt-5 mb-5">
     <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Accomplishments</h2>
 
-    <!-- ===== Filters: Mobile dropdown + Desktop buttons ===== -->
-    <div class="text-center mb-4">
-
-        <!-- Mobile dropdown (visible < md) -->
-        <div class="d-md-none mb-3">
-            <label for="acFilterSelect" class="visually-hidden">Filter accomplishments</label>
-            <select id="acFilterSelect" class="form-select form-select-lg ac-filter-select">
-                <option value="all">Show All</option>
-                <option value="certification">Professional Training & Certifications</option>
-                <option value="membership">Professional Memberships</option>
-                <option value="volunteer">Volunteer & Mentorship</option>
-                <option value="presentation">Presentation & Talk</option>
-                <option value="peerreview">Editor & Tech Reviewer</option>
-            </select>
+    <!-- Filter (buttons on desktop, dropdown on mobile) -->
+    <div class="sticky-filter mb-4">
+        <!-- Desktop / tablet -->
+        <div class="text-center d-none d-md-block">
+            <div class="btn-group flex-wrap" id="accomplishment-filter-buttons" role="tablist" aria-label="Accomplishments filter">
+                <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="certification">Professional Training &amp; Certifications</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="membership">Professional Memberships</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
+            </div>
         </div>
 
-        <!-- Desktop buttons (visible >= md) -->
-        <div id="accomplishment-filter-buttons" class="btn-group d-none d-md-inline-flex flex-wrap">
-            <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="certification">Professional Training &amp; Certifications</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="membership">Professional Memberships</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
-            <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
+        <!-- Mobile -->
+        <div class="d-md-none">
+            <label for="acFilterSelect" class="form-label visually-hidden">Filter accomplishments</label>
+            <select id="acFilterSelect" class="form-select form-select-lg"
+                    onchange="window.acApply && window.acApply(this.value)">
+                <option value="all">Show All</option>
+                <option value="certification">Professional Training &amp; Certifications</option>
+                <option value="membership">Professional Memberships</option>
+                <option value="volunteer">Volunteer &amp; Mentorship</option>
+                <option value="presentation">Presentation &amp; Talk</option>
+                <option value="peerreview">Editor &amp; Tech Reviewer</option>
+            </select>
         </div>
     </div>
 
-    <!-- ===== Grid ===== -->
+    <!-- 🧾 Activities Grid -->
     <div class="row g-4" id="accomplishment-grid">
-
-        <!-- ==== Presentations & Talks ==== -->
+        <!-- 🎤 Presentations & Talks -->
         <div class="col-md-6 presentation">
             <div class="activity-card">
                 <strong>
@@ -70,18 +72,20 @@
             </div>
         </div>
 
-        <!-- ==== Volunteer & Mentorship ==== -->
+        <!-- 👥 Volunteer & Mentorship -->
         <div class="col-md-6 volunteer">
             <div class="activity-card">
                 <strong>Mentorship in AI-driven Prosthetic Hand Research</strong><br />
-                Mentored undergraduate students, enhancing project and problem-solving skills – Summer Undergraduate Research Experience (SURE) Program 2023
+                Mentored undergraduate students, enhancing project and problem-solving skills –
+                Summer Undergraduate Research Experience (SURE) Program 2023
             </div>
         </div>
 
         <div class="col-md-6 volunteer">
             <div class="activity-card">
                 <strong>Mentorship in AI and Cybersecurity</strong><br />
-                Mentored undergraduate students in AI for cybersecurity problem-solving – Summer Undergraduate Research Experience (SURE) Program 2024
+                Mentored undergraduate students in AI for cybersecurity problem-solving –
+                Summer Undergraduate Research Experience (SURE) Program 2024
             </div>
         </div>
 
@@ -92,239 +96,47 @@
             </div>
         </div>
 
-        <!-- ==== Professional Training & Certifications ==== -->
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Advanced Anti-Phishing</strong><br />
-                WVOT Cybersecurity, July 17, 2025
-            </div>
-        </div>
+        <!-- 🎓 Professional Training & Certifications (ALL items) -->
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Advanced Anti-Phishing</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Common Threats</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Danger Zone</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Data Protection</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>A New Hire's Guide to Security Awareness</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Your Role: Internet Security and You</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Micro-module – Introduction to Ransomware</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Social Engineering Red Flags</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>2025 Common Threats</strong><br />
-                WVOT Cybersecurity, July 16, 2025
-            </div>
-        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Google IT Support Professional Certificate</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Technical Support Fundamentals</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>The Bits and Bytes of Computer Networking</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Operating Systems and You: Becoming a Power User</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>System Administration and IT Infrastructure Services</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>IT Security: Defense Against the Digital Dark Arts</strong><br />Coursera / Google, May 23, 2025</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Danger Zone</strong><br />
-                WVOT Cybersecurity, July 16, 2025
-            </div>
-        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Federal Tax Information Training</strong><br />FITX, July 12, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Linux: I/O Redirection for DevOps</strong><br />Coursera Project Network, July 17, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Linux: Introduction to Shell Scripting for DevOps</strong><br />Coursera Project Network, July 17, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Draw an Interactive Wireframe in Mockplus</strong><br />Coursera Project Network, May 21, 2025</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Data Protection</strong><br />
-                WVOT Cybersecurity, July 16, 2025
-            </div>
-        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Foundations of Cybersecurity</strong><br />Coursera / Google, March 19, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Connect and Protect: Networks and Network Security</strong><br />Coursera / Google, March 19, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Assets, Threats, and Vulnerabilities</strong><br />Coursera / Google, March 20, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Automate Cybersecurity Tasks with Python</strong><br />Coursera / Google, April 12, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Tools of the Trade: Linux and SQL</strong><br />Coursera / Google, April 12, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Play It Safe: Manage Security Risks</strong><br />Coursera / Google, March 19, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><br />Coursera / Google, April 12, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Sound the Alarm: Detection and Response</strong><br />Coursera / Google, April 12, 2025</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>A New Hire's Guide to Security Awareness</strong><br />
-                WVOT Cybersecurity, July 17, 2025
-            </div>
-        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Artificial Intelligence Fundamentals</strong><br />IBM SkillsBuild, September 8, 2024</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Cybersecurity Fundamentals</strong><br />IBM SkillsBuild, September 26, 2023</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Getting Started with Enterprise Data Science</strong><br />IBM, April 24, 2024</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Getting Started with Threat Intelligence and Hunting</strong><br />IBM, September 16, 2023</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>IBM Security Zero Trust Principles</strong><br />IBM, September 21, 2023</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>2025 Your Role: Internet Security and You</strong><br />
-                WVOT Cybersecurity, July 16, 2025
-            </div>
-        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Software AG Certified Natural Associate</strong><br />Software AG, August 14, 2024 (valid until August 14, 2026)</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><strong>Mobile Application Development – Android</strong><br />BASIS Institute of Technology &amp; Management (BITM), SEIP Program, August 24, 2019</div></div>
 
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Micro-module – Introduction to Ransomware</strong><br />
-                WVOT Cybersecurity, July 17, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>2025 Social Engineering Red Flags</strong><br />
-                WVOT Cybersecurity, July 16, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Google IT Support Professional Certificate</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Technical Support Fundamentals</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>The Bits and Bytes of Computer Networking</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Operating Systems and You: Becoming a Power User</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>System Administration and IT Infrastructure Services</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>IT Security: Defense Against the Digital Dark Arts</strong><br />
-                Coursera / Google, May 23, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Federal Tax Information Training</strong><br />
-                FITX, July 12, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Linux: I/O Redirection for DevOps</strong><br />
-                Coursera Project Network, July 17, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Linux: Introduction to Shell Scripting for DevOps</strong><br />
-                Coursera Project Network, July 17, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Draw an Interactive Wireframe in Mockplus</strong><br />
-                Coursera Project Network, May 21, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Foundations of Cybersecurity</strong><br />
-                Coursera / Google, March 19, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Connect and Protect: Networks and Network Security</strong><br />
-                Coursera / Google, March 19, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Assets, Threats, and Vulnerabilities</strong><br />
-                Coursera / Google, March 20, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Automate Cybersecurity Tasks with Python</strong><br />
-                Coursera / Google, April 12, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Tools of the Trade: Linux and SQL</strong><br />
-                Coursera / Google, April 12, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Play It Safe: Manage Security Risks</strong><br />
-                Coursera / Google, March 19, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><br />
-                Coursera / Google, April 12, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Sound the Alarm: Detection and Response</strong><br />
-                Coursera / Google, April 12, 2025
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Artificial Intelligence Fundamentals</strong><br />
-                IBM SkillsBuild, September 8, 2024
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Cybersecurity Fundamentals</strong><br />
-                IBM SkillsBuild, September 26, 2023
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Getting Started with Enterprise Data Science</strong><br />
-                IBM, April 24, 2024
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Getting Started with Threat Intelligence and Hunting</strong><br />
-                IBM, September 16, 2023
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>IBM Security Zero Trust Principles</strong><br />
-                IBM, September 21, 2023
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Software AG Certified Natural Associate</strong><br />
-                Software AG, August 14, 2024 (valid until August 14, 2026)
-            </div>
-        </div>
-
-        <div class="col-md-6 certification">
-            <div class="activity-card">
-                <strong>Mobile Application Development – Android</strong><br />
-                BASIS Institute of Technology &amp; Management (BITM), SEIP Program, August 24, 2019
-            </div>
-        </div>
-
-        <!-- ==== Professional Memberships ==== -->
+        <!-- 👥 Professional Memberships -->
         <div class="col-md-6 membership">
             <div class="activity-card">
                 <strong>ISC2 Candidate Member</strong><br />
@@ -360,5 +172,152 @@
             </div>
         </div>
 
-        <!-- ==== Editor & Tech Reviewer ==== -->
-        <di
+        <!-- 🧐 Editor & Tech Reviewer -->
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong>Technical Reviewer – Springer Nature</strong><br />
+                “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy
+                in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
+                July 2025 – Present
+            </div>
+        </div>
+
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong>Reviewer – IEEE PES ISGT-LATAM 2025</strong><br />
+                Peer-reviewed a technical paper in the area of adaptive power system protection.<br />
+                July 2025
+            </div>
+        </div>
+
+        <div class="col-md-6 peerreview">
+            <div class="activity-card">
+                <strong>Journal Reviewer – Business and Management Theory and Practice</strong><br />
+                Asia Pacific Academy of Science and PTE. LTD
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section-local styles -->
+<style>
+    .activity-card {
+        background-color: #1a1a1a;
+        color: #f1f1f1;
+        padding: 18px 22px;
+        border-radius: 16px;
+        transition: transform .35s ease, box-shadow .35s ease;
+        box-shadow: 0 4px 10px rgba(255,106,0,.1);
+        min-height: 170px;
+    }
+    .activity-card:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 12px 25px rgba(255,106,0,.35);
+    }
+    .btn-group .btn.active {
+        background-color: #ff6a00;
+        color:#fff;
+        border-color:#ff6a00;
+    }
+    .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
+</style>
+
+@section Scripts {
+<script>
+// Accomplishments filter — URL-safe (no ?ac=), iOS-hardened, sessionStorage persistence.
+(function () {
+  var STORAGE_KEY = 'acFilter';
+
+  function init() {
+    var grid  = document.getElementById('accomplishment-grid');
+    if (!grid) return;
+
+    var btnBar = document.getElementById('accomplishment-filter-buttons'); // desktop
+    var select = document.getElementById('acFilterSelect');               // mobile
+
+    var buttons = btnBar ? Array.from(btnBar.querySelectorAll('.filter-btn')) : [];
+    var cards = Array.from(grid.children).filter(function (el) {
+      return el.classList && el.classList.contains('col-md-6');
+    });
+
+    function applyFilter(val) {
+      var f = (val || 'all').toLowerCase();
+      cards.forEach(function (card) {
+        var match = (f === 'all') || card.classList.contains(f);
+        card.style.display = match ? '' : 'none';
+      });
+    }
+
+    function setActiveButtonByValue(val) {
+      if (!buttons.length) return;
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      var match = buttons.find(function (b) {
+        return (b.getAttribute('data-filter') || '').toLowerCase() === (val || 'all').toLowerCase();
+      });
+      (match || buttons[0]).classList.add('active');
+    }
+
+    function setSelectValue(val) {
+      if (!select) return;
+      var found = Array.from(select.options).some(function (o) { return o.value === val; });
+      select.value = found ? val : 'all';
+    }
+
+    function save(val){ try { sessionStorage.setItem(STORAGE_KEY, val); } catch(e){} }
+    function load(){ try { return sessionStorage.getItem(STORAGE_KEY) || 'all'; } catch(e){ return 'all'; } }
+
+    // Read once from ?ac=... if present, then strip it; else use sessionStorage.
+    function initialValue() {
+      var v = null;
+      try {
+        var url = new URL(window.location.href);
+        if (url.searchParams.has('ac')) {
+          v = url.searchParams.get('ac') || 'all';
+          url.searchParams.delete('ac');
+          var cleaned = url.toString().replace(/\?$/, ''); // avoid trailing '?'
+          history.replaceState(null, '', cleaned);
+        }
+      } catch (e) {}
+      return v || load() || 'all';
+    }
+
+    function updateAll(val, shouldSave) {
+      applyFilter(val);
+      setActiveButtonByValue(val);
+      setSelectValue(val);
+      if (shouldSave !== false) save(val);
+    }
+
+    // Tiny global for the select's inline onchange fallback
+    window.acApply = function (v) { updateAll(v || 'all'); };
+
+    // Desktop buttons
+    if (btnBar) {
+      btnBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        e.preventDefault();
+        updateAll(btn.getAttribute('data-filter') || 'all');
+      });
+    }
+
+    // Mobile dropdown — robust on iOS (change/input/blur)
+    if (select) {
+      var handler = function(){ updateAll(select.value || 'all'); };
+      select.addEventListener('change', handler);
+      select.addEventListener('input', handler);
+      select.addEventListener('blur', handler, true);
+    }
+
+    // Init — NO URL writes after this point
+    updateAll(initialValue(), false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+}
