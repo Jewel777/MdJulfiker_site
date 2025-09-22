@@ -16,7 +16,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
     <!-- Site CSS -->
-    <link href="~/css/site.css?v=9" rel="stylesheet" />
+    <link href="~/css/site.css?v=10" rel="stylesheet" />
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 
     <!-- JSON-LD (Razor @@ escapes) -->
@@ -137,17 +137,26 @@
       document.documentElement.style.setProperty('--nav-h', (nav.offsetHeight || 92) + 'px');
 
       var linkById = {}; links.forEach(a => linkById[a.dataset.nav] = a);
-      function setActive(id){ links.forEach(l => l.classList.remove('active')); if (linkById[id]) linkById[id].classList.add('active'); if (history.replaceState) history.replaceState(null, '', '#' + id); }
+      function setActive(id){
+        links.forEach(l => l.classList.remove('active'));
+        if (linkById[id]) linkById[id].classList.add('active');
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+      }
       function currentSectionId(){
         var middle = window.scrollY + window.innerHeight / 2, navH = nav.offsetHeight || 0, id = sections[0].id;
-        for (var i=0;i<sections.length;i++){ var s=sections[i], top=s.offsetTop; if (top - navH <= middle) id = s.id; else break; } return id;
+        for (var i=0;i<sections.length;i++){
+          var s=sections[i], top=s.offsetTop;
+          if (top - navH <= middle) id = s.id; else break;
+        }
+        return id;
       }
       function onScroll(){ setActive(currentSectionId()); }
 
       links.forEach(function (a) {
         a.addEventListener('click', function (e) {
           var href=a.getAttribute('href')||'', hash = href.includes('#') ? href.split('#')[1] : null;
-          if (!hash) return; var target=document.getElementById(hash); if (!target) return;
+          if (!hash) return;
+          var target=document.getElementById(hash); if (!target) return;
           e.preventDefault();
           var y = target.getBoundingClientRect().top + window.pageYOffset - (nav.offsetHeight + 8);
           window.scrollTo({ top: y, behavior: 'smooth' });
@@ -170,7 +179,26 @@
     })();
     </script>
 
-    <!-- ✨ Load accomplishments filter (v=2) -->
+    <!-- 🔧 Global sanitizer: strip ?ac=... while preserving any #hash -->
+    <script>
+    (function () {
+      function cleanAcParam() {
+        try {
+          var url = new URL(window.location.href);
+          if (url.searchParams.has('ac')) {
+            url.searchParams.delete('ac');
+            var cleaned = url.toString().replace(/\?$/, ''); // remove trailing ? if empty
+            history.replaceState(null, '', cleaned);
+          }
+        } catch (e) { /* no-op */ }
+      }
+      cleanAcParam();
+      window.addEventListener('hashchange', cleanAcParam);
+      window.addEventListener('popstate', cleanAcParam);
+    })();
+    </script>
+
+    <!-- ✨ Load accomplishments filter (make sure this version does NOT write to the URL) -->
     <script src="~/js/filters.js?v=2"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
