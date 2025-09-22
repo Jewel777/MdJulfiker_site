@@ -1,84 +1,224 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Projects";
 }
 
 <div class="container mt-5 mb-5">
-    <h2 class="text-center fw-bold mb-4 text-warning">Projects</h2>
+  <h2 class="text-center fw-bold mb-4 text-warning">
+    Projects
+    <span id="projectCount" class="badge text-bg-warning text-dark ms-2"></span>
+  </h2>
 
-    <div class="list-group shadow-lg rounded-4">
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Scuba Diving in Hawaii - Website</strong><br />
-            Developed using Ruby on Rails, this project was awarded the Best SE Course Project. A fully-functional website for booking and planning scuba diving activities in Hawaii.
-        </div>
+  <!-- ===== Current Projects (updated 9) ===== -->
+  <h4 class="text-warning fw-semibold mb-3">Current Projects</h4>
+  <div class="list-group shadow-lg rounded-4 project-list mb-5">
 
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">House Price Predictive Model</strong><br />
-            Used linear and logistic regression to build a model that predicts house prices based on various real estate features.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Expression Regression Model</strong><br />
-            Applied classification and dimensionality reduction methods to evaluate performance of an expression regression model in machine learning.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Google Stock Price Prediction - RNN</strong><br />
-            Built a Recurrent Neural Network (RNN) to forecast Google stock prices using historical market data.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Dimensionality Reduction & Unsupervised Methods</strong><br />
-            Implemented clustering and feature embedding techniques to visualize and group unlabeled input samples.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Tower of Hanoi Algorithm</strong><br />
-            Demonstrated recursion and algorithm design using the classic Tower of Hanoi problem.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Quick Sort Algorithm</strong><br />
-            Developed a Quick Sort solution with data generation, binary search, and performance metrics.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Prototypes & Click-through Demos - HCI</strong><br />
-            Created interactive demos for usability testing based on Human-Computer Interaction principles.
-        </div>
-
-        <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
-            <strong class="text-info">Ship Booking Management Website</strong><br />
-            Built a website to manage ship trip reservations with integrated search and booking features.
-        </div>
+    <!-- 🌊 Scuba_Diving_Hawaii -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🌊 Scuba_Diving_Hawaii</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-primary me-1">Ruby on Rails 7</span>
+        <span class="badge text-bg-dark">License: MIT</span>
+      </div>
+      <p class="mb-0">
+        Web app for scuba diving enthusiasts with location &amp; tour listings, photo sharing,
+        posts with comments/likes, and Devise-based authentication.
+      </p>
     </div>
+
+    <!-- 🐢 turtle-mandala-art -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🐢 turtle-mandala-art</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">Python (Jupyter Notebook)</span>
+      </div>
+      <p class="mb-0">
+        Notebook generating colorful turtle-inspired mandalas using overlapping circles and
+        rotational symmetry.
+      </p>
+    </div>
+
+    <!-- 🖥️ Python-based-Process-Scheduler-simulation -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🖥️ Python-based-Process-Scheduler-simulation</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info me-1">Python</span>
+        <span class="badge text-bg-dark">License: MIT</span>
+      </div>
+      <p class="mb-0">
+        Priority-based round-robin OS scheduler simulation: create, block, fork, terminate,
+        and replace programs via interactive commands.
+      </p>
+    </div>
+
+    <!-- 🏗️ Tower-of-hanoi -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🏗️ Tower-of-hanoi</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info me-1">Python</span>
+        <span class="badge text-bg-dark">License: MIT</span>
+      </div>
+      <p class="mb-0">
+        Classic recursive Tower of Hanoi implementation with step-by-step solution logic.
+      </p>
+    </div>
+
+    <!-- 🧮 MemoryAllocationSimulator -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🧮 MemoryAllocationSimulator</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info me-1">Python</span>
+        <span class="badge text-bg-dark">License: MIT</span>
+      </div>
+      <p class="mb-0">
+        Simulates First Fit, Next Fit, Best Fit, and Worst Fit strategies; compares efficiency
+        and fragmentation.
+      </p>
+    </div>
+
+    <!-- ⚡ QuickSort-Analysis -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">⚡ QuickSort-Analysis</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info me-1">Python</span>
+        <span class="badge text-bg-dark">License: MIT</span>
+      </div>
+      <p class="mb-0">
+        QuickSort implementation with benchmarking and performance visualization (Matplotlib),
+        plus comparison against binary search.
+      </p>
+    </div>
+
+    <!-- 🍎 calorie-tracker -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🍎 calorie-tracker</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">Python</span>
+      </div>
+      <p class="mb-0">
+        Simple daily calorie tracker to log foods and compare intake against personal goals.
+      </p>
+    </div>
+
+    <!-- 🌊 Flood-Prediction-...-Kanawha-River-WV-by-Machine-Learning -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🌊 Flood-Prediction-Intelligent-Flood-Forecasting-Model-Kanawha-River-WV-by-Machine-Learning</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">Python (Jupyter Notebook)</span>
+      </div>
+      <p class="mb-0">
+        Long-term flood forecasting with LSTM, BiLSTM, GRU, and ARIMA for multi-level predictions
+        on the Kanawha River (WV).
+      </p>
+    </div>
+
+    <!-- 🦷 Dental_Records -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">🦷 Dental_Records</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-secondary">Private / Internal</span>
+      </div>
+      <p class="mb-0">
+        Project related to dental record management or analysis. Details not publicly available.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== Legacy / Coursework (from your previous list, de-duplicated) ===== -->
+  <h4 class="text-warning fw-semibold mb-3">Legacy / Coursework</h4>
+  <div class="list-group shadow-lg rounded-4 project-list">
+
+    <!-- House Price Predictive Model -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">House Price Predictive Model</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">Python / Regression</span>
+      </div>
+      <p class="mb-0">
+        Built linear &amp; logistic regression models to predict house prices from real-estate features.
+      </p>
+    </div>
+
+    <!-- Expression Regression Model -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">Expression Regression Model</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">ML / Classification &amp; DR</span>
+      </div>
+      <p class="mb-0">
+        Used classification and dimensionality reduction to evaluate expression regression performance.
+      </p>
+    </div>
+
+    <!-- Google Stock Price Prediction - RNN -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">Google Stock Price Prediction — RNN</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">Python / RNN</span>
+      </div>
+      <p class="mb-0">
+        Recurrent Neural Network trained on historical market data to forecast Google stock prices.
+      </p>
+    </div>
+
+    <!-- Dimensionality Reduction & Unsupervised Methods -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">Dimensionality Reduction &amp; Unsupervised Methods</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-info">ML / Clustering</span>
+      </div>
+      <p class="mb-0">
+        Clustering and feature embeddings to visualize and group unlabeled samples.
+      </p>
+    </div>
+
+    <!-- Prototypes & Click-through Demos - HCI -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">Prototypes &amp; Click-through Demos — HCI</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-secondary">UX / Prototyping</span>
+      </div>
+      <p class="mb-0">
+        Interactive click-through demos for usability testing informed by HCI principles.
+      </p>
+    </div>
+
+    <!-- Ship Booking Management Website -->
+    <div class="list-group-item bg-dark text-light border-warning mb-2 rounded">
+      <strong class="text-info">Ship Booking Management Website</strong>
+      <div class="mb-2 small">
+        <span class="badge text-bg-secondary">Web</span>
+      </div>
+      <p class="mb-0">
+        Reservation site with integrated search and booking for ship trips.
+      </p>
+    </div>
+
+  </div>
 </div>
 
 <style>
-    body {
-        background-color: #121212;
-    }
-
-    .list-group-item {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid transparent;
-    }
-
-        .list-group-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
-            border-color: #ffc107;
-        }
-
-    .text-warning {
-        color: #ffc107 !important;
-    }
-
-    .text-info {
-        color: #03a9f4 !important;
-    }
+  .project-list .list-group-item {
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    border: 1px solid transparent;
+    background-color: #1a1a1a; /* slightly lighter than #121212 for contrast */
+  }
+  .project-list .list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+    border-color: #ffc107;
+  }
+  .text-warning { color: #ffc107 !important; }
+  .text-info    { color: #03a9f4 !important; }
+  .badge        { user-select: none; }
 </style>
+
+<script>
+  // Show total count across both sections
+  document.addEventListener('DOMContentLoaded', function () {
+    const n = document.querySelectorAll('.project-list .list-group-item').length;
+    const badge = document.getElementById('projectCount');
+    if (badge) badge.textContent = n;
+  });
+</script>
