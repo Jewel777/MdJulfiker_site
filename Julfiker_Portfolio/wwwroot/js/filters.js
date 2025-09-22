@@ -1,5 +1,7 @@
-// Accomplishments filter: desktop buttons + mobile dropdown, hardened for iOS.
+
 (function () {
+  var STORAGE_KEY = 'acFilter';
+
   function initAccomplishments() {
     var grid  = document.getElementById('accomplishment-grid');
     if (!grid) return;
@@ -12,11 +14,19 @@
       return el.classList && el.classList.contains('col-md-6');
     });
 
+    function applyFilter(val) {
+      var f = (val || 'all').toLowerCase();
+      cards.forEach(function (card) {
+        var match = (f === 'all') || card.classList.contains(f);
+        card.style.display = match ? '' : 'none';
+      });
+    }
+
     function setActiveButtonByValue(val) {
       if (!buttons.length) return;
       buttons.forEach(function (b) { b.classList.remove('active'); });
       var match = buttons.find(function (b) {
-        return (b.getAttribute('data-filter') || '').toLowerCase() === val.toLowerCase();
+        return (b.getAttribute('data-filter') || '').toLowerCase() === (val || 'all').toLowerCase();
       });
       (match || buttons[0]).classList.add('active');
     }
@@ -27,33 +37,38 @@
       select.value = found ? val : 'all';
     }
 
-    function applyFilter(val) {
-      var f = (val || 'all').toLowerCase();
-      cards.forEach(function (card) {
-        var match = (f === 'all') || card.classList.contains(f);
-        card.style.display = match ? '' : 'none';
-      });
+    function save(val){
+      try { sessionStorage.setItem(STORAGE_KEY, val); } catch (e) {}
+    }
+    function load(){
+      try { return sessionStorage.getItem(STORAGE_KEY) || 'all'; } catch (e) { return 'all'; }
     }
 
-    function persist(val) {
+    // Read initial from ?ac=... (if present) OR sessionStorage, then STRIP ?ac from URL
+    function initialValue() {
+      var v = null;
       try {
-        var url = new URL(location.href);
-        url.searchParams.set('ac', val);
-        history.replaceState(null, '', url.toString());
-      } catch (_) { /* no-op */ }
+        var url = new URL(window.location.href);
+        if (url.searchParams.has('ac')) {
+          v = url.searchParams.get('ac') || 'all';
+          url.searchParams.delete('ac');
+          var cleaned = url.toString().replace(/\?$/, ''); // avoid trailing '?'
+          history.replaceState(null, '', cleaned);
+        }
+      } catch (e) {}
+      return v || load() || 'all';
     }
 
-    function updateAll(val) {
+    function updateAll(val, shouldSave) {
       applyFilter(val);
       setActiveButtonByValue(val);
       setSelectValue(val);
-      persist(val);
+      if (shouldSave !== false) save(val);
     }
 
-    // Make the handler globally available as a last-resort fallback (used by inline onchange)
-    window.acApply = updateAll;
+    window.acApply = function (v) { updateAll(v || 'all'); };
 
-    // Button clicks (desktop)
+    // Desktop: button clicks
     if (btnBar) {
       btnBar.addEventListener('click', function (e) {
         var btn = e.target.closest('.filter-btn');
@@ -63,17 +78,16 @@
       });
     }
 
-    // Dropdown changes (mobile) — robust for iOS
+    // Mobile: dropdown changes (robust on iOS)
     if (select) {
       var handler = function () { updateAll(select.value || 'all'); };
       select.addEventListener('change', handler);
-      select.addEventListener('input', handler); // some iOS versions fire 'input' first
-      select.addEventListener('blur', handler, true); // ensure we catch selection after closing picker
+      select.addEventListener('input', handler);
+      select.addEventListener('blur', handler, true);
     }
 
-    // Initialize from ?ac= param or default 'all'
-    var initial = (new URLSearchParams(location.search).get('ac')) || 'all';
-    updateAll(initial);
+    // Init (no URL writes)
+    updateAll(initialValue(), false);
   }
 
   if (document.readyState === 'loading') {
