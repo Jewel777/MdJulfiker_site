@@ -17,7 +17,7 @@
           <h5 class="project-title">Scuba_Diving_Hawaii</h5>
         </div>
         <p class="project-desc">
-          Ruby on Rails 7 web app for scuba diving enthusiasts: location & tour listings, photo sharing,
+          Ruby on Rails 7 web app for scuba diving enthusiasts: location &amp; tour listings, photo sharing,
           posts with comments/likes, and Devise-based authentication.
         </p>
         <div class="project-meta">
@@ -238,7 +238,7 @@
       <div class="project-reflection"></div>
     </div>
 
-    <!-- 15) 🚢 Ship Booking Management Website (RESTORED) -->
+    <!-- 15) 🚢 Ship Booking Management Website -->
     <div class="project-tilt" data-accent="#00e5ff" data-title="Ship Booking Management Website">
       <article class="project-card" tabindex="0" aria-label="Ship Booking Management Website project">
         <div class="project-head">
@@ -336,11 +336,32 @@
     opacity: .6;
   }
 
+  /* OPTIONAL mobile polish */
+  @@media (max-width: 420px){
+    .project-card{ padding:14px 14px; }
+    .project-title{ font-size: clamp(1rem, 3.2vw + .7rem, 1.2rem); }
+    .project-desc{  font-size: clamp(.92rem, 2.4vw + .6rem, 1rem); }
+    .badge-soft{    font-size: .8rem; padding: 5px 9px; }
+  }
+  @@media (max-width: 480px){
+    .project-card{
+      backdrop-filter: saturate(130%) blur(10px);
+      -webkit-backdrop-filter: saturate(130%) blur(10px);
+    }
+  }
+
   /* Motion/Touch safety */
   @@media (prefers-reduced-motion: reduce) {
     .project-card { transition: none !important; }
     .project-glare { display: none !important; }
   }
+
+  /* Respect iPhone safe areas so cards don’t hit rounded corners */
+  :root {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
   @@media (min-width: 768px) { .project-card { padding: 22px 24px; } }
 </style>
 
@@ -354,7 +375,7 @@
       const glare = card.querySelector('.project-glare');
       const accent = wrapper.getAttribute('data-accent') || '#65d1ff';
 
-      // feed accent into CSS var
+      // Feed accent into CSS var for the reflection
       wrapper.style.setProperty('--accent', accent);
 
       // Skip 3D on touch devices / reduced motion
