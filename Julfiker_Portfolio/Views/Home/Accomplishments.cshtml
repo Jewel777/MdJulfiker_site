@@ -18,6 +18,8 @@
                 <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
                 <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
                 <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
+                <!-- NEW: Awards & Fellowships filter -->
+                <button class="btn btn-outline-warning filter-btn" data-filter="award">Awards &amp; Fellowships</button>
             </div>
         </div>
 
@@ -32,6 +34,8 @@
                 <option value="volunteer">Volunteer &amp; Mentorship</option>
                 <option value="presentation">Presentation &amp; Talk</option>
                 <option value="peerreview">Editor &amp; Tech Reviewer</option>
+                <!-- NEW: Awards & Fellowships filter -->
+                <option value="award">Awards &amp; Fellowships</option>
             </select>
         </div>
     </div>
@@ -196,7 +200,62 @@
                 Asia Pacific Academy of Science and PTE. LTD
             </div>
         </div>
+
+        <!-- 🏅 NEW: Awards & Fellowships -->
+        <div class="col-md-6 award">
+            <div class="activity-card">
+                <strong>Travel Award – 6th National HBCU Blockchain, FinTech, and AI Conference (Sept 2025)</strong><br />
+                Selected participant with <em>full support</em> (travel, hotel, and meals covered).<br />
+                <button type="button" class="btn btn-outline-warning btn-sm mt-2"
+                        data-bs-toggle="modal" data-bs-target="#travelAwardModal"
+                        aria-label="Open details for Conference Travel Award or Fellowship">
+                    🎖️ Use Suggested Wording
+                </button>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Modal for Award/Fellowship details -->
+<div class="modal fade" id="travelAwardModal" tabindex="-1" aria-labelledby="travelAwardModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="travelAwardModalLabel">Conference Travel Award / Fellowship</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="mb-2">
+          Because your travel, lodging, and meals were fully covered, this fits best as a
+          <strong>Travel Award / Fellowship</strong>.
+        </p>
+
+        <hr class="my-3">
+
+        <h6 class="fw-semibold">Suggested CV Entry</h6>
+        <pre class="bg-light p-3 rounded small mb-3" id="cvEntry">
+Travel Award, 6th National HBCU Blockchain, FinTech, and AI Conference — Fully funded (travel, hotel, meals). Sept 2025
+</pre>
+        <button class="btn btn-sm btn-outline-secondary mb-4" id="copyCvBtn" type="button">Copy CV Entry</button>
+
+        <h6 class="fw-semibold">Suggested Website Card (Activities / Honors)</h6>
+        <pre class="bg-light p-3 rounded small mb-3" id="webEntry">
+<div class="col-md-6 award">
+  <div class="activity-card">
+    <strong>Travel Award – 6th National HBCU Blockchain, FinTech, and AI Conference (2025)</strong><br />
+    Selected participant with <em>full support</em> (travel, hotel, and meals covered).
+  </div>
+</div>
+</pre>
+        <button class="btn btn-sm btn-outline-secondary" id="copyWebBtn" type="button">Copy Website Card</button>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Section-local styles -->
@@ -318,6 +377,24 @@
   } else {
     init();
   }
+})();
+</script>
+
+<script>
+// Copy helpers for Award modal
+(function () {
+  function copyFromPre(preId) {
+    var el = document.getElementById(preId);
+    var text = el ? el.innerText : "";
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(function(){
+      alert("Copied!");
+    });
+  }
+  var cvBtn  = document.getElementById("copyCvBtn");
+  var webBtn = document.getElementById("copyWebBtn");
+  if (cvBtn)  cvBtn.addEventListener("click", function(){ copyFromPre("cvEntry"); });
+  if (webBtn) webBtn.addEventListener("click", function(){ copyFromPre("webEntry"); });
 })();
 </script>
 }
