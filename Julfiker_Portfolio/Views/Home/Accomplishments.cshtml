@@ -18,7 +18,6 @@
                 <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
                 <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
                 <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
-                <!-- NEW: Awards & Fellowships filter -->
                 <button class="btn btn-outline-warning filter-btn" data-filter="award">Awards &amp; Fellowships</button>
             </div>
         </div>
@@ -34,7 +33,6 @@
                 <option value="volunteer">Volunteer &amp; Mentorship</option>
                 <option value="presentation">Presentation &amp; Talk</option>
                 <option value="peerreview">Editor &amp; Tech Reviewer</option>
-                <!-- NEW: Awards & Fellowships filter -->
                 <option value="award">Awards &amp; Fellowships</option>
             </select>
         </div>
@@ -42,243 +40,387 @@
 
     <!-- 🧾 Activities Grid -->
     <div class="row g-4" id="accomplishment-grid">
+
         <!-- 🎤 Presentations & Talks -->
         <div class="col-md-6 presentation">
             <div class="activity-card">
-                <strong>
-                    <a href="https://www.american-cse.org/csci2023/" target="_blank" class="text-warning">
-                        CSCI’23 Conference Presentation
-                    </a>
-                </strong><br />
-                Presented on Critical Infrastructure in cybersecurity, covering phishing detection, defending attacks on IoT, and characteristics of attacks and defenses.
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🎤</span>
+                    <span class="badge ac-badge">Presentation</span>
+                </div>
+                <div class="ac-body">
+                    <strong>
+                        <a href="https://www.american-cse.org/csci2023/" target="_blank" class="text-warning">
+                            CSCI’23 Conference Presentation
+                        </a>
+                    </strong>
+                    <p class="ac-desc">
+                        Presented on Critical Infrastructure in cybersecurity, covering phishing detection, defending attacks on IoT, and characteristics of attacks and defenses.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 presentation">
             <div class="activity-card">
-                <strong>
-                    <a href="https://www.securewv.org/" target="_blank" class="text-warning">
-                        SecureWV 2023 Presentation
-                    </a>
-                </strong><br />
-                Delivered an in-depth analysis on “Phishing Cyber Attacks Characteristics and Attribution.”
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🎤</span>
+                    <span class="badge ac-badge">Presentation</span>
+                </div>
+                <div class="ac-body">
+                    <strong>
+                        <a href="https://www.securewv.org/" target="_blank" class="text-warning">
+                            SecureWV 2023 Presentation
+                        </a>
+                    </strong>
+                    <p class="ac-desc">
+                        Delivered an in-depth analysis on “Phishing Cyber Attacks Characteristics and Attribution.”
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 presentation">
             <div class="activity-card">
-                <strong>
-                    <a href="https://ieeexplore.ieee.org/document/10193366" target="_blank" class="text-warning">
-                        Poster Presentation: Intelligent Upper-Limb Multifunctional Prostheses
-                    </a>
-                </strong><br />
-                Showcased research on EMG pattern recognition control method for prosthetic applications.
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🎨</span>
+                    <span class="badge ac-badge">Poster</span>
+                </div>
+                <div class="ac-body">
+                    <strong>
+                        <a href="https://ieeexplore.ieee.org/document/10193366" target="_blank" class="text-warning">
+                            Poster: Intelligent Upper-Limb Multifunctional Prostheses
+                        </a>
+                    </strong>
+                    <p class="ac-desc">
+                        Showcased research on EMG pattern recognition control method for prosthetic applications.
+                    </p>
+                </div>
             </div>
         </div>
 
         <!-- 👥 Volunteer & Mentorship -->
         <div class="col-md-6 volunteer">
             <div class="activity-card">
-                <strong>Mentorship in AI-driven Prosthetic Hand Research</strong><br />
-                Mentored undergraduate students, enhancing project and problem-solving skills –
-                Summer Undergraduate Research Experience (SURE) Program 2023
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🙌</span>
+                    <span class="badge ac-badge">Volunteer</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Mentorship in AI-driven Prosthetic Hand Research</strong>
+                    <p class="ac-desc">
+                        Mentored undergraduate students – Summer Undergraduate Research Experience (SURE) Program 2023.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 volunteer">
             <div class="activity-card">
-                <strong>Mentorship in AI and Cybersecurity</strong><br />
-                Mentored undergraduate students in AI for cybersecurity problem-solving –
-                Summer Undergraduate Research Experience (SURE) Program 2024
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🙌</span>
+                    <span class="badge ac-badge">Mentorship</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Mentorship in AI and Cybersecurity</strong>
+                    <p class="ac-desc">
+                        Mentored undergraduate students in AI for cybersecurity problem-solving – SURE Program 2024.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 volunteer">
             <div class="activity-card">
-                <strong>CS_for_all Conference Volunteer</strong><br />
-                Volunteered at the CS_for_all Conference, Memphis, 2022
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🙋‍♂️</span>
+                    <span class="badge ac-badge">Volunteer</span>
+                </div>
+                <div class="ac-body">
+                    <strong>CS_for_all Conference Volunteer</strong>
+                    <p class="ac-desc">
+                        Volunteered at the CS_for_all Conference, Memphis, 2022.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- 🎓 Professional Training & Certifications (ALL items) -->
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Advanced Anti-Phishing</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Common Threats</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Danger Zone</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Data Protection</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>A New Hire's Guide to Security Awareness</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Your Role: Internet Security and You</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Micro-module – Introduction to Ransomware</strong><br />WVOT Cybersecurity, July 17, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>2025 Social Engineering Red Flags</strong><br />WVOT Cybersecurity, July 16, 2025</div></div>
+        <!-- 🎓 Professional Training & Certifications -->
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🎓</span>
+                    <span class="badge ac-badge">Certification</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Advanced Anti-Phishing</strong>
+                    <p class="ac-desc">WVOT Cybersecurity, July 17, 2025</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>2025 Common Threats</strong><p class="ac-desc">WVOT Cybersecurity, July 16, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Danger Zone</strong><p class="ac-desc">WVOT Cybersecurity, July 16, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Data Protection</strong><p class="ac-desc">WVOT Cybersecurity, July 16, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>A New Hire's Guide to Security Awareness</strong><p class="ac-desc">WVOT Cybersecurity, July 17, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>2025 Your Role: Internet Security and You</strong><p class="ac-desc">WVOT Cybersecurity, July 16, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Micro-module – Introduction to Ransomware</strong><p class="ac-desc">WVOT Cybersecurity, July 17, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>2025 Social Engineering Red Flags</strong><p class="ac-desc">WVOT Cybersecurity, July 16, 2025</p></div></div></div>
 
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Google IT Support Professional Certificate</strong><br />Coursera / Google, May 23, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Technical Support Fundamentals</strong><br />Coursera / Google, May 23, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>The Bits and Bytes of Computer Networking</strong><br />Coursera / Google, May 23, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Operating Systems and You: Becoming a Power User</strong><br />Coursera / Google, May 23, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>System Administration and IT Infrastructure Services</strong><br />Coursera / Google, May 23, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>IT Security: Defense Against the Digital Dark Arts</strong><br />Coursera / Google, May 23, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Google IT Support Professional Certificate</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Technical Support Fundamentals</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>The Bits and Bytes of Computer Networking</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>Operating Systems and You: Becoming a Power User</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>System Administration and IT Infrastructure Services</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🎓</span><span class="badge ac-badge">Certification</span></div><div class="ac-body"><strong>IT Security: Defense Against the Digital Dark Arts</strong><p class="ac-desc">Coursera / Google, May 23, 2025</p></div></div></div>
 
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Federal Tax Information Training</strong><br />FITX, July 12, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Linux: I/O Redirection for DevOps</strong><br />Coursera Project Network, July 17, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Linux: Introduction to Shell Scripting for DevOps</strong><br />Coursera Project Network, July 17, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Draw an Interactive Wireframe in Mockplus</strong><br />Coursera Project Network, May 21, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">💻</span><span class="badge ac-badge">Training</span></div><div class="ac-body"><strong>Federal Tax Information Training</strong><p class="ac-desc">FITX, July 12, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🐧</span><span class="badge ac-badge">Linux</span></div><div class="ac-body"><strong>Linux: I/O Redirection for DevOps</strong><p class="ac-desc">Coursera Project Network, July 17, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🐧</span><span class="badge ac-badge">Linux</span></div><div class="ac-body"><strong>Linux: Introduction to Shell Scripting for DevOps</strong><p class="ac-desc">Coursera Project Network, July 17, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🧩</span><span class="badge ac-badge">UX</span></div><div class="ac-body"><strong>Draw an Interactive Wireframe in Mockplus</strong><p class="ac-desc">Coursera Project Network, May 21, 2025</p></div></div></div>
 
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Foundations of Cybersecurity</strong><br />Coursera / Google, March 19, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Connect and Protect: Networks and Network Security</strong><br />Coursera / Google, March 19, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Assets, Threats, and Vulnerabilities</strong><br />Coursera / Google, March 20, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Automate Cybersecurity Tasks with Python</strong><br />Coursera / Google, April 12, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Tools of the Trade: Linux and SQL</strong><br />Coursera / Google, April 12, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Play It Safe: Manage Security Risks</strong><br />Coursera / Google, March 19, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><br />Coursera / Google, April 12, 2025</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Sound the Alarm: Detection and Response</strong><br />Coursera / Google, April 12, 2025</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🛡️</span><span class="badge ac-badge">Cybersecurity</span></div><div class="ac-body"><strong>Foundations of Cybersecurity</strong><p class="ac-desc">Coursera / Google, March 19, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🔗</span><span class="badge ac-badge">Networking</span></div><div class="ac-body"><strong>Connect and Protect: Networks and Network Security</strong><p class="ac-desc">Coursera / Google, March 19, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🏷️</span><span class="badge ac-badge">Risk</span></div><div class="ac-body"><strong>Assets, Threats, and Vulnerabilities</strong><p class="ac-desc">Coursera / Google, March 20, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🐍</span><span class="badge ac-badge">Python</span></div><div class="ac-body"><strong>Automate Cybersecurity Tasks with Python</strong><p class="ac-desc">Coursera / Google, April 12, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🛠️</span><span class="badge ac-badge">Tools</span></div><div class="ac-body"><strong>Tools of the Trade: Linux and SQL</strong><p class="ac-desc">Coursera / Google, April 12, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🛡️</span><span class="badge ac-badge">Risk</span></div><div class="ac-body"><strong>Play It Safe: Manage Security Risks</strong><p class="ac-desc">Coursera / Google, March 19, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🧭</span><span class="badge ac-badge">Career</span></div><div class="ac-body"><strong>Put It to Work: Prepare for Cybersecurity Jobs</strong><p class="ac-desc">Coursera / Google, April 12, 2025</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🚨</span><span class="badge ac-badge">IR</span></div><div class="ac-body"><strong>Sound the Alarm: Detection and Response</strong><p class="ac-desc">Coursera / Google, April 12, 2025</p></div></div></div>
 
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Artificial Intelligence Fundamentals</strong><br />IBM SkillsBuild, September 8, 2024</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Cybersecurity Fundamentals</strong><br />IBM SkillsBuild, September 26, 2023</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Getting Started with Enterprise Data Science</strong><br />IBM, April 24, 2024</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Getting Started with Threat Intelligence and Hunting</strong><br />IBM, September 16, 2023</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>IBM Security Zero Trust Principles</strong><br />IBM, September 21, 2023</div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🤖</span><span class="badge ac-badge">AI</span></div><div class="ac-body"><strong>Artificial Intelligence Fundamentals</strong><p class="ac-desc">IBM SkillsBuild, September 8, 2024</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🛡️</span><span class="badge ac-badge">Cybersecurity</span></div><div class="ac-body"><strong>Cybersecurity Fundamentals</strong><p class="ac-desc">IBM SkillsBuild, September 26, 2023</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">📊</span><span class="badge ac-badge">Data</span></div><div class="ac-body"><strong>Getting Started with Enterprise Data Science</strong><p class="ac-desc">IBM, April 24, 2024</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🕵️</span><span class="badge ac-badge">Threat Intel</span></div><div class="ac-body"><strong>Getting Started with Threat Intelligence and Hunting</strong><p class="ac-desc">IBM, September 16, 2023</p></div></div></div>
+        <div class="col-md-6 certification"><div class="activity-card"><div class="ac-head"><span class="ac-icon" aria-hidden="true">🔐</span><span class="badge ac-badge">Zero Trust</span></div><div class="ac-body"><strong>IBM Security Zero Trust Principles</strong><p class="ac-desc">IBM, September 21, 2023</p></div></div></div>
 
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Software AG Certified Natural Associate</strong><br />Software AG, August 14, 2024 (valid until August 14, 2026)</div></div>
-        <div class="col-md-6 certification"><div class="activity-card"><strong>Mobile Application Development – Android</strong><br />BASIS Institute of Technology &amp; Management (BITM), SEIP Program, August 24, 2019</div></div>
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🧾</span>
+                    <span class="badge ac-badge">Certification</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Software AG Certified Natural Associate</strong>
+                    <p class="ac-desc">Software AG, August 14, 2024 (valid until August 14, 2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 certification">
+            <div class="activity-card">
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">📱</span>
+                    <span class="badge ac-badge">Training</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Mobile Application Development – Android</strong>
+                    <p class="ac-desc">BITM (SEIP Program), August 24, 2019</p>
+                </div>
+            </div>
+        </div>
 
         <!-- 👥 Professional Memberships -->
         <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>ISC2 Candidate Member</strong><br />
-                Candidate ID: ....749 (2025–2026) – Global cybersecurity professional community affiliation
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">👥</span>
+                    <span class="badge ac-badge">Membership</span>
+                </div>
+                <div class="ac-body">
+                    <strong>ISC2 Candidate Member</strong>
+                    <p class="ac-desc">Candidate ID: ....749 (2025–2026) – Global cybersecurity professional community affiliation</p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>IEEE Graduate Student Member</strong><br />
-                In good standing through December 2025
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">👥</span>
+                    <span class="badge ac-badge">Membership</span>
+                </div>
+                <div class="ac-body">
+                    <strong>IEEE Graduate Student Member</strong>
+                    <p class="ac-desc">In good standing through December 2025</p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>IEEE Young Professional Member</strong><br />
-                West Virginia Section (Member #...5875)
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">👥</span>
+                    <span class="badge ac-badge">Membership</span>
+                </div>
+                <div class="ac-body">
+                    <strong>IEEE Young Professional Member</strong>
+                    <p class="ac-desc">West Virginia Section (Member #...5875)</p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>ACM Member</strong><br />
-                Association for Computing Machinery (Member #....742)
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">👥</span>
+                    <span class="badge ac-badge">Membership</span>
+                </div>
+                <div class="ac-body">
+                    <strong>ACM Member</strong>
+                    <p class="ac-desc">Association for Computing Machinery (Member #....742)</p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 membership">
             <div class="activity-card">
-                <strong>ROTRACT CLUB Bangladesh</strong><br />
-                Member, volunteer, awarded for contribution
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🤝</span>
+                    <span class="badge ac-badge">Membership</span>
+                </div>
+                <div class="ac-body">
+                    <strong>ROTRACT CLUB Bangladesh</strong>
+                    <p class="ac-desc">Member, volunteer, awarded for contribution</p>
+                </div>
             </div>
         </div>
 
         <!-- 🧐 Editor & Tech Reviewer -->
         <div class="col-md-6 peerreview">
             <div class="activity-card">
-                <strong>Technical Reviewer – Springer Nature</strong><br />
-                “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy
-                in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
-                July 2025 – Present
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🧐</span>
+                    <span class="badge ac-badge">Reviewer</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Technical Reviewer – Springer Nature</strong>
+                    <p class="ac-desc">
+                        “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy
+                        in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
+                        July 2025 – Present
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 peerreview">
             <div class="activity-card">
-                <strong>Reviewer – IEEE PES ISGT-LATAM 2025</strong><br />
-                Peer-reviewed a technical paper in the area of adaptive power system protection.<br />
-                July 2025
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🧐</span>
+                    <span class="badge ac-badge">Reviewer</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Reviewer – IEEE PES ISGT-LATAM 2025</strong>
+                    <p class="ac-desc">Peer-reviewed a technical paper in the area of adaptive power system protection (July 2025).</p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 peerreview">
             <div class="activity-card">
-                <strong>Journal Reviewer – Business and Management Theory and Practice</strong><br />
-                Asia Pacific Academy of Science and PTE. LTD
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🧐</span>
+                    <span class="badge ac-badge">Reviewer</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Journal Reviewer – Business and Management Theory and Practice</strong>
+                    <p class="ac-desc">Asia Pacific Academy of Science and PTE. LTD</p>
+                </div>
             </div>
         </div>
 
-        <!-- 🏅 NEW: Awards & Fellowships -->
+        <!-- 🏅 Awards & Fellowships (highlighted style) -->
         <div class="col-md-6 award">
-            <div class="activity-card">
-                <strong>Travel Award – 6th National HBCU Blockchain, FinTech, and AI Conference (Sept 2025)</strong><br />
-                Selected participant with <em>full support</em> (travel, hotel, and meals covered).<br />
-                <button type="button" class="btn btn-outline-warning btn-sm mt-2"
-                        data-bs-toggle="modal" data-bs-target="#travelAwardModal"
-                        aria-label="Open details for Conference Travel Award or Fellowship">
-                    🎖️ Use Suggested Wording
-                </button>
+            <div class="activity-card ac-highlight">
+                <div class="ac-head">
+                    <span class="ac-icon" aria-hidden="true">🎖️</span>
+                    <span class="badge ac-badge">Award</span>
+                </div>
+                <div class="ac-body">
+                    <strong>Travel Award – 6th National HBCU Blockchain, FinTech, and AI Conference (Sept 2025)</strong>
+                    <p class="ac-desc">Selected participant with <em>full support</em> (travel, hotel, and meals covered).</p>
+                </div>
             </div>
         </div>
+
     </div>
-</div>
-
-<!-- Modal for Award/Fellowship details -->
-<div class="modal fade" id="travelAwardModal" tabindex="-1" aria-labelledby="travelAwardModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="travelAwardModalLabel">Conference Travel Award / Fellowship</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <p class="mb-2">
-          Because your travel, lodging, and meals were fully covered, this fits best as a
-          <strong>Travel Award / Fellowship</strong>.
-        </p>
-
-        <hr class="my-3">
-
-        <h6 class="fw-semibold">Suggested CV Entry</h6>
-        <pre class="bg-light p-3 rounded small mb-3" id="cvEntry">
-Travel Award, 6th National HBCU Blockchain, FinTech, and AI Conference — Fully funded (travel, hotel, meals). Sept 2025
-</pre>
-        <button class="btn btn-sm btn-outline-secondary mb-4" id="copyCvBtn" type="button">Copy CV Entry</button>
-
-        <h6 class="fw-semibold">Suggested Website Card (Activities / Honors)</h6>
-        <pre class="bg-light p-3 rounded small mb-3" id="webEntry">
-<div class="col-md-6 award">
-  <div class="activity-card">
-    <strong>Travel Award – 6th National HBCU Blockchain, FinTech, and AI Conference (2025)</strong><br />
-    Selected participant with <em>full support</em> (travel, hotel, and meals covered).
-  </div>
-</div>
-</pre>
-        <button class="btn btn-sm btn-outline-secondary" id="copyWebBtn" type="button">Copy Website Card</button>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Done</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- Section-local styles -->
 <style>
+    /* Card base */
     .activity-card {
-        background-color: #1a1a1a;
+        background-color: #121212; /* slightly darker for contrast with badge */
         color: #f1f1f1;
-        padding: 18px 22px;
+        padding: 16px 18px;
         border-radius: 16px;
-        transition: transform .35s ease, box-shadow .35s ease;
-        box-shadow: 0 4px 10px rgba(255,106,0,.1);
-        min-height: 170px;
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        box-shadow: 0 4px 12px rgba(255,106,0,.10);
+        border: 1px solid rgba(255,255,255,0.05);
+        min-height: 160px;
     }
     .activity-card:hover {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 12px 25px rgba(255,106,0,.35);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(255,106,0,.30);
+        border-color: rgba(255,255,255,0.12);
     }
+
+    /* Highlighted award variant */
+    .ac-highlight {
+        background: radial-gradient(120% 120% at 0% 0%, rgba(255,106,0,.18), transparent 60%),
+                    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.00));
+        border: 1px solid rgba(255,106,0,.35);
+        box-shadow: 0 12px 32px rgba(255,106,0,.35);
+    }
+
+    /* Card header: icon + badge row */
+    .ac-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
+    }
+    .ac-icon {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        background: rgba(255,255,255,.06);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .ac-badge {
+        --bs-badge-padding-x: .5rem;
+        --bs-badge-padding-y: .35rem;
+        --bs-badge-font-size: .72rem;
+        --bs-badge-border-radius: 9999px;
+        background: #ffd7b3;
+        color: #3b2a14;
+        border: 1px solid rgba(0,0,0,.07);
+        letter-spacing: .2px;
+        text-transform: none;
+    }
+
+    /* Body text */
+    .ac-body strong { display: inline-block; margin-bottom: 4px; }
+    .ac-desc { margin: 0; opacity: .88; }
+
+    /* Buttons (filter) */
     .btn-group .btn.active {
         background-color: #ff6a00;
         color:#fff;
         border-color:#ff6a00;
     }
+
+    /* Sticky filter */
     .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
+
+    /* Reduce spacing a bit on very small screens */
+    @media (max-width: 420px) {
+        .activity-card { padding: 14px 14px; }
+        .ac-icon { width: 28px; height: 28px; font-size: 1rem; }
+    }
 </style>
 
 @section Scripts {
@@ -377,24 +519,6 @@ Travel Award, 6th National HBCU Blockchain, FinTech, and AI Conference — Fully
   } else {
     init();
   }
-})();
-</script>
-
-<script>
-// Copy helpers for Award modal
-(function () {
-  function copyFromPre(preId) {
-    var el = document.getElementById(preId);
-    var text = el ? el.innerText : "";
-    if (!text) return;
-    navigator.clipboard.writeText(text).then(function(){
-      alert("Copied!");
-    });
-  }
-  var cvBtn  = document.getElementById("copyCvBtn");
-  var webBtn = document.getElementById("copyWebBtn");
-  if (cvBtn)  cvBtn.addEventListener("click", function(){ copyFromPre("cvEntry"); });
-  if (webBtn) webBtn.addEventListener("click", function(){ copyFromPre("webEntry"); });
 })();
 </script>
 }
