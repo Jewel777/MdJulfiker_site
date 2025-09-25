@@ -7,18 +7,33 @@
 <div class="container mt-5 mb-5">
     <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Accomplishments</h2>
 
-    <!-- Filter (buttons on desktop, dropdown on mobile) -->
+    <!-- Filter (chip buttons on desktop, dropdown on mobile) -->
     <div class="sticky-filter mb-4">
         <!-- Desktop / tablet -->
-        <div class="text-center d-none d-md-block">
-            <div class="btn-group flex-wrap" id="accomplishment-filter-buttons" role="tablist" aria-label="Accomplishments filter">
-                <button class="btn btn-outline-warning filter-btn active" data-filter="all">Show All</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="certification">Professional Training &amp; Certifications</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="membership">Professional Memberships</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="volunteer">Volunteer &amp; Mentorship</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="presentation">Presentation &amp; Talk</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="peerreview">Editor &amp; Tech Reviewer</button>
-                <button class="btn btn-outline-warning filter-btn" data-filter="award">Awards &amp; Fellowships</button>
+        <div class="d-none d-md-block">
+            <!-- Chip bar (keeps same id and .filter-btn class so existing JS works) -->
+            <div id="accomplishment-filter-buttons" class="chipbar" role="tablist" aria-label="Accomplishments filter">
+                <button class="chip filter-btn active" data-filter="all" type="button">
+                    <span class="chip-icon">✨</span><span class="chip-label">Show All</span>
+                </button>
+                <button class="chip filter-btn" data-filter="certification" type="button">
+                    <span class="chip-icon">🎓</span><span class="chip-label">Training &amp; Certs</span>
+                </button>
+                <button class="chip filter-btn" data-filter="membership" type="button">
+                    <span class="chip-icon">👥</span><span class="chip-label">Memberships</span>
+                </button>
+                <button class="chip filter-btn" data-filter="volunteer" type="button">
+                    <span class="chip-icon">🙌</span><span class="chip-label">Volunteer</span>
+                </button>
+                <button class="chip filter-btn" data-filter="presentation" type="button">
+                    <span class="chip-icon">🎤</span><span class="chip-label">Presentations</span>
+                </button>
+                <button class="chip filter-btn" data-filter="peerreview" type="button">
+                    <span class="chip-icon">🧐</span><span class="chip-label">Peer Review</span>
+                </button>
+                <button class="chip filter-btn" data-filter="award" type="button">
+                    <span class="chip-icon">🎖️</span><span class="chip-label">Awards</span>
+                </button>
             </div>
         </div>
 
@@ -292,7 +307,7 @@
                     <span class="badge ac-badge">Reviewer</span>
                 </div>
                 <div class="ac-body">
-                    <strong>Technical Reviewer – Springer Nature</strong>
+                    <strong>Technical Editor – Springer Nature</strong>
                     <p class="ac-desc">
                         “CompTIA Network+ (N10-009) Certification Companion” – Reviewing all 14 chapters for technical accuracy
                         in cybersecurity and networking (4 chapters completed, 10 chapters in progress).<br />
@@ -347,9 +362,54 @@
 
 <!-- Section-local styles -->
 <style>
+    /* Chip bar styles */
+    .chipbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 6px 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    .chipbar::-webkit-scrollbar { height: 6px; }
+    .chipbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 999px; }
+
+    .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 9999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.04);
+        color: #f7f7f7;
+        font-weight: 600;
+        letter-spacing: .2px;
+        white-space: nowrap;
+        transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .chip:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255,106,0,.55);
+        box-shadow: 0 6px 16px rgba(255,106,0,.25);
+    }
+    .chip:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255,255,255,.5), 0 0 0 6px rgba(255,106,0,.45);
+    }
+    .chip.active {
+        background: linear-gradient(180deg, rgba(255,106,0,.95), rgba(255,106,0,.85));
+        border-color: rgba(255,106,0,1);
+        color: #1a1a1a;
+        box-shadow: 0 10px 22px rgba(255,106,0,.45);
+    }
+    .chip-icon { font-size: 1rem; line-height: 1; }
+    .chip-label { font-size: .95rem; }
+
     /* Card base */
     .activity-card {
-        background-color: #121212; /* slightly darker for badge contrast */
+        background-color: #121212;
         color: #f1f1f1;
         padding: 16px 18px;
         border-radius: 16px;
@@ -364,7 +424,7 @@
         border-color: rgba(255,255,255,0.12);
     }
 
-    /* Highlighted award variant */
+    /* Award highlight */
     .ac-highlight {
         background: radial-gradient(120% 120% at 0% 0%, rgba(255,106,0,.18), transparent 60%),
                     linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.00));
@@ -372,7 +432,7 @@
         box-shadow: 0 12px 32px rgba(255,106,0,.35);
     }
 
-    /* Card header: icon + badge row */
+    /* Card header */
     .ac-head {
         display: flex;
         align-items: center;
@@ -399,33 +459,25 @@
         color: #3b2a14;
         border: 1px solid rgba(0,0,0,.07);
         letter-spacing: .2px;
-        text-transform: none;
     }
 
-    /* Body text */
     .ac-body strong { display: inline-block; margin-bottom: 4px; }
     .ac-desc { margin: 0; opacity: .88; }
 
-    /* Buttons (filter) */
-    .btn-group .btn.active {
-        background-color: #ff6a00;
-        color:#fff;
-        border-color:#ff6a00;
-    }
-
-    /* Sticky filter */
     .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
 
-    /* Razor-safe media query (escaped at-symbol via double at) */
+    /* Razor-safe media query: use double at to emit literal at-media */
     @@media (max-width: 420px) {
         .activity-card { padding: 14px 14px; }
         .ac-icon { width: 28px; height: 28px; font-size: 1rem; }
+        .chip { padding: 9px 12px; }
+        .chip-label { font-size: .9rem; }
     }
 </style>
 
 @section Scripts {
 <script>
-// Accomplishments filter — URL-safe (no ?ac=), iOS-hardened, sessionStorage persistence.
+// Accomplishments filter — reuses your existing logic, now applied to .chip buttons too
 (function () {
   var STORAGE_KEY = 'acFilter';
 
@@ -433,8 +485,8 @@
     var grid  = document.getElementById('accomplishment-grid');
     if (!grid) return;
 
-    var btnBar = document.getElementById('accomplishment-filter-buttons'); // desktop
-    var select = document.getElementById('acFilterSelect');               // mobile
+    var btnBar = document.getElementById('accomplishment-filter-buttons'); // desktop chip bar
+    var select = document.getElementById('acFilterSelect');                // mobile select
 
     var buttons = btnBar ? Array.from(btnBar.querySelectorAll('.filter-btn')) : [];
     var cards = Array.from(grid.children).filter(function (el) {
@@ -456,6 +508,10 @@
         return (b.getAttribute('data-filter') || '').toLowerCase() === (val || 'all').toLowerCase();
       });
       (match || buttons[0]).classList.add('active');
+      // ensure chip is visible when selected
+      if (match && match.scrollIntoView) {
+        match.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }
     }
 
     function setSelectValue(val) {
@@ -467,7 +523,6 @@
     function save(val){ try { sessionStorage.setItem(STORAGE_KEY, val); } catch(e){} }
     function load(){ try { return sessionStorage.getItem(STORAGE_KEY) || 'all'; } catch(e){ return 'all'; } }
 
-    // Read once from ?ac=... if present, then strip it; else use sessionStorage.
     function initialValue() {
       var v = null;
       try {
@@ -492,7 +547,7 @@
     // Tiny global for the select's inline onchange fallback
     window.acApply = function (v) { updateAll(v || 'all'); };
 
-    // Desktop buttons
+    // Desktop chips
     if (btnBar) {
       btnBar.addEventListener('click', function (e) {
         var btn = e.target.closest('.filter-btn');
@@ -502,7 +557,7 @@
       });
     }
 
-    // Mobile dropdown — robust on iOS (change/input/blur)
+    // Mobile dropdown
     if (select) {
       var handler = function(){ updateAll(select.value || 'all'); };
       select.addEventListener('change', handler);
@@ -510,7 +565,7 @@
       select.addEventListener('blur', handler, true);
     }
 
-    // Init — NO URL writes after this point
+    // Init
     updateAll(initialValue(), false);
   }
 
