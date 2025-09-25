@@ -12,26 +12,26 @@
         <!-- Desktop / tablet -->
         <div class="d-none d-md-block">
             <!-- Chip bar (keeps same id and .filter-btn class so existing JS works) -->
-            <div id="accomplishment-filter-buttons" class="chipbar" role="tablist" aria-label="Accomplishments filter">
-                <button class="chip filter-btn active" data-filter="all" type="button">
+            <div id="accomplishment-filter-buttons" class="chipbar chipbar-wrap" role="tablist" aria-label="Accomplishments filter">
+                <button class="chip chip-sm filter-btn active" data-filter="all" type="button">
                     <span class="chip-icon">✨</span><span class="chip-label">Show All</span>
                 </button>
-                <button class="chip filter-btn" data-filter="certification" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="certification" type="button">
                     <span class="chip-icon">🎓</span><span class="chip-label">Training &amp; Certs</span>
                 </button>
-                <button class="chip filter-btn" data-filter="membership" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="membership" type="button">
                     <span class="chip-icon">👥</span><span class="chip-label">Memberships</span>
                 </button>
-                <button class="chip filter-btn" data-filter="volunteer" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="volunteer" type="button">
                     <span class="chip-icon">🙌</span><span class="chip-label">Mentorship/Volunteer</span>
                 </button>
-                <button class="chip filter-btn" data-filter="presentation" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="presentation" type="button">
                     <span class="chip-icon">🎤</span><span class="chip-label">Presentations &amp; Talks</span>
                 </button>
-                <button class="chip filter-btn" data-filter="peerreview" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="peerreview" type="button">
                     <span class="chip-icon">🧐</span><span class="chip-label">Peer Review</span>
                 </button>
-                <button class="chip filter-btn" data-filter="award" type="button">
+                <button class="chip chip-sm filter-btn" data-filter="award" type="button">
                     <span class="chip-icon">🎖️</span><span class="chip-label">Awards</span>
                 </button>
             </div>
@@ -343,7 +343,7 @@
             </div>
         </div>
 
-        <!-- 🏅 Awards & Fellowships (highlighted style; logo only, no modal) -->
+        <!-- 🏅 Awards & Fellowships -->
         <div class="col-md-6 award">
             <div class="activity-card ac-highlight">
                 <div class="ac-head">
@@ -362,19 +362,21 @@
 
 <!-- Section-local styles -->
 <style>
-    /* Chip bar styles */
+    /* Chip bar: allow wrapping and center alignment so all buttons are visible */
     .chipbar {
         display: flex;
         gap: 10px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
         padding: 6px 2px;
-        -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
     }
-    .chipbar::-webkit-scrollbar { height: 6px; }
-    .chipbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 999px; }
+    .chipbar-wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 8px;
+        column-gap: 8px;
+    }
 
+    /* Compact chips */
     .chip {
         display: inline-flex;
         align-items: center;
@@ -385,9 +387,15 @@
         background: rgba(255,255,255,.04);
         color: #f7f7f7;
         font-weight: 600;
-        letter-spacing: .2px;
+        letter-spacing: .15px;
         white-space: nowrap;
         transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .chip-sm {
+        padding: 7px 12px;          /* tighter */
+        gap: 6px;                   /* tighter */
+        font-size: .92rem;          /* slightly smaller text */
+        line-height: 1.1;
     }
     .chip:hover {
         transform: translateY(-1px);
@@ -404,8 +412,8 @@
         color: #1a1a1a;
         box-shadow: 0 10px 22px rgba(255,106,0,.45);
     }
-    .chip-icon { font-size: 1rem; line-height: 1; }
-    .chip-label { font-size: .95rem; }
+    .chip-icon { font-size: .95rem; line-height: 1; }
+    .chip-label { font-size: .92rem; }
 
     /* Card base */
     .activity-card {
@@ -466,18 +474,19 @@
 
     .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
 
-    /* Razor-safe media query: use double at to emit literal at-media */
+    /* Media query (double at for Razor) */
     @@media (max-width: 420px) {
         .activity-card { padding: 14px 14px; }
         .ac-icon { width: 28px; height: 28px; font-size: 1rem; }
-        .chip { padding: 9px 12px; }
-        .chip-label { font-size: .9rem; }
+        .chip-sm { padding: 6px 10px; font-size: .9rem; }
+        .chip-icon { font-size: .9rem; }
+        .chipbar-wrap { row-gap: 6px; column-gap: 6px; }
     }
 </style>
 
 @section Scripts {
 <script>
-// Accomplishments filter — reuses your existing logic, now applied to .chip buttons too
+// Accomplishments filter — same logic, works with chips
 (function () {
   var STORAGE_KEY = 'acFilter';
 
@@ -508,9 +517,9 @@
         return (b.getAttribute('data-filter') || '').toLowerCase() === (val || 'all').toLowerCase();
       });
       (match || buttons[0]).classList.add('active');
-      // ensure chip is visible when selected
       if (match && match.scrollIntoView) {
-        match.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+        // keep selected chip in view if it wraps to a new line
+        match.scrollIntoView({ inline: 'nearest', block: 'nearest' });
       }
     }
 
