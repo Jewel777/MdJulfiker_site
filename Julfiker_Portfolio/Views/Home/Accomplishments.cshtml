@@ -328,7 +328,7 @@
             </div>
         </div>
 
-        <!-- 🏅 Awards & Fellowships (highlighted style) -->
+        <!-- 🏅 Awards & Fellowships (highlighted style; logo only, no modal) -->
         <div class="col-md-6 award">
             <div class="activity-card ac-highlight">
                 <div class="ac-head">
@@ -349,7 +349,7 @@
 <style>
     /* Card base */
     .activity-card {
-        background-color: #121212; /* slightly darker for contrast with badge */
+        background-color: #121212; /* slightly darker for badge contrast */
         color: #f1f1f1;
         padding: 16px 18px;
         border-radius: 16px;
@@ -416,8 +416,8 @@
     /* Sticky filter */
     .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
 
-    /* Reduce spacing a bit on very small screens */
-    @media (max-width: 420px) {
+    /* ✅ Razor-safe media query: escape '@' as '@@' */
+    @@media (max-width: 420px) {
         .activity-card { padding: 14px 14px; }
         .ac-icon { width: 28px; height: 28px; font-size: 1rem; }
     }
@@ -475,7 +475,7 @@
         if (url.searchParams.has('ac')) {
           v = url.searchParams.get('ac') || 'all';
           url.searchParams.delete('ac');
-          var cleaned = url.toString().replace(/\?$/, ''); // avoid trailing '?'
+          var cleaned = url.toString().replace(/\?$/, '');
           history.replaceState(null, '', cleaned);
         }
       } catch (e) {}
