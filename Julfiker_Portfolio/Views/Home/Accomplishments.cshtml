@@ -416,7 +416,7 @@
     /* Sticky filter */
     .sticky-filter { position: sticky; top: calc(var(--nav-h, 84px)); z-index: 5; }
 
-    /* ✅ Razor-safe media query: escape '@' as '@@' */
+    /* Razor-safe media query (escaped at-symbol via double at) */
     @@media (max-width: 420px) {
         .activity-card { padding: 14px 14px; }
         .ac-icon { width: 28px; height: 28px; font-size: 1rem; }
