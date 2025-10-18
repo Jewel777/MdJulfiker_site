@@ -1,6 +1,6 @@
-// Analytics/AnalyticsMiddleware.cs
 using System.Security.Cryptography;
 using System.Text;
+using Julfiker_Portfolio.Data;
 
 public class AnalyticsMiddleware
 {
@@ -15,44 +15,44 @@ public class AnalyticsMiddleware
     public async Task Invoke(HttpContext ctx, AppDbContext db, IConfiguration cfg)
     {
         var sw = System.Diagnostics.Stopwatch.StartNew();
-
-        // Let the rest of the pipeline run first to capture status code
         await _next(ctx);
         sw.Stop();
 
         try
         {
-            // Only track GET/HEAD to your site pages (adjust as needed)
             if (!HttpMethods.IsGet(ctx.Request.Method) && !HttpMethods.IsHead(ctx.Request.Method)) return;
-            if (ctx.Request.Path.Value?.StartsWith("/admin", StringComparison.OrdinalIgnoreCase) == true) return;
-            if (ctx.Request.Path.Value?.StartsWith("/analytics", StringComparison.OrdinalIgnoreCase) == true) return;
-            if (ctx.Response.StatusCode >= 500) return; // skip server errors if you want
+            var path = ctx.Request.Path.Value ?? "/";
+            if (IsStatic(path)) return;
 
-            // Basic bot filter
-            var ua = ctx.Request.Headers.UserAgent.ToString();
-            var isBot = string.IsNullOrWhiteSpace(ua) || ua.Contains("bot", StringComparison.OrdinalIgnoreCase) ||
+            var ua = ctx.Request.Headers.UserAgent.ToString() ?? "";
+            var isBot = string.IsNullOrWhiteSpace(ua) ||
+                        ua.Contains("bot", StringComparison.OrdinalIgnoreCase) ||
                         ua.Contains("spider", StringComparison.OrdinalIgnoreCase) ||
                         ua.Contains("crawler", StringComparison.OrdinalIgnoreCase);
 
-            // First-party session cookie
+            if (isBot) return;
+
             const string cookieName = "aid";
             if (!ctx.Request.Cookies.TryGetValue(cookieName, out var sessionId) || string.IsNullOrWhiteSpace(sessionId))
             {
                 sessionId = Guid.NewGuid().ToString("N");
-                ctx.Response.Cookies.Append(cookieName, sessionId, new CookieOptions {
-                    HttpOnly = true, Secure = true, SameSite = SameSiteMode.Lax, Expires = DateTimeOffset.UtcNow.AddMonths(6)
+                ctx.Response.Cookies.Append(cookieName, sessionId, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Lax,
+                    Expires = DateTimeOffset.UtcNow.AddMonths(6)
                 });
             }
 
-            // Privacy-safe IP hash
             var ip = ctx.Connection.RemoteIpAddress?.ToString() ?? "0.0.0.0";
             var salt = cfg["Analytics:IpHashSalt"] ?? "default_salt_change_me";
             var ipHash = Hash($"{ip}|{salt}");
 
-            var hit = new PageHit
+            var hit = new Julfiker_Portfolio.Models.PageHit
             {
                 CreatedUtc = DateTime.UtcNow,
-                Path = ctx.Request.Path.Value ?? "/",
+                Path = path,
                 Query = ctx.Request.QueryString.HasValue ? ctx.Request.QueryString.Value : null,
                 Referrer = ctx.Request.Headers.Referer.ToString(),
                 UserAgent = ua,
@@ -60,14 +60,11 @@ public class AnalyticsMiddleware
                 SessionId = sessionId!,
                 StatusCode = ctx.Response.StatusCode,
                 LoadTimeMs = (int)sw.ElapsedMilliseconds,
-                IsBot = isBot
+                IsBot = false
             };
 
-            if (!isBot) // keep if you want bot stats too
-            {
-                db.PageHits.Add(hit);
-                await db.SaveChangesAsync();
-            }
+            db.PageHits.Add(hit);
+            await db.SaveChangesAsync();
         }
         catch (Exception ex)
         {
@@ -78,8 +75,14 @@ public class AnalyticsMiddleware
     private static string Hash(string input)
     {
         using var sha = SHA256.Create();
-        var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
-        return Convert.ToHexString(bytes); // uppercase hex
+        return Convert.ToHexString(sha.ComputeHash(Encoding.UTF8.GetBytes(input)));
+    }
+
+    private static bool IsStatic(string path)
+    {
+        var ext = Path.GetExtension(path);
+        if (string.IsNullOrEmpty(ext)) return false;
+        return new[] { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico" }
+            .Contains(ext, StringComparer.OrdinalIgnoreCase);
     }
 }
-
