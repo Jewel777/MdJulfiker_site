@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Julfiker_Portfolio.Models;
 
-public class AppDbContext : DbContext
+namespace Julfiker_Portfolio.Data
 {
-    public DbSet<PageHit> PageHits => Set<PageHit>();
-    public DbSet<DailyStat> DailyStats => Set<DailyStat>();
-    public AppDbContext(DbContextOptions<AppDbContext> opts) : base(opts) { }
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+        public DbSet<PageHit> PageHits => Set<PageHit>();
+        public DbSet<DailyStat> DailyStats => Set<DailyStat>();
+    }
 }
