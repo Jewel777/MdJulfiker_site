@@ -1,1 +1,11 @@
+@{
+    ViewData["Title"] = "Analytics Dashboard";
+}
+<div class="container py-5">
+  <h2 class="text-warning">Website Analytics</h2>
+  <div class="glass p-4 rounded-4 text-light mt-3">
+    <p><strong>Total Page Views (30 days):</strong> @ViewBag.PageViews</p>
+    <p><strong>Unique Sessions (30 days):</strong> @ViewBag.UniqueSessions</p>
+  </div>
+</div>
 
