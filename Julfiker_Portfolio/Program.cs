@@ -1,20 +1,26 @@
-using Julfiker_Portfolio.Models; // <-- for EmailSettings
+using Julfiker_Portfolio.Models;           // EmailSettings
+using Microsoft.EntityFrameworkCore;       // EF Core
+using Julfiker_Portfolio.Data;             // AppDbContext
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// MVC
 builder.Services.AddControllersWithViews();
 
-// Bind Email settings from configuration (appsettings.json / env vars)
+// Bind Email settings
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Email"));
+
+// EF Core (SQLite) — uses "ConnectionStrings:DefaultConnection" from appsettings.json
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Prod pipeline bits
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts(); // default 30 days
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -22,7 +28,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Create DB file/tables if missing (no CLI migrations needed)
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+}
+
 app.UseAuthorization();
+
+// Log page views
+app.UseMiddleware<AnalyticsMiddleware>();
 
 app.MapControllerRoute(
     name: "default",
