@@ -17,6 +17,7 @@ namespace Julfiker_Portfolio.Models
         public bool IsBot { get; set; }
     }
 
+    
     public class DailyStat
     {
         public int Id { get; set; }
