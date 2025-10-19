@@ -16,7 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// Production pipeline
+// Prod pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -28,7 +28,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Auto-create DB file/tables on boot (no CLI migrations needed)
+// Auto-create DB file/tables
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
