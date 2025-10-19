@@ -10,13 +10,13 @@ builder.Services.AddControllersWithViews();
 // Bind Email settings
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Email"));
 
-// EF Core (SQLite) — uses "ConnectionStrings:DefaultConnection" from appsettings.json
+// EF Core (SQLite)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Prod pipeline bits
+// Production pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -28,7 +28,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Create DB file/tables if missing (no CLI migrations needed)
+// Auto-create DB file/tables on boot (no CLI migrations needed)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
