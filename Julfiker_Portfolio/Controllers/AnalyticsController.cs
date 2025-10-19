@@ -11,6 +11,7 @@ public class AnalyticsController : Controller
     {
         var since = DateTime.UtcNow.AddDays(-30);
 
+
         var views = await _db.PageHits.Where(h => h.CreatedUtc >= since).CountAsync();
         var uniques = await _db.PageHits.Where(h => h.CreatedUtc >= since)
                                         .Select(h => h.SessionId).Distinct().CountAsync();
