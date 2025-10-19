@@ -24,13 +24,16 @@ public class AnalyticsMiddleware
             var path = ctx.Request.Path.Value ?? "/";
             if (IsStatic(path)) return;
 
+            var exclude = (cfg.GetSection("Analytics:ExcludePaths").Get<string[]>() ?? Array.Empty<string>());
+            if (exclude.Any(p => path.StartsWith(p, StringComparison.OrdinalIgnoreCase))) return;
+
             var ua = ctx.Request.Headers.UserAgent.ToString() ?? "";
             var isBot = string.IsNullOrWhiteSpace(ua) ||
                         ua.Contains("bot", StringComparison.OrdinalIgnoreCase) ||
                         ua.Contains("spider", StringComparison.OrdinalIgnoreCase) ||
                         ua.Contains("crawler", StringComparison.OrdinalIgnoreCase);
-
-            if (isBot) return;
+            var trackBots = cfg.GetValue("Analytics:TrackBots", false);
+            if (isBot && !trackBots) return;
 
             const string cookieName = "aid";
             if (!ctx.Request.Cookies.TryGetValue(cookieName, out var sessionId) || string.IsNullOrWhiteSpace(sessionId))
@@ -60,7 +63,7 @@ public class AnalyticsMiddleware
                 SessionId = sessionId!,
                 StatusCode = ctx.Response.StatusCode,
                 LoadTimeMs = (int)sw.ElapsedMilliseconds,
-                IsBot = false
+                IsBot = isBot
             };
 
             db.PageHits.Add(hit);
@@ -77,13 +80,13 @@ public class AnalyticsMiddleware
         using var sha = SHA256.Create();
         return Convert.ToHexString(sha.ComputeHash(Encoding.UTF8.GetBytes(input)));
     }
-    
 
     private static bool IsStatic(string path)
     {
         var ext = Path.GetExtension(path);
         if (string.IsNullOrEmpty(ext)) return false;
-        return new[] { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico" }
-            .Contains(ext, StringComparer.OrdinalIgnoreCase);
+        var set = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        { ".css",".js",".png",".jpg",".jpeg",".gif",".svg",".webp",".ico",".woff",".woff2",".ttf",".eot",".map",".pdf",".txt",".xml",".json",".csv" };
+        return set.Contains(ext);
     }
 }
