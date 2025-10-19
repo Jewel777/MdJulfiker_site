@@ -1,11 +1,47 @@
 @{
-    ViewData["Title"] = "Analytics Dashboard";
+    ViewData["Title"] = "Analytics";
+    var byDay = (IEnumerable<dynamic>)ViewBag.ByDay;
+    var top = (IEnumerable<dynamic>)ViewBag.TopPages;
 }
-<div class="container py-5">
-  <h2 class="text-warning">Website Analytics</h2>
-  <div class="glass p-4 rounded-4 text-light mt-3">
-    <p><strong>Total Page Views (30 days):</strong> @ViewBag.PageViews</p>
-    <p><strong>Unique Sessions (30 days):</strong> @ViewBag.UniqueSessions</p>
+<div class="container py-4">
+  <h2 class="mb-3 text-light">Analytics (Admin)</h2>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-4"><div class="card p-3"><h5>Pageviews (30d)</h5><div class="fs-3 fw-bold">@ViewBag.PageViews30</div></div></div>
+    <div class="col-md-4"><div class="card p-3"><h5>Unique Sessions (30d)</h5><div class="fs-3 fw-bold">@ViewBag.UniqueSessions30</div></div></div>
+    <div class="col-md-4"><div class="card p-3"><h5>Unique Visitors (30d)</h5><div class="fs-3 fw-bold">@ViewBag.UniqueVisitors30</div></div></div>
+  </div>
+
+  <div class="card p-3 mb-4">
+    <h5 class="mb-3">Daily trend (last 30 days)</h5>
+    <canvas id="trend"></canvas>
+  </div>
+
+  <div class="card p-3">
+    <h5 class="mb-3">Top pages (30d)</h5>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead><tr><th>Path</th><th>Views</th><th>Unique Sessions</th></tr></thead>
+        <tbody>
+        @foreach (var r in top)
+        { <tr><td>@r.Path</td><td>@r.Views</td><td>@r.UniqueSessions</td></tr> }
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const labels = [@string.Join(",", byDay.Select(d => $"\"{((DateTime)d.Day).ToString("MM-dd")}\""))];
+const views = [@string.Join(",", byDay.Select(d => d.Views.ToString()))];
+const uniques = [@string.Join(",", byDay.Select(d => d.UniqueSessions.ToString()))];
+
+new Chart(document.getElementById('trend'), {
+  type: 'line',
+  data: { labels, datasets: [
+    { label: 'Views', data: views },
+    { label: 'Unique sessions', data: uniques }
+  ] }
+});
+</script>
