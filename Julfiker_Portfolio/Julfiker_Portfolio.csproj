@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Your existing email packages -->
     <PackageReference Include="MailKit" Version="4.11.0" />
     <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
-
-    <!-- EF Core for .NET 8 -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
