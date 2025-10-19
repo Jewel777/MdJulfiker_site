@@ -1,5 +1,6 @@
 @{
     Layout = null;
+    var isAdmin = Context?.Request?.Cookies?["mja_admin"] == "1";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +17,10 @@
         var url = new URL(window.location.href);
         if (url.searchParams.has('ac')) {
           url.searchParams.delete('ac');
-          var cleaned = url.toString().replace(/\?$/, ''); // no trailing ?
-          // keep the same history entry, preserve hash
+          var cleaned = url.toString().replace(/\?$/, '');
           history.replaceState(null, '', cleaned);
         }
-      } catch (e) { /* no-op */ }
+      } catch (e) { }
     })();
     </script>
 
@@ -34,7 +34,7 @@
     <link href="~/css/site.css?v=11" rel="stylesheet" />
     <link rel="icon" type="image/png" href="~/images/favicon.png" />
 
-    <!-- JSON-LD (Razor @@ escapes) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@@context":"https://schema.org",
@@ -84,10 +84,13 @@
                 <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
 
-                <!-- ✅ Added Analytics link -->
-                <li class="nav-item">
-                  <a class="nav-link" asp-controller="Analytics" asp-action="Index">Analytics</a>
-                </li>
+                @* ✅ Show Analytics only if admin cookie is present *@
+                @if (isAdmin)
+                {
+                  <li class="nav-item">
+                    <a class="nav-link" asp-controller="Analytics" asp-action="Index">Analytics</a>
+                  </li>
+                }
 
                 <li class="nav-item">
                   <a class="btn btn-warning btn-sm ms-3 shadow btn-liquid" href="/#contact" data-nav="contact">📩 Contact</a>
@@ -134,7 +137,7 @@
     } catch(e) { console.warn(e); }
     </script>
 
-    <!-- Typed.js (only if #typed exists) -->
+    <!-- Typed.js -->
     <script>
     (function () {
       var el = document.getElementById('typed'); if(!el) return;
@@ -147,7 +150,7 @@
     })();
     </script>
 
-    <!-- Scroll/highlight + smooth anchors -->
+    <!-- Scroll/highlight + anchors -->
     <script>
     (function () {
       var nav = document.getElementById('mainNavbar');
