@@ -10,7 +10,6 @@ namespace Julfiker_Portfolio.Data
         {
         }
 
-
         public DbSet<PageHit> PageHits => Set<PageHit>();
         public DbSet<DailyStat> DailyStats => Set<DailyStat>();
     }
