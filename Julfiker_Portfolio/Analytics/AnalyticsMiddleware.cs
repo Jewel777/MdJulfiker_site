@@ -77,6 +77,7 @@ public class AnalyticsMiddleware
         using var sha = SHA256.Create();
         return Convert.ToHexString(sha.ComputeHash(Encoding.UTF8.GetBytes(input)));
     }
+    
 
     private static bool IsStatic(string path)
     {
