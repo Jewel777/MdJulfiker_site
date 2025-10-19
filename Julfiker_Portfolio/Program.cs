@@ -28,17 +28,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Auto-create DB file/tables
+// ✅ Ensure DB/tables exist (must run before middleware logs)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureCreated();
 }
 
-app.UseAuthorization();
-
-// Log page views
+// ✅ Log page views (must be BEFORE Authorization and endpoint mapping)
 app.UseMiddleware<AnalyticsMiddleware>();
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
