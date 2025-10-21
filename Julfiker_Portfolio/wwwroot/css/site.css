@@ -153,3 +153,23 @@ html{ scroll-behavior:smooth; }
 @media (max-width:576px){ #typed{ font-size: clamp(18px, 7.8vw, 32px); } }
 
 .exp-card .small .text-secondary { opacity: .9; }
+
+/* ===========================
+   LOCAL FIXES (stats only)
+   =========================== */
+
+/* Tighten spacing only for the stats row underneath the hero.
+   Works whether you added class="stats-section" or kept my-5. */
+#home .stats-section,
+#home .container.text-center.my-5{
+  margin-top: 10px !important;
+  margin-bottom: 8px !important;
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Reduce the large bottom padding from the hero's outer container
+   so the gap below the stats shrinks further */
+#home > .container{
+  padding-bottom: 16px !important;  /* default py-5 would be ~48px */
+}
