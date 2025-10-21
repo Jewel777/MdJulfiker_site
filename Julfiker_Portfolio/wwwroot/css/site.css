@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v9) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v10) ===== */
 
 /* Tokens */
 :root{
@@ -66,10 +66,26 @@ html{ scroll-behavior:smooth; }
 }
 
 /* Layout spacing */
-.main-content{ padding-top: var(--nav-h); padding-bottom:32px; }
+.main-content{ padding-top: var(--nav-h); padding-bottom:16px; }
 
-/* One-page sections */
-.page-section{ scroll-margin-top: calc(var(--nav-h) + 12px); min-height:100vh; display:flex; align-items:center; position:relative; }
+/* One-page sections
+   — FIX: don't force every section to full screen height.
+   — Keep consistent breathing space with padding only. */
+.page-section{
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+  padding-top: 56px;
+  padding-bottom: 56px;
+  position:relative;
+}
+
+/* Hero only stays full-height + centered */
+#home.page-section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+/* Titles */
 .section-title{ margin-top:0; margin-bottom:1rem; font-weight:700; }
 
 /* No global card */
@@ -117,46 +133,23 @@ html{ scroll-behavior:smooth; }
   .scroll-top{ right:20px; }
 }
 
-
-
-
 /* === Hero typed headline: smaller on mobile + no layout jump === */
-.hero-title {
-  /* Reserve space for ~2 lines so the paragraph below doesn't jump
-     when the typed string wraps differently */
-  min-height: 2.8em;
-}
+.hero-title { min-height: 2.8em; }
 
-#typed {
-  /* Scale smoothly across screens */
-  font-weight: 800;
-  line-height: 1.15;
-  /* clamp(min, preferred vw, max) */
+#typed{
+  font-weight:800; line-height:1.15;
   font-size: clamp(22px, 6.2vw, 44px);
-  letter-spacing: 0.3px;
+  letter-spacing: .3px;
 }
 
-/* Make the paragraph under the headline slightly smaller on phones */
-.home-section .lead {
+.home-section .lead{
   font-size: clamp(14px, 3.6vw, 18px);
   line-height: 1.65;
 }
 
-/* Keep the blinking cursor proportional */
-.typed-cursor {
-  font-size: 0.9em;          /* follows the headline size */
-  vertical-align: -0.06em;   /* align with text baseline */
-}
+.typed-cursor{ font-size:.9em; vertical-align:-.06em; }
 
-/* Fine-tune for smaller devices */
-@media (max-width: 768px) {
-  #typed { font-size: clamp(20px, 7vw, 36px); }
-}
-
-@media (max-width: 576px) {
-  #typed { font-size: clamp(18px, 7.8vw, 32px); }
-}
-
+@media (max-width:768px){ #typed{ font-size: clamp(20px, 7vw, 36px); } }
+@media (max-width:576px){ #typed{ font-size: clamp(18px, 7.8vw, 32px); } }
 
 .exp-card .small .text-secondary { opacity: .9; }
-
