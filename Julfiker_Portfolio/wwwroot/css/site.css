@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v10 - Balanced) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v10b - Balanced, tighter sections) ===== */
 
 /* Tokens */
 :root{
@@ -68,12 +68,11 @@ html{ scroll-behavior:smooth; }
 /* Layout spacing */
 .main-content{ padding-top: var(--nav-h); padding-bottom:16px; }
 
-/* One-page sections — Balanced spacing.
-   Do NOT force full-screen height for every section. */
+/* One-page sections — Balanced spacing (tighter). */
 .page-section{
   scroll-margin-top: calc(var(--nav-h) + 12px);
-  padding-top: 36px;      /* ~25–40px target */
-  padding-bottom: 36px;   /* ~25–40px target */
+  padding-top: 20px;      /* ↓ from 36px */
+  padding-bottom: 20px;   /* ↓ from 36px */
   position:relative;
 }
 
@@ -118,11 +117,10 @@ html{ scroll-behavior:smooth; }
 .resume-iframe{
   display:block;
   width:100%;
-  height: calc(100vh - 160px); /* viewport minus header/footer of the modal */
+  height: calc(100vh - 160px);
   border:0;
-  background:#111; /* avoids white flash while loading */
+  background:#111;
 }
-/* Kill any old custom fullscreen preview overlays if they exist */
 .pdf-overlay, .pdf-backdrop { display: none !important; }
 
 /* Responsive */
@@ -130,7 +128,7 @@ html{ scroll-behavior:smooth; }
   :root{ --nav-h: 74px; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
-  .page-section{ padding-top: 28px; padding-bottom: 28px; } /* slightly tighter on phones */
+  .page-section{ padding-top: 16px; padding-bottom: 16px; }
 }
 
 /* === Hero typed headline: smaller on mobile + no layout jump === */
@@ -155,11 +153,17 @@ html{ scroll-behavior:smooth; }
 .exp-card .small .text-secondary { opacity: .9; }
 
 /* ===========================
-   LOCAL FIXES (stats only)
+   LOCAL + GLOBAL GAP FIXES
    =========================== */
 
-/* Tighten spacing only for the stats row underneath the hero.
-   Works whether you added class="stats-section" or kept my-5. */
+/* 1) Override Bootstrap py-5 INSIDE sections globally
+      (you use <div class="container py-5"> in each section). */
+.page-section > .container.py-5{
+  padding-top: 1.25rem !important;   /* 20px */
+  padding-bottom: 1.25rem !important;/* 20px */
+}
+
+/* 2) Stats row under the hero (keep it tight) */
 #home .stats-section,
 #home .container.text-center.my-5{
   margin-top: 10px !important;
@@ -168,8 +172,7 @@ html{ scroll-behavior:smooth; }
   padding-bottom: 0 !important;
 }
 
-/* Reduce the large bottom padding from the hero's outer container
-   so the gap below the stats shrinks further */
+/* 3) Reduce extra bottom space under the hero group */
 #home > .container{
-  padding-bottom: 16px !important;  /* default py-5 would be ~48px */
+  padding-bottom: 12px !important;
 }
