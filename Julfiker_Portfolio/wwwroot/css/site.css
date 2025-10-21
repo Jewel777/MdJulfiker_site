@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v10b - Balanced, tighter sections) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v10A — Tight & Elegant) ===== */
 
 /* Tokens */
 :root{
@@ -68,15 +68,15 @@ html{ scroll-behavior:smooth; }
 /* Layout spacing */
 .main-content{ padding-top: var(--nav-h); padding-bottom:16px; }
 
-/* One-page sections — Balanced spacing (tighter). */
+/* One-page sections — Tight & Elegant spacing */
 .page-section{
   scroll-margin-top: calc(var(--nav-h) + 12px);
-  padding-top: 20px;      /* ↓ from 36px */
-  padding-bottom: 20px;   /* ↓ from 36px */
+  padding-top: 18px;      /* tighter but breathable */
+  padding-bottom: 18px;
   position:relative;
 }
 
-/* Hero only stays full-height + centered */
+/* Hero keeps full-height + centered */
 #home.page-section{
   min-height:100vh;
   display:flex;
@@ -84,7 +84,7 @@ html{ scroll-behavior:smooth; }
 }
 
 /* Titles */
-.section-title{ margin-top:0; margin-bottom:1rem; font-weight:700; }
+.section-title{ margin-top:0; margin-bottom:.75rem; font-weight:700; }
 
 /* No global card */
 .content-box{ background:none !important; box-shadow:none !important; border:0 !important; }
@@ -123,56 +123,52 @@ html{ scroll-behavior:smooth; }
 }
 .pdf-overlay, .pdf-backdrop { display: none !important; }
 
-/* Responsive */
-@media (max-width:576px){
-  :root{ --nav-h: 74px; }
-  .navbar-nav .nav-link{ padding:.4rem .7rem; }
-  .scroll-top{ right:20px; }
-  .page-section{ padding-top: 16px; padding-bottom: 16px; }
-}
-
 /* === Hero typed headline: smaller on mobile + no layout jump === */
 .hero-title { min-height: 2.8em; }
-
 #typed{
   font-weight:800; line-height:1.15;
   font-size: clamp(22px, 6.2vw, 44px);
   letter-spacing: .3px;
 }
-
 .home-section .lead{
   font-size: clamp(14px, 3.6vw, 18px);
   line-height: 1.65;
 }
-
 .typed-cursor{ font-size:.9em; vertical-align:-.06em; }
 
 @media (max-width:768px){ #typed{ font-size: clamp(20px, 7vw, 36px); } }
-@media (max-width:576px){ #typed{ font-size: clamp(18px, 7.8vw, 32px); } }
-
-.exp-card .small .text-secondary { opacity: .9; }
+@media (max-width:576px){
+  :root{ --nav-h:74px; }
+  .navbar-nav .nav-link{ padding:.4rem .7rem; }
+  .scroll-top{ right:20px; }
+  .page-section{ padding-top:14px; padding-bottom:14px; }
+}
 
 /* ===========================
-   LOCAL + GLOBAL GAP FIXES
+   GAP FIXES (global + hero stats)
    =========================== */
 
-/* 1) Override Bootstrap py-5 INSIDE sections globally
-      (you use <div class="container py-5"> in each section). */
+/* Override Bootstrap py-5 inside each section container */
 .page-section > .container.py-5{
-  padding-top: 1.25rem !important;   /* 20px */
-  padding-bottom: 1.25rem !important;/* 20px */
+  padding-top: 16px !important;   /* was ~48–80px from py-5 */
+  padding-bottom: 16px !important;
 }
 
-/* 2) Stats row under the hero (keep it tight) */
-#home .stats-section,
+/* Tighten the stats row under the hero only */
 #home .container.text-center.my-5{
-  margin-top: 10px !important;
+  margin-top: 8px !important;
   margin-bottom: 8px !important;
-  padding-top: 6px !important;
-  padding-bottom: 0 !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
 }
 
-/* 3) Reduce extra bottom space under the hero group */
+/* Trim extra space at bottom of hero cluster */
 #home > .container{
-  padding-bottom: 12px !important;
+  padding-bottom: 10px !important;
 }
+
+/* Minor detail: reduce super small gaps under h2 titles inside glass blocks */
+.page-section .glass .section-title{ margin-bottom:.65rem; }
+
+/* Keep small text slightly stronger */
+.exp-card .small .text-secondary { opacity:.9; }
