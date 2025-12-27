@@ -1,6 +1,7 @@
 using Julfiker_Portfolio.Models;           // EmailSettings
 using Microsoft.EntityFrameworkCore;       // EF Core
 using Julfiker_Portfolio.Data;             // AppDbContext
+using Microsoft.AspNetCore.HttpOverrides;  // ✅ Forwarded headers
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,20 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// ✅ Forwarded headers (important when hosted behind proxy/CDN)
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+
+    // Optional hardening (recommended if you know your proxy IPs):
+    // options.KnownNetworks.Clear();
+    // options.KnownProxies.Clear();
+});
+
 var app = builder.Build();
+
+// ✅ Must be early so RemoteIpAddress is the real client IP
+app.UseForwardedHeaders();
 
 // Prod pipeline
 if (!app.Environment.IsDevelopment())
@@ -35,7 +49,7 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated();
 }
 
-// ✅ Log page views (must be BEFORE Authorization and endpoint mapping)
+// ✅ Log page views (after routing is fine; before auth/endpoints is correct)
 app.UseMiddleware<AnalyticsMiddleware>();
 
 app.UseAuthorization();
