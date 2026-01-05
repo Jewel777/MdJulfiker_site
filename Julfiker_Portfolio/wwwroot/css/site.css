@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v11.2 — Best Profile Portrait Card) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v11.2 — FINAL Portrait Blend) ===== */
 
 /* Tokens */
 :root{
@@ -258,28 +258,33 @@ html{ scroll-behavior:smooth; }
   #typed{ font-size:clamp(20px,7vw,36px); }
 }
 
-/* ✅ BEST: Portrait card style (keeps your HTML class name .profile-pic) */
+/* =========================================================
+   ✅ FINAL BEST: Tall portrait PNG, NO box, blends perfectly
+   ========================================================= */
 .profile-pic{
   display:inline-block;
-  width:260px;                 /* bigger + premium */
-  border-radius:22px;          /* iOS soft corners */
-  overflow:hidden;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
-  box-shadow:
-    0 22px 55px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.10);
+  width: 320px;                 /* premium size */
+  max-width: 100%;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
 }
 
 .profile-pic img{
   display:block;
   width:100%;
   height:auto;
-  border-radius:0 !important;   /* override rounded-circle */
-  object-fit:cover;
+
+  border-radius:0 !important;    /* keep cutout natural */
+  object-fit:contain;
   object-position:center top;
+
+  filter:
+    drop-shadow(0 26px 60px rgba(0,0,0,.70))
+    drop-shadow(0 0 28px rgba(0,255,153,.16))
+    drop-shadow(0 0 22px rgba(0,204,255,.12));
 }
 
 /* Hero stats spacing */
@@ -293,11 +298,10 @@ html{ scroll-behavior:smooth; }
   padding-bottom:10px !important;
 }
 
-/* Misc */
-.page-section .glass .section-title{ margin-bottom:.55rem; }
-.exp-card .small .text-secondary{ opacity:.9; }
-
 /* Responsive */
+@media(max-width:992px){
+  .profile-pic{ width: 280px; }
+}
 @media(max-width:576px){
   :root{
     --nav-h:74px;
@@ -306,6 +310,5 @@ html{ scroll-behavior:smooth; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
 
-  /* Responsive portrait width */
-  .profile-pic{ width:200px; border-radius:18px; }
+  .profile-pic{ width: 220px; }
 }
