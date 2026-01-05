@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v11 — iOS Aesthetic, cleaned + fixed) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v11.2 — Best Profile Portrait Card) ===== */
 
 /* Tokens */
 :root{
@@ -14,11 +14,11 @@
   --inner:rgba(255,255,255,.08);
   --shadow:rgba(0,0,0,.28);
 
-  --radius:28px;              /* smoother, iOS-style curves */
+  --radius:28px;
   --text:#e8ecf1;
 
-  --nav-h:92px;               /* JS will keep this in sync */
-  --section-pad:28px;         /* ✅ consistent vertical rhythm */
+  --nav-h:92px;
+  --section-pad:28px;
 }
 
 /* Base */
@@ -75,7 +75,7 @@ html{ scroll-behavior:smooth; }
     0 1px 2px rgba(255,255,255,.08) inset;
 }
 
-/* ✅ Premium Liquid Glass Depth */
+/* Premium Liquid Glass Depth */
 .page-section .glass{
   position:relative;
   overflow:hidden;
@@ -84,13 +84,10 @@ html{ scroll-behavior:smooth; }
   border-radius:var(--radius);
   color:#e8ecf1;
 }
-
-/* ✅ IMPORTANT: keep content above ::before/::after overlays */
 .page-section .glass > *{
   position:relative;
   z-index:1;
 }
-
 .page-section .glass::before{
   content:"";
   position:absolute;
@@ -126,7 +123,6 @@ html{ scroll-behavior:smooth; }
 .glass-navbar.scrolled{
   background: linear-gradient(180deg, rgba(0,255,153,.28), rgba(0,204,255,.14));
 }
-
 .navbar-nav .nav-link{
   color:#fff;
   border-radius:999px;
@@ -262,29 +258,31 @@ html{ scroll-behavior:smooth; }
   #typed{ font-size:clamp(20px,7vw,36px); }
 }
 
-/* ✅ NEW: Profile picture glass-ring (fixes white oval look) */
+/* ✅ BEST: Portrait card style (keeps your HTML class name .profile-pic) */
 .profile-pic{
   display:inline-block;
-  padding:10px;
-  border-radius:50%;
+  width:260px;                 /* bigger + premium */
+  border-radius:22px;          /* iOS soft corners */
+  overflow:hidden;
   background: rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.14);
   backdrop-filter: blur(10px) saturate(140%);
   -webkit-backdrop-filter: blur(10px) saturate(140%);
   box-shadow:
-    0 18px 45px rgba(0,0,0,.45),
-    inset 0 1px 0 rgba(255,255,255,.10),
-    0 0 22px rgba(0,255,153,.18);
-}
-.profile-pic img{
-  width:230px;              /* slightly smaller */
-  aspect-ratio: 1 / 1;      /* enforce perfect circle */
-  object-fit: cover;
-  object-position: center top; /* bias toward face */
-  border-radius:50%;
+    0 22px 55px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.10);
 }
 
-/* ✅ Hero stats spacing (matches your HTML: .stats-section) */
+.profile-pic img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0 !important;   /* override rounded-circle */
+  object-fit:cover;
+  object-position:center top;
+}
+
+/* Hero stats spacing */
 #home .stats-section{
   margin-top:10px !important;
   margin-bottom:8px !important;
@@ -308,6 +306,6 @@ html{ scroll-behavior:smooth; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
 
-  /* Slightly smaller profile on phones */
-  .profile-pic img{ width:200px; }
+  /* Responsive portrait width */
+  .profile-pic{ width:200px; border-radius:18px; }
 }
