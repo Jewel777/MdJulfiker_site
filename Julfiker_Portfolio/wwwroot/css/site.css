@@ -1,4 +1,4 @@
-/* ===== Liquid Glass + One-Page Scroller (v11.2 — FINAL Portrait Blend) ===== */
+/* ===== Liquid Glass + One-Page Scroller (v11.3 — FINAL Portrait Blend + Smaller Photo) ===== */
 
 /* Tokens */
 :root{
@@ -260,10 +260,11 @@ html{ scroll-behavior:smooth; }
 
 /* =========================================================
    ✅ FINAL BEST: Tall portrait PNG, NO box, blends perfectly
+   ✅ UPDATED: Smaller by default
    ========================================================= */
 .profile-pic{
   display:inline-block;
-  width: 320px;                 /* premium size */
+  width: 260px;                 /* ✅ smaller (was 320px) */
   max-width: 100%;
   background: transparent !important;
   border: 0 !important;
@@ -300,7 +301,7 @@ html{ scroll-behavior:smooth; }
 
 /* Responsive */
 @media(max-width:992px){
-  .profile-pic{ width: 280px; }
+  .profile-pic{ width: 240px; }   /* ✅ smaller */
 }
 @media(max-width:576px){
   :root{
@@ -310,5 +311,5 @@ html{ scroll-behavior:smooth; }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
 
-  .profile-pic{ width: 220px; }
+  .profile-pic{ width: 200px; }   /* ✅ smaller */
 }
