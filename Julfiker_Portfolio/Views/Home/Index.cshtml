@@ -9,17 +9,19 @@
     <div class="container py-5">
 
         <!-- ===== HERO GLASS CARD ===== -->
-        <div class="glass p-4 p-md-5 rounded-4">
+        <div class="glass p-4 p-md-5 rounded-4 hero-glass">
             <div class="row align-items-center g-4">
 
-                <!-- Profile -->
-<div class="profile-pic profile-tall">
-  <img src="~/images/Julfiker.png"
-       alt="Md Julfiker Ali Jewel"
-       class="img-fluid" />
-</div>
+                <!-- ✅ Profile COL (FIXED) -->
+                <div class="col-12 col-md-4 text-center hero-photo-col">
 
-                    <div class="social-icons mt-4 d-flex gap-3 justify-content-center">
+                    <!-- ✅ PNG cutout only (no box) -->
+                    <div class="profile-pic profile-tall">
+                        <img src="~/images/Julfiker.png"
+                             alt="Md Julfiker Ali Jewel" />
+                    </div>
+
+                    <div class="social-icons mt-4 d-flex gap-3 justify-content-center flex-wrap">
                         <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color:#0077b5"><i class="fab fa-linkedin fa-2x"></i></a>
                         <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" title="ResearchGate" style="color:#00CCBB"><i class="fab fa-researchgate fa-2x"></i></a>
                         <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color:#ffffff"><i class="fab fa-github fa-2x"></i></a>
@@ -29,8 +31,8 @@
                     </div>
                 </div>
 
-                <!-- About -->
-                <div class="col-md-8 text-light text-md-start text-center">
+                <!-- ✅ About COL -->
+                <div class="col-12 col-md-8 text-light text-md-start text-center hero-text-col">
                     <h1 class="display-4 fw-bold text-warning mb-4 hero-title">
                         <span id="typed"></span>
                     </h1>
@@ -54,28 +56,28 @@
                         Education: <strong>M.S. CS</strong> (WVSU), <strong>B.S. CSE</strong> (DIU), exchange at <strong>SIAS</strong> (China).
                     </p>
 
-                    <div class="mt-5">
+                    <div class="mt-4 mt-md-5">
                         <a class="btn btn-warning btn-lg px-5 py-3 shadow-lg" href="/#contact" role="button">📩 Get in Touch</a>
                     </div>
                 </div>
 
-            </div>
+            </div><!-- /row -->
         </div><!-- ✅ END HERO CARD -->
 
         <!-- ===== COUNTERS (outside hero card) ===== -->
         <div class="stats-section text-center mt-4">
-            <div class="row">
-                <div class="col">
-                    <h2 class="counter display-5 fw-bold text-warning" data-target="5">0</h2>
-                    <p class="text-light">Years of Experience</p>
+            <div class="row g-3">
+                <div class="col-4">
+                    <h2 class="counter display-5 fw-bold text-warning mb-1" data-target="5">0</h2>
+                    <p class="text-light mb-0">Years of Experience</p>
                 </div>
-                <div class="col">
-                    <h2 class="counter display-5 fw-bold text-warning" data-target="15">0</h2>
-                    <p class="text-light">Projects Completed</p>
+                <div class="col-4">
+                    <h2 class="counter display-5 fw-bold text-warning mb-1" data-target="15">0</h2>
+                    <p class="text-light mb-0">Projects Completed</p>
                 </div>
-                <div class="col">
-                    <h2 class="counter display-5 fw-bold text-warning" data-target="6">0</h2>
-                    <p class="text-light">Research Publications</p>
+                <div class="col-4">
+                    <h2 class="counter display-5 fw-bold text-warning mb-1" data-target="6">0</h2>
+                    <p class="text-light mb-0">Research Publications</p>
                 </div>
             </div>
         </div>
@@ -281,16 +283,50 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
   }
 
-  /* ✅ profile portrait fallback (if site.css cache doesn't update) */
-  .profile-pic{
-    width:260px;
-    border-radius:22px;
-    overflow:hidden;
-    background: rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.14);
-    box-shadow: 0 22px 55px rgba(0,0,0,.45);
+  /* =========================================================
+     ✅ FINAL: Tall PNG portrait, NO box, blends with background
+     ========================================================= */
+  .hero-glass{ overflow: visible !important; }
+  .hero-text-col{ min-width:0; }
+  .hero-photo-col{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
   }
-  .profile-pic img{ border-radius:0 !important; display:block; width:100%; height:auto; }
+
+  .profile-pic.profile-tall{
+    display:inline-block;
+    width: 340px;
+    max-width: 100%;
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .profile-pic.profile-tall img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:0 !important;
+    object-fit:contain;
+    object-position:center top;
+    filter:
+      drop-shadow(0 26px 60px rgba(0,0,0,.70))
+      drop-shadow(0 0 28px rgba(0,255,153,.16))
+      drop-shadow(0 0 22px rgba(0,204,255,.12));
+  }
+
+  /* ✅ Counters spacing */
+  .stats-section{ margin-top:18px !important; }
+
+  @@media(max-width:992px){
+    .profile-pic.profile-tall{ width: 300px; }
+  }
+  @@media(max-width:576px){
+    .profile-pic.profile-tall{ width: 230px; }
+  }
 
   /* summary cards */
   .summary-card{
