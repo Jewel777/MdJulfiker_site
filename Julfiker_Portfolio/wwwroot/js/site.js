@@ -27,8 +27,8 @@
     if (document.querySelector('#typed')) {
         new Typed('#typed', {
             strings: ['Welcome to My Portfolio', 'Explore My Work', 'Let\'s Connect!'],
-            typeSpeed: 50,
-            backSpeed: 30,
+            typeSpeed: 30,
+            backSpeed: 20,
             loop: true
         });
     }
