@@ -277,12 +277,11 @@ html{ scroll-behavior:smooth; }
     0 0 22px rgba(0,255,153,.18);
 }
 .profile-pic img{
-  display:block;
-  width:250px;
-  max-width:100%;
-  height:auto;
+  width:230px;              /* slightly smaller */
+  aspect-ratio: 1 / 1;      /* enforce perfect circle */
+  object-fit: cover;
+  object-position: center top; /* bias toward face */
   border-radius:50%;
-  box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
 
 /* ✅ Hero stats spacing (matches your HTML: .stats-section) */
