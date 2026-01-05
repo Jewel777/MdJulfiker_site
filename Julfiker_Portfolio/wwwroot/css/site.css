@@ -84,6 +84,13 @@ html{ scroll-behavior:smooth; }
   border-radius:var(--radius);
   color:#e8ecf1;
 }
+
+/* ✅ IMPORTANT: keep content above ::before/::after overlays */
+.page-section .glass > *{
+  position:relative;
+  z-index:1;
+}
+
 .page-section .glass::before{
   content:"";
   position:absolute;
@@ -95,6 +102,7 @@ html{ scroll-behavior:smooth; }
   pointer-events:none;
   filter: blur(1px);
   opacity:.75;
+  z-index:0;
 }
 .page-section .glass::after{
   content:"";
@@ -103,6 +111,7 @@ html{ scroll-behavior:smooth; }
   background: linear-gradient(180deg, rgba(255,255,255,.10), transparent 35%, rgba(0,0,0,.10));
   pointer-events:none;
   opacity:.55;
+  z-index:0;
 }
 
 /* Navbar */
@@ -241,7 +250,7 @@ html{ scroll-behavior:smooth; }
   font-size:clamp(22px,6.2vw,44px);
   letter-spacing:.3px;
 }
-#home .lead{                 /* ✅ fixed selector */
+#home .lead{
   font-size:clamp(14px,3.6vw,18px);
   line-height:1.65;
 }
@@ -251,6 +260,29 @@ html{ scroll-behavior:smooth; }
 }
 @media(max-width:768px){
   #typed{ font-size:clamp(20px,7vw,36px); }
+}
+
+/* ✅ NEW: Profile picture glass-ring (fixes white oval look) */
+.profile-pic{
+  display:inline-block;
+  padding:10px;
+  border-radius:50%;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 0 22px rgba(0,255,153,.18);
+}
+.profile-pic img{
+  display:block;
+  width:250px;
+  max-width:100%;
+  height:auto;
+  border-radius:50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
 
 /* ✅ Hero stats spacing (matches your HTML: .stats-section) */
@@ -276,4 +308,7 @@ html{ scroll-behavior:smooth; }
   }
   .navbar-nav .nav-link{ padding:.4rem .7rem; }
   .scroll-top{ right:20px; }
+
+  /* Slightly smaller profile on phones */
+  .profile-pic img{ width:200px; }
 }
