@@ -117,11 +117,11 @@ namespace Julfiker_Portfolio.Controllers
                     Timeout = 20000 // 20 seconds
                 };
 
-                // Force basic auth (no OAuth) for Microsoft 365 SMTP
+                // Gmail app-password authentication (no OAuth token flow required)
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
                 client.LocalDomain = "mdjulfikeralijewel.com";
 
-                // STARTTLS on 587 for smtp.office365.com
+                // STARTTLS on port 587
                 await client.ConnectAsync(_email.Host, _email.Port, SecureSocketOptions.StartTls);
                 await client.AuthenticateAsync(_email.User, password);
                 await client.SendAsync(msg);
@@ -146,3 +146,4 @@ namespace Julfiker_Portfolio.Controllers
         }
     }
 }
+
