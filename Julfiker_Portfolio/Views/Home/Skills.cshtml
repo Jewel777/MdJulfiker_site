@@ -199,6 +199,12 @@
     .progress .progress-bar {
         color: #121212;      /* dark text for contrast */
         font-weight: 600;
+        padding-inline: 4px;
+        white-space: nowrap;
+    }
+    @@media (max-width: 576px) {
+        .progress { height: 1.25rem; }
+        .progress .progress-bar { font-size: .68rem; }
     }
 </style>
 
@@ -237,6 +243,10 @@
         const progressBars = document.querySelectorAll('.progress-bar');
         progressBars.forEach(bar => {
             const width = bar.getAttribute('data-width');
+            const value = parseInt(width, 10) || 0;
+            bar.setAttribute('aria-valuemin', '0');
+            bar.setAttribute('aria-valuemax', '100');
+            bar.setAttribute('aria-valuenow', String(value));
             setTimeout(() => { bar.style.width = width; }, 500);
         });
     });

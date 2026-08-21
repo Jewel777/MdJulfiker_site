@@ -4,6 +4,7 @@
 
   // ---------- Helpers ----------
   function $(id) { return document.getElementById(id); }
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ---------- Spinner (hide safely) ----------
   function hideSpinner() {
@@ -17,7 +18,7 @@
 
   // ---------- Scroll to top (if you call it from HTML) ----------
   window.scrollToTop = function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   };
 
   // ---------- Chatbot toggle (if you call it from HTML) ----------
@@ -33,7 +34,7 @@
   // ---------- Particles (safe) ----------
   document.addEventListener("DOMContentLoaded", function () {
     try {
-      if (typeof particlesJS !== "function") return;
+      if (reduceMotion || typeof particlesJS !== "function") return;
       particlesJS("particles-js", {
         particles: {
           number: { value: 65 },
@@ -52,6 +53,11 @@
   document.addEventListener("DOMContentLoaded", function () {
     const el = $("typed");
     if (!el) return;
+
+    if (reduceMotion) {
+      el.textContent = "Secure .NET Systems Engineer";
+      return;
+    }
 
     try {
       if (typeof Typed !== "function") return;
@@ -76,6 +82,25 @@
     }
   });
 
+  // Close the mobile menu after navigating to a one-page section.
+  document.addEventListener("DOMContentLoaded", function () {
+    const menu = $("navbarContent");
+    if (!menu || typeof bootstrap === "undefined") return;
+
+    menu.querySelectorAll('a[href*="#"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        if (menu.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+        }
+      });
+    });
+
+    // Protect every new-tab link, including links rendered by partial views.
+    document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+      link.relList.add("noopener", "noreferrer");
+    });
+  });
+
   // ---------- Counters (animate only when visible) ----------
   document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".counter");
@@ -83,6 +108,10 @@
 
     function animateCounter(el) {
       const target = Number(el.dataset.target || 0);
+      if (reduceMotion) {
+        el.textContent = target.toLocaleString();
+        return;
+      }
       let current = 0;
 
       // Smooth steps: about ~80 frames

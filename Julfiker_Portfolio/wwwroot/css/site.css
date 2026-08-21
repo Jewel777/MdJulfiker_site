@@ -34,6 +34,20 @@
 }
 html{ scroll-behavior:smooth; }
 
+.skip-link{
+  position:fixed;
+  top:8px;
+  left:8px;
+  z-index:10000;
+  transform:translateY(-150%);
+  padding:.65rem 1rem;
+  border-radius:.5rem;
+  background:#ffc107;
+  color:#111;
+  font-weight:700;
+}
+.skip-link:focus{ transform:translateY(0); }
+
 /* Particles */
 #particles-js{
   position:fixed;
@@ -308,8 +322,26 @@ html{ scroll-behavior:smooth; }
     --nav-h:74px;
     --section-pad:18px;
   }
-  .navbar-nav .nav-link{ padding:.4rem .7rem; }
+  .navbar-nav .nav-link{
+    display:flex;
+    min-height:44px;
+    align-items:center;
+    justify-content:center;
+    padding:.55rem .8rem;
+  }
+  .navbar-nav .btn{ min-height:44px; display:inline-flex; align-items:center; }
   .scroll-top{ right:20px; }
 
   .profile-pic{ width: 200px; }   /* ✅ smaller */
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+  #particles-js{ display:none; }
 }

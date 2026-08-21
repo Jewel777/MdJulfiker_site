@@ -4,7 +4,7 @@
     ViewData["Title"] = "Contact";
 }
 
-<div class="container mt-5 mb-5">
+<div class="contact-content">
     <h2 class="text-center fw-bold mb-4 text-warning border-bottom pb-2">Contact Me</h2>
 
     <!-- Contact Info Card -->
@@ -22,11 +22,11 @@
                     </li>
                     <li class="mb-3">
                         <i class="bi bi-linkedin text-warning me-2"></i>
-                        LinkedIn: <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" class="contact-link" aria-label="LinkedIn">Visit Profile</a>
+                        LinkedIn: <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn">Visit Profile</a>
                     </li>
                     <li class="mb-3">
                         <i class="bi bi-github text-warning me-2"></i>
-                        GitHub: <a href="https://github.com/Jewel777" target="_blank" class="contact-link" aria-label="GitHub">github.com/Jewel777</a>
+                        GitHub: <a href="https://github.com/Jewel777" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub">github.com/Jewel777</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@
             <div class="card p-5 shadow-lg border-0 rounded-4 bg-dark text-light">
                 <h3 class="text-warning text-center mb-4">Send Me a Message</h3>
 
-                <form asp-controller="Home" asp-action="Contact" method="post" id="contactForm" novalidate>
+                <form asp-controller="Home" asp-action="Contact" method="post" id="contactForm">
                     @Html.AntiForgeryToken()
 
                     <div class="mb-4">
@@ -125,6 +125,18 @@
         color: #fff;
         border-color: #ffa726;
         box-shadow: 0 0 5px #ffa726;
+    }
+    .contact-link { overflow-wrap: anywhere; }
+    @@media (max-width: 576px) {
+        .contact-content { margin: 0; }
+        .contact-card { padding: 20px 18px; }
+        #contact .card { padding: 24px 18px !important; }
+        #contact .container { --bs-gutter-x: 1rem; }
+        #contact h2, #contact h3 { overflow-wrap: anywhere; }
+        #sendBtn { width: 100%; padding-inline: 1rem !important; }
+    }
+    @@media (hover: none), (prefers-reduced-motion: reduce) {
+        .contact-card:hover { transform: none; }
     }
 </style>
 
