@@ -176,9 +176,9 @@ html{ scroll-behavior:smooth; }
 
 /* Hero full-height */
 #home.page-section{
-  min-height:100vh;
+  min-height:calc(100vh - var(--nav-h));
   display:flex;
-  align-items:center;
+  align-items:flex-start;
 }
 
 /* Titles */
@@ -316,6 +316,20 @@ html{ scroll-behavior:smooth; }
 /* Responsive */
 @media(max-width:992px){
   .profile-pic{ width: 240px; }   /* ✅ smaller */
+}
+@media (min-width:993px) and (max-width:1600px){
+  .glass-navbar .container-fluid{ flex-wrap:nowrap; }
+  .glass-navbar .navbar-brand{ font-size:1rem; margin-right:.5rem; }
+  .glass-navbar .navbar-nav{ align-items:center; white-space:nowrap; }
+  .glass-navbar .navbar-nav .nav-link{
+    padding:8px 7px;
+    font-size:.88rem;
+  }
+  .glass-navbar .navbar-nav .btn{
+    margin-left:.35rem !important;
+    padding-inline:.65rem;
+    white-space:nowrap;
+  }
 }
 @media(max-width:576px){
   :root{
