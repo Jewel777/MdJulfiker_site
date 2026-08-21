@@ -12,6 +12,9 @@ builder.Services.AddHttpClient("contact-delivery", client =>
 {
     client.Timeout = TimeSpan.FromSeconds(15);
     client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 MdJulfikerPortfolio/1.0");
+    client.DefaultRequestHeaders.Referrer = new Uri("https://www.mdjulfikeralijewel.com/");
+    client.DefaultRequestHeaders.TryAddWithoutValidation("Origin", "https://www.mdjulfikeralijewel.com");
 });
 
 builder.Services.AddRateLimiter(options =>
