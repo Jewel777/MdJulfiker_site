@@ -59,6 +59,9 @@
 
                 <form asp-controller="Home" asp-action="Contact" method="post" id="contactForm">
                     @Html.AntiForgeryToken()
+                    <input type="hidden" name="_subject" value="New Portfolio Contact" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_captcha" value="false" />
 
                     <div class="mb-4">
                         <label for="Name" class="form-label">Full Name</label>
@@ -79,7 +82,11 @@
                     <div class="d-none" aria-hidden="true">
                         <label for="Website">Website</label>
                         <input type="text" id="Website" name="Website" tabindex="-1" autocomplete="off" />
+                        <label for="ContactHoney">Leave this field empty</label>
+                        <input type="text" id="ContactHoney" name="_honey" tabindex="-1" autocomplete="off" />
                     </div>
+
+                    <div id="contactStatus" class="alert d-none text-center" role="status" aria-live="polite"></div>
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-warning btn-lg px-5" id="sendBtn">
@@ -150,22 +157,45 @@
 
   if (!form || !btn) return;
 
-  form.addEventListener('submit', function (e) {
-    // Basic required check (HTML5 handles most)
-    const name = document.getElementById('Name');
-    const email = document.getElementById('Email');
-    const message = document.getElementById('Message');
+  const status = document.getElementById('contactStatus');
 
-    if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-      e.preventDefault();
-      alert('Please fill in your name, email, and message.');
-      return;
-    }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
 
-    // Disable button to prevent double-submit
     btn.disabled = true;
     btn.textContent = 'Sending…';
+
+    if (status) {
+      status.className = 'alert d-none text-center';
+      status.textContent = '';
+    }
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/jewelsheikh2013@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (!response.ok) throw new Error('Delivery service rejected the message.');
+
+      form.reset();
+      if (status) {
+        status.className = 'alert alert-success text-center';
+        status.textContent = 'Thank you! Your message has been sent.';
+      }
+    } catch (error) {
+      if (status) {
+        status.className = 'alert alert-danger text-center';
+        status.innerHTML = 'Sorry—your message could not be sent. Please email <a href="mailto:jewelsheikh2013@gmail.com" class="alert-link">jewelsheikh2013@gmail.com</a> directly.';
+      }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '✉️ Send Message';
+    }
   });
 })();
 </script>
 }
+
