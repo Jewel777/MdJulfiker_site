@@ -260,6 +260,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
+    min-width: 0;
   }
 
   .project-tilt {
@@ -269,6 +270,8 @@
     --glass-strong: rgba(255,255,255,0.075);
     --hairline: rgba(255,255,255,0.08);
     --hairline-strong: rgba(255,255,255,0.16);
+    width: 100%;
+    min-width: 0;
   }
 
   .project-card {
@@ -285,6 +288,9 @@
     transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
     will-change: transform;
     outline: none;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
   .project-card:hover,
   .project-card:focus-visible {
@@ -307,7 +313,7 @@
   .project-logo.icon i { font-size: 1.25rem; color: #eaeaea; }
   .project-logo.emoji { font-size: 1.3rem; }
 
-  .project-title { margin: 0; font-weight: 700; color: #eaeaea; letter-spacing: .2px; transform: translateZ(25px); }
+  .project-title { min-width:0; margin: 0; font-weight: 700; color: #eaeaea; letter-spacing: .2px; transform: translateZ(25px); overflow-wrap:anywhere; }
   .project-desc  { margin: 8px 0 10px; color: rgba(255,255,255,0.78); transform: translateZ(15px); }
   .project-meta  { display: flex; flex-wrap: wrap; gap: 8px; transform: translateZ(10px); }
 
@@ -347,19 +353,17 @@
     .project-card{
       backdrop-filter: saturate(130%) blur(10px);
       -webkit-backdrop-filter: saturate(130%) blur(10px);
+      transform: none !important;
+      will-change: auto;
     }
+    .project-head{ align-items:flex-start; }
+    .project-logo{ flex:0 0 42px; }
   }
 
   /* Motion/Touch safety */
   @@media (prefers-reduced-motion: reduce) {
     .project-card { transition: none !important; }
     .project-glare { display: none !important; }
-  }
-
-  /* Respect iPhone safe areas so cards don’t hit rounded corners */
-  :root {
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
   }
 
   @@media (min-width: 768px) { .project-card { padding: 22px 24px; } }

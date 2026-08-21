@@ -24,11 +24,17 @@
 
     function setActiveButtonByValue(val) {
       if (!buttons.length) return;
-      buttons.forEach(function (b) { b.classList.remove('active'); });
+      buttons.forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', 'false');
+      });
       var match = buttons.find(function (b) {
         return (b.getAttribute('data-filter') || '').toLowerCase() === (val || 'all').toLowerCase();
       });
-      (match || buttons[0]).classList.add('active');
+      var selected = match || buttons[0];
+      selected.classList.add('active');
+      selected.setAttribute('aria-selected', 'true');
     }
 
     function setSelectValue(val) {

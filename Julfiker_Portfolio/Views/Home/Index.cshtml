@@ -22,12 +22,12 @@
                     </div>
 
                     <div class="social-icons mt-4 d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" title="LinkedIn" style="color:#0077b5"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" title="ResearchGate" style="color:#00CCBB"><i class="fab fa-researchgate fa-2x"></i></a>
-                        <a href="https://github.com/Jewel777" target="_blank" title="GitHub" style="color:#ffffff"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="https://www.youtube.com/%40nongor3694" target="_blank" title="YouTube" style="color:#FF0000"><i class="fab fa-youtube fa-2x"></i></a>
-                        <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" title="Google Scholar" style="color:#4285F4"><i class="fas fa-graduation-cap fa-2x"></i></a>
-                        <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" title="ORCID" style="color:#A6CE39"><i class="fas fa-id-card fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/in/md-julfiker-ali-jewel-7b1442a9/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" title="LinkedIn" style="color:#0077b5"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://www.researchgate.net/profile/Md-Julfiker-Ali-Jewel?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate profile" title="ResearchGate" style="color:#00CCBB"><i class="fab fa-researchgate fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://github.com/Jewel777" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub" style="color:#ffffff"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/%40nongor3694" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel" title="YouTube" style="color:#FF0000"><i class="fab fa-youtube fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://scholar.google.com/citations?user=KYHGDlgAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile" title="Google Scholar" style="color:#4285F4"><i class="fas fa-graduation-cap fa-2x" aria-hidden="true"></i></a>
+                        <a href="https://orcid.org/0009-0004-8799-8957" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile" title="ORCID" style="color:#A6CE39"><i class="fas fa-id-card fa-2x" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -209,7 +209,7 @@
 
             <div class="d-flex flex-wrap gap-2">
                 <a class="btn btn-warning" href="@pdfPath" target="_blank" rel="noopener">Open in new tab</a>
-                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#resumePreview">Preview here</button>
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#resumePreview">Preview here</button>
                 <a class="btn btn-outline-secondary" href="@pdfPath" download>Download PDF</a>
             </div>
         </div>
@@ -254,7 +254,8 @@
     <div class="container py-5">
         <div class="glass p-4 rounded-4">
             <h2 class="section-title">Privacy</h2>
-            <p class="mb-0">This is a personal portfolio website. No tracking cookies are used beyond basic hosting logs.</p>
+            <p>This site uses a first-party analytics cookie to measure page views and sessions. Analytics records the requested page, referrer, browser user agent, response status, load time, a random session identifier, and a keyed one-way hash of the visitor’s IP address.</p>
+            <p class="mb-0">The analytics cookie lasts up to six months. Raw IP addresses are not stored, analytics data is not sold or used for advertising, and contact-form information is used only to respond to the submitted message.</p>
         </div>
     </div>
 </section>
@@ -326,6 +327,9 @@
   }
   @@media(max-width:576px){
     .profile-pic.profile-tall{ width: 230px; }
+    .stats-section .row{ row-gap:1rem; }
+    .stats-section .col-4{ width:100%; }
+    .stats-section .text-light{ overflow-wrap:anywhere; }
   }
 
   /* summary cards */
@@ -349,38 +353,3 @@
   .resume-iframe{ width:100%; height:calc(100vh - 200px); border:0; background:#0b0f14; }
   @@media (max-width:991.98px){ .resume-iframe{ height:70vh; } }
 </style>
-
-@section Scripts {
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const counters = document.querySelectorAll('.counter');
-
-  function animateCounter(el){
-    const target = Number(el.dataset.target || 0);
-    let current = 0;
-    const step = Math.max(1, Math.ceil(target / 80));
-
-    function tick(){
-      current += step;
-      if(current >= target) el.textContent = target.toLocaleString();
-      else { el.textContent = current.toLocaleString(); requestAnimationFrame(tick); }
-    }
-    tick();
-  }
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        animateCounter(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c=>{
-    c.textContent = '0';
-    io.observe(c);
-  });
-});
-</script>
-}
