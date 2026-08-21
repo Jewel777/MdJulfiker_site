@@ -58,22 +58,21 @@
                 <h3 class="text-warning text-center mb-4">Send Me a Message</h3>
 
                 <form asp-controller="Home" asp-action="Contact" method="post" id="contactForm" novalidate>
-                    @* The controller ignores antiforgery, but this doesn't hurt *@
                     @Html.AntiForgeryToken()
 
                     <div class="mb-4">
                         <label for="Name" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="Name" name="Name" required placeholder="Enter your name" autocomplete="name" />
+                        <input type="text" class="form-control" id="Name" name="Name" required maxlength="100" placeholder="Enter your name" autocomplete="name" />
                     </div>
 
                     <div class="mb-4">
                         <label for="Email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="Email" name="Email" required placeholder="Enter your email" autocomplete="email" />
+                        <input type="email" class="form-control" id="Email" name="Email" required maxlength="254" placeholder="Enter your email" autocomplete="email" />
                     </div>
 
                     <div class="mb-4">
                         <label for="Message" class="form-label">Your Message</label>
-                        <textarea class="form-control" id="Message" name="Message" rows="6" required placeholder="Write your message"></textarea>
+                        <textarea class="form-control" id="Message" name="Message" rows="6" required maxlength="5000" placeholder="Write your message"></textarea>
                     </div>
 
                     <!-- Honeypot: must be named "Website" to match controller -->

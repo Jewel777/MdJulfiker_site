@@ -23,7 +23,7 @@ This portfolio website was developed using **ASP.NET Core MVC** with **Razor vie
 
 ## 🧰 Tech Stack
 
-- **Framework:** ASP.NET Core MVC (.NET 6/7)
+- **Framework:** ASP.NET Core MVC (.NET 8)
 - **Language:** C#
 - **View Engine:** Razor Pages
 - **Styling:** HTML, CSS, Bootstrap, custom JavaScript
@@ -79,12 +79,15 @@ This portfolio website was developed using **ASP.NET Core MVC** with **Razor vie
 To run locally:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
+git clone https://github.com/Jewel777/MdJulfiker_site.git
+cd MdJulfiker_site
 dotnet restore
-dotnet run
+dotnet run --project Julfiker_Portfolio
+```
 
 Then open your browser and navigate to https://localhost:5001
+
+Set `Email__Password`, `Admin__AnalyticsKey`, and `Analytics__IpHashSalt` as environment variables in production. Use long, randomly generated values for the two analytics secrets.
 
 ✍️ Author
 Md Julfiker Ali Jewel

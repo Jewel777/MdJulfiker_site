@@ -20,6 +20,8 @@ public class AnalyticsMiddleware
 
         try
         {
+            if (!cfg.GetValue("Analytics:Enabled", false)) return;
+
             // Only track page views
             if (!HttpMethods.IsGet(ctx.Request.Method) && !HttpMethods.IsHead(ctx.Request.Method)) return;
 
@@ -64,8 +66,13 @@ public class AnalyticsMiddleware
                 ?? ctx.Request.Headers["X-Forwarded-For"].ToString().Split(',').FirstOrDefault()?.Trim()
                 ?? "0.0.0.0";
 
-            var salt = cfg["Analytics:IpHashSalt"] ?? "default_salt_change_me";
-            var ipHash = Hash($"{ip}|{salt}");
+            var salt = cfg["Analytics:IpHashSalt"];
+            if (string.IsNullOrWhiteSpace(salt))
+            {
+                _logger.LogWarning("Analytics disabled because Analytics:IpHashSalt is not configured.");
+                return;
+            }
+            var ipHash = Hash(ip, salt);
 
             var hit = new Julfiker_Portfolio.Models.PageHit
             {
@@ -111,10 +118,10 @@ public class AnalyticsMiddleware
         return bad.Any(x => ua.Contains(x, StringComparison.OrdinalIgnoreCase));
     }
 
-    private static string Hash(string input)
+    private static string Hash(string input, string secret)
     {
-        using var sha = SHA256.Create();
-        return Convert.ToHexString(sha.ComputeHash(Encoding.UTF8.GetBytes(input)));
+        using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secret));
+        return Convert.ToHexString(hmac.ComputeHash(Encoding.UTF8.GetBytes(input)));
     }
 
     private static bool IsStatic(string path)
