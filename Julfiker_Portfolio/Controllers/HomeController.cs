@@ -4,6 +4,7 @@ using Julfiker_Portfolio.Models;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
@@ -44,9 +45,10 @@ namespace Julfiker_Portfolio.Controllers
         [HttpGet]
         public IActionResult Contact() => Redirect("/#contact");
 
-        // We use honeypot + IgnoreAntiforgeryToken to avoid random antiforgery failures in prod.
+        // Antiforgery, rate limiting, and a honeypot provide layered abuse protection.
         [HttpPost]
-        [IgnoreAntiforgeryToken]
+        [ValidateAntiForgeryToken]
+        [EnableRateLimiting("contact")]
         public async Task<IActionResult> Contact(
             [FromForm] string Name,
             [FromForm] string Email,
@@ -66,6 +68,13 @@ namespace Julfiker_Portfolio.Controllers
                 string.IsNullOrWhiteSpace(Message))
             {
                 TempData["ErrorMessage"] = "Please fill in your name, email, and message.";
+                return Redirect("/#contact");
+            }
+
+            if (Name.Length > 100 || Email.Length > 254 || Message.Length > 5000 ||
+                !MailboxAddress.TryParse(Email, out _))
+            {
+                TempData["ErrorMessage"] = "Please provide a valid email and keep the message under 5,000 characters.";
                 return Redirect("/#contact");
             }
 

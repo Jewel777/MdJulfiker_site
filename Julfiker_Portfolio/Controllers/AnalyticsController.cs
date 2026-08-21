@@ -1,29 +1,42 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Julfiker_Portfolio.Data;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Security.Cryptography;
+using System.Text;
 
 public class AnalyticsController : Controller
 {
     private readonly AppDbContext _db;
     private readonly IConfiguration _cfg;
+    private readonly ITimeLimitedDataProtector _cookieProtector;
 
     private const string AdminCookieName = "mja_admin";
 
-    public AnalyticsController(AppDbContext db, IConfiguration cfg)
+    public AnalyticsController(AppDbContext db, IConfiguration cfg, IDataProtectionProvider dataProtection)
     {
-        _db = db; _cfg = cfg;
+        _db = db;
+        _cfg = cfg;
+        _cookieProtector = dataProtection
+            .CreateProtector("JulfikerPortfolio.AnalyticsAdmin.v1")
+            .ToTimeLimitedDataProtector();
     }
 
-    // GET /admin/analytics-login?k=YOUR_SECRET
     [HttpGet("/admin/analytics-login")]
-    public IActionResult AnalyticsLogin([FromQuery] string? k)
+    public IActionResult AnalyticsLogin() => View("Login");
+
+    [HttpPost("/admin/analytics-login")]
+    [ValidateAntiForgeryToken]
+    [EnableRateLimiting("admin-login")]
+    public IActionResult AnalyticsLogin([FromForm] string key)
     {
         var expected = _cfg["Admin:AnalyticsKey"];
-        if (!string.IsNullOrEmpty(expected) && k == expected)
+        if (!string.IsNullOrWhiteSpace(expected) && SecretsMatch(key, expected))
         {
             Response.Cookies.Append(
                 AdminCookieName,
-                "1",
+                _cookieProtector.Protect("analytics-admin", TimeSpan.FromHours(24)),
                 new CookieOptions {
                     HttpOnly = true,
                     Secure = true,
@@ -33,7 +46,8 @@ public class AnalyticsController : Controller
             );
             return RedirectToAction("Index");
         }
-        return NotFound();
+        ModelState.AddModelError(string.Empty, "Invalid analytics key.");
+        return View("Login");
     }
 
     // GET /admin/analytics-logout
@@ -46,8 +60,7 @@ public class AnalyticsController : Controller
 
     public async Task<IActionResult> Index()
     {
-        // Gate: require admin cookie
-        if (!Request.Cookies.TryGetValue(AdminCookieName, out var v) || v != "1")
+        if (!HasValidAdminCookie())
             return NotFound();
 
         var since = DateTime.UtcNow.AddDays(-30);
@@ -74,5 +87,27 @@ public class AnalyticsController : Controller
         ViewBag.TopPages = topPages;
 
         return View();
+    }
+
+    private bool HasValidAdminCookie()
+    {
+        if (!Request.Cookies.TryGetValue(AdminCookieName, out var value))
+            return false;
+
+        try
+        {
+            return _cookieProtector.Unprotect(value) == "analytics-admin";
+        }
+        catch (CryptographicException)
+        {
+            return false;
+        }
+    }
+
+    private static bool SecretsMatch(string supplied, string expected)
+    {
+        var suppliedHash = SHA256.HashData(Encoding.UTF8.GetBytes(supplied ?? string.Empty));
+        var expectedHash = SHA256.HashData(Encoding.UTF8.GetBytes(expected));
+        return CryptographicOperations.FixedTimeEquals(suppliedHash, expectedHash);
     }
 }
