@@ -94,7 +94,7 @@ namespace Julfiker_Portfolio.Controllers
                 // Render free services block outbound SMTP. FormSubmit accepts the
                 // validated message over HTTPS and forwards it to the configured inbox.
                 var client = _httpClientFactory.CreateClient("contact-delivery");
-                var endpoint = $"https://formsubmit.co/ajax/{Uri.EscapeDataString(_email.ToEmail)}";
+                var endpoint = $"https://formsubmit.co/ajax/{_email.ToEmail}";
                 var payload = new Dictionary<string, string>
                 {
                     ["name"] = Name,
