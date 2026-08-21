@@ -8,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // MVC
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient("contact-delivery", client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(15);
+    client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
+});
 
 builder.Services.AddRateLimiter(options =>
 {
@@ -86,3 +91,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

@@ -1,13 +1,12 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Julfiker_Portfolio.Models;
-using MailKit.Net.Smtp;
-using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
+using System.Net.Http.Json;
 
 namespace Julfiker_Portfolio.Controllers
 {
@@ -15,11 +14,16 @@ namespace Julfiker_Portfolio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly EmailSettings _email;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public HomeController(ILogger<HomeController> logger, IOptions<EmailSettings> emailOptions)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IOptions<EmailSettings> emailOptions,
+            IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
             _email = emailOptions.Value;
+            _httpClientFactory = httpClientFactory;
         }
 
         // One-page host
@@ -80,53 +84,31 @@ namespace Julfiker_Portfolio.Controllers
 
             try
             {
-                // Prefer env var in production (Render) over JSON
-                var password = System.Environment.GetEnvironmentVariable("Email__Password") ?? _email.Password;
-                if (string.IsNullOrWhiteSpace(password))
+                if (string.IsNullOrWhiteSpace(_email.ToEmail))
                 {
-                    _logger.LogError("Email password not configured. Set env var Email__Password.");
+                    _logger.LogError("Contact recipient email is not configured.");
                     TempData["ErrorMessage"] = "Email temporarily unavailable. Please try again later.";
                     return Redirect("/#contact");
                 }
 
-                var msg = new MimeMessage();
-                msg.From.Add(new MailboxAddress(
-                    string.IsNullOrWhiteSpace(_email.FromName) ? "Portfolio Contact" : _email.FromName,
-                    _email.FromEmail));
-                msg.To.Add(new MailboxAddress(
-                    string.IsNullOrWhiteSpace(_email.ToName) ? "Md Julfiker Ali Jewel" : _email.ToName,
-                    _email.ToEmail));
-                msg.ReplyTo.Add(new MailboxAddress(Name, Email));
-                msg.Subject = $"New Portfolio Contact from {Name}";
+                // Render free services block outbound SMTP. FormSubmit accepts the
+                // validated message over HTTPS and forwards it to the configured inbox.
+                var client = _httpClientFactory.CreateClient("contact-delivery");
+                var endpoint = $"https://formsubmit.co/ajax/{Uri.EscapeDataString(_email.ToEmail)}";
+                var payload = new Dictionary<string, string>
+                {
+                    ["name"] = Name,
+                    ["email"] = Email,
+                    ["message"] = Message,
+                    ["_subject"] = $"New Portfolio Contact from {Name}",
+                    ["_template"] = "table",
+                    ["_captcha"] = "false"
+                };
+
+                using var response = await client.PostAsJsonAsync(endpoint, payload);
+                response.EnsureSuccessStatusCode();
 
                 var safeName = System.Net.WebUtility.HtmlEncode(Name);
-                var safeEmail = System.Net.WebUtility.HtmlEncode(Email);
-                var safeMsgHtml = System.Net.WebUtility.HtmlEncode(Message).Replace("\n", "<br/>");
-
-                var body = new BodyBuilder
-                {
-                    TextBody = $"Name: {Name}\nEmail: {Email}\n\nMessage:\n{Message}",
-                    HtmlBody = $"<p><strong>Name:</strong> {safeName}</p>" +
-                               $"<p><strong>Email:</strong> {safeEmail}</p>" +
-                               $"<p><strong>Message:</strong><br/>{safeMsgHtml}</p>"
-                };
-                msg.Body = body.ToMessageBody();
-
-                using var client = new SmtpClient
-                {
-                    Timeout = 20000 // 20 seconds
-                };
-
-                // Gmail app-password authentication (no OAuth token flow required)
-                client.AuthenticationMechanisms.Remove("XOAUTH2");
-                client.LocalDomain = "mdjulfikeralijewel.com";
-
-                // STARTTLS on port 587
-                await client.ConnectAsync(_email.Host, _email.Port, SecureSocketOptions.StartTls);
-                await client.AuthenticateAsync(_email.User, password);
-                await client.SendAsync(msg);
-                await client.DisconnectAsync(true);
-
                 TempData["SuccessMessage"] = $"Thank you, {safeName}! Your message has been sent.";
                 _logger.LogInformation("Contact email sent by {Name} <{Email}>", Name, Email);
             }
@@ -146,3 +128,4 @@ namespace Julfiker_Portfolio.Controllers
         }
     }
 }
+
