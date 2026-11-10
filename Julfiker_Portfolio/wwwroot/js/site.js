@@ -40,8 +40,8 @@
           number: { value: 65 },
           size: { value: 2 },
           move: { speed: 1.1 },
-          line_linked: { enable: true },
-          color: { value: "#ffffff" }
+          line_linked: { enable: true, color: "#756687", opacity: 0.32 },
+          color: { value: "#756687" }
         }
       });
     } catch (e) {
