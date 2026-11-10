@@ -99,6 +99,38 @@
     document.querySelectorAll('a[target="_blank"]').forEach((link) => {
       link.relList.add("noopener", "noreferrer");
     });
+
+    // Keep the sculpted navigation state synchronized with the visible section.
+    const navItems = Array.from(document.querySelectorAll("#mainNavbar [data-nav]"));
+    const sections = navItems
+      .map((item) => document.getElementById(item.dataset.nav))
+      .filter(Boolean);
+
+    function setActiveNav(id) {
+      navItems.forEach((item) => {
+        const active = item.dataset.nav === id;
+        item.classList.toggle("active", active);
+        if (active) item.setAttribute("aria-current", "page");
+        else item.removeAttribute("aria-current");
+      });
+    }
+
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => setActiveNav(item.dataset.nav));
+    });
+
+    if (sections.length && "IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+        if (visible[0]) setActiveNav(visible[0].target.id);
+      }, { rootMargin: "-20% 0px -65% 0px", threshold: 0 });
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    setActiveNav((window.location.hash || "#home").slice(1));
   });
 
   // ---------- Counters (animate only when visible) ----------
@@ -146,3 +178,4 @@
   });
 
 })();
+
