@@ -4,7 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Md Julfiker Ali Jewel, featuring secure .NET engineering, cybersecurity and AI research, publications, projects, and professional experience." />
-    <meta name="theme-color" content="#0b0f1a" />
+    <meta name="theme-color" content="#f2f0f4" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          var theme = saved === 'dark' || saved === 'light'
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (_) { document.documentElement.setAttribute('data-theme', 'light'); }
+      })();
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Md Julfiker Ali Jewel — Software Engineer, Cybersecurity & AI" />
     <meta property="og:description" content="Portfolio of Md Julfiker Ali Jewel: secure .NET systems, cybersecurity, AI research, publications, and projects." />
@@ -37,10 +48,10 @@
     <!-- Icons / Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Site CSS -->
-    <link href="~/css/site.css?v=20" rel="stylesheet" />
+    <link href="~/css/site.css?v=21" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
 
     <!-- JSON-LD (Razor @@ escapes) -->
@@ -100,6 +111,13 @@
                     <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
                     <li class="nav-item">
+                        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                            <i class="bi bi-moon-stars-fill theme-icon-dark" aria-hidden="true"></i>
+                            <i class="bi bi-sun-fill theme-icon-light" aria-hidden="true"></i>
+                            <span class="theme-label">Night</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-contact ms-2" href="/#contact" data-nav="contact">📩 Contact</a>
                     </li>
                 </ul>
@@ -127,7 +145,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <!-- ✅ Single controller for spinner + particles + typed + counters -->
-    <script defer src="~/js/site.js?v=15"></script>
+    <script defer src="~/js/site.js?v=16"></script>
 
     <!-- Keep accomplishments filter -->
     <script defer src="~/js/filters.js?v=4"></script>
