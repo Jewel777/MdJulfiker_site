@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@500&display=swap" rel="stylesheet" />
 
     <!-- Site CSS -->
-    <link href="~/css/site.css?v=17" rel="stylesheet" />
+    <link href="~/css/site.css?v=18" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
 
     <!-- JSON-LD (Razor @@ escapes) -->
@@ -81,7 +81,10 @@
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
         <div class="container-fluid">
             <!-- ✅ Brand participates in smooth scroll + active highlight -->
-            <a class="navbar-brand fw-bold text-warning" href="/#home" data-nav="home">MJAJ</a>
+            <a class="navbar-brand" href="/#home" data-nav="home" aria-label="Md Julfiker Ali Jewel — home">
+                <span class="brand-mark"><i class="bi bi-activity" aria-hidden="true"></i></span>
+                <span class="brand-copy"><strong>Jewel<span>.</span></strong><small>Engineering · Security · AI</small></span>
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +103,7 @@
                     <li class="nav-item"><a class="nav-link" href="/#research"        data-nav="research">Research</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#resume"          data-nav="resume">Resume</a></li>
                     <li class="nav-item">
-                        <a class="nav-contact ms-2" href="/#contact" data-nav="contact">📩 Contact</a>
+                        <a class="nav-contact ms-2" href="/#contact" data-nav="contact"><i class="bi bi-send" aria-hidden="true"></i> Contact</a>
                     </li>
                 </ul>
             </div>
@@ -115,7 +118,8 @@
     <!-- Footer -->
     <footer class="glass-footer text-center py-3 mt-5">
         <div class="container">
-            &copy; 2026 Md Julfiker Ali Jewel | <a href="/#privacy" class="footer-link">Privacy Policy</a>
+            <span>Md Julfiker Ali Jewel · Software engineering, cybersecurity &amp; AI</span>
+            <a href="/#privacy" class="footer-link">Privacy Policy <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         </div>
     </footer>
 
