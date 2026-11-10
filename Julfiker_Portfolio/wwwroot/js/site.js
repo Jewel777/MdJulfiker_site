@@ -6,6 +6,30 @@
   function $(id) { return document.getElementById(id); }
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- Persistent day / night theme ----------
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = $("themeToggle");
+    if (!toggle) return;
+
+    function syncThemeControl() {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      toggle.setAttribute("aria-pressed", String(dark));
+      toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      const label = toggle.querySelector(".theme-label");
+      if (label) label.textContent = dark ? "Day" : "Night";
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeMeta) themeMeta.setAttribute("content", dark ? "#0a0f1d" : "#f2f0f4");
+    }
+
+    syncThemeControl();
+    toggle.addEventListener("click", function () {
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("portfolio-theme", next); } catch (_) { /* no-op */ }
+      syncThemeControl();
+    });
+  });
+
   // ---------- Spinner (hide safely) ----------
   function hideSpinner() {
     const s = $("loading-spinner");
@@ -40,8 +64,8 @@
           number: { value: 65 },
           size: { value: 2 },
           move: { speed: 1.1 },
-          line_linked: { enable: true, color: "#756687", opacity: 0.32 },
-          color: { value: "#756687" }
+          line_linked: { enable: true, color: "#76529c", opacity: 0.58 },
+          color: { value: "#76529c" }
         }
       });
     } catch (e) {
