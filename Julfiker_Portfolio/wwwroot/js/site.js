@@ -40,6 +40,39 @@
   window.addEventListener("load", hideSpinner);
   setTimeout(hideSpinner, 2000);
 
+  // ---------- Resume preview lifecycle ----------
+  // Load the PDF only while the modal is open. This prevents the embedded
+  // viewer from sitting above modal controls and releases it cleanly on close.
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = $("resumePreview");
+    if (!modal || typeof bootstrap === "undefined") return;
+
+    // Bootstrap modals must live at body level; otherwise the main content's
+    // stacking context can place the fixed navigation above the modal header.
+    if (modal.parentElement !== document.body) document.body.appendChild(modal);
+
+    const frame = modal.querySelector(".resume-iframe");
+    const closeControls = modal.querySelectorAll('[data-bs-dismiss="modal"]');
+
+    modal.addEventListener("shown.bs.modal", function () {
+      if (frame && frame.dataset.src && frame.getAttribute("src") !== frame.dataset.src) {
+        frame.setAttribute("src", frame.dataset.src);
+      }
+      const close = $("resumePreviewClose");
+      if (close) close.focus();
+    });
+
+    modal.addEventListener("hidden.bs.modal", function () {
+      if (frame) frame.setAttribute("src", "about:blank");
+    });
+
+    closeControls.forEach(function (control) {
+      control.addEventListener("click", function () {
+        bootstrap.Modal.getOrCreateInstance(modal).hide();
+      });
+    });
+  });
+
   // ---------- Scroll to top (if you call it from HTML) ----------
   window.scrollToTop = function () {
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
