@@ -220,21 +220,24 @@
 <div class="modal fade" id="resumePreview" tabindex="-1" aria-labelledby="resumePreviewLabel" aria-hidden="true"
      data-bs-backdrop="true" data-bs-keyboard="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
-        <div class="modal-content bg-dark border-0">
-            <div class="modal-header border-0">
+        <div class="modal-content resume-modal-content border-0">
+            <div class="modal-header resume-modal-header border-0">
                 <h5 class="modal-title" id="resumePreviewLabel">Resume Preview</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button id="resumePreviewClose" type="button" class="resume-close" data-bs-dismiss="modal" aria-label="Close resume preview">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-body p-0">
+            <div class="modal-body resume-modal-body p-0">
                 <iframe class="resume-iframe"
-                        src="@($"{pdfPath}#view=FitH&toolbar=1&navpanes=1")"
+                        src="about:blank"
+                        data-src="@($"{pdfPath}#view=FitH&toolbar=1&navpanes=0")"
                         title="Resume PDF."
                         loading="lazy"
                         referrerpolicy="no-referrer"></iframe>
             </div>
-            <div class="modal-footer border-0">
+            <div class="modal-footer resume-modal-footer border-0">
                 <a class="btn btn-warning" href="@pdfPath" target="_blank" rel="noopener">Open in new tab</a>
-                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                <button id="resumePreviewCloseFooter" type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close preview</button>
             </div>
         </div>
     </div>
