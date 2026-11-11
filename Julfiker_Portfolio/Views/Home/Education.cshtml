@@ -127,7 +127,18 @@
                     </span>
                 </div>
 
-                <h6 class="section-title-gradient mb-1">Undergraduate Coursework (All Courses)</h6>
+                <div class="coursework-summary">
+                    <div>
+                        <h6 class="section-title-gradient mb-1">Undergraduate Coursework</h6>
+                        <p class="text-light-65 small mb-0">60 courses across software engineering, systems, networks, data, mathematics, AI, and embedded computing.</p>
+                    </div>
+                    <button class="btn coursework-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#undergraduateCourses"
+                            aria-expanded="false" aria-controls="undergraduateCourses">
+                        <span class="show-label">View all courses</span><span class="hide-label">Hide courses</span>
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="collapse coursework-details" id="undergraduateCourses">
                 <ul class="course-grid text-light tight-list mb-2">
                     <li>Computer Fundamentals</li>
                     <li>Mathematics-I: Differential and Integral Calculus</li>
@@ -190,6 +201,7 @@
                     <li>Social and Professional Issues in Computing</li>
                     <li>Project</li>
                 </ul>
+                </div>
 
                 <h6 class="section-title-gradient mb-1">Additional Coursework (SIAS International University, China)</h6>
                 <ul class="course-grid text-light tight-list mb-1">

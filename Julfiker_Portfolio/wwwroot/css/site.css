@@ -225,6 +225,15 @@ a:hover { color: var(--accent); }
 .border-bottom, .border-top-soft, .divider { border-color: var(--line) !important; }
 .progress { height: 8px; border-radius: 99px; background: var(--bg-deep); overflow: hidden; }
 .progress-bar { background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important; }
+.coursework-summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 1.2rem 0 .7rem; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-soft); }
+.coursework-summary .section-title-gradient { margin: 0 0 .15rem !important; padding: 0 !important; border: 0 !important; font-size: 1rem; letter-spacing: 0; }
+.coursework-toggle { display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; border: 1px solid var(--line) !important; background: var(--surface-strong) !important; color: var(--ink) !important; box-shadow: var(--inset); }
+.coursework-toggle .hide-label { display: none; }
+.coursework-toggle[aria-expanded="true"] .show-label { display: none; }
+.coursework-toggle[aria-expanded="true"] .hide-label { display: inline; }
+.coursework-toggle i { transition: transform .2s ease; }
+.coursework-toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+.coursework-details { padding: .7rem .4rem 0; }
 .badge, .tag, .chip, .badge-soft { display: inline-flex; align-items: center; border: 1px solid var(--line) !important; border-radius: 999px !important; background: var(--accent-soft) !important; color: var(--ink) !important; font-weight: 650; }
 .tag, .chip { padding: 7px 11px; }
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -297,6 +306,8 @@ a:hover { color: var(--accent); }
   .page-section:not(.home-section) > .container > .glass { padding: 1.25rem !important; }
   .section-title, .page-title, h2.text-warning, h2.section-title-gradient { font-size: 1.75rem; }
   .project-stack { grid-template-columns: 1fr; }
+  .coursework-summary { align-items: stretch; flex-direction: column; }
+  .coursework-toggle { justify-content: center; width: 100%; }
   .skill-card, .edu-card, .exp-card, .activity-card, .research-item, .summary-card, .contact-card { padding: 1.1rem !important; }
   .card.p-5 { padding: 1.2rem !important; }
 }
