@@ -18,7 +18,7 @@
       const label = toggle.querySelector(".theme-label");
       if (label) label.textContent = dark ? "Day" : "Night";
       const themeMeta = document.querySelector('meta[name="theme-color"]');
-      if (themeMeta) themeMeta.setAttribute("content", dark ? "#0a0f1d" : "#f2f0f4");
+      if (themeMeta) themeMeta.setAttribute("content", dark ? "#090d16" : "#edf1f7");
     }
 
     syncThemeControl();
@@ -64,8 +64,8 @@
           number: { value: 65 },
           size: { value: 2 },
           move: { speed: 1.1 },
-          line_linked: { enable: true, color: "#76529c", opacity: 0.58 },
-          color: { value: "#76529c" }
+          line_linked: { enable: true, color: "#8792aa", opacity: 0.48 },
+          color: { value: "#8792aa" }
         }
       });
     } catch (e) {
