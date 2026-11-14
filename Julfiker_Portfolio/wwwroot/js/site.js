@@ -27,6 +27,7 @@
       document.documentElement.setAttribute("data-theme", next);
       try { localStorage.setItem("portfolio-theme", next); } catch (_) { /* no-op */ }
       syncThemeControl();
+      initParticles();
     });
   });
 
@@ -88,22 +89,57 @@
     modal.style.display = (current === "none") ? "block" : "none";
   };
 
-  // ---------- Particles (safe) ----------
-  document.addEventListener("DOMContentLoaded", function () {
+  // ---------- Theme-aware particles (safe) ----------
+  function particlePalette() {
+    const dark = document.documentElement.getAttribute("data-theme") === "dark";
+    return dark
+      ? { node: "#d7d0ff", line: "#8fa8ff", lineOpacity: 0.48, nodeOpacity: 0.72 }
+      : { node: "#52637a", line: "#7185a0", lineOpacity: 0.38, nodeOpacity: 0.58 };
+  }
+
+  function destroyParticles() {
+    try {
+      if (Array.isArray(window.pJSDom)) {
+        window.pJSDom.slice().forEach(function (instance) {
+          if (instance && instance.pJS && instance.pJS.fn && instance.pJS.fn.vendors) {
+            instance.pJS.fn.vendors.destroypJS();
+          }
+        });
+        window.pJSDom.length = 0;
+      }
+      const host = $("particles-js");
+      if (host) host.replaceChildren();
+    } catch (_) { /* safe cleanup */ }
+  }
+
+  function initParticles() {
     try {
       if (reduceMotion || typeof particlesJS !== "function") return;
+      const palette = particlePalette();
+      destroyParticles();
+      const host = $("particles-js");
+      if (host) {
+        host.dataset.particleTheme = document.documentElement.getAttribute("data-theme") || "light";
+        host.dataset.particleNode = palette.node;
+        host.dataset.particleLine = palette.line;
+      }
       particlesJS("particles-js", {
         particles: {
           number: { value: 65 },
           size: { value: 2 },
           move: { speed: 1.1 },
-          line_linked: { enable: true, color: "#8792aa", opacity: 0.48 },
-          color: { value: "#8792aa" }
+          line_linked: { enable: true, color: palette.line, opacity: palette.lineOpacity },
+          color: { value: palette.node },
+          opacity: { value: palette.nodeOpacity }
         }
       });
     } catch (e) {
       console.warn("particlesJS init failed:", e);
     }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initParticles();
   });
 
   // ---------- Typed.js (best branding strings) ----------
