@@ -142,6 +142,43 @@
     initParticles();
   });
 
+  // ---------- Reading progress, reveal choreography and back-to-top ----------
+  document.addEventListener("DOMContentLoaded", function () {
+    const progress = $("scrollProgress");
+    const backToTop = $("backToTop");
+
+    function syncScrollUI() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      if (progress) progress.style.transform = `scaleX(${ratio})`;
+      if (backToTop) backToTop.classList.toggle("is-visible", window.scrollY > 700);
+    }
+
+    window.addEventListener("scroll", syncScrollUI, { passive: true });
+    window.addEventListener("resize", syncScrollUI);
+    syncScrollUI();
+
+    if (backToTop) {
+      backToTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    }
+
+    if (!reduceMotion && "IntersectionObserver" in window) {
+      const revealTargets = document.querySelectorAll(".page-section:not(.home-section) > .container > .glass");
+      revealTargets.forEach((target) => target.classList.add("reveal-ready"));
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      revealTargets.forEach((target) => revealObserver.observe(target));
+    }
+  });
+
   // ---------- Typed.js (best branding strings) ----------
   document.addEventListener("DOMContentLoaded", function () {
     const el = $("typed");
