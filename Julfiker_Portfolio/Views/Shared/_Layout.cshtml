@@ -51,7 +51,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Site CSS -->
-    <link href="~/css/site.css?v=27" rel="stylesheet" />
+    <link href="~/css/site.css?v=28" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
 
     <!-- JSON-LD (Razor @@ escapes) -->
@@ -80,6 +80,7 @@
 
 <body class="liquid-body">
     <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
     <!-- Spinner -->
     <div id="loading-spinner" class="spinner-wrapper">
         <div class="spinner"></div>
@@ -92,7 +93,9 @@
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
         <div class="container-fluid">
             <!-- ✅ Brand participates in smooth scroll + active highlight -->
-            <a class="navbar-brand fw-bold text-warning" href="/#home" data-nav="home">MJAJ</a>
+            <a class="navbar-brand fw-bold text-warning" href="/#home" data-nav="home" aria-label="Md Julfiker Ali Jewel — Home">
+                <span class="brand-mark">MJ</span><span class="brand-name">Julfiker Ali Jewel</span>
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                     aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -137,6 +140,10 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- JS libs -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js?v=1"></script>
 
@@ -145,7 +152,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <!-- ✅ Single controller for spinner + particles + typed + counters -->
-    <script defer src="~/js/site.js?v=19"></script>
+    <script defer src="~/js/site.js?v=20"></script>
 
     <!-- Keep accomplishments filter -->
     <script defer src="~/js/filters.js?v=4"></script>
