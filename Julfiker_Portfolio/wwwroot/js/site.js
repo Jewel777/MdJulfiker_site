@@ -179,6 +179,97 @@
     }
   });
 
+  // ---------- Portfolio command center ----------
+  document.addEventListener("DOMContentLoaded", function () {
+    const dialog = $("portfolioFinder");
+    const trigger = $("finderTrigger");
+    const close = $("finderClose");
+    const input = $("finderInput");
+    const status = $("finderStatus");
+    if (!dialog || !trigger || !input) return;
+
+    const results = Array.from(dialog.querySelectorAll("[data-finder-keywords]"));
+    let visibleResults = results.slice();
+    let activeIndex = -1;
+
+    function setActive(index) {
+      visibleResults.forEach((item) => item.classList.remove("is-active"));
+      if (!visibleResults.length) {
+        activeIndex = -1;
+        return;
+      }
+      activeIndex = (index + visibleResults.length) % visibleResults.length;
+      visibleResults[activeIndex].classList.add("is-active");
+      visibleResults[activeIndex].scrollIntoView({ block: "nearest" });
+    }
+
+    function filterResults() {
+      const query = input.value.trim().toLowerCase();
+      visibleResults = results.filter((item) => {
+        const searchable = `${item.textContent} ${item.dataset.finderKeywords}`.toLowerCase();
+        const match = !query || searchable.includes(query);
+        item.hidden = !match;
+        item.classList.remove("is-active");
+        return match;
+      });
+      activeIndex = -1;
+      if (status) {
+        status.textContent = query
+          ? `${visibleResults.length} destination${visibleResults.length === 1 ? "" : "s"} found.`
+          : "Choose a destination or start typing.";
+      }
+    }
+
+    function openFinder() {
+      if (!dialog.open) dialog.showModal();
+      filterResults();
+      window.setTimeout(() => input.focus(), 20);
+    }
+
+    function closeFinder() {
+      if (dialog.open) dialog.close();
+    }
+
+    trigger.addEventListener("click", openFinder);
+    if (close) close.addEventListener("click", closeFinder);
+    input.addEventListener("input", filterResults);
+
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) closeFinder();
+    });
+
+    results.forEach((item) => {
+      item.addEventListener("click", function () {
+        closeFinder();
+      });
+    });
+
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setActive(activeIndex + 1);
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setActive(activeIndex - 1);
+      } else if (event.key === "Enter" && activeIndex >= 0) {
+        event.preventDefault();
+        visibleResults[activeIndex].click();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      const target = event.target;
+      const editing = target && (target.matches("input, textarea, select") || target.isContentEditable);
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        openFinder();
+      } else if (event.key === "/" && !editing && !dialog.open) {
+        event.preventDefault();
+        openFinder();
+      }
+    });
+  });
+
   // ---------- Typed.js (best branding strings) ----------
   document.addEventListener("DOMContentLoaded", function () {
     const el = $("typed");
